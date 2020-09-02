@@ -1,0 +1,123 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CubeSetting : MonoBehaviour
+{
+    public GameObject guideCube;
+    public GameObject gameBoard;
+    public float rayDistance = 20.0f;
+
+    [HideInInspector]
+    public bool isGuideOn;
+    [HideInInspector]
+    public GameObject currCube;
+
+    private void Start()
+    {
+        isGuideOn = false;
+        currCube = null;
+    }
+
+    void Update()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, rayDistance, 1 << 8))
+        {
+            //Cube를 감지했을 때
+            if (hit.collider.CompareTag("CUBE"))
+            {
+                GuideCubeOff();
+
+                GameObject hitcube = hit.collider.gameObject;
+
+                if (hitcube != currCube && currCube != null)
+                {
+                    currCube.GetComponent<MeshRenderer>().material.color = Color.white;
+                }
+
+                currCube = hitcube;
+                currCube.GetComponent<MeshRenderer>().material.color = Color.yellow;
+
+
+                Vector3 normalVec = hit.normal;
+
+                //윗면만 감지할 경우
+                if (normalVec == currCube.transform.up)
+                {
+                    Transform objTr = currCube.transform.GetChild(0).transform;
+                    GuideCubeOn(objTr);
+                }
+
+                ////모든 면을 감지할 경우
+                //AllSideDetection(normalVec);
+            }
+            else
+            {
+                //Grid를 감지했을 때
+                if (currCube != null)
+                {
+                    currCube.GetComponent<MeshRenderer>().material.color = Color.white;
+                }
+
+                Transform pos = hit.collider.transform.Find("CubePos").transform;
+                GuideCubeOn(pos);
+            }
+        }
+        else
+        {
+            if (currCube != null)
+            {
+                currCube.GetComponent<MeshRenderer>().material.color = Color.white;
+            }
+
+            GuideCubeOff();
+        }
+    }
+
+    void GuideCubeOn(Transform _pos)
+    {
+        guideCube.SetActive(true);
+        guideCube.transform.position = _pos.position;
+        guideCube.transform.rotation = gameBoard.transform.rotation;
+
+        isGuideOn = true;
+    }
+
+    void GuideCubeOff()
+    {
+        guideCube.transform.position = Vector3.zero;
+        guideCube.SetActive(false);
+
+        isGuideOn = false;
+    }
+
+    void AllSideDetection(Vector3 _normalVec)
+    {
+        GameObject obj = null;
+
+        if (_normalVec == currCube.transform.up)
+        {
+            obj = currCube.transform.GetChild(0).gameObject;
+        }
+        else if (_normalVec == currCube.transform.forward)
+        {
+            obj = currCube.transform.GetChild(1).gameObject;
+        }
+        else if (_normalVec == -currCube.transform.right)
+        {
+            obj = currCube.transform.GetChild(4).gameObject;
+        }
+        else if (_normalVec == currCube.transform.right)
+        {
+            obj = currCube.transform.GetChild(3).gameObject;
+        }
+        else if (_normalVec == -currCube.transform.forward)
+        {
+            obj = currCube.transform.GetChild(2).gameObject;
+        }
+
+        GuideCubeOn(obj.transform);
+    }
+}
