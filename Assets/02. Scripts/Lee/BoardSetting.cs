@@ -11,7 +11,6 @@ public class BoardSetting : MonoBehaviour
 
     public GameObject gameBoard;
     public GameObject guideCube;
-    public GameObject image;
     public GameObject gridSettingPanel;
     public GameObject boardSetting;
 
@@ -68,15 +67,15 @@ public class BoardSetting : MonoBehaviour
             BoardSize();
 
             //GameBoard 위치 설정
-            gameBoard.transform.position = anchor.transform.position + Vector3.up * height;
+            gameBoard.transform.position = anchor.transform.position;
 
             //GameBoard 방향 설정
-            //gameBoard.transform.rotation = Quaternion.Euler(Vector3.forward);
-            var rot = Quaternion.LookRotation(cam.transform.position - hit.Pose.position);
-            gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
+            gameBoard.transform.rotation = Quaternion.Euler(Vector3.forward);
 
-            //활성화할 것들
-            image.SetActive(true);
+            //var rot = Quaternion.LookRotation(cam.transform.position - hit.Pose.position);
+            //gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
+
+            //Grid 크기 조절 패널 활성화
             gridSettingPanel.SetActive(true);
 
             count += 1;
@@ -91,7 +90,6 @@ public class BoardSetting : MonoBehaviour
         gameBoard.SetActive(false);
         BoardSize();
 
-        image.SetActive(false);
         gridSettingPanel.SetActive(false);
         gridSizeSlider.value = gridSizeSlider.minValue;
 

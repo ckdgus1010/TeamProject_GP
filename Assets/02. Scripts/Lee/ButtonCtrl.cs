@@ -10,6 +10,8 @@ public class ButtonCtrl : MonoBehaviour
     public GameObject gridSettingPanel;
     public GameObject playButtons;
 
+    public GameObject pointImage;
+
     public CubeSetting cubeSetting;
     public GameObject guideCube;
     public GameObject cubePrefab;
@@ -19,17 +21,21 @@ public class ButtonCtrl : MonoBehaviour
     public void ResetGameBoard()
     {
         boardSetting.SetOrigin();
-        guideCube.SetActive(false);
-        playButtons.SetActive(false);
-        cubeSetting.enabled = false;
-
         ResetCube();
+
+        guideCube.SetActive(false);
+        guideCube.transform.position = Vector3.zero;
+
+        playButtons.SetActive(false);
+        pointImage.SetActive(false);
+        cubeSetting.enabled = false;
     }
 
     public void SetGridSize()
     {
         gridSettingPanel.SetActive(false);
 
+        pointImage.SetActive(true);
         cubeSetting.enabled = true;
         playButtons.SetActive(true);
     }

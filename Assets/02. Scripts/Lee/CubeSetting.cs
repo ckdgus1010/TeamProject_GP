@@ -1,26 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CubeSetting : MonoBehaviour
 {
     public GameObject guideCube;
     public GameObject gameBoard;
-    public float rayDistance = 20.0f;
+    public Slider boardSizeSlider;
+    private float rayDistance = 20.0f;
 
     [HideInInspector]
     public bool isGuideOn;
     [HideInInspector]
     public GameObject currCube;
 
+    private SphereCollider coll;
+    private Vector3 collScale;
+    public Button[] playButtons = new Button[4];
+
     private void Start()
     {
+        coll = GetComponent<SphereCollider>();
+        collScale = coll.transform.localScale;
+
         isGuideOn = false;
         currCube = null;
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        coll.transform.localScale = collScale * boardSizeSlider.value;
+
         Ray ray = new Ray(transform.position, transform.forward);
 
         if (Physics.Raycast(ray, out RaycastHit hit, rayDistance, 1 << 8))
@@ -39,7 +50,6 @@ public class CubeSetting : MonoBehaviour
 
                 currCube = hitcube;
                 currCube.GetComponent<MeshRenderer>().material.color = Color.yellow;
-
 
                 Vector3 normalVec = hit.normal;
 
@@ -91,6 +101,30 @@ public class CubeSetting : MonoBehaviour
         guideCube.SetActive(false);
 
         isGuideOn = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("CUBE"))
+        {
+            Debug.Log("씨발");
+            for (int i = 0; i < playButtons.Length; i++)
+            {
+                playButtons[i].GetComponent<Button>().enabled = false;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("CUBE"))
+        {
+            Debug.Log("꺼져");
+            for (int i = 0; i < playButtons.Length; i++)
+            {
+                playButtons[i].GetComponent<Button>().enabled = true;
+            }
+        }
     }
 
     void AllSideDetection(Vector3 _normalVec)
