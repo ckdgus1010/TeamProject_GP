@@ -3,37 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CheckBoardMgr : MonoBehaviour
+namespace Lee
 {
-    public Slider gridSizeSlider;
-    public GameObject[] cbArray = new GameObject[5];
-    private int num;
-    private GameObject currCB;
-
-    private void Start()
+    public class CheckBoardMgr : MonoBehaviour
     {
-        num = 0;
-        currCB = cbArray[0];
-    }
+        public Slider gridSizeSlider;
+        public GameObject[] cbArray = new GameObject[5];
+        private int num;
+        private GameObject currCB;
 
-    public void CBSize()
-    {
-        if ((int)gridSizeSlider.value != num)
+        private void Start()
         {
-            currCB.SetActive(false);
-            currCB = null;
-
-            num = (int)gridSizeSlider.value;
+            num = 0;
+            currCB = cbArray[0];
         }
 
-        int cbSize = (int)gridSizeSlider.value - (int)gridSizeSlider.minValue;
-        currCB = cbArray[cbSize];
-        currCB.SetActive(true);
-    }
+        public void CBSize()
+        {
+            if ((int)gridSizeSlider.value != num)
+            {
+                currCB.SetActive(false);
+                currCB = null;
 
-    public void CheckingAnswer()
-    {
-        CBCtrl cbCtrl = currCB.GetComponent<CBCtrl>();
-        cbCtrl.CollectResult();
+                num = (int)gridSizeSlider.value;
+            }
+
+            int cbSize = (int)gridSizeSlider.value - (int)gridSizeSlider.minValue;
+            currCB = cbArray[cbSize];
+            currCB.SetActive(true);
+        }
+
+        public void CheckingAnswer()
+        {
+            CBCtrl cbCtrl = currCB.GetComponent<CBCtrl>();
+            cbCtrl.CollectResult();
+        }
     }
 }
