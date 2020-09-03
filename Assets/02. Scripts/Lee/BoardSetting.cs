@@ -116,6 +116,6 @@ public class BoardSetting : MonoBehaviour
 
         int gridSize = (int)gridSizeSlider.value - (int)gridSizeSlider.minValue;
         currGrid = gridArray[gridSize];
-        gridArray[gridSize].SetActive(true);
+        currGrid.SetActive(true);
     }
 }

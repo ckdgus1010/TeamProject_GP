@@ -5,39 +5,36 @@ using UnityEngine;
 
 public class CheckAnswerMgr : MonoBehaviour
 {
-    public List<RayforCheck> gridList = new List<RayforCheck>(9);
-
-    //player가 작성한 답안
-    public List<int> userList;
-
-    //실제 답안
-    public List<int> answer = new List<int>(9);
+    public RayforCheck[] gridArray = new RayforCheck[9];
+    public List<int> playerList;
+    public List<int> answerList = new List<int>(9);
 
     public void CheckingAnswer()
     {
-        if (userList.Count > 0)
+        if (playerList.Count > 0)
         {
-            userList.Clear();
+            playerList.Clear();
         }
 
         //Grid에서 발사한 ray로 player가 놓은 큐브 감지
-        for (int i = 0; i < gridList.Count; i++)
+        for (int i = 0; i < gridArray.Length; i++)
         {
-            //userList.Add(gridList[i].count);
-            Debug.Log($"userList[{i}] ::: {userList[i]}");
+            gridArray[i].CheckingCube();
+            playerList.Add(gridArray[i].count);
+            Debug.Log($"userList[{i}] ::: {playerList[i]}");
         }
 
         //두 개의 list 크기 비교
-        if (userList.Count != answer.Count)
+        if (playerList.Count != answerList.Count)
         {
             bool isCountSame = false;
             Debug.Log($"isCountSame ::: {isCountSame}");
-            Debug.Log($"userList // answer ::: {userList.Count} // {answer.Count}");
+            Debug.Log($"userList.Count // answerList.Count ::: {playerList.Count} // {answerList.Count}");
         }
         else
         {
             //리스트 값 비교
-            bool isSequenceSame = userList.SequenceEqual(answer);
+            bool isSequenceSame = playerList.SequenceEqual(answerList);
 
             if (isSequenceSame == true)
             {
