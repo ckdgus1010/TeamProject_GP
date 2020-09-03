@@ -13162,7 +13162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 275309158}
   m_Layer: 0
-  m_Name: CB_3x3_side
+  m_Name: CB_3x3_Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13190,7 +13190,7 @@ Transform:
   - {fileID: 80799971}
   m_Father: {fileID: 1198385674}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!1 &275836395
 GameObject:
   m_ObjectHideFlags: 0
@@ -58701,7 +58701,30 @@ MonoBehaviour:
   - {fileID: 1039878687}
   - {fileID: 1167759207}
   - {fileID: 336691515}
+  forwardArray:
+  - {fileID: 672465702}
+  - {fileID: 1675699691}
+  - {fileID: 1099459381}
+  - {fileID: 356569892}
+  - {fileID: 553681606}
+  - {fileID: 1195329115}
+  - {fileID: 88448867}
+  - {fileID: 763420070}
+  - {fileID: 1834494474}
+  leftArray:
+  - {fileID: 1357062202}
+  - {fileID: 844214607}
+  - {fileID: 1453431634}
+  - {fileID: 1243169524}
+  - {fileID: 710114732}
+  - {fileID: 2971106}
+  - {fileID: 1665459323}
+  - {fileID: 422945796}
+  - {fileID: 80799975}
   topPlayerList: 
+  forwardPlayerList: 
+  leftPlayerList: 
+  count: 0
 --- !u!1 &1200477339
 GameObject:
   m_ObjectHideFlags: 0
@@ -85324,7 +85347,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677531494}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalRotation: {x: -0.00000019861236, y: -0.7071068, z: -0.7071068, w: 0.00000019861236}
   m_LocalPosition: {x: 0, y: 1.4999998, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -85339,7 +85362,7 @@ Transform:
   - {fileID: 1834494470}
   m_Father: {fileID: 1198385674}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -179.99998}
 --- !u!1 &1679647235
 GameObject:
   m_ObjectHideFlags: 0
@@ -86465,8 +86488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topAnswerList: 000000000100000001000000000000000000000001000000000000000000000000000000
-  forwardAnswerList: 
-  leftAnswerList: 
+  forwardAnswerList: 000000000000000000000000000000000000000001000000000000000100000001000000
+  leftAnswerList: 000000000000000000000000000000000000000001000000000000000100000001000000
 --- !u!4 &1708945337
 Transform:
   m_ObjectHideFlags: 0
