@@ -18,6 +18,8 @@ public class ButtonCtrl : MonoBehaviour
     public GameObject cubeList;
     public List<GameObject> list = new List<GameObject>();
 
+    public CheckAnswerMgr checkAnswerMgr;
+
     public void ResetGameBoard()
     {
         boardSetting.SetOrigin();
@@ -72,5 +74,6 @@ public class ButtonCtrl : MonoBehaviour
     public void CheckAnswer()
     {
         Debug.Log("정답 확인");
+        checkAnswerMgr.CheckingAnswer();
     }
 }
