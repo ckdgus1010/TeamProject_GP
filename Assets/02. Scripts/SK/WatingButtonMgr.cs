@@ -72,18 +72,6 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
     }
 
-    /*public void CheckReady(string nickName, bool isReady)
-    {
-        if (myPhotonView.IsMine)
-        {
-            for (int i = 0; i < proFileList.Count; i++)
-            {
-                proFileList[i].ChangeReadyState(nickName, isReady);
-            }
-
-        }
-    }*/
-
     public void OnClickReady()
     {
         if (myPhotonView.IsMine && PhotonNetwork.IsMasterClient)
@@ -96,16 +84,14 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         {
             WatingButtonMgr.instance.myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);
         }
-      //  WatingButtonMgr.instance.myPhotonView.RPC("RpcMasterSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);
-
     }
 
     public void OnClickGameReady(string nickName, bool isReady)
     {
-        //if (myPhotonView.IsMine)
-        //{
-        //    print(PhotonNetwork.NickName);
-        //}
+        if (myPhotonView.IsMine)
+        {
+            print(PhotonNetwork.NickName);
+        }
 
         print("RPC에서 OnClickGameReady 으로 받음 ");
 
@@ -164,8 +150,6 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
     #region MapSetting
 
-
-
     private void AddmapList()
     {
         mapList2.Add("반짝반짝 모래마을");
@@ -179,14 +163,6 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         if (mapCount == 3) return;
         ++mapCount;
         WatingButtonMgr.instance.myPhotonView.RPC("RpcNextMapText", RpcTarget.AllBuffered, mapCount);
-        //ChangeMapText();
-        //if (mapCount == 4 || mapCount == -2 || mapCount == 5)
-        //{
-        //    mapCount = -1;
-        //}
-
-
-        //     GameDataMgr.instance.curruntMap = mapList2[mapCount];
     }
 
     public void OnClikLeft()
@@ -195,13 +171,6 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         if (mapCount == 0) return;
         --mapCount;
         WatingButtonMgr.instance.myPhotonView.RPC("RpcBackMapText", RpcTarget.AllBuffered, mapCount);
-        //ChangeMapText();
-        //if(mapCount == -1 || mapCount == 5 || mapCount == -2)
-        //{
-        //    mapCount = 4;
-        //}
-
-        
     }
 
     public void ChangeMapText(int map_Count)
@@ -218,12 +187,9 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
             case 2:
                 mapName.text = mapList2[map_Count]; //2 binarly는 호남선
                 break;
-
             case 3:
                 mapName.text = mapList2[map_Count]; //3 맛동산
                 break;
-
-
         }
     }
 

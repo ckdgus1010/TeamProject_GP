@@ -29,15 +29,7 @@ public class Player : MonoBehaviourPun
     [PunRPC]
     void RpcMasterSetReady(string nickName, bool isReady)
     {
-        //    if (PhotonNetwork.IsMasterClient)
-        //    {
-        //        WatingButtonMgr.instance.OnClickGameStart(nickName, isReady);
-        //        print("RPC에서 OnClickGameStart 으로 보냄 ");
-        //    }
-        //    else
         WatingButtonMgr.instance.OnClickGameStart(nickName, isReady);
-
-        //WatingButtonMgr.instance.OnClickGameStart(nickName, isReady);
     }
 
 

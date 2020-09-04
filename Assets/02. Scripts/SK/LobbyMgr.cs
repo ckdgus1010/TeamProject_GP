@@ -149,14 +149,14 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         RoomList_Panel.SetActive(true);
         roomMaker_Panel.SetActive(false);
     }
-    public void OnClickLeaveRoom()
+    public void OnClickLeaveLobby()
     {
-        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LeaveLobby();
     }
-    public override void OnLeftRoom()
+    public override void OnLeftLobby()
     {
         PhotonNetwork.LoadLevel(4);
-        base.OnLeftRoom();
+        base.OnLeftLobby();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
     }
     public override void OnDisconnected(DisconnectCause cause)
