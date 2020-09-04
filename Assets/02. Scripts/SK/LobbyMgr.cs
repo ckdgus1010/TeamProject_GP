@@ -35,12 +35,10 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
     public void OnClickCreateRoom()
     {
-
         PhotonNetwork.CreateRoom(roomInputField.text, new RoomOptions { MaxPlayers = personNum }); // 그럼 방을 만들어 준다.개
         // Debug.Log("방이름  :   " + roomInputField.text);
         // Debug.Log("MaxPlayer  :   " + personNum + " 명");
         Debug.Log("-CreateRoom");
-
     }
     public override void OnCreatedRoom()
     {
@@ -68,13 +66,11 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     {
         Debug.Log("-OnRoomListUpdate");
 
-
         DeleteRoomListUI();
 
         UpdateCacheRoom(roomList);
 
         CreateRoomListUI();
-       
 
         // for (int i = 0; i < roomList.Count; i++)
         // {
@@ -84,8 +80,6 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         // {
         //     CreateRoomListUI();
         // }
-
-
     }
     void UpdateCacheRoom(List<RoomInfo> roomList)
     {
@@ -103,7 +97,6 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
                     continue; // 다음 룸 네임으로 던져줌
                 }
             }
-
             // 4. 그렇지 않으면 roomInfo 를 cacheRoom 추가 또는 변경한다
             cacheRoom[roomList[i].Name] = roomList[i];   // roomList[i]변경된 키값이 들어가져있음
             Debug.Log("-UpdateCacheRoom");
@@ -117,26 +110,24 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         {
             Destroy(tr.gameObject); //트랜스폼을 가지고 있는 게임오브젝트를 지운다.
             Debug.Log("-DeleteRoomListUI");
-
         }
     }
-    void CreateRoomListUI() 
+    void CreateRoomListUI()
     {
         foreach (RoomInfo info in cacheRoom.Values)// 위에있는 캐시에 있는 만큼 룸들을 다 돌면서 방을 생성한다.
         {
             GameObject room = Instantiate(roomInfo);
 
             room.transform.SetParent(content);
-             Debug.Log("-CreateRoomListUI");
+            Debug.Log("-CreateRoomListUI");
 
             room.transform.SetParent(content);
-            room.GetComponent<RoomInButton>().SetInfo(info.Name,info.PlayerCount,info.MaxPlayers);
+            room.GetComponent<RoomInButton>().SetInfo(info.Name, info.PlayerCount, info.MaxPlayers);
         }
     }
 
     public void Send2()
     {
-
         personNum = two;
         sendPerson = true;
     }
@@ -145,7 +136,6 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     {
         personNum = three;
         sendPerson = true;
-
     }
 
     public void OnRoomMaker_Panel()
@@ -154,9 +144,24 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         roomMaker_Panel.SetActive(true);
     }
 
+    public void OnRoomList_Panel()
+    {
+        RoomList_Panel.SetActive(true);
+        roomMaker_Panel.SetActive(false);
+    }
+    public void OnClickLeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+    public override void OnLeftRoom()
+    {
+        PhotonNetwork.LoadLevel(4);
+        base.OnLeftRoom();
+        print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+    }
     public override void OnDisconnected(DisconnectCause cause)
     {
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
-
     }
+
 }
