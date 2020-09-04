@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713906}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.5, y: 0, z: 1.5}
+  m_LocalPosition: {x: 1.5, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2971101
@@ -337,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &14315472
@@ -607,6 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &36341575
@@ -811,6 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &45733319
@@ -871,7 +875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51660800}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: 1.5}
+  m_LocalPosition: {x: -0.5, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -950,6 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &62585342
@@ -1059,6 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &63851819
@@ -1268,6 +1274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &75436344
@@ -1377,6 +1384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &80279580
@@ -1486,6 +1494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &80517214
@@ -1690,6 +1699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &81648256
@@ -1829,6 +1839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &83972523
@@ -1938,6 +1949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &84829043
@@ -2202,6 +2214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &90811650
@@ -2232,7 +2245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90811650}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.5, y: 0, z: 0.5}
+  m_LocalPosition: {x: 1.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -2311,6 +2324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &93268703
@@ -2480,6 +2494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &98943323
@@ -2686,99 +2701,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106252477}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &108181527
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 108181531}
-  - component: {fileID: 108181530}
-  - component: {fileID: 108181529}
-  - component: {fileID: 108181528}
-  m_Layer: 0
-  m_Name: Cube (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!65 &108181528
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108181527}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &108181529
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108181527}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &108181530
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108181527}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &108181531
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108181527}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &108546076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2837,7 +2759,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108666329}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: 2}
+  m_LocalPosition: {x: -2, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -2916,6 +2838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &109185787
@@ -3025,6 +2948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &113615848
@@ -3340,6 +3264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &118233590
@@ -3449,6 +3374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &124871521
@@ -4011,6 +3937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &139954292
@@ -4120,6 +4047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &142387436
@@ -4229,6 +4157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &146702076
@@ -4338,6 +4267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &149526000
@@ -4368,7 +4298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149526000}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3, y: 0, z: -1}
+  m_LocalPosition: {x: 3, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -4447,6 +4377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &151492566
@@ -4746,6 +4677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &164416289
@@ -4776,7 +4708,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164416289}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -4855,6 +4787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &165745515
@@ -5112,6 +5045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &176764398
@@ -5362,7 +5296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178927350}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0, z: 1}
+  m_LocalPosition: {x: 2, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -5441,6 +5375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &182268607
@@ -5645,6 +5580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &195525117
@@ -5784,6 +5720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &197821930
@@ -5814,7 +5751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197821930}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.5, y: 0, z: -0.5}
+  m_LocalPosition: {x: 1.5, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -5893,6 +5830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &198191080
@@ -6002,6 +5940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &201812346
@@ -6111,6 +6050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &202213441
@@ -6236,7 +6176,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204603460}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: 2}
+  m_LocalPosition: {x: 1, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -6315,6 +6255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &207756855
@@ -6424,6 +6365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &211423842
@@ -6533,6 +6475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &212508401
@@ -6642,6 +6585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &216847374
@@ -6672,7 +6616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216847374}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3, y: 0, z: -2}
+  m_LocalPosition: {x: 3, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -6751,6 +6695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &219979730
@@ -6915,11 +6860,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223934721}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c3ab4c8225db7343b370faae09d68f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointImage: {fileID: 1762512476}
   guideCube: {fileID: 893801965}
   gameBoard: {fileID: 422357301}
   boardSizeSlider: {fileID: 1489380721}
@@ -7247,6 +7193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &246333664
@@ -7386,6 +7333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &248545256
@@ -7620,6 +7568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &254503734
@@ -7854,6 +7803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &256762856
@@ -8153,6 +8103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &266273541
@@ -8262,6 +8213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &267272130
@@ -8292,7 +8244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267272130}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3, y: 0, z: 1}
+  m_LocalPosition: {x: -3, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -8371,6 +8323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &271186077
@@ -8510,6 +8463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &275309157
@@ -8658,6 +8612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &280123512
@@ -8688,7 +8643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280123512}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: -2}
+  m_LocalPosition: {x: -1, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -8767,6 +8722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &280530329
@@ -8876,6 +8832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &288729987
@@ -9173,6 +9130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &300423961
@@ -9330,7 +9288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315580024}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: 2}
+  m_LocalPosition: {x: -1, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -9409,6 +9367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &316013522
@@ -9578,6 +9537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &322676899
@@ -9608,7 +9568,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322676899}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: 3}
+  m_LocalPosition: {x: -1, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -9687,6 +9647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &323410657
@@ -9752,7 +9713,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328089043}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.5, y: 0, z: -0.5}
+  m_LocalPosition: {x: -2.5, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -9831,6 +9792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &331121545
@@ -9970,6 +9932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &333045803
@@ -10109,6 +10072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &336765979
@@ -10278,6 +10242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &342704319
@@ -10387,6 +10352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &349867663
@@ -10417,7 +10383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349867663}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: 1}
+  m_LocalPosition: {x: -2, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -10496,6 +10462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &351098513
@@ -10526,7 +10493,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351098513}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 0, z: 1.5}
+  m_LocalPosition: {x: 0.5, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -10605,6 +10572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &351558493
@@ -10774,6 +10742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &362660144
@@ -10804,7 +10773,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362660144}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: -3}
+  m_LocalPosition: {x: -2, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -10883,6 +10852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &365630724
@@ -10992,6 +10962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &365787712
@@ -11101,6 +11072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &366180844
@@ -11210,6 +11182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &366212025
@@ -11306,7 +11279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372229544}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
+  m_LocalPosition: {x: -0.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -11385,6 +11358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &377760828
@@ -11494,6 +11468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &378069137
@@ -11728,6 +11703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &401735643
@@ -11837,6 +11813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &403639992
@@ -12200,6 +12177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &407779464
@@ -12309,6 +12287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &407806385
@@ -12418,6 +12397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &412023829
@@ -12526,7 +12506,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414629478}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: 2}
+  m_LocalPosition: {x: -2, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -12605,6 +12585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &415451486
@@ -12843,6 +12824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &424548041
@@ -13047,6 +13029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &434569760
@@ -13186,6 +13169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &444129152
@@ -13295,6 +13279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &445693925
@@ -13325,7 +13310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445693925}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: -1}
+  m_LocalPosition: {x: 1, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -13404,6 +13389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &451491670
@@ -13434,7 +13420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451491670}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.5, y: 0, z: -0.5}
+  m_LocalPosition: {x: -1.5, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -13513,6 +13499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &451561261
@@ -13682,6 +13669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &458657226
@@ -13742,7 +13730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465572881}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.5, y: 0, z: 1.5}
+  m_LocalPosition: {x: -1.5, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -13821,6 +13809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &467290678
@@ -13976,7 +13965,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469500370}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0, z: 1}
+  m_LocalPosition: {x: 2, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -14055,6 +14044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &471499897
@@ -14180,7 +14170,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473841143}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.5, y: 0, z: -0.5}
+  m_LocalPosition: {x: 2.5, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -14259,6 +14249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &481078780
@@ -14368,6 +14359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &482063693
@@ -14477,6 +14469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &483274120
@@ -14681,6 +14674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &491886688
@@ -14806,7 +14800,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495113823}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.5, y: 0, z: 1.5}
+  m_LocalPosition: {x: -1.5, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -14885,6 +14879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &499886459
@@ -14994,6 +14989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &510295518
@@ -15404,7 +15400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515743259}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: -1}
+  m_LocalPosition: {x: -2, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -15483,6 +15479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &515780064
@@ -15592,6 +15589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &517409235
@@ -15717,7 +15715,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523220189}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3, y: 0, z: 3}
+  m_LocalPosition: {x: 3, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -15796,6 +15794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &532479355
@@ -15905,6 +15904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &533928962
@@ -16109,6 +16109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &541768654
@@ -16218,6 +16219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &543567454
@@ -16248,7 +16250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543567454}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3, y: 0, z: 3}
+  m_LocalPosition: {x: -3, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -16327,6 +16329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &548978299
@@ -16436,6 +16439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &553681601
@@ -16545,6 +16549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &564193313
@@ -16749,6 +16754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &569576820
@@ -16966,6 +16972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &585880063
@@ -16996,7 +17003,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585880063}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.5, y: 0, z: 1.5}
+  m_LocalPosition: {x: 1.5, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -17075,6 +17082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &586092585
@@ -17250,6 +17258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &598241034
@@ -17389,6 +17398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &606958430
@@ -17498,6 +17508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &607713381
@@ -17528,7 +17539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607713381}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.5, y: 0, z: -1.5}
+  m_LocalPosition: {x: -1.5, y: 0, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -17607,6 +17618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &610869051
@@ -17716,6 +17728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &614637473
@@ -17746,7 +17759,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614637473}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0, z: -1}
+  m_LocalPosition: {x: 2, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -17825,6 +17838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &623234861
@@ -17964,6 +17978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &628851471
@@ -18073,6 +18088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &629073363
@@ -18182,6 +18198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &632444487
@@ -18212,7 +18229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632444487}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 0, z: -0.5}
+  m_LocalPosition: {x: 0.5, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -18291,6 +18308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &634289315
@@ -18321,7 +18339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634289315}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 0, z: -0.5}
+  m_LocalPosition: {x: 0.5, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -18400,6 +18418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &635703504
@@ -18604,6 +18623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &638373727
@@ -18713,6 +18733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &641572968
@@ -18743,7 +18764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641572968}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: -3}
+  m_LocalPosition: {x: 1, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -18822,6 +18843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &644439498
@@ -19072,6 +19094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &646911724
@@ -19176,6 +19199,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 175244743}
         m_MethodName: CBSize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1708945336}
+        m_MethodName: answerListSize
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19322,6 +19356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &658230398
@@ -19352,7 +19387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658230398}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.5, y: 0, z: -1.5}
+  m_LocalPosition: {x: -1.5, y: 0, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -19431,6 +19466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &659541892
@@ -19556,7 +19592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666218215}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -19635,6 +19671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &672465697
@@ -19744,6 +19781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &672882754
@@ -19853,6 +19891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &674574987
@@ -19962,6 +20001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &677034390
@@ -20071,6 +20111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &684323572
@@ -20210,6 +20251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &691593474
@@ -20365,6 +20407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &695410078
@@ -20474,6 +20517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &700940521
@@ -20613,6 +20657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &701060431
@@ -20722,6 +20767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &706853415
@@ -20926,6 +20972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &710114727
@@ -21035,6 +21082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &711297050
@@ -21144,6 +21192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &713706097
@@ -21251,7 +21300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716961656}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: -1}
+  m_LocalPosition: {x: -1, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -21330,6 +21379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &717699509
@@ -21487,7 +21537,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721094940}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: -1}
+  m_LocalPosition: {x: -2, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -21566,6 +21616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &725760808
@@ -21675,6 +21726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &727594966
@@ -21705,7 +21757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727594966}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.5, y: 0, z: -2.5}
+  m_LocalPosition: {x: -2.5, y: 0, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -21784,6 +21836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &731603603
@@ -21814,7 +21867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731603603}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 0, z: -1.5}
+  m_LocalPosition: {x: 0.5, y: 0, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -21893,6 +21946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &732391107
@@ -22192,6 +22246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &740446662
@@ -22301,6 +22356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &740779682
@@ -22410,6 +22466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &740785549
@@ -22519,6 +22576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &741715186
@@ -22628,6 +22686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &745508398
@@ -22783,7 +22842,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749956866}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.5, y: 0, z: -2.5}
+  m_LocalPosition: {x: 1.5, y: 0, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -22862,6 +22921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &752212922
@@ -23144,6 +23204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &767911768
@@ -23253,6 +23314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &768718210
@@ -23283,7 +23345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768718210}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: 1}
+  m_LocalPosition: {x: -2, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -23362,6 +23424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &769215099
@@ -23392,7 +23455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769215099}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3, y: 0, z: -3}
+  m_LocalPosition: {x: -3, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -23471,6 +23534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &774553971
@@ -23580,6 +23644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &775851836
@@ -23689,6 +23754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &776939170
@@ -23798,6 +23864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &778866374
@@ -23907,6 +23974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &778878499
@@ -24016,6 +24084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &780605640
@@ -24155,6 +24224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &785383529
@@ -24294,6 +24364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &787016443
@@ -24746,99 +24817,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795149981}
   m_CullTransparentMesh: 0
---- !u!1 &802987652
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 802987656}
-  - component: {fileID: 802987655}
-  - component: {fileID: 802987654}
-  - component: {fileID: 802987653}
-  m_Layer: 0
-  m_Name: Cube (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!65 &802987653
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802987652}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &802987654
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802987652}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &802987655
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802987652}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &802987656
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802987652}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1.5, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &810004430
 GameObject:
   m_ObjectHideFlags: 0
@@ -24946,6 +24924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &812923335
@@ -25275,6 +25254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &827574520
@@ -25384,6 +25364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &829428962 stripped
@@ -25512,6 +25493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &835534133
@@ -25621,6 +25603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &835736847
@@ -25741,7 +25724,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838148530}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.5, y: 0, z: -1.5}
+  m_LocalPosition: {x: 1.5, y: 0, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -25820,6 +25803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &839430570
@@ -26197,6 +26181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &844988143
@@ -26427,99 +26412,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1021769537}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &848574461
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 848574465}
-  - component: {fileID: 848574464}
-  - component: {fileID: 848574463}
-  - component: {fileID: 848574462}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!65 &848574462
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848574461}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &848574463
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848574461}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &848574464
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848574461}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &848574465
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848574461}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.5, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &854155320
 GameObject:
@@ -26776,99 +26668,6 @@ Transform:
   m_Father: {fileID: 1698007933}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &861562476
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 861562480}
-  - component: {fileID: 861562479}
-  - component: {fileID: 861562478}
-  - component: {fileID: 861562477}
-  m_Layer: 0
-  m_Name: Cube (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!65 &861562477
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861562476}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &861562478
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861562476}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &861562479
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861562476}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &861562480
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861562476}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &862313184
 GameObject:
   m_ObjectHideFlags: 0
@@ -27057,7 +26856,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868364603}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -27136,6 +26935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &868948754
@@ -27153,7 +26953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &868948755
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27285,6 +27085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &871617909
@@ -27650,6 +27451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &877555814
@@ -27680,7 +27482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877555814}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.5, y: 0, z: 1.5}
+  m_LocalPosition: {x: 2.5, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -27759,6 +27561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &878470508
@@ -28088,6 +27891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &887073795
@@ -28197,6 +28001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &888920041
@@ -28619,6 +28424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &904290853
@@ -28728,6 +28534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &908577282
@@ -29019,6 +28826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &921378688
@@ -29158,6 +28966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &923401124
@@ -29188,7 +28997,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923401124}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: 2}
+  m_LocalPosition: {x: 1, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -29267,6 +29076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &928181704
@@ -29496,6 +29306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &937986338
@@ -29855,6 +29666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &959047019
@@ -30140,7 +29952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22400762, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000034332275
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 22414360, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -30577,7 +30389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972226038}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0, z: -1}
+  m_LocalPosition: {x: 2, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -30656,6 +30468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &973307752
@@ -30686,7 +30499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973307752}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: 3}
+  m_LocalPosition: {x: -2, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -30765,6 +30578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &976555833
@@ -30874,6 +30688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &978532380
@@ -31109,6 +30924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &989639986
@@ -31234,7 +31050,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997394955}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.5, y: 0, z: 1.5}
+  m_LocalPosition: {x: -2.5, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -31313,6 +31129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &997864447
@@ -31422,6 +31239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1008684207
@@ -31452,7 +31270,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008684207}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.5, y: 0, z: 0.5}
+  m_LocalPosition: {x: 1.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -31531,6 +31349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1011872332
@@ -31670,6 +31489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1015440075
@@ -31700,7 +31520,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015440075}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3, y: 0, z: 2}
+  m_LocalPosition: {x: -3, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -31779,6 +31599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1021769533
@@ -31904,7 +31725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022853775}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3, y: 0, z: -1}
+  m_LocalPosition: {x: -3, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -31983,6 +31804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1028893067
@@ -32092,6 +31914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1029128124
@@ -32201,6 +32024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1034607050
@@ -32310,6 +32134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1034694401
@@ -32419,6 +32244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1038703973
@@ -32528,6 +32354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1038766514
@@ -32667,6 +32494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1042494477
@@ -32776,7 +32604,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048926954}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: -2}
+  m_LocalPosition: {x: -1, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -32855,6 +32683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1050539232
@@ -32964,6 +32793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1051428137
@@ -33168,6 +32998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1056974046
@@ -33277,6 +33108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1058206680
@@ -33386,6 +33218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1058412950
@@ -33446,7 +33279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064647779}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.5, y: 0, z: 0.5}
+  m_LocalPosition: {x: 2.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -33525,6 +33358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1065591115
@@ -33634,6 +33468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1072754240
@@ -33694,7 +33529,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077273652}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 0, z: -2.5}
+  m_LocalPosition: {x: 0.5, y: 0, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -33773,6 +33608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1077347075
@@ -34192,7 +34028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089437112}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.5, y: 0, z: 0.5}
+  m_LocalPosition: {x: -1.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -34271,6 +34107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1089453109
@@ -34331,7 +34168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093564036}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 0, z: 2.5}
+  m_LocalPosition: {x: 0.5, y: 0, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -34410,6 +34247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1097725773
@@ -34440,7 +34278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097725773}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0, z: 3}
+  m_LocalPosition: {x: 2, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -34519,6 +34357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1098748887
@@ -34658,6 +34497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1109936249
@@ -34892,7 +34732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112044155}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: -1.5}
+  m_LocalPosition: {x: -0.5, y: 0, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -34971,6 +34811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1122516891
@@ -35110,6 +34951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1129434115
@@ -35170,7 +35012,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131834893}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -35249,6 +35091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1132555112
@@ -35466,6 +35309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1142360456
@@ -35575,6 +35419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1148370942
@@ -35735,7 +35580,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151593018}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -35814,6 +35659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1155424497
@@ -35874,7 +35720,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155561469}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.5, y: 0, z: 2.5}
+  m_LocalPosition: {x: 2.5, y: 0, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -35953,6 +35799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1155746324
@@ -36013,7 +35860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158376055}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0, z: -2}
+  m_LocalPosition: {x: 2, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -36092,6 +35939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1159903987
@@ -36201,6 +36049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1160121324
@@ -36291,7 +36140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164269092}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.5, y: 0, z: -1.5}
+  m_LocalPosition: {x: -2.5, y: 0, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -36370,6 +36219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1166809290
@@ -36604,6 +36454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1174876097
@@ -36634,7 +36485,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174876097}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.5, y: 0, z: 2.5}
+  m_LocalPosition: {x: -1.5, y: 0, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -36713,6 +36564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1175837282
@@ -36858,6 +36710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1193159513
@@ -36967,6 +36820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1193748309
@@ -37171,6 +37025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1195868595
@@ -37421,6 +37276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1205474066
@@ -37560,6 +37416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1207431944
@@ -37699,6 +37556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1212853551
@@ -37903,6 +37761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1227313867
@@ -38086,6 +37945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1235286198
@@ -38195,6 +38055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1236014799
@@ -38382,6 +38243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1243169519
@@ -38491,6 +38353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1245729784
@@ -38600,6 +38463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1247624801
@@ -38725,7 +38589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251121855}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3, y: 0, z: -3}
+  m_LocalPosition: {x: 3, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -38804,6 +38668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1251768238
@@ -38913,6 +38778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1257393791
@@ -39098,7 +38964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265153834}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -39177,6 +39043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1268275615
@@ -39459,6 +39326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1275723476
@@ -39859,6 +39727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1282668478
@@ -40188,6 +40057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1290183261
@@ -40327,6 +40197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1295803093
@@ -40357,7 +40228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295803093}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -40436,6 +40307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1300953409
@@ -40575,6 +40447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1301995195
@@ -40605,7 +40478,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301995195}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.5, y: 0, z: -1.5}
+  m_LocalPosition: {x: 1.5, y: 0, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -40684,6 +40557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1305817391
@@ -40823,6 +40697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1311048792
@@ -40932,6 +40807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1315525215
@@ -41244,6 +41120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1329743418
@@ -41726,6 +41603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1342492585
@@ -41865,6 +41743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1353904052
@@ -41895,7 +41774,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353904052}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: -2.5}
+  m_LocalPosition: {x: -0.5, y: 0, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -41974,6 +41853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1356872229
@@ -42083,6 +41963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1357062197
@@ -42192,6 +42073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1357369657
@@ -42301,6 +42183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1359468219
@@ -42741,7 +42624,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383859198}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: -2}
+  m_LocalPosition: {x: 1, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -42820,6 +42703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1386133023
@@ -42850,7 +42734,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386133023}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: 1}
+  m_LocalPosition: {x: -1, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -42929,6 +42813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1391479460
@@ -43038,6 +42923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1391879880
@@ -43337,6 +43223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1397306741
@@ -43541,6 +43428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1404236411
@@ -43650,6 +43538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1404909378
@@ -43884,6 +43773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1407497805
@@ -44088,6 +43978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1410917557
@@ -44197,6 +44088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1414110277
@@ -44496,6 +44388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1423829227
@@ -44635,6 +44528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1426825791
@@ -44744,6 +44638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1426911009
@@ -44948,6 +44843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1428700803
@@ -45057,6 +44953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1429659538
@@ -45261,6 +45158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1434807598
@@ -45370,6 +45268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1436148683
@@ -45574,6 +45473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1440748709
@@ -45683,6 +45583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1441213544
@@ -45792,6 +45693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1444070653
@@ -45901,6 +45803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1446957861
@@ -46168,6 +46071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1455478163
@@ -46682,6 +46586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1470308365
@@ -46742,7 +46647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471694677}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.5, y: 0, z: -1.5}
+  m_LocalPosition: {x: 2.5, y: 0, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -46821,6 +46726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1473068813
@@ -46851,7 +46757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473068813}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: -2}
+  m_LocalPosition: {x: 1, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -46930,6 +46836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1477401274
@@ -47173,6 +47080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1485117686
@@ -47298,7 +47206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1486202276}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 0, z: -1.5}
+  m_LocalPosition: {x: 0.5, y: 0, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -47377,6 +47285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1487473001
@@ -47407,7 +47316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487473001}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: -1.5}
+  m_LocalPosition: {x: -0.5, y: 0, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -47486,6 +47395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1489380719
@@ -47695,6 +47605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1492193691
@@ -48155,6 +48066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1504887593
@@ -48185,7 +48097,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504887593}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.5, y: 0, z: -0.5}
+  m_LocalPosition: {x: -1.5, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -48264,6 +48176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1506320168
@@ -48373,6 +48286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1510212711
@@ -48403,7 +48317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510212711}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: -1}
+  m_LocalPosition: {x: 1, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -48482,6 +48396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1511853455
@@ -48607,7 +48522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512297662}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -48686,6 +48601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1516377911
@@ -48795,6 +48711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1516592271
@@ -48904,6 +48821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1521478377
@@ -49013,6 +48931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1522941877
@@ -49043,7 +48962,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522941877}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: -0.5}
+  m_LocalPosition: {x: -0.5, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -49122,6 +49041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1526536367
@@ -49231,6 +49151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1526579262
@@ -49340,6 +49261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1528511964
@@ -49449,6 +49371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1531503044
@@ -49479,7 +49402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531503044}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: -1}
+  m_LocalPosition: {x: -1, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -49558,6 +49481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1540109326
@@ -49618,7 +49542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541642547}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
+  m_LocalPosition: {x: -0.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -49697,6 +49621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1541896280
@@ -49727,7 +49652,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541896280}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0, z: 2}
+  m_LocalPosition: {x: 2, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -49806,6 +49731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1546755509
@@ -49945,6 +49871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1548127707
@@ -50054,6 +49981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1552609895
@@ -50223,6 +50151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1562136735
@@ -50332,6 +50261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1564933182
@@ -50878,6 +50808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1569959087
@@ -50987,6 +50918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1570045346
@@ -51047,7 +50979,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570514494}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.5, y: 0, z: 2.5}
+  m_LocalPosition: {x: -2.5, y: 0, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -51126,6 +51058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1578789359
@@ -51425,6 +51358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1589682888
@@ -51534,6 +51468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1590873666
@@ -51643,6 +51578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1595791566
@@ -51673,7 +51609,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595791566}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.5, y: 0, z: -0.5}
+  m_LocalPosition: {x: 1.5, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -51752,6 +51688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1601211819
@@ -51861,6 +51798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1603474886
@@ -51891,7 +51829,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603474886}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.5, y: 0, z: 0.5}
+  m_LocalPosition: {x: -1.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -51970,6 +51908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1604083147
@@ -52079,6 +52018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1605122132
@@ -52188,6 +52128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1605171571
@@ -52297,6 +52238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1606945138
@@ -52406,6 +52348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1608800694
@@ -52436,7 +52379,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608800694}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: -3}
+  m_LocalPosition: {x: -1, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -52515,6 +52458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1612409357
@@ -52624,6 +52568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1612748676
@@ -52733,6 +52678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1615721824
@@ -52888,7 +52834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618812345}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: -2}
+  m_LocalPosition: {x: -2, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -52967,6 +52913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1622534931
@@ -53076,6 +53023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1628943630
@@ -53405,6 +53353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1640934171
@@ -53514,6 +53463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1641441897
@@ -53718,6 +53668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1643238300
@@ -53748,7 +53699,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643238300}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3, y: 0, z: 2}
+  m_LocalPosition: {x: 3, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -53827,6 +53778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1643917391
@@ -54047,7 +53999,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656974203}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: 2}
+  m_LocalPosition: {x: -1, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -54126,6 +54078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1657000176
@@ -54330,6 +54283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1659939247
@@ -54469,6 +54423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1665443573
@@ -54578,6 +54533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1665459318
@@ -54687,6 +54643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1672923542
@@ -54796,6 +54753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1675015426
@@ -54979,6 +54937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1675719880
@@ -55489,9 +55448,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fe2f1ffb99d1141bef5a4b80495898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topAnswerList: 000000000100000001000000000000000000000001000000000000000000000000000000
-  forwardAnswerList: 000000000000000000000000000000000000000001000000000000000100000001000000
-  leftAnswerList: 000000000000000000000000000000000000000001000000000000000100000001000000
+  gridSizeSlider: {fileID: 646911726}
+  forwardAnswerList: 
+  sideAnswerList: 
+  topAnswerList: 
 --- !u!4 &1708945337
 Transform:
   m_ObjectHideFlags: 0
@@ -55738,6 +55698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1719888888
@@ -55877,6 +55838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1721589730
@@ -55986,6 +55948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1730542863
@@ -56095,6 +56058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1735678878
@@ -56204,6 +56168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1743190635
@@ -56391,6 +56356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1748244068
@@ -56500,6 +56466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1752947040
@@ -56530,7 +56497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752947040}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: -2}
+  m_LocalPosition: {x: -2, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -56609,6 +56576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1754063131
@@ -56718,6 +56686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1755964770
@@ -56748,7 +56717,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755964770}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3, y: 0, z: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -56827,6 +56796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1756952761
@@ -56936,6 +56906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1760117470
@@ -57061,7 +57032,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760318714}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -57140,6 +57111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1762512472
@@ -57153,13 +57125,14 @@ GameObject:
   - component: {fileID: 1762512473}
   - component: {fileID: 1762512475}
   - component: {fileID: 1762512474}
+  - component: {fileID: 1762512476}
   m_Layer: 5
   m_Name: PointImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1762512473
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57169,7 +57142,7 @@ RectTransform:
   m_GameObject: {fileID: 1762512472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 403639993}
   m_RootOrder: 2
@@ -57198,7 +57171,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1716f5fe15d4ab64f9304cb05f1afda6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 136ffee2afac21e49879e8d99a31c93c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -57216,6 +57189,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762512472}
   m_CullTransparentMesh: 0
+--- !u!95 &1762512476
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762512472}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d5347eaf2570ac14e8c6f9e10020fd88, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1765996798
 GameObject:
   m_ObjectHideFlags: 0
@@ -57369,6 +57361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1771054134
@@ -57603,6 +57596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1784308179
@@ -57837,6 +57831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1793438058
@@ -57867,7 +57862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793438058}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -57946,6 +57941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1794983682
@@ -58055,6 +58051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1795440125
@@ -58164,6 +58161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1796247441
@@ -58273,6 +58271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1796982500
@@ -58507,6 +58506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1803355926
@@ -58616,6 +58616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1804752832
@@ -58725,6 +58726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1804938823
@@ -58755,7 +58757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804938823}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.5, y: 0, z: 2.5}
+  m_LocalPosition: {x: 1.5, y: 0, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -58834,6 +58836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1814130009
@@ -58864,7 +58867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814130009}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -58943,6 +58946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1814843339
@@ -58973,7 +58977,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814843339}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: 3}
+  m_LocalPosition: {x: 1, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -59052,6 +59056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1816573219
@@ -59082,7 +59087,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816573219}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.5, y: 0, z: -2.5}
+  m_LocalPosition: {x: -1.5, y: 0, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -59161,6 +59166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1819859493
@@ -59325,6 +59331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1828212466
@@ -59433,7 +59440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828699571}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: 1.5}
+  m_LocalPosition: {x: -0.5, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -59512,6 +59519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1830882760
@@ -59760,6 +59768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1834494469
@@ -59869,6 +59878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1840843692
@@ -60056,6 +60066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1846577651
@@ -60165,6 +60176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1848353447
@@ -60195,7 +60207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848353447}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0, z: -3}
+  m_LocalPosition: {x: 2, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -60274,6 +60286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1854162644
@@ -60383,6 +60396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1854212819
@@ -60492,6 +60506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1855026868
@@ -60696,6 +60711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1859210298
@@ -60835,6 +60851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1877868776
@@ -60990,7 +61007,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883118067}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: -3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -61069,6 +61086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1883833459
@@ -61208,6 +61226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1889315143
@@ -61317,6 +61336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1893562369
@@ -61347,7 +61367,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893562369}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: 2.5}
+  m_LocalPosition: {x: -0.5, y: 0, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -61426,6 +61446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1904585365
@@ -61535,6 +61556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1911224929
@@ -61644,6 +61666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1911695599
@@ -62281,6 +62304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1924692532
@@ -62420,6 +62444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1927223833
@@ -62450,7 +62475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927223833}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3, y: 0, z: -2}
+  m_LocalPosition: {x: -3, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -62529,6 +62554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1927930865
@@ -62668,6 +62694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1939289488
@@ -62807,6 +62834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1951345241
@@ -62915,7 +62943,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951991677}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1765996799}
@@ -62994,6 +63022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1958762300
@@ -63103,6 +63132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1960101249
@@ -63307,6 +63337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1963050067
@@ -63446,6 +63477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1966624487
@@ -63585,6 +63617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1972368442
@@ -63789,6 +63822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1973595445
@@ -63983,6 +64017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1985012479
@@ -64166,6 +64201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1987652655
@@ -64196,7 +64232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987652655}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0, z: -2}
+  m_LocalPosition: {x: 2, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -64275,6 +64311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1988716885
@@ -64509,6 +64546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1997131568
@@ -64618,6 +64656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &1998646345
@@ -64888,6 +64927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2001775272
@@ -65092,6 +65132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2003724530
@@ -65122,7 +65163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003724530}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 0, z: 1.5}
+  m_LocalPosition: {x: 0.5, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -65201,6 +65242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2009280017
@@ -65310,6 +65352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2010378335
@@ -65340,7 +65383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010378335}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: 1}
+  m_LocalPosition: {x: -1, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -65419,6 +65462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2013751831
@@ -65692,6 +65736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2025108232
@@ -65801,6 +65846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2029061328
@@ -65910,6 +65956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2029407213
@@ -66019,6 +66066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2031695563
@@ -66128,6 +66176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2031965723
@@ -66232,7 +66281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036511708}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1819859494}
@@ -66311,6 +66360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2036769509
@@ -66515,6 +66565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2044121605
@@ -66719,6 +66770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2057802723
@@ -66828,6 +66880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2060991639
@@ -66858,7 +66911,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060991639}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0, z: 2}
+  m_LocalPosition: {x: 2, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1335557598}
@@ -66937,6 +66990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2063944058
@@ -67046,6 +67100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2064386195
@@ -67185,6 +67240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2066475069
@@ -67294,6 +67350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2067321319
@@ -67403,6 +67460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2067448862
@@ -67607,6 +67665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2073761782
@@ -67637,7 +67696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073761782}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.5, y: 0, z: 0.5}
+  m_LocalPosition: {x: -2.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -67716,6 +67775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2074135518
@@ -67825,6 +67885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2085703683
@@ -67915,7 +67976,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093638941}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: -0.5}
+  m_LocalPosition: {x: -0.5, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -67994,6 +68055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2095538870
@@ -68323,6 +68385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2140297569
@@ -68432,6 +68495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2140782295
@@ -68557,7 +68621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143441119}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.5, y: 0, z: -2.5}
+  m_LocalPosition: {x: 2.5, y: 0, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874787097}
@@ -68636,6 +68700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10
 --- !u!1 &2143833756
@@ -68745,5 +68810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a7d9a4d04c15d48bc3bddb1b5a2e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   count: 0
   rayDistance: 10

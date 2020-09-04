@@ -6,7 +6,7 @@ namespace Lee
 {
     public class RayforCheck : MonoBehaviour
     {
-        private MeshRenderer meshRenderer;
+        public MeshRenderer meshRenderer;
 
         [HideInInspector]
         public int count;

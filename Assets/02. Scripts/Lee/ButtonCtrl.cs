@@ -69,8 +69,11 @@ namespace Lee
 
         public void DeleteCube()
         {
-            Destroy(cubeSetting.currCube);
-            Debug.Log("큐브 삭제");
+            if (cubeSetting.currCube != null)
+            {
+                Destroy(cubeSetting.currCube);
+                Debug.Log("큐브 삭제");
+            }
         }
 
         public void CheckAnswer()

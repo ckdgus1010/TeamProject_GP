@@ -153,17 +153,17 @@ namespace Lee
 
             //정답과 player의 답안과 비교
             //1. 두 list의 길이 비교
-            if (sidePlayerList.Count != answerMgr.leftAnswerList.Count)
+            if (sidePlayerList.Count != answerMgr.sideAnswerList.Count)
             {
                 bool isCountSame = false;
 
                 Debug.Log($"isCountSame ::: {isCountSame}");
-                Debug.Log($"sidePlayerList.Count // answerMgr.leftAnswerList.Count \n ::: {sidePlayerList.Count} // {answerMgr.leftAnswerList.Count}");
+                Debug.Log($"sidePlayerList.Count // answerMgr.leftAnswerList.Count \n ::: {sidePlayerList.Count} // {answerMgr.sideAnswerList.Count}");
             }
             else
             {
                 //두 list의 값 비교
-                bool isSequenceSame = sidePlayerList.SequenceEqual(answerMgr.leftAnswerList);
+                bool isSequenceSame = sidePlayerList.SequenceEqual(answerMgr.sideAnswerList);
 
                 if (isSequenceSame == true)
                 {

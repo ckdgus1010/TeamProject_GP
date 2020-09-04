@@ -7,6 +7,9 @@ namespace Lee
 {
     public class CubeSetting : MonoBehaviour
     {
+        public Animator pointImage;
+        private int hashIsLook;
+
         public GameObject guideCube;
         public GameObject gameBoard;
         public Slider boardSizeSlider;
@@ -23,6 +26,8 @@ namespace Lee
 
         private void Start()
         {
+            hashIsLook = Animator.StringToHash("IsLook");
+
             coll = GetComponent<SphereCollider>();
             collScale = coll.transform.localScale;
 
@@ -38,6 +43,8 @@ namespace Lee
 
             if (Physics.Raycast(ray, out RaycastHit hit, rayDistance, 1 << 8))
             {
+                pointImage.SetBool(hashIsLook, true);
+
                 //Cube를 감지했을 때
                 if (hit.collider.CompareTag("CUBE"))
                 {
@@ -55,14 +62,14 @@ namespace Lee
 
                     Vector3 normalVec = hit.normal;
 
-                    //윗면만 감지할 경우
+                    //윗면만 감지할 경우 - 모든 면을 감지할 경우는 주석처리 해야 함
                     if (normalVec == currCube.transform.up)
                     {
                         Transform objTr = currCube.transform.GetChild(0).transform;
                         GuideCubeOn(objTr);
                     }
 
-                    ////모든 면을 감지할 경우
+                    ////모든 면을 감지할 경우 - 윗면만 감지할 경우는 주석처리 해야 함
                     //AllSideDetection(normalVec);
                 }
                 else
@@ -79,6 +86,8 @@ namespace Lee
             }
             else
             {
+                pointImage.SetBool(hashIsLook, false);
+
                 if (currCube != null)
                 {
                     currCube.GetComponent<MeshRenderer>().material.color = Color.white;
