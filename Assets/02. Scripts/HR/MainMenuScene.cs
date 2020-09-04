@@ -46,7 +46,11 @@ public class MainMenuScene : MonoBehaviour
         PopupGameOption.SetActive(!PopupGameOption.activeSelf);
         BlackBG.SetActive(PopupGameOption.activeSelf);
     }
-
+    public void OnClickOptionExitBtn()
+    {
+        popUpOption.SetActive(false);
+        BlackBG.SetActive(false);
+    }
     void Update() 
     {
         // UI 와 3D 간의 터치 막는거
