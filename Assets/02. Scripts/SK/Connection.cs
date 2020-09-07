@@ -7,15 +7,9 @@ using UnityEngine.UI;
 public class Connection : MonoBehaviourPunCallbacks
 {
     string gameVersion = "1";
-    public InputField inputID;
-
+  
     public void OnClickConnect()
     {
-          if (inputID.text.Length == 0)
-        {
-            print("ID가 없습니다.");
-            return;
-        }
         PhotonNetwork.CrcCheckEnabled = true;
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.ConnectUsingSettings();//1
@@ -34,7 +28,7 @@ public class Connection : MonoBehaviourPunCallbacks
         //로비로 진입
         PhotonNetwork.JoinLobby();
 
-        PhotonNetwork.NickName = inputID.text;
+        PhotonNetwork.NickName = Palyfab_Login.myPlayfabInfo;
     }
 
     public override void OnJoinedLobby()//3
