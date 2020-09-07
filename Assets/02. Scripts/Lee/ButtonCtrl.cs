@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun.UtilityScripts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,21 +21,34 @@ namespace Lee
         public GameObject cubeList;
         public List<GameObject> list = new List<GameObject>();
 
+        public bool isCountQuest = false;
         public CheckBoardMgr checkBoardMgr;
 
+        public GameObject card;
+        public bool isCardOn = false;
+
+        //GameBoard 초기화
         public void ResetGameBoard()
         {
+            //GameBoard 초기화
             boardSetting.SetOrigin();
-            ResetCube();
 
+            //Guide Cube 및 Cube 관련 사항 초기화
+            ResetCube();
             guideCube.SetActive(false);
             guideCube.transform.position = Vector3.zero;
 
-            playButtons.SetActive(false);
+            //Ray casting 비활성화
             pointImage.SetActive(false);
             cubeSetting.enabled = false;
+
+            //게임 플레이 관련 panel 및 button 비활성화
+            isCardOn = true;
+            ShowCard();
+            playButtons.SetActive(false);
         }
 
+        //Grid Size 설정 완료
         public void SetGridSize()
         {
             gridSettingPanel.SetActive(false);
@@ -78,7 +92,31 @@ namespace Lee
 
         public void CheckAnswer()
         {
-            checkBoardMgr.CheckingAnswer();
+            //'유형1 - 개수 맞추기'인 경우
+            if (isCountQuest)
+            {
+
+            }
+            else
+            {
+                //'유형2, 유형3'인 경우
+                checkBoardMgr.CheckingAnswer();
+            }
+        }
+
+        public void ShowCard()
+        {
+            if (isCardOn == false)
+            {
+                Debug.Log("카드를 보여줍니다.");
+                isCardOn = true;
+            }
+            else
+            {
+                Debug.Log("카드를 숨깁니다.");
+                isCardOn = false;
+            }
+            card.SetActive(isCardOn);
         }
     }
 }
