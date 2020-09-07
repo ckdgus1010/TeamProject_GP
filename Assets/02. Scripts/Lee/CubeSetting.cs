@@ -7,6 +7,8 @@ namespace Lee
 {
     public class CubeSetting : MonoBehaviour
     {
+        public ButtonCtrl buttonCtrl;
+
         public Animator pointImage;
         private int hashIsLook;
 
@@ -60,17 +62,20 @@ namespace Lee
                     currCube = hitcube;
                     currCube.GetComponent<MeshRenderer>().material.color = Color.yellow;
 
-                    Vector3 normalVec = hit.normal;
-
-                    //윗면만 감지할 경우 - 모든 면을 감지할 경우는 주석처리 해야 함
-                    if (normalVec == currCube.transform.up)
+                    if (buttonCtrl.isCountQuest == false)
                     {
-                        Transform objTr = currCube.transform.GetChild(0).transform;
-                        GuideCubeOn(objTr);
-                    }
+                        Vector3 normalVec = hit.normal;
 
-                    ////모든 면을 감지할 경우 - 윗면만 감지할 경우는 주석처리 해야 함
-                    //AllSideDetection(normalVec);
+                        //윗면만 감지할 경우 - 모든 면을 감지할 경우는 주석처리 해야 함
+                        if (normalVec == currCube.transform.up)
+                        {
+                            Transform objTr = currCube.transform.GetChild(0).transform;
+                            GuideCubeOn(objTr);
+                        }
+
+                        ////모든 면을 감지할 경우 - 윗면만 감지할 경우는 주석처리 해야 함
+                        //AllSideDetection(normalVec);
+                    }
                 }
                 else
                 {

@@ -8,6 +8,8 @@ namespace Lee
 {
     public class ButtonCtrl : MonoBehaviour
     {
+        public bool isCountQuest = false;
+
         public BoardSetting boardSetting;
 
         public GameObject gridSettingPanel;
@@ -21,11 +23,15 @@ namespace Lee
         public GameObject cubeList;
         public List<GameObject> list = new List<GameObject>();
 
-        public bool isCountQuest = false;
         public CheckBoardMgr checkBoardMgr;
+        public AnswerMgr answerMgr;
 
         public GameObject card;
         public bool isCardOn = false;
+
+        public GameObject oPanel;
+        public GameObject xPanel;
+        public Stage stage;
 
         //GameBoard 초기화
         public void ResetGameBoard()
@@ -33,19 +39,22 @@ namespace Lee
             //GameBoard 초기화
             boardSetting.SetOrigin();
 
-            //Guide Cube 및 Cube 관련 사항 초기화
-            ResetCube();
-            guideCube.SetActive(false);
-            guideCube.transform.position = Vector3.zero;
-
             //Ray casting 비활성화
             pointImage.SetActive(false);
             cubeSetting.enabled = false;
 
-            //게임 플레이 관련 panel 및 button 비활성화
-            isCardOn = true;
-            ShowCard();
-            playButtons.SetActive(false);
+            if (isCountQuest == false)
+            {
+                //Guide Cube 및 Cube 관련 사항 초기화
+                ResetCube();
+                guideCube.SetActive(false);
+                guideCube.transform.position = Vector3.zero;
+
+                //게임 플레이 관련 panel 및 button 비활성화
+                isCardOn = true;
+                ShowCard();
+                playButtons.SetActive(false);
+            }
         }
 
         //Grid Size 설정 완료
@@ -95,7 +104,7 @@ namespace Lee
             //'유형1 - 개수 맞추기'인 경우
             if (isCountQuest)
             {
-
+                answerMgr.CheckCountQuest();
             }
             else
             {
@@ -117,6 +126,43 @@ namespace Lee
                 isCardOn = false;
             }
             card.SetActive(isCardOn);
+        }
+
+        public void ContinueGame()
+        {
+            if (oPanel.activeSelf == true)
+            {
+                oPanel.SetActive(false);
+            }
+            else if (xPanel.activeSelf == true)
+            {
+                xPanel.SetActive(false);
+            }
+            Debug.Log("이어하기 버튼 클릭");
+        }
+
+        public void RetryGame()
+        {
+            ContinueGame();
+            ResetGameBoard();
+            Debug.Log("처음부터 다시하기 버튼 클릭");
+        }
+
+        public void NextLv()
+        {
+            oPanel.SetActive(false);
+            boardSetting.SetOrigin();
+
+            if (answerMgr.stageId == 5)
+            {
+                Debug.Log("모든 단계를 완료했습니다.");
+            }
+            else
+            {
+                answerMgr.stageId += 1;
+                Debug.Log($"answerMgr.stageId ::: {answerMgr.stageId}");
+                Debug.Log("다음 단계 버튼 클릭");
+            }
         }
     }
 }

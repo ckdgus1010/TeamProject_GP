@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,10 +9,40 @@ namespace Lee
     public class AnswerMgr : MonoBehaviour
     {
         public Slider gridSizeSlider;
+        public Text inputFieldText;
+        public GameObject oPanel;
+        public GameObject xPanel;
+
+        public int[] countQuestAnswer = new int[] { 1, 3, 5, 7, 9 };
+        public int stageId;
 
         public List<int> forwardAnswerList;     //앞면
         public List<int> sideAnswerList;        //옆면
         public List<int> topAnswerList;         //윗면
+
+        public void CheckCountQuest()
+        {
+            int i = 0;
+            if (int.TryParse(inputFieldText.text, out i))
+            {
+                int playerAnswer = int.Parse(inputFieldText.text);
+
+                if (playerAnswer == countQuestAnswer[stageId - 1])
+                {
+                    Debug.Log($"축하합니다. 정답입니다.");
+                    oPanel.SetActive(true);
+                }
+                else
+                {
+                    Debug.Log("다시 생각해보라우.");
+                    xPanel.SetActive(true);
+                }
+            }
+            else
+            {
+                inputFieldText.text = "숫자를 입력해주세요.";
+            }
+        }
 
         public void answerListSize()
         {
