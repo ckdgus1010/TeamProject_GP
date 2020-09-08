@@ -24,18 +24,19 @@ public class CardCtrl : MonoBehaviour
 
     public void CardMove(bool isCardOn)
     {
-        if (isCardOn == true)
+        if (isCardOn)
         {
-            transform.position = Vector3.Lerp(transform.position, destination.position, 1.0f);
+            transform.position = destination.position;
         }
         else
         {
-            transform.position = Vector3.Lerp(transform.position, originPos.position, 1.0f);
+            transform.position = originPos.position;
         }
     }
 
     public void CardSize()
     {
+        Debug.Log($"gridSlider.value // minvalue ::: \n {gridSizeSlider.value} // {gridSizeSlider.minValue}");
         if ((int)gridSizeSlider.value != num)
         {
             currCard.SetActive(false);

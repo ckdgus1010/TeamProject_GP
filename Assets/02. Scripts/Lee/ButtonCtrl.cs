@@ -8,8 +8,6 @@ namespace Lee
 {
     public class ButtonCtrl : MonoBehaviour
     {
-        public bool isCountQuest = false;
-
         public BoardSetting boardSetting;
 
         public GameObject gridSettingPanel;
@@ -43,18 +41,17 @@ namespace Lee
             pointImage.SetActive(false);
             cubeSetting.enabled = false;
 
-            if (isCountQuest == false)
-            {
-                //Guide Cube 및 Cube 관련 사항 초기화
-                ResetCube();
-                guideCube.SetActive(false);
-                guideCube.transform.position = Vector3.zero;
 
-                //게임 플레이 관련 panel 및 button 비활성화
-                isCardOn = true;
-                ShowCard();
-                playButtons.SetActive(false);
-            }
+            //Guide Cube 및 Cube 관련 사항 초기화
+            ResetCube();
+            guideCube.SetActive(false);
+            guideCube.transform.position = Vector3.zero;
+
+            //게임 플레이 관련 panel 및 button 비활성화
+            isCardOn = true;
+            ShowCard();
+            playButtons.SetActive(false);
+
         }
 
         //Grid Size 설정 완료
@@ -119,7 +116,7 @@ namespace Lee
             }
 
             card.SetActive(isCardOn);
-            //card.GetComponent<CardCtrl>().CardMove(isCardOn);
+            card.GetComponent<CardCtrl>().CardMove(isCardOn);
         }
 
         public void ContinueGame()
