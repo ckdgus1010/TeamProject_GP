@@ -7098,6 +7098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3ab4c8225db7343b370faae09d68f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonCtrl: {fileID: 0}
   pointImage: {fileID: 1762512476}
   guideCube: {fileID: 893801965}
   gameBoard: {fileID: 422357301}
@@ -7150,6 +7151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36423342d82c39a4a8d68cd016459966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonCtrl: {fileID: 0}
   gameBoard: {fileID: 422357301}
   guideCube: {fileID: 893801965}
   gridSettingPanel: {fileID: 713706097}
@@ -7164,6 +7166,9 @@ MonoBehaviour:
   - {fileID: 1973595445}
   - {fileID: 2000126383}
   - {fileID: 1111805111}
+  stage: {fileID: 0}
+  inputField: {fileID: 0}
+  checkButton: {fileID: 0}
 --- !u!1 &227596327
 GameObject:
   m_ObjectHideFlags: 0
@@ -12242,6 +12247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a03992e7f9a7e439d6dd2cf66f89c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCountQuest: 0
   boardSetting: {fileID: 223934726}
   gridSettingPanel: {fileID: 713706097}
   playButtons: {fileID: 868948754}
@@ -12252,10 +12258,13 @@ MonoBehaviour:
     type: 3}
   cubeList: {fileID: 246333664}
   list: []
-  isCountQuest: 0
   checkBoardMgr: {fileID: 175244743}
+  answerMgr: {fileID: 0}
   card: {fileID: 2041372785}
   isCardOn: 0
+  oPanel: {fileID: 0}
+  xPanel: {fileID: 0}
+  stage: {fileID: 0}
 --- !u!1 &404204777
 GameObject:
   m_ObjectHideFlags: 0
@@ -56511,6 +56520,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSizeSlider: {fileID: 646911726}
+  inputFieldText: {fileID: 0}
+  oPanel: {fileID: 0}
+  xPanel: {fileID: 0}
+  countQuestAnswer: 0100000003000000050000000700000009000000
+  stageId: 0
   forwardAnswerList: 
   sideAnswerList: 
   topAnswerList: 
