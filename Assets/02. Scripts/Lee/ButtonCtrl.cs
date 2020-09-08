@@ -101,16 +101,8 @@ namespace Lee
 
         public void CheckAnswer()
         {
-            //'유형1 - 개수 맞추기'인 경우
-            if (isCountQuest)
-            {
-                answerMgr.CheckCountQuest();
-            }
-            else
-            {
-                //'유형2, 유형3'인 경우
-                checkBoardMgr.CheckingAnswer();
-            }
+            //'유형2, 유형3'인 경우
+            checkBoardMgr.CheckingAnswer();
         }
 
         public void ShowCard()
@@ -125,7 +117,9 @@ namespace Lee
                 Debug.Log("카드를 숨깁니다.");
                 isCardOn = false;
             }
+
             card.SetActive(isCardOn);
+            //card.GetComponent<CardCtrl>().CardMove(isCardOn);
         }
 
         public void ContinueGame()

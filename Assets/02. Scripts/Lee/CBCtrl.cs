@@ -47,7 +47,7 @@ namespace Lee
             }
             else
             {
-                Debug.Log("다시 생각해보라우.");
+                Debug.Log("틀렸습니다. 다시 생각해보세요.");
             }
         }
 

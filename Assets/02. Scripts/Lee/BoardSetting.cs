@@ -10,7 +10,6 @@ namespace Lee
     public class BoardSetting : MonoBehaviour
     {
         private Camera cam;
-        public ButtonCtrl buttonCtrl;
 
         public GameObject gameBoard;
         public GameObject guideCube;
@@ -35,24 +34,17 @@ namespace Lee
         private int num;
         private GameObject currGrid;
 
-        public Stage stage;
-        public GameObject inputField;
-        public GameObject checkButton;
-
         void Start()
         {
             cam = GetComponent<Camera>();
 
             originalBoardScale = gameBoard.transform.localScale;
+            originalGuideScale = guideCube.transform.localScale;
 
             count = 0;
-            num = 0;
 
-            if (buttonCtrl.isCountQuest == false)
-            {
-                originalGuideScale = guideCube.transform.localScale;
-                currGrid = gridArray[0];
-            }
+            num = 0;
+            currGrid = gridArray[0];
         }
 
         void Update()
@@ -63,7 +55,8 @@ namespace Lee
             }
 
             Touch touch = Input.GetTouch(0);
-            TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinPolygon | TrackableHitFlags.FeaturePointWithSurfaceNormal;
+            TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinPolygon
+                                              | TrackableHitFlags.FeaturePointWithSurfaceNormal;
 
             if (count == 0 && touch.phase == TouchPhase.Began && Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out TrackableHit hit))
             {
@@ -85,21 +78,11 @@ namespace Lee
                 var rot = Quaternion.LookRotation(cam.transform.position - hit.Pose.position);
                 gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
 
-                if (buttonCtrl.isCountQuest)
-                {
-                    Debug.Log("유형1 문제 푸는 중");
-                    stage.ShowStage();
-                    inputField.SetActive(true);
-                    checkButton.SetActive(true);
-                }
-                else
-                {
-                    //Grid 크기 조절 패널 활성화
-                    gridSettingPanel.SetActive(true);
-                }
+                //Grid 크기 조절 패널 활성화
+                gridSettingPanel.SetActive(true);
 
                 count += 1;
-                Debug.Log($"touchCnt ::: {count}");
+                //Debug.Log($"touchCnt ::: {count}");
             }
         }
 
@@ -111,16 +94,8 @@ namespace Lee
             BoardSize();
             gameBoard.SetActive(false);
 
-            if (buttonCtrl.isCountQuest)
-            {
-                inputField.SetActive(false);
-                checkButton.SetActive(false);
-            }
-            else
-            {
-                gridSettingPanel.SetActive(false);
-                gridSizeSlider.value = gridSizeSlider.minValue;
-            }
+            gridSettingPanel.SetActive(false);
+            gridSizeSlider.value = gridSizeSlider.minValue;
 
             count = 0;
         }
@@ -128,12 +103,9 @@ namespace Lee
         public void BoardSize()
         {
             float scaleFactor = boardSizeSlider.value;
-            gameBoard.transform.localScale = originalBoardScale * scaleFactor;
 
-            if (buttonCtrl.isCountQuest == false)
-            {
-                guideCube.transform.localScale = originalGuideScale * scaleFactor;
-            }
+            gameBoard.transform.localScale = originalBoardScale * scaleFactor;
+            guideCube.transform.localScale = originalGuideScale * scaleFactor;
         }
 
         public void GridSize()

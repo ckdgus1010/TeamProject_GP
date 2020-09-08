@@ -7098,7 +7098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3ab4c8225db7343b370faae09d68f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonCtrl: {fileID: 0}
+  buttonCtrl: {fileID: 403639997}
   pointImage: {fileID: 1762512476}
   guideCube: {fileID: 893801965}
   gameBoard: {fileID: 422357301}
@@ -7151,7 +7151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36423342d82c39a4a8d68cd016459966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonCtrl: {fileID: 0}
   gameBoard: {fileID: 422357301}
   guideCube: {fileID: 893801965}
   gridSettingPanel: {fileID: 713706097}
@@ -7166,9 +7165,6 @@ MonoBehaviour:
   - {fileID: 1973595445}
   - {fileID: 2000126383}
   - {fileID: 1111805111}
-  stage: {fileID: 0}
-  inputField: {fileID: 0}
-  checkButton: {fileID: 0}
 --- !u!1 &227596327
 GameObject:
   m_ObjectHideFlags: 0
@@ -19677,7 +19673,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1708945336}
-        m_MethodName: answerListSize
+        m_MethodName: AnswerListSize
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -67886,7 +67882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2041372786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67931,7 +67927,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1450, y: 600}
+  m_AnchoredPosition: {x: 0, y: 600}
   m_SizeDelta: {x: 1350, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041372788

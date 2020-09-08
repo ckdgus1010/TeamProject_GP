@@ -62,20 +62,17 @@ namespace Lee
                     currCube = hitcube;
                     currCube.GetComponent<MeshRenderer>().material.color = Color.yellow;
 
-                    if (buttonCtrl.isCountQuest == false)
+                    Vector3 normalVec = hit.normal;
+
+                    //윗면만 감지할 경우 - 모든 면을 감지할 경우는 주석처리 해야 함
+                    if (normalVec == currCube.transform.up)
                     {
-                        Vector3 normalVec = hit.normal;
-
-                        //윗면만 감지할 경우 - 모든 면을 감지할 경우는 주석처리 해야 함
-                        if (normalVec == currCube.transform.up)
-                        {
-                            Transform objTr = currCube.transform.GetChild(0).transform;
-                            GuideCubeOn(objTr);
-                        }
-
-                        ////모든 면을 감지할 경우 - 윗면만 감지할 경우는 주석처리 해야 함
-                        //AllSideDetection(normalVec);
+                        Transform objTr = currCube.transform.GetChild(0).transform;
+                        GuideCubeOn(objTr);
                     }
+
+                    ////모든 면을 감지할 경우 - 윗면만 감지할 경우는 주석처리 해야 함
+                    //AllSideDetection(normalVec);
                 }
                 else
                 {
@@ -123,7 +120,8 @@ namespace Lee
         {
             if (other.CompareTag("CUBE"))
             {
-                Debug.Log("씨발");
+                //Debug.Log("Camera가 Cube와 충돌함 // 안으로 들어감");
+
                 for (int i = 0; i < playButtons.Length; i++)
                 {
                     playButtons[i].GetComponent<Button>().enabled = false;
@@ -135,7 +133,8 @@ namespace Lee
         {
             if (other.CompareTag("CUBE"))
             {
-                Debug.Log("꺼져");
+                //Debug.Log("Camera가 Cube 밖으로 나옴");
+
                 for (int i = 0; i < playButtons.Length; i++)
                 {
                     playButtons[i].GetComponent<Button>().enabled = true;
