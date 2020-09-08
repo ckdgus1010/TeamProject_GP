@@ -10,7 +10,7 @@ public class Connection : MonoBehaviourPunCallbacks
   
     public void OnClickConnect()
     {
-        PhotonNetwork.CrcCheckEnabled = true;
+       // PhotonNetwork.CrcCheckEnabled = true;
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.ConnectUsingSettings();//1
     }

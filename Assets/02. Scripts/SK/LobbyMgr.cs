@@ -152,9 +152,11 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     public void OnClickLeaveLobby()
     {
         PhotonNetwork.LeaveLobby();
+        
     }
     public override void OnLeftLobby()
     {
+        PhotonNetwork.Disconnect();
         PhotonNetwork.LoadLevel(4);
         base.OnLeftLobby();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
