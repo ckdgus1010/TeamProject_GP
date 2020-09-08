@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1284,8 +1284,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a274d594e05d4034cae88dedaccbf141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Music:
-  - {fileID: 8300000, guid: abdbf2362f8d4b647afd41039c9739c3, type: 3}
+  cameraSound: {fileID: 0}
+  click: {fileID: 0}
+  correct: {fileID: 0}
+  create: {fileID: 0}
+  delete: {fileID: 0}
+  fail: {fileID: 0}
+  fanal: {fileID: 0}
+  hint: {fileID: 0}
+  reset: {fileID: 0}
+  throwaway: {fileID: 0}
+  bgm0: {fileID: 0}
+  bgm1: {fileID: 0}
+  bgm2: {fileID: 0}
+  bgm3: {fileID: 0}
+  bgm4: {fileID: 0}
+  bgm5: {fileID: 0}
 --- !u!82 &604129975
 AudioSource:
   m_ObjectHideFlags: 0
