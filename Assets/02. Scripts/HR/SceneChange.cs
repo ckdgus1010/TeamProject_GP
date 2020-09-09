@@ -23,6 +23,7 @@ public class SceneChange : MonoBehaviour
     }
     public void ChangePlayModeScene()
     {
+        SoundManager.instance.StopBGM();
         SceneManager.LoadScene("05. PlayMode");
     }
      public void ChangeCreateModeScene()

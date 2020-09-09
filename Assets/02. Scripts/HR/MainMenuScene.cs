@@ -10,7 +10,14 @@ public class MainMenuScene : MonoBehaviour
     public GameObject PopupRoomMaker; // 11. TogetherModeList
     public GameObject PopupGameOption; //게임 옵션 (뒤로가기 있음)
     public GameObject BlackBG;
+    public GameObject BGM_OFF;
+    public GameObject ES_OFF;
 
+    private void Start()
+    {
+        ES_OFF.SetActive(!SoundManager.instance.CanEffect());
+        BGM_OFF.SetActive(!SoundManager.instance.CanBGM());
+    }
     public void OnClickProfileBtn()
     {
         // 만약에 popUpProfile이 활성화가 되어있으면 비활성화
@@ -27,9 +34,10 @@ public class MainMenuScene : MonoBehaviour
         
     }
     
-        //위에 네줄을 한방에 처리하는 문구
-        public void OnClickOptionBtn()
+    //위에 네줄을 한방에 처리하는 문구
+    public void OnClickOptionBtn()
     {
+        SoundManager.instance.EffefctPlay(6);
         popUpOption.SetActive(!popUpOption.activeSelf);
         BlackBG.SetActive(popUpOption.activeSelf); // 뒷배경 out of 안중으로 처리 함 (약간 어둡게)
     }
@@ -50,6 +58,18 @@ public class MainMenuScene : MonoBehaviour
     {
         popUpOption.SetActive(false);
         BlackBG.SetActive(false);
+    }
+
+    public void OnClickEffectBtn()
+    {
+        SoundManager.instance.EnableEffect();
+        ES_OFF.SetActive(!ES_OFF.activeSelf); // off 꺼졌다 켜졌다 하기
+    }
+
+    public void OnClickBGMBtn()
+    {
+        SoundManager.instance.EnableBGM();
+        BGM_OFF.SetActive(!BGM_OFF.activeSelf); // off 꺼졌다 켜졌다 하기
     }
     void Update() 
     {
