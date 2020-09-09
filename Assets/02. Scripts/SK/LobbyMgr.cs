@@ -56,7 +56,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel(11);
+        PhotonNetwork.LoadLevel("12. TogetherModeWait");
     }
 
     // <"name"이라는  key 값에 수경이라는 값을 넣겠다.
@@ -157,7 +157,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     public override void OnLeftLobby()
     {
         PhotonNetwork.Disconnect();
-        PhotonNetwork.LoadLevel(4);
+        PhotonNetwork.LoadLevel("05. PlayMode");
         base.OnLeftLobby();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
     }

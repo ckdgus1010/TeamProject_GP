@@ -34,7 +34,7 @@ public class Connection : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()//3
     {
         Debug.Log("-OnJoinedLobby");
-        PhotonNetwork.LoadLevel(10);
+        PhotonNetwork.LoadLevel("11. TogetherModeList");
     }
 
 }

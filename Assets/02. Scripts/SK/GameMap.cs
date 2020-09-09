@@ -25,6 +25,6 @@ public class GameMap : MonoBehaviour
 
     public void OncilckBackBt()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("05. PlayMode");
     }
 }
