@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameMap : MonoBehaviour
 {
@@ -21,9 +23,8 @@ public class GameMap : MonoBehaviour
         levelQuestion.transform.position = levelPos.position ; 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OncilckBackBt()
     {
-        
+        SceneManager.LoadScene(4);
     }
 }
