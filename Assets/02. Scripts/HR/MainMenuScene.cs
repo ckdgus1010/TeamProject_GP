@@ -15,7 +15,9 @@ public class MainMenuScene : MonoBehaviour
 
     private void Start()
     {
-        ES_OFF.SetActive(!SoundManager.instance.CanEffect());
+        Debug.Log($"SoundManager.instance.canEffect ::: {SoundManager.instance.canEffect}");
+        //ES_OFF.SetActive(!SoundManager.instance.CanEffect());
+        ES_OFF.SetActive(!SoundManager.instance.canEffect);
         BGM_OFF.SetActive(!SoundManager.instance.CanBGM());
     }
     public void OnClickProfileBtn()
@@ -44,6 +46,7 @@ public class MainMenuScene : MonoBehaviour
 
         public void OnClickRoomMakerBtn()
     {
+        SoundManager.instance.EffefctPlay(6);
         PopupRoomMaker.SetActive(!PopupRoomMaker.activeSelf);
         BlackBG.SetActive(PopupRoomMaker.activeSelf);       
         
@@ -51,24 +54,30 @@ public class MainMenuScene : MonoBehaviour
 
         public void OnClickGameOptionBtn()
     {
+        SoundManager.instance.EffefctPlay(6);
         PopupGameOption.SetActive(!PopupGameOption.activeSelf);
         BlackBG.SetActive(PopupGameOption.activeSelf);
     }
     public void OnClickOptionExitBtn()
     {
+        SoundManager.instance.EffefctPlay(6);
         popUpOption.SetActive(false);
         BlackBG.SetActive(false);
     }
 
     public void OnClickEffectBtn()
     {
+        SoundManager.instance.EffefctPlay(6);
         SoundManager.instance.EnableEffect();
         ES_OFF.SetActive(!ES_OFF.activeSelf); // off 꺼졌다 켜졌다 하기
     }
 
     public void OnClickBGMBtn()
     {
+        SoundManager.instance.EffefctPlay(6);
         SoundManager.instance.EnableBGM();
+
+        Debug.Log($"BGM_OFF.activeSelf ::: {BGM_OFF.activeSelf}");
         BGM_OFF.SetActive(!BGM_OFF.activeSelf); // off 꺼졌다 켜졌다 하기
     }
     void Update() 
