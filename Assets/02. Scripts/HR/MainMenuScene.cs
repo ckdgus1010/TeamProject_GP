@@ -22,8 +22,9 @@ public class MainMenuScene : MonoBehaviour
     }
     public void OnClickProfileBtn()
     {
+        SoundManager.instance.EffefctPlay(6);
         // 만약에 popUpProfile이 활성화가 되어있으면 비활성화
-        if(popUpProfile.activeSelf == true)   //얘는 이제 쓸모가 없어져 버렸음
+        if (popUpProfile.activeSelf == true)   //얘는 이제 쓸모가 없어져 버렸음
         {
             popUpProfile.SetActive(false);
         }
@@ -80,14 +81,15 @@ public class MainMenuScene : MonoBehaviour
         Debug.Log($"BGM_OFF.activeSelf ::: {BGM_OFF.activeSelf}");
         BGM_OFF.SetActive(!BGM_OFF.activeSelf); // off 꺼졌다 켜졌다 하기
     }
+
     void Update() 
     {
         // UI 와 3D 간의 터치 막는거
         //if(EventSystem.current.IsPointerOverGameObject()) return;  //PC
-        
+
         // if(!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))  // 모바일
         // {
         // }
+
     }
 }
-
