@@ -18,6 +18,7 @@ public class Palyfab_Login : MonoBehaviour
     private string email;
 
     public static string myPlayfabInfo;
+
     //TitleId를 세팅
     void Start()
     {
@@ -40,6 +41,8 @@ public class Palyfab_Login : MonoBehaviour
     {
         email = Email_Input.text.ToString();
     }
+
+
     #region 로그인
     public void Login()
     {
@@ -92,6 +95,7 @@ public class Palyfab_Login : MonoBehaviour
 
     //RequireBothUsernameAndEmail = false로 설정하면 아이디 (Username) 하나만 받는다.
     #endregion
+
 
     public void OnCilck_XBt()
     {

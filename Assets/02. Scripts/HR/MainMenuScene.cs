@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 public class MainMenuScene : MonoBehaviour
 {
     public GameObject popUpProfile;
-    public GameObject popUpOption; //일반 옵션 
-    public GameObject PopupRoomMaker; // 11. TogetherModeList
-    public GameObject PopupGameOption; //게임 옵션 (뒤로가기 있음)
+    public GameObject popUpOption;      //일반 옵션 
+    public GameObject PopupRoomMaker;   // 11. TogetherModeList
+    public GameObject PopupGameOption;  //게임 옵션 (뒤로가기 있음)
     public GameObject BlackBG;
     public GameObject BGM_OFF;
     public GameObject ES_OFF;
@@ -22,7 +22,8 @@ public class MainMenuScene : MonoBehaviour
     }
     public void OnClickProfileBtn()
     {
-        SoundManager.instance.EffefctPlay(6);
+        //SoundManager.instance.EffefctPlay(6);
+
         // 만약에 popUpProfile이 활성화가 되어있으면 비활성화
         if (popUpProfile.activeSelf == true)   //얘는 이제 쓸모가 없어져 버렸음
         {
@@ -40,56 +41,46 @@ public class MainMenuScene : MonoBehaviour
     //위에 네줄을 한방에 처리하는 문구
     public void OnClickOptionBtn()
     {
-        SoundManager.instance.EffefctPlay(6);
+        //SoundManager.instance.EffefctPlay(6);
         popUpOption.SetActive(!popUpOption.activeSelf);
         BlackBG.SetActive(popUpOption.activeSelf); // 뒷배경 out of 안중으로 처리 함 (약간 어둡게)
     }
 
-        public void OnClickRoomMakerBtn()
+    public void OnClickRoomMakerBtn()
     {
-        SoundManager.instance.EffefctPlay(6);
+        //SoundManager.instance.EffefctPlay(6);
         PopupRoomMaker.SetActive(!PopupRoomMaker.activeSelf);
         BlackBG.SetActive(PopupRoomMaker.activeSelf);       
         
     }
 
-        public void OnClickGameOptionBtn()
+    public void OnClickGameOptionBtn()
     {
-        SoundManager.instance.EffefctPlay(6);
+        //SoundManager.instance.EffefctPlay(6);
         PopupGameOption.SetActive(!PopupGameOption.activeSelf);
         BlackBG.SetActive(PopupGameOption.activeSelf);
     }
+
     public void OnClickOptionExitBtn()
     {
-        SoundManager.instance.EffefctPlay(6);
+        //SoundManager.instance.EffefctPlay(6);
         popUpOption.SetActive(false);
         BlackBG.SetActive(false);
     }
 
     public void OnClickEffectBtn()
     {
-        SoundManager.instance.EffefctPlay(6);
-        SoundManager.instance.EnableEffect();
+        //SoundManager.instance.EffefctPlay(6);
+        //SoundManager.instance.EnableEffect();
         ES_OFF.SetActive(!ES_OFF.activeSelf); // off 꺼졌다 켜졌다 하기
     }
 
     public void OnClickBGMBtn()
     {
-        SoundManager.instance.EffefctPlay(6);
-        SoundManager.instance.EnableBGM();
+        //SoundManager.instance.EffefctPlay(6);
+        //SoundManager.instance.EnableBGM();
 
         Debug.Log($"BGM_OFF.activeSelf ::: {BGM_OFF.activeSelf}");
         BGM_OFF.SetActive(!BGM_OFF.activeSelf); // off 꺼졌다 켜졌다 하기
-    }
-
-    void Update() 
-    {
-        // UI 와 3D 간의 터치 막는거
-        //if(EventSystem.current.IsPointerOverGameObject()) return;  //PC
-
-        // if(!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))  // 모바일
-        // {
-        // }
-
     }
 }
