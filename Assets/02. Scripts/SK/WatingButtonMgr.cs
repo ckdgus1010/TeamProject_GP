@@ -120,7 +120,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
         }
 
-        PhotonNetwork.LoadLevel(12);
+        PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
 
     }
 

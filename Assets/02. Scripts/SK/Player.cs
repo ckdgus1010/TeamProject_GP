@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviourPun
 {
-
+    public static string cloudID;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -58,5 +58,14 @@ public class Player : MonoBehaviourPun
     {
         SelectLevel.instance.mLevel = mLevel;
         WatingButtonMgr.instance.curruntLevels = mLevel;
+    }
+
+    [PunRPC]
+    public void SendCloudInfo(string cloudId)
+    {
+        cloudID = cloudId;
+        print("클라우드아이디 받음");
+        print(cloudID);
+        //isReceiveId = true;
     }
 }

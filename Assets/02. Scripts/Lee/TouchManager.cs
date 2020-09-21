@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GoogleARCore;
+using GoogleARCore.CrossPlatform;
+using Photon.Pun;
 
 
 //목표: 사용자가 touch한 지점에 GameBoard 생성
@@ -17,6 +19,13 @@ public class TouchManager : MonoBehaviour
     public GameObject gridSizePanel;
     public GameObject boardSizePanel;
     public GameObject blockImg;
+
+    // 같이하기 
+    public GameObject beachMap;
+    private GameObject mapObj;
+    AsyncTask<CloudAnchorResult> result_AsyncTask;
+    public PhotonView myPhotonView;
+    private Anchor anchor;
 
     //Touch 횟수
     [HideInInspector]
@@ -44,34 +53,104 @@ public class TouchManager : MonoBehaviour
 
         if (count == 0 && touch.phase == TouchPhase.Began && Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out TrackableHit hit))
         {
-            var anchor = hit.Trackable.CreateAnchor(hit.Pose);
+            myPhotonView = GameObject.Find("Player(Clone)").GetComponent<PhotonView>();
+            anchor = hit.Trackable.CreateAnchor(hit.Pose);
 
-            //GameBoard 생성
-            gameBoard.SetActive(true);
-
-            //GameBoard 위치 설정
-            gameBoard.transform.position = anchor.transform.position;
-
-            //GameBoard 방향 설정
-            //gameBoard.transform.rotation = Quaternion.Euler(Vector3.forward);
-
-            var rot = Quaternion.LookRotation(cam.transform.position - hit.Pose.position);
-            gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
-
-            pointImage.SetActive(true);
-            cubeSetting.enabled = true;
-            boardSizePanel.SetActive(true);
-
-            if (GameManager.Instance.modeID == 0 || GameManager.Instance.modeID == 5)
+                count = 1;
+            if (GameManager.Instance.modeID == 5 && PhotonNetwork.IsMasterClient)
             {
-                gridSizePanel.SetActive(true);
-                blockImg.SetActive(true);
+                //GameBoard 생성
+                mapObj = Instantiate(beachMap, anchor.transform.position, Quaternion.identity);
+                mapObj.transform.SetParent(anchor.transform);
+                Debug.Log("앵커 만들어짐 : " + mapObj.transform.position);
+
+                pointImage.SetActive(true);
+                cubeSetting.enabled = true;
+                boardSizePanel.SetActive(true);
+            }
+            
+            else if(GameManager.Instance.modeID != 5)
+            {
+                SoloPlay(hit, anchor);
             }
 
-            count = 1;
+            
         }
     }
+    public void OnClickHost_ResoleButton()
+    {
+        print("호스팅버튼");
+        if (GameManager.Instance.modeID == 5 && PhotonNetwork.IsMasterClient)
+        {
+            print("호스트클라우드앵커 코루틴 실행");
+            StartCoroutine(HostCloudAnchor(anchor));//코루틴 실행ㅡ
+        }
+        if (GameManager.Instance.modeID == 5 && !PhotonNetwork.IsMasterClient)
+        {
+            print("리졸브클라우드앵커 코루틴 실행");
+            print(Player.cloudID);
+            StartCoroutine(ResolveCloudAnchor(Player.cloudID));//코루틴 실행ㅡ
+            print("ID 받았어요");
 
+        }
+    }
+    IEnumerator HostCloudAnchor(Anchor anchor)
+    {
+        result_AsyncTask = XPSession.CreateCloudAnchor(anchor);
+        yield return new WaitUntil(() => result_AsyncTask.IsComplete);
+        Debug.Log(result_AsyncTask.Result.Response);
+        Debug.Log(result_AsyncTask.Result.Anchor);
+        Debug.Log(result_AsyncTask.Result.Anchor.CloudId);
+
+        string cloudId = result_AsyncTask.Result.Anchor.CloudId;
+        Debug.Log(cloudId);
+        myPhotonView.RPC("SendCloudInfo", RpcTarget.AllBuffered, cloudId);
+    }
+
+    IEnumerator ResolveCloudAnchor(string cloudID) 
+    {
+        Debug.Log("리졸빙 코루틴 들어옴" + cloudID);
+        result_AsyncTask = XPSession.ResolveCloudAnchor(cloudID);
+        yield return new WaitUntil(() => result_AsyncTask.IsComplete);
+
+        Debug.Log("리졸빙 응답 대기중....");
+        Debug.Log(result_AsyncTask.Result.Response);
+        Debug.Log(result_AsyncTask.Result.Anchor);
+        Debug.Log(result_AsyncTask.Result.Anchor.CloudId);
+
+
+        mapObj = Instantiate(beachMap, result_AsyncTask.Result.Anchor.transform.position, Quaternion.identity);
+        mapObj.transform.SetParent(result_AsyncTask.Result.Anchor.transform);
+        pointImage.SetActive(true);
+        cubeSetting.enabled = true;
+        boardSizePanel.SetActive(true);
+    }
+    public void SoloPlay(TrackableHit hit, Anchor anchor)
+    {
+        //GameBoard 생성
+        gameBoard.SetActive(true);
+
+        //GameBoard 위치 설정
+        gameBoard.transform.position = anchor.transform.position;
+
+        //GameBoard 방향 설정
+        //gameBoard.transform.rotation = Quaternion.Euler(Vector3.forward);
+
+        var rot = Quaternion.LookRotation(cam.transform.position - hit.Pose.position);
+        gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
+
+        pointImage.SetActive(true);
+        cubeSetting.enabled = true;
+        boardSizePanel.SetActive(true);
+
+        if (GameManager.Instance.modeID == 0 || GameManager.Instance.modeID == 5)
+        {
+            gridSizePanel.SetActive(true);
+            blockImg.SetActive(true);
+        }
+
+        count = 1;
+    }
     public void SetOrigin()
     {
         gameBoard.SetActive(false);

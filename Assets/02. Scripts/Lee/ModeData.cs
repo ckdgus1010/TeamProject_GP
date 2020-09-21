@@ -39,7 +39,7 @@ public class ModeData : MonoBehaviour
                 SceneManager.LoadScene("10. CardCube");
                 break;
             case 5:
-                SceneManager.LoadScene("11. TogetherModeList");
+                //SceneManager.LoadScene("11. TogetherModeList");
                 break;
         }
     }
