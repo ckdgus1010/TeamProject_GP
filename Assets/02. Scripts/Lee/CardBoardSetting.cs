@@ -13,8 +13,8 @@ public class CardBoardSetting : MonoBehaviour
     private int touchCount;
     public bool isCardBoardOn;
     private RectTransform rectTr;
-    private Vector2 startPos_CB;
-    private Vector2 endPos_CB;
+    public RectTransform startPos_CB;
+    public RectTransform endPos_CB;
 
     public GameObject[] modeArray02 = new GameObject[9];
     public GameObject[] modeArray03 = new GameObject[9];
@@ -22,18 +22,24 @@ public class CardBoardSetting : MonoBehaviour
     private void Start()
     {
         touchCount = 0;
-        isCardBoardOn = false;
+
+        if (GameManager.Instance.modeID == 0 || GameManager.Instance.modeID == 2)
+        {
+            isCardBoardOn = false;
+        }
+        else
+        {
+            isCardBoardOn = true;
+        }
 
         rectTr = GetComponent<RectTransform>();
-        startPos_CB = rectTr.position;
-        endPos_CB = startPos_CB + new Vector2(800, 0);
         ChangeCard();
     }
     private void Update()
     {
         //문제 카드 팝업창 위치 조절
-        Vector2 posCB = isCardBoardOn ? endPos_CB : startPos_CB;
-        rectTr.anchoredPosition = Vector2.Lerp(rectTr.anchoredPosition, posCB, Time.deltaTime * lerpSpeed);
+        RectTransform posCB = isCardBoardOn ? endPos_CB : startPos_CB;
+        rectTr.anchoredPosition = Vector2.Lerp(rectTr.anchoredPosition, posCB.anchoredPosition, Time.deltaTime * lerpSpeed);
     }
 
     public void ChangeCard()

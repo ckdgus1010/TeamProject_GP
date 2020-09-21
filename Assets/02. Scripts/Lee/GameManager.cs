@@ -69,8 +69,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        GenerateData();
-        //SaveManager.Load();
+        //GenerateData();
+        SaveManager.Load();
         //Debug.Log($"GameManager.stageStateList // SaveManager.stageStatus ::: {GameManager.Instance.stageStateList.Count} // {SaveManager.stageStatus.Count}");
     }
 

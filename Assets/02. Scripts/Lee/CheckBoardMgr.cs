@@ -11,6 +11,8 @@ public class CheckBoardMgr : MonoBehaviour
     private int num;
     private GameObject currCB;
 
+    private List<int>[] playerAnswerArray = new List<int>[3];
+
     private void Start()
     {
         num = 0;
@@ -32,9 +34,11 @@ public class CheckBoardMgr : MonoBehaviour
         currCB.SetActive(true);
     }
 
-    public void CheckingAnswer()
+    public List<int>[] MakePlayerAnswerArray()
     {
         CBCtrl cbCtrl = currCB.GetComponent<CBCtrl>();
-        cbCtrl.CollectResult();
+        playerAnswerArray = cbCtrl.MakePlayerAnswerArray();
+
+        return playerAnswerArray;
     }
 }

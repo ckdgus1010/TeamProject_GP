@@ -28,14 +28,13 @@ public class AnswerManager : MonoBehaviour
     [HideInInspector]
     public RectTransform currPanel;
     public RectTransform startPos;
-    private Vector2 endPos;
+    public RectTransform endPos;
 
     private void Start()
     {
         answerArray = new List<int>[3];
 
         currPanel = null;
-        endPos = Vector2.zero;
         Debug.Log($"AnswerManager ::: \n answerArray.Length // {answerArray.Length}");
     }
 
@@ -43,8 +42,8 @@ public class AnswerManager : MonoBehaviour
     {
         if (currPanel != null)
         {
-            Vector2 posSP = isChecked ? endPos : startPos.anchoredPosition;
-            currPanel.anchoredPosition = Vector2.Lerp(currPanel.anchoredPosition, posSP, Time.deltaTime * lerpSpeed);
+            RectTransform posSP = isChecked ? endPos : startPos;
+            currPanel.anchoredPosition = Vector2.Lerp(currPanel.anchoredPosition, posSP.anchoredPosition, Time.deltaTime * lerpSpeed);
         }
     }
 
@@ -180,7 +179,7 @@ public class AnswerManager : MonoBehaviour
         Debug.Log($"AnswerManager ::: \n UpdateClearData 완료");
 
         //Data 저장
-        //SaveClearData(stageStateList, _modeID);
+        SaveClearData(stageStateList, _modeID);
     }
 
     //Stage Clear 기록 저장을 위한 Function

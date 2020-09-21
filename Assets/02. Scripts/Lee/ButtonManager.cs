@@ -42,17 +42,11 @@ public class ButtonManager : MonoBehaviour
     public GameObject playButtons;
 
     public CardBoardSetting cardBoardSetting;
+    public CheckBoardMgr checkBoardMgr;
+    public List<int>[] playerAnswerArray = new List<int>[3];
 
     private void Start()
     {
-        if(GameManager.Instance.stageID == 0)
-        {
-            return;
-        }
-
-        startPos = cardBoard.position;
-        endPos = startPos + new Vector2(1450, 0);
-
         if (GameManager.Instance.modeID == 2 && GameManager.Instance.stageID != 0)
         {
             inputField.transform.gameObject.SetActive(true);
@@ -93,6 +87,7 @@ public class ButtonManager : MonoBehaviour
         blackBG.SetActive(profilePanel.activeSelf);
     }
 
+    //재도전
     public void RetryGame()
     {
         ResetGameBoard();
@@ -172,8 +167,8 @@ public class ButtonManager : MonoBehaviour
         {
             Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
 
-            //playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
-            //answerManager.CompareAnswer_Array(playerAnswerArray);
+            playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
+            answerManager.CompareAnswer_Array(playerAnswerArray);
         }
     }
 
@@ -183,7 +178,7 @@ public class ButtonManager : MonoBehaviour
         Debug.Log("다음 단계로 버튼 클릭");
 
         //GameBoard 초기화
-        RetryGame();
+        RetryAloneMode();
 
         //다음 문제 내기
         if (GameManager.Instance.stageID < GameManager.Instance.stageStateList.Count)
@@ -198,7 +193,6 @@ public class ButtonManager : MonoBehaviour
             //changeScene.AloneStageSelect();
         }
     }
-
 
     public void RetryAloneMode()
     {

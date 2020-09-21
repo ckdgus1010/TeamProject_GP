@@ -16,6 +16,7 @@ public class TouchManager : MonoBehaviour
     public CubeSetting cubeSetting;
     public GameObject gridSizePanel;
     public GameObject boardSizePanel;
+    public GameObject blockImg;
 
     //Touch 횟수
     [HideInInspector]
@@ -59,8 +60,13 @@ public class TouchManager : MonoBehaviour
 
             pointImage.SetActive(true);
             cubeSetting.enabled = true;
-            gridSizePanel.SetActive(true);
             boardSizePanel.SetActive(true);
+
+            if (GameManager.Instance.modeID == 0 || GameManager.Instance.modeID == 5)
+            {
+                gridSizePanel.SetActive(true);
+                blockImg.SetActive(true);
+            }
 
             count = 1;
         }

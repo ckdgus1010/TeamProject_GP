@@ -98,7 +98,7 @@ public class ButtonCtrl : MonoBehaviour
     public void CheckAnswer()
     {
         //'유형2, 유형3'인 경우
-        checkBoardMgr.CheckingAnswer();
+        //checkBoardMgr.CheckingAnswer();
     }
 
     public void ShowCard()

@@ -48,25 +48,30 @@ public class SceneChange : MonoBehaviour
 
     public void ChangeAloneModeScene()
     {
-        GameManager.Instance.stageID = 0;
         //SoundManager.instance.EffefctPlay(6);
         SceneManager.LoadScene("07. AloneMode");
     }
 
     public void ChangeCountNumberScene()
     {
+        GameManager.Instance.stageID = 0;
+
         //SoundManager.instance.EffefctPlay(6);
         SceneManager.LoadScene("08. CountNumber");
     }
 
     public void ChangeMinerCubeScene()
     {
+        GameManager.Instance.stageID = 0;
+
         //SoundManager.instance.EffefctPlay(6);
         SceneManager.LoadScene("09. MinerCube");
     }
 
     public void ChangeCardCubeScene()
     {
+        GameManager.Instance.stageID = 0;
+
         //SoundManager.instance.EffefctPlay(6);
         SceneManager.LoadScene("10. CardCube");
     }
@@ -87,5 +92,32 @@ public class SceneChange : MonoBehaviour
     {
         //SoundManager.instance.EffefctPlay(6);
         SceneManager.LoadScene("13. TogetherModeGameRoom");
+    }
+
+    public void BackToPrevScene()
+    {
+        int modeID = GameManager.Instance.modeID;
+
+        switch (modeID)
+        {
+            case 0:                 //Create Mode인 경우
+                ChangePlayModeScene();
+                break;
+            case 1:
+                Debug.LogError($"SceneManager ::: \n modeID = {modeID} // 04 -2 Scene에서 modeID 값을 제대로 받아오지 못했습니다.");
+                break;
+            case 2:                 //혼자하기 모드 - 유형 1인 경우
+                ChangeCountNumberScene();
+                break;
+            case 3:                 //혼자하기 모드 - 유형 2인 경우
+                ChangeMinerCubeScene();
+                break;
+            case 4:                 //혼자하기 모드 - 유형 3인 경우
+                ChangeCardCubeScene();
+                break;
+            case 5:                 //같이하기 모드인 경우
+                
+                break;
+        }
     }
 }
