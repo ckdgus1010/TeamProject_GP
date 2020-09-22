@@ -8241,13 +8241,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb876bc254a62349af9c60853c5cc77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nickName_Text: {fileID: 0}
   touchManager: {fileID: 0}
   boardSizeSlider: {fileID: 0}
   gridSizeSlider: {fileID: 0}
   gridSizePanel: {fileID: 0}
   blockImage: {fileID: 0}
   profilePanel: {fileID: 0}
-  gameOption: {fileID: 66163302}
+  gameOption: {fileID: 1861263907}
   blackBG: {fileID: 66163302}
   cardBoard: {fileID: 0}
   lerpSpeed: 5
@@ -8261,6 +8262,8 @@ MonoBehaviour:
   answerManager: {fileID: 0}
   inputField: {fileID: 0}
   playButtons: {fileID: 0}
+  cardBoardSetting: {fileID: 0}
+  checkBoardMgr: {fileID: 0}
 --- !u!1 &2051538029
 GameObject:
   m_ObjectHideFlags: 0

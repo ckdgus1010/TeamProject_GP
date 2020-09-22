@@ -26,6 +26,7 @@ public class TouchManager : MonoBehaviour
     AsyncTask<CloudAnchorResult> result_AsyncTask;
     public PhotonView myPhotonView;
     private Anchor anchor;
+    public GameObject backGround;
 
     //Touch 횟수
     [HideInInspector]
@@ -37,6 +38,10 @@ public class TouchManager : MonoBehaviour
 
     void Start()
     {
+        if(GameManager.Instance.modeID == 5)
+        {
+            myPhotonView = GameObject.Find("Player(Clone)").GetComponent<PhotonView>();
+        }
         count = 0;
     }
 
@@ -53,15 +58,21 @@ public class TouchManager : MonoBehaviour
 
         if (count == 0 && touch.phase == TouchPhase.Began && Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out TrackableHit hit))
         {
-            myPhotonView = GameObject.Find("Player(Clone)").GetComponent<PhotonView>();
             anchor = hit.Trackable.CreateAnchor(hit.Pose);
 
                 count = 1;
             if (GameManager.Instance.modeID == 5 && PhotonNetwork.IsMasterClient)
             {
                 //GameBoard 생성
-                mapObj = Instantiate(beachMap, anchor.transform.position, Quaternion.identity);
-                mapObj.transform.SetParent(anchor.transform);
+                gameBoard.SetActive(true);
+
+                //GameBoard 위치 설정
+                gameBoard.transform.position = anchor.transform.position;
+                var rot = Quaternion.LookRotation(cam.transform.position - hit.Pose.position);
+                gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
+                //GameBoard 생성
+                mapObj = Instantiate(beachMap, backGround.transform.position, Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z));
+                mapObj.transform.SetParent(backGround.transform);
                 Debug.Log("앵커 만들어짐 : " + mapObj.transform.position);
 
                 pointImage.SetActive(true);

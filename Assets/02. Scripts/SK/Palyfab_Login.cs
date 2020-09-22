@@ -19,6 +19,7 @@ public class Palyfab_Login : MonoBehaviour
 
     public static string myPlayfabInfo;
 
+    public GameObject loadingPanel;
     //TitleId를 세팅
     void Start()
     {
@@ -51,6 +52,7 @@ public class Palyfab_Login : MonoBehaviour
         //PlayFab 서버로 로그인
         myPlayfabInfo = request.Username;
         PlayFabClientAPI.LoginWithPlayFab(request, OnLoginSuccess, OnLoginFailure);
+        //loadingPanel.SetActive(true);
     }
 
     private void OnLoginSuccess(LoginResult result)

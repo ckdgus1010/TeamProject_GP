@@ -41,7 +41,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     List<string> mapList2;
     private Text mapName;
 
-  
+
     public Levels curruntLevels;
     private void Start()
     {
@@ -99,10 +99,11 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
         for (int i = 0; i < proFileList.Count; i++)
         {
-            proFileList[i].ChangeReadyState(nickName, isReady);
-
-            print("RPC에서 ChangeReadyState 으로 보냄 ");
-
+            if (WatingButtonMgr.instance.myPhotonView.IsMine)
+            {
+                proFileList[i].ChangeReadyState(nickName, isReady);
+                print("RPC에서 ChangeReadyState 으로 보냄 ");
+            }
         }
 
     }

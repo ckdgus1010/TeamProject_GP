@@ -10,7 +10,7 @@ public class Profile : MonoBehaviourPun
     public Image img_Ready;
     private bool isReady;
     private int masterArId;
-  
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,9 +25,7 @@ public class Profile : MonoBehaviourPun
     public void OnClickReady()
     {
         Debug.Log(" OnClickReady");
-
-            WatingButtonMgr.instance.myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, nameText.text, !isReady);
-
+        WatingButtonMgr.instance.myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, nameText.text, !isReady);
     }
 
     public void ChangeReadyState(string nickName, bool ready)

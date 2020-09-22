@@ -56,7 +56,7 @@ public class Player : MonoBehaviourPun
     [PunRPC]
     void RpcSendLevel(Levels mLevel)
     {
-        SelectLevel.instance.mLevel = mLevel;
+        //SelectLevel.instance.mLevel = mLevel;
         WatingButtonMgr.instance.curruntLevels = mLevel;
     }
 

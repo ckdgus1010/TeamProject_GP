@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
+    //프로필 
+    public Text nickName_Text;
+
     //Game Board 리셋
     public TouchManager touchManager;
     public Slider boardSizeSlider;
@@ -47,6 +50,11 @@ public class ButtonManager : MonoBehaviour
 
     private void Start()
     {
+        if (nickName_Text != null)
+        {
+            nickName_Text.text = Palyfab_Login.myPlayfabInfo;
+        }
+
         if (GameManager.Instance.modeID == 2 && GameManager.Instance.stageID != 0)
         {
             inputField.transform.gameObject.SetActive(true);
@@ -184,6 +192,7 @@ public class ButtonManager : MonoBehaviour
         if (GameManager.Instance.stageID < GameManager.Instance.stageStateList.Count)
         {
             questManager.ChangeQuset();
+            cardBoardSetting.ChangeCard();
         }
         else
         {

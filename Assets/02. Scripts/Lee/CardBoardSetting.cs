@@ -49,6 +49,7 @@ public class CardBoardSetting : MonoBehaviour
 
         if (currStageCard != null)
         {
+            currStageCard.SetActive(false);
             currStageCard = null;
         }
 
