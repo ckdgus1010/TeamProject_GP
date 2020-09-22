@@ -54,12 +54,18 @@ public class Player : MonoBehaviourPun
     }
 
     [PunRPC]
-    void RpcSendLevel(Levels mLevel)
+    void RpcSendLevel(Levels mLevel,int i)
     {
-        //SelectLevel.instance.mLevel = mLevel;
+        SelectLevel.instance.mLevel = mLevel;
         WatingButtonMgr.instance.curruntLevels = mLevel;
+        SelectLevel.instance.selectLevels[i].SelectColor();
     }
+    [PunRPC]
+    void RpcUnSelectColor(int i)
+    {
+        SelectLevel.instance.selectLevels[i].UnSelectColor();
 
+    }
     [PunRPC]
     public void SendCloudInfo(string cloudId)
     {

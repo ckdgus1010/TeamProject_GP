@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SelectLevel : MonoBehaviour
 {
-    //public static SelectLevel instance;
+    public static SelectLevel instance;
     public Levels mLevel;
     public SelectLevel[] selectLevels;
     private Image image;
@@ -14,8 +14,8 @@ public class SelectLevel : MonoBehaviour
     void Start()
     {
         image = GetComponent<Image>();
-       // instance = this;
-       // if (WatingButtonMgr.instance.curruntLevels == mLevel) SelectColor();
+        instance = this;
+        // if (WatingButtonMgr.instance.curruntLevels == mLevel) SelectColor();
         //else UnSelectColor();
     }
 
@@ -24,11 +24,16 @@ public class SelectLevel : MonoBehaviour
 
         if (!PhotonNetwork.IsMasterClient) return;
         {
-            WatingButtonMgr.instance.myPhotonView.RPC("RpcSendLevel", RpcTarget.AllBuffered, mLevel);
-            SelectColor();
-            for(int i =0; i<selectLevels.Length; i++)
+            //SelectColor();
+            for (int i = 0; i < selectLevels.Length; i++)
             {
-                if (selectLevels[i] != this) selectLevels[i].UnSelectColor();
+                WatingButtonMgr.instance.myPhotonView.RPC("RpcSendLevel", RpcTarget.AllBuffered, mLevel,i);
+                if (selectLevels[i] != this)
+                {
+                    //selectLevels[i].UnSelectColor();
+                    WatingButtonMgr.instance.myPhotonView.RPC("RpcUnSelectColor", RpcTarget.AllBuffered, i);
+                }
+
             }
         }
 
