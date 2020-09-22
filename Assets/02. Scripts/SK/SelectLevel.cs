@@ -10,17 +10,21 @@ public class SelectLevel : MonoBehaviour
     public Levels mLevel;
     public SelectLevel[] selectLevels;
     private Image image;
+    public bool levelCilck;
     // Start is called before the first frame update
     void Start()
     {
+        levelCilck = false;
         image = GetComponent<Image>();
         instance = this;
         // if (WatingButtonMgr.instance.curruntLevels == mLevel) SelectColor();
         //else UnSelectColor();
+        print(levelCilck);
     }
 
     public void OnClick()
     {
+        print(levelCilck);
 
         if (!PhotonNetwork.IsMasterClient) return;
         {
@@ -36,6 +40,8 @@ public class SelectLevel : MonoBehaviour
 
             }
         }
+        levelCilck = true;
+        print(levelCilck);
 
     }
     public void SelectColor()

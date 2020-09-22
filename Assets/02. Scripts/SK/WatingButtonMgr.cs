@@ -113,15 +113,18 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         print("RPC에서 OnClickGameStart 으로 받음 ");
 
         issReady = isReady;
-
-        for (int i = 0; i < proFileList.Count; i++)
+        if(SelectLevel.instance.levelCilck == true)
         {
-            proFileList[i].ChangeReadyState(nickName, isReady);
-            print("RPC에서 ChangeReadyState 으로 보냄 ");
+            for (int i = 0; i < proFileList.Count; i++)
+            {
+                proFileList[i].ChangeReadyState(nickName, isReady);
+                print("RPC에서 ChangeReadyState 으로 보냄 ");
 
+            }
+
+            PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
         }
-
-        PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
+      
 
     }
 
@@ -137,7 +140,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     }
     public override void OnLeftRoom()
     {
-        PhotonNetwork.LoadLevel(10);
+        PhotonNetwork.LoadLevel("11. TogetherModeList");
         base.OnLeftRoom();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
@@ -155,13 +158,14 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     {
         mapList2.Add("반짝반짝 모래마을");
         mapList2.Add("글로브포인트마을");
-        mapList2.Add("binarly는 호남선");
-        mapList2.Add("맛동산");
+        mapList2.Add("좀비성");
+        mapList2.Add("혼돈의 카오스");
+        mapList2.Add("올라프 성");
     }
     public void OnClickRight()
     {
         if (!PhotonNetwork.IsMasterClient) return;
-        if (mapCount == 3) return;
+        if (mapCount == 4) return;
         ++mapCount;
         WatingButtonMgr.instance.myPhotonView.RPC("RpcNextMapText", RpcTarget.AllBuffered, mapCount);
     }
@@ -186,10 +190,13 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
                 mapName.text = mapList2[map_Count]; //1 글로브포인트마을
                 break;
             case 2:
-                mapName.text = mapList2[map_Count]; //2 binarly는 호남선
+                mapName.text = mapList2[map_Count]; //2 좀비성
                 break;
             case 3:
-                mapName.text = mapList2[map_Count]; //3 맛동산
+                mapName.text = mapList2[map_Count]; //3 혼돈의 카오스
+                break; 
+            case 4:
+                mapName.text = mapList2[map_Count]; //4 올라프 성
                 break;
         }
     }

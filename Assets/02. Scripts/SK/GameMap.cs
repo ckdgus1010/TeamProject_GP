@@ -8,19 +8,20 @@ public class GameMap : MonoBehaviour
 {
     public GameObject[] mapList;
     public GameObject[] QuestionList;
-    private GameObject map;
+    public GameObject map;
     private GameObject levelQuestion;
     public Transform levelPos;
 
     // Start is called before the first frame update
     void Start()
     {
-        map = Instantiate(mapList[WatingButtonMgr.instance.mapCount]);
+        //map = Instantiate(mapList[WatingButtonMgr.instance.mapCount]);
+        map = mapList[WatingButtonMgr.instance.mapCount];
         map.transform.position = transform.position;
 
 
-        levelQuestion = Instantiate(QuestionList[(int)WatingButtonMgr.instance.curruntLevels]);
-        levelQuestion.transform.position = levelPos.position ; 
+       // levelQuestion = Instantiate(QuestionList[(int)WatingButtonMgr.instance.curruntLevels]);
+       // levelQuestion.transform.position = levelPos.position ; 
     }
 
     public void OncilckBackBt()

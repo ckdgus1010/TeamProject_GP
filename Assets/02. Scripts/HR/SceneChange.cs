@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
-public class SceneChange : MonoBehaviour
+public class SceneChange : MonoBehaviourPunCallbacks
 {
     public void ChangeIntroScene()
     {
@@ -119,5 +120,21 @@ public class SceneChange : MonoBehaviour
                 
                 break;
         }
+    }
+    public void OnClickLeaveRoom()
+    {
+        //if (PhotonNetwork.IsMasterClient)
+        //{
+        //    PhotonNetwork.SetMasterClient(PhotonNetwork.PlayerList[1]);
+        //}
+        PhotonNetwork.LeaveRoom();
+
+    }
+    public override void OnLeftRoom()
+    {
+        PhotonNetwork.LoadLevel("11. TogetherModeList");
+        base.OnLeftRoom();
+        print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+
     }
 }

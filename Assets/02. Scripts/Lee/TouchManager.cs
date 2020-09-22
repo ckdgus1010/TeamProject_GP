@@ -27,6 +27,11 @@ public class TouchManager : MonoBehaviour
     public PhotonView myPhotonView;
     private Anchor anchor;
     public GameObject backGround;
+    public GameObject mapMgr;
+    private GameMap gameMap;
+    private int hostingCount =0 ;
+    public GameObject hostBt;
+    public GameObject resolveBt;
 
     //Touch 횟수
     [HideInInspector]
@@ -38,11 +43,24 @@ public class TouchManager : MonoBehaviour
 
     void Start()
     {
+        gameMap = mapMgr.GetComponent<GameMap>();
         if(GameManager.Instance.modeID == 5)
         {
             myPhotonView = GameObject.Find("Player(Clone)").GetComponent<PhotonView>();
         }
         count = 0;
+        if(GameManager.Instance.modeID == 5)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                hostBt.SetActive(true);
+            }
+            else
+            {
+                resolveBt.SetActive(true);
+            }
+        }
+       
     }
 
     void Update()
@@ -70,8 +88,9 @@ public class TouchManager : MonoBehaviour
                 gameBoard.transform.position = anchor.transform.position;
                 var rot = Quaternion.LookRotation(cam.transform.position - hit.Pose.position);
                 gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
+                
                 //GameBoard 생성
-                mapObj = Instantiate(beachMap, backGround.transform.position, Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z));
+                mapObj = Instantiate(gameMap.map, backGround.transform.position, Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z));
                 mapObj.transform.SetParent(backGround.transform);
                 Debug.Log("앵커 만들어짐 : " + mapObj.transform.position);
 
@@ -91,10 +110,11 @@ public class TouchManager : MonoBehaviour
     public void OnClickHost_ResoleButton()
     {
         print("호스팅버튼");
-        if (GameManager.Instance.modeID == 5 && PhotonNetwork.IsMasterClient)
+        if (GameManager.Instance.modeID == 5 && PhotonNetwork.IsMasterClient && hostingCount ==0)
         {
             print("호스트클라우드앵커 코루틴 실행");
             StartCoroutine(HostCloudAnchor(anchor));//코루틴 실행ㅡ
+            hostingCount = 1;
         }
         if (GameManager.Instance.modeID == 5 && !PhotonNetwork.IsMasterClient)
         {
@@ -130,7 +150,7 @@ public class TouchManager : MonoBehaviour
         Debug.Log(result_AsyncTask.Result.Anchor.CloudId);
 
 
-        mapObj = Instantiate(beachMap, result_AsyncTask.Result.Anchor.transform.position, Quaternion.identity);
+        mapObj = Instantiate(gameMap.map, result_AsyncTask.Result.Anchor.transform.position, Quaternion.identity);
         mapObj.transform.SetParent(result_AsyncTask.Result.Anchor.transform);
         pointImage.SetActive(true);
         cubeSetting.enabled = true;
