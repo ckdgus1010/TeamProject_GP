@@ -66,6 +66,16 @@ public class ButtonManager : MonoBehaviour
         gridSizeSlider.value = gridSizeSlider.minValue;
         blockImage.SetActive(true);
     }
+    public void Multiy_ResetGameBoard()
+    {
+        ResetCube();
+        cubeSetting.GuideCubeOff();
+        touchManager.SetOrigin();
+        boardSizeSlider.value = 0.1f;
+        gridSizeSlider.value = gridSizeSlider.minValue;
+        blockImage.SetActive(true);
+        Destroy(touchManager.mapObj);
+    }
 
     //Grid Size 확정
     public void SetGridSize()

@@ -35,10 +35,10 @@ public class TouchManager : MonoBehaviour
 
     // 같이하기 
     public GameObject beachMap;
-    private GameObject mapObj;
+    public GameObject mapObj;
     AsyncTask<CloudAnchorResult> result_AsyncTask;
     public PhotonView myPhotonView;
-    private Anchor anchor;
+    [HideInInspector]    public Anchor anchor;
     public GameObject backGround;
     public GameObject mapMgr;
     private GameMap gameMap;
@@ -81,7 +81,6 @@ public class TouchManager : MonoBehaviour
         if (count == 0 && touch.phase == TouchPhase.Began && Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out TrackableHit hit))
         {
             anchor = hit.Trackable.CreateAnchor(hit.Pose);
-
             //같이하기 모드인 경우
             if (GameManager.Instance.modeID == 5 && PhotonNetwork.IsMasterClient)
             {
