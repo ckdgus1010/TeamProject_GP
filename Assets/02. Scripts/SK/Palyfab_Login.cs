@@ -53,7 +53,24 @@ public class Palyfab_Login : MonoBehaviour
         myPlayfabInfo = request.Username;
         PlayFabClientAPI.LoginWithPlayFab(request, OnLoginSuccess, OnLoginFailure);
         //loadingPanel.SetActive(true);
+       
+    //    var request2 = new UpdateUserTitleDisplayNameRequest { DisplayName = username };
+    //    PlayFabClientAPI.UpdateUserTitleDisplayName(request2, DisplayNameUpdateSuccess, DisplayNameUpdateFailure);
     }
+
+    //private void DisplayNameUpdateSuccess(LoginResult   result)
+    //{
+    //    Debug.Log("로그인 성공");
+    //    SceneManager.LoadScene("04. MainMenu");
+    //}
+
+    //private void DisplayNameUpdateFailure(PlayFabError error)
+    //{
+    //    Debug.LogWarning("로그인 실패");
+    //    notePanel.SetActive(true);
+    //    noteText.text = "아이디 혹은 비밀번호가 일치하지 않습니다 \n 다시 확인해주세요";
+    //    Debug.LogWarning(error.GenerateErrorReport());
+    //}
 
     private void OnLoginSuccess(LoginResult result)
     {

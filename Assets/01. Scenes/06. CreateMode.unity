@@ -1753,15 +1753,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1567310691}
+  cardBoardSetting: {fileID: 0}
   gameBoard: {fileID: 422357301}
   pointImage: {fileID: 1372865555}
   cubeSetting: {fileID: 223934722}
   gridSizePanel: {fileID: 1182716639}
   boardSizePanel: {fileID: 1841620076}
   blockImg: {fileID: 820282459}
+  cardButton: {fileID: 2006499900}
+  playButtons: {fileID: 432441498}
+  checkingButton: {fileID: 1386354109}
+  inputField: {fileID: 0}
   count: 0
   height: 0.1
   depth: 0.5
+  beachMap: {fileID: 0}
+  mapObj: {fileID: 0}
+  myPhotonView: {fileID: 0}
+  anchor: {fileID: 0}
+  backGround: {fileID: 0}
+  mapMgr: {fileID: 0}
+  hostBt: {fileID: 0}
+  resolveBt: {fileID: 0}
 --- !u!1 &80279580
 GameObject:
   m_ObjectHideFlags: 0
@@ -5050,7 +5063,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 451309427}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -12864,7 +12877,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 451309427}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -14320,7 +14333,6 @@ RectTransform:
   - {fileID: 1511767016}
   - {fileID: 863514826}
   - {fileID: 1000268749}
-  - {fileID: 1386354110}
   m_Father: {fileID: 451309427}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14862,6 +14874,7 @@ RectTransform:
   - {fileID: 2006499901}
   - {fileID: 69794648}
   - {fileID: 432441499}
+  - {fileID: 1386354110}
   - {fileID: 820282462}
   - {fileID: 518179423}
   - {fileID: 1182716640}
@@ -17315,7 +17328,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 451309427}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -24777,7 +24790,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 451309427}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -27557,7 +27570,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 451309427}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -37291,7 +37304,7 @@ RectTransform:
   - {fileID: 270504796}
   - {fileID: 1808728517}
   m_Father: {fileID: 451309427}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -39301,7 +39314,7 @@ RectTransform:
   - {fileID: 1839571621}
   - {fileID: 1759160310}
   m_Father: {fileID: 451309427}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -45584,17 +45597,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386354109}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1339644821}
-  m_Father: {fileID: 432441499}
-  m_RootOrder: 3
+  m_Father: {fileID: 451309427}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 285, y: 130}
+  m_AnchoredPosition: {x: 285, y: -692.2223}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1386354111
@@ -63711,7 +63724,7 @@ RectTransform:
   - {fileID: 457985318}
   - {fileID: 1063589477}
   m_Father: {fileID: 451309427}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -70103,6 +70116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb876bc254a62349af9c60853c5cc77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nickName_Text: {fileID: 0}
   touchManager: {fileID: 78925478}
   boardSizeSlider: {fileID: 457985319}
   gridSizeSlider: {fileID: 1839571622}

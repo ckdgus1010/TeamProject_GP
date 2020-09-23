@@ -140,6 +140,7 @@ public class TouchManager : MonoBehaviour
         string cloudId = result_AsyncTask.Result.Anchor.CloudId;
         Debug.Log(cloudId);
         myPhotonView.RPC("SendCloudInfo", RpcTarget.AllBuffered, cloudId);
+        hostBt.SetActive(false);
     }
 
     IEnumerator ResolveCloudAnchor(string cloudID) 
@@ -147,7 +148,6 @@ public class TouchManager : MonoBehaviour
         Debug.Log("리졸빙 코루틴 들어옴" + cloudID);
         result_AsyncTask = XPSession.ResolveCloudAnchor(cloudID);
         yield return new WaitUntil(() => result_AsyncTask.IsComplete);
-
         Debug.Log("리졸빙 응답 대기중....");
         Debug.Log(result_AsyncTask.Result.Response);
         Debug.Log(result_AsyncTask.Result.Anchor);
@@ -156,6 +156,7 @@ public class TouchManager : MonoBehaviour
 
         mapObj = Instantiate(gameMap.map, result_AsyncTask.Result.Anchor.transform.position, Quaternion.identity);
         mapObj.transform.SetParent(result_AsyncTask.Result.Anchor.transform);
+        resolveBt.SetActive(false);
         pointImage.SetActive(true);
         cubeSetting.enabled = true;
         boardSizePanel.SetActive(true);
