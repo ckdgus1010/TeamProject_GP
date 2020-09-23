@@ -38,25 +38,29 @@ public class TouchManager : MonoBehaviour
     public GameObject mapObj;
     AsyncTask<CloudAnchorResult> result_AsyncTask;
     public PhotonView myPhotonView;
-    [HideInInspector]    public Anchor anchor;
+    [HideInInspector] public Anchor anchor;
     public GameObject backGround;
     public GameObject mapMgr;
     private GameMap gameMap;
-    private int hostingCount =0 ;
+    private int hostingCount = 0;
     public GameObject hostBt;
     public GameObject resolveBt;
+    private GameObject player;
+    private Player playerCs;
 
     void Start()
     {
         count = 0;
 
         //같이하기 모드인 경우
-        if(GameManager.Instance.modeID == 5)
+        if (GameManager.Instance.modeID == 5)
         {
             gameMap = mapMgr.GetComponent<GameMap>();
-            myPhotonView = GameObject.Find("Player(Clone)").GetComponent<PhotonView>();
+            player = GameObject.Find("Player(Clone)");
+            myPhotonView = player.GetComponent<PhotonView>();
+            
 
-            if (PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.IsMasterClient) 
             {
                 hostBt.SetActive(true);
             }
@@ -91,7 +95,7 @@ public class TouchManager : MonoBehaviour
                 gameBoard.transform.position = anchor.transform.position;
                 var rot = Quaternion.LookRotation(cam.transform.position - hit.Pose.position);
                 gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
-                
+
                 //GameBoard 생성
                 mapObj = Instantiate(gameMap.map, backGround.transform.position, Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z));
                 mapObj.transform.SetParent(backGround.transform);
@@ -102,7 +106,7 @@ public class TouchManager : MonoBehaviour
                 boardSizePanel.SetActive(true);
             }
             //Create Mode 또는 혼자하기 모드인 경우
-            else if(GameManager.Instance.modeID != 5)
+            else if (GameManager.Instance.modeID != 5)
             {
                 SoloPlay(hit, anchor);
             }
@@ -112,23 +116,28 @@ public class TouchManager : MonoBehaviour
     }
     public void OnClickHost_ResoleButton()
     {
+        playerCs = player.GetComponent<Player>();
         print("호스팅버튼");
-        if (GameManager.Instance.modeID == 5 && PhotonNetwork.IsMasterClient && hostingCount ==0)
+        print("누구냐 넌 : " + PhotonNetwork.IsMasterClient);
+        print("hostingCount : " + hostingCount);
+        print("playerCs.isReceive ///" + playerCs.isReceive);
+
+        if (PhotonNetwork.IsMasterClient && hostingCount == 0)
         {
             print("호스트클라우드앵커 코루틴 실행");
             StartCoroutine(HostCloudAnchor(anchor));//코루틴 실행ㅡ
             hostingCount = 1;
         }
-        if (GameManager.Instance.modeID == 5 && !PhotonNetwork.IsMasterClient)
+        if (!PhotonNetwork.IsMasterClient && playerCs.isReceive == true)
         {
             print("리졸브클라우드앵커 코루틴 실행");
             print(Player.cloudID);
-            StartCoroutine(ResolveCloudAnchor(Player.cloudID));//코루틴 실행ㅡ
+            StartCoroutine(ResolveCloudAnchor(Player.cloudID, anchor));//코루틴 실행ㅡ
             print("ID 받았어요");
 
         }
     }
-    
+
     IEnumerator HostCloudAnchor(Anchor anchor)
     {
         result_AsyncTask = XPSession.CreateCloudAnchor(anchor);
@@ -141,9 +150,11 @@ public class TouchManager : MonoBehaviour
         Debug.Log(cloudId);
         myPhotonView.RPC("SendCloudInfo", RpcTarget.AllBuffered, cloudId);
         hostBt.SetActive(false);
+        print(anchor.transform.position);
+        print(gameBoard.transform.position);
     }
 
-    IEnumerator ResolveCloudAnchor(string cloudID) 
+    IEnumerator ResolveCloudAnchor(string cloudID, Anchor anchor)
     {
         Debug.Log("리졸빙 코루틴 들어옴" + cloudID);
         result_AsyncTask = XPSession.ResolveCloudAnchor(cloudID);
@@ -153,15 +164,30 @@ public class TouchManager : MonoBehaviour
         Debug.Log(result_AsyncTask.Result.Anchor);
         Debug.Log(result_AsyncTask.Result.Anchor.CloudId);
 
+        //GameBoard 생성
+        gameBoard.SetActive(true);
 
-        mapObj = Instantiate(gameMap.map, result_AsyncTask.Result.Anchor.transform.position, Quaternion.identity);
-        mapObj.transform.SetParent(result_AsyncTask.Result.Anchor.transform);
+        //GameBoard 위치 설정
+        gameBoard.transform.position = result_AsyncTask.Result.Anchor.transform.position;
+        var rot = Quaternion.LookRotation(cam.transform.position - result_AsyncTask.Result.Anchor.transform.position);
+        gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
+
+        mapObj = Instantiate(gameMap.map, backGround.transform.position, Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z));
+        //mapObj = Instantiate(gameMap.map, result_AsyncTask.Result.Anchor.transform.position, Quaternion.identity);
+        mapObj.transform.SetParent(backGround.transform);
+        //mapObj.transform.SetParent(result_AsyncTask.Result.Anchor.transform);
         resolveBt.SetActive(false);
         pointImage.SetActive(true);
         cubeSetting.enabled = true;
         boardSizePanel.SetActive(true);
+        print(result_AsyncTask.Result.Anchor.transform.position);
+        print($"{result_AsyncTask.Result.Anchor.transform.position} ::: {gameBoard.transform.position}");
+        if (result_AsyncTask.Result.Anchor.transform.position == gameBoard.transform.position)
+        {
+            Debug.Log("둘이 똑같다");
+        }
     }
-    
+
     public void SoloPlay(TrackableHit hit, Anchor anchor)
     {
         //GameBoard 생성
@@ -177,7 +203,7 @@ public class TouchManager : MonoBehaviour
         gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
 
         //기타 UI 조정
-        switch(GameManager.Instance.modeID)
+        switch (GameManager.Instance.modeID)
         {
             case 0:     //Create Mode
                 gridSizePanel.SetActive(true);

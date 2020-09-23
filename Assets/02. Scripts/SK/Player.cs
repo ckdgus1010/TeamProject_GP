@@ -7,6 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviourPun
 {
     public static string cloudID;
+    public bool isReceive;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -72,6 +73,9 @@ public class Player : MonoBehaviourPun
         cloudID = cloudId;
         print("클라우드아이디 받음");
         print(cloudID);
+        isReceive = true;
+        print("Player isReceive : "+isReceive);
+
         //isReceiveId = true;
     }
 }

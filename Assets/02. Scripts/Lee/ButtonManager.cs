@@ -128,7 +128,21 @@ public class ButtonManager : MonoBehaviour
             Debug.Log("ButtonManager ::: 큐브 생성");
         }
     }
+    public void Photon_MakeCube()
+    {
+        if (GameManager.Instance.modeID == 5 && guideCube.activeSelf)
+        {
+            GameObject cube = PhotonNetwork.Instantiate("Cube_Sample02"
+                                         , cubeSetting.guideCube.transform.position
+                                         , gameBoard.transform.rotation
+                                         );
+            
+            cube.transform.SetParent(cubeList.transform);
+            list.Add(cube);
 
+            Debug.Log("ButtonManager ::: 큐브 생성");
+        }
+    }
     //Cube 리셋
     public void ResetCube()
     {
