@@ -2170,16 +2170,18 @@ MonoBehaviour:
   gridSizePanel: {fileID: 1182716639}
   boardSizePanel: {fileID: 1841620076}
   blockImg: {fileID: 820282459}
+  playButtons: {fileID: 0}
+  inputField: {fileID: 0}
+  count: 0
+  height: 0.1
+  depth: 0.5
   beachMap: {fileID: 5269758138366213769, guid: 2659672bcb7654141ad63cc76d7ccde5,
     type: 3}
   myPhotonView: {fileID: 0}
   backGround: {fileID: 1195868595}
   mapMgr: {fileID: 1060709250}
-  hostBt: {fileID: 879662708}
-  resolveBt: {fileID: 0}
-  count: 0
-  height: 0.1
-  depth: 0.5
+  hostBt: {fileID: 232974612}
+  resolveBt: {fileID: 879662708}
 --- !u!1 &80279580
 GameObject:
   m_ObjectHideFlags: 0

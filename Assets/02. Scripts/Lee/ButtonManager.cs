@@ -54,12 +54,6 @@ public class ButtonManager : MonoBehaviour
         {
             nickName_Text.text = Palyfab_Login.myPlayfabInfo;
         }
-
-        if (GameManager.Instance.modeID == 2 && GameManager.Instance.stageID != 0)
-        {
-            inputField.transform.gameObject.SetActive(true);
-            playButtons.SetActive(false);
-        }
     }
 
     //Game Board 리셋

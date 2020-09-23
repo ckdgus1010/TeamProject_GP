@@ -2086,19 +2086,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1567310691}
+  cardBoardSetting: {fileID: 518179426}
   gameBoard: {fileID: 422357301}
   pointImage: {fileID: 1372865555}
   cubeSetting: {fileID: 223934722}
   gridSizePanel: {fileID: 1182716639}
   boardSizePanel: {fileID: 1841620076}
   blockImg: {fileID: 820282459}
+  cardButton: {fileID: 2006499900}
+  playButtons: {fileID: 432441498}
+  checkingButton: {fileID: 1386354109}
+  inputField: {fileID: 1255718530}
+  count: 0
+  height: 0.1
+  depth: 0.5
   beachMap: {fileID: 5269758138366213769, guid: 2659672bcb7654141ad63cc76d7ccde5,
     type: 3}
   myPhotonView: {fileID: 0}
   backGround: {fileID: 0}
-  count: 0
-  height: 0.1
-  depth: 0.5
+  mapMgr: {fileID: 0}
+  hostBt: {fileID: 0}
+  resolveBt: {fileID: 0}
 --- !u!1 &80279580
 GameObject:
   m_ObjectHideFlags: 0
@@ -15329,7 +15337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &432441499
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15337,7 +15345,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432441498}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -44155,7 +44163,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255718530}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
@@ -48501,7 +48509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1386354110
 RectTransform:
   m_ObjectHideFlags: 0
@@ -72570,7 +72578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2006499901
 RectTransform:
   m_ObjectHideFlags: 0
@@ -72578,7 +72586,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006499900}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

@@ -11,6 +11,7 @@ using Photon.Pun;
 public class TouchManager : MonoBehaviour
 {
     public Camera cam;
+    public CardBoardSetting cardBoardSetting;
 
     public GameObject gameBoard;
 
@@ -19,6 +20,18 @@ public class TouchManager : MonoBehaviour
     public GameObject gridSizePanel;
     public GameObject boardSizePanel;
     public GameObject blockImg;
+    public GameObject cardButton;
+    public GameObject playButtons;
+    public GameObject checkingButton;
+    public GameObject inputField;
+
+    //Touch 횟수
+    [HideInInspector]
+    public int count = 0;
+
+    //GameBoard 위치 보정
+    public float height = 0.1f;
+    public float depth = 0.5f;
 
     // 같이하기 
     public GameObject beachMap;
@@ -33,24 +46,16 @@ public class TouchManager : MonoBehaviour
     public GameObject hostBt;
     public GameObject resolveBt;
 
-    //Touch 횟수
-    [HideInInspector]
-    public int count = 0;
-
-    //GameBoard 위치 보정
-    public float height = 0.1f;
-    public float depth = 0.5f;
-
     void Start()
     {
-        gameMap = mapMgr.GetComponent<GameMap>();
-        if(GameManager.Instance.modeID == 5)
-        {
-            myPhotonView = GameObject.Find("Player(Clone)").GetComponent<PhotonView>();
-        }
         count = 0;
+
+        //같이하기 모드인 경우
         if(GameManager.Instance.modeID == 5)
         {
+            gameMap = mapMgr.GetComponent<GameMap>();
+            myPhotonView = GameObject.Find("Player(Clone)").GetComponent<PhotonView>();
+
             if (PhotonNetwork.IsMasterClient)
             {
                 hostBt.SetActive(true);
@@ -60,7 +65,6 @@ public class TouchManager : MonoBehaviour
                 resolveBt.SetActive(true);
             }
         }
-       
     }
 
     void Update()
@@ -78,7 +82,7 @@ public class TouchManager : MonoBehaviour
         {
             anchor = hit.Trackable.CreateAnchor(hit.Pose);
 
-                count = 1;
+            //같이하기 모드인 경우
             if (GameManager.Instance.modeID == 5 && PhotonNetwork.IsMasterClient)
             {
                 //GameBoard 생성
@@ -98,13 +102,13 @@ public class TouchManager : MonoBehaviour
                 cubeSetting.enabled = true;
                 boardSizePanel.SetActive(true);
             }
-            
+            //Create Mode 또는 혼자하기 모드인 경우
             else if(GameManager.Instance.modeID != 5)
             {
                 SoloPlay(hit, anchor);
             }
 
-            
+            count = 1;
         }
     }
     public void OnClickHost_ResoleButton()
@@ -125,6 +129,7 @@ public class TouchManager : MonoBehaviour
 
         }
     }
+    
     IEnumerator HostCloudAnchor(Anchor anchor)
     {
         result_AsyncTask = XPSession.CreateCloudAnchor(anchor);
@@ -156,6 +161,7 @@ public class TouchManager : MonoBehaviour
         cubeSetting.enabled = true;
         boardSizePanel.SetActive(true);
     }
+    
     public void SoloPlay(TrackableHit hit, Anchor anchor)
     {
         //GameBoard 생성
@@ -170,17 +176,31 @@ public class TouchManager : MonoBehaviour
         var rot = Quaternion.LookRotation(cam.transform.position - hit.Pose.position);
         gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
 
+        //기타 UI 조정
+        switch(GameManager.Instance.modeID)
+        {
+            case 0:     //Create Mode
+                gridSizePanel.SetActive(true);
+                break;
+            case 1:
+                Debug.LogError($"TouchManager ::: modeID = {GameManager.Instance.modeID}");
+                break;
+            case 2:     //혼자하기 모드 - 유형1
+                inputField.SetActive(true);
+                playButtons.SetActive(false);
+                break;
+            case 3:     //혼자하기 모드 - 유형2
+            case 4:     //혼자하기 모드 - 유형3
+                playButtons.SetActive(true);
+                cardBoardSetting.isCardBoardOn = false;
+                break;
+        }
+
         pointImage.SetActive(true);
         cubeSetting.enabled = true;
         boardSizePanel.SetActive(true);
-
-        if (GameManager.Instance.modeID == 0 || GameManager.Instance.modeID == 5)
-        {
-            gridSizePanel.SetActive(true);
-            blockImg.SetActive(true);
-        }
-
-        count = 1;
+        cardButton.SetActive(true);
+        checkingButton.SetActive(true);
     }
     public void SetOrigin()
     {
