@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -140,6 +141,15 @@ public class ButtonManager : MonoBehaviour
             list.Clear();
             Debug.Log("ButtonManager ::: 큐브 리셋");
         }
+
+        if (GameManager.Instance.modeID == 3)
+        {
+            for (int i = 0; i < 27; i++)
+            {
+                GameObject obj = questManager.currStage.transform.GetChild(i).gameObject;
+                obj.SetActive(true);
+            }
+        }
     }
 
     //Cube 삭제
@@ -147,8 +157,15 @@ public class ButtonManager : MonoBehaviour
     {
         if (cubeSetting.currCube != null)
         {
-            Destroy(cubeSetting.currCube);
-            Debug.Log("ButtonManager ::: 큐브 삭제");
+            if (GameManager.Instance.modeID == 3)
+            {
+                cubeSetting.currCube.SetActive(false);
+            }
+            else
+            {
+                Destroy(cubeSetting.currCube);
+                Debug.Log("ButtonManager ::: 큐브 삭제");
+            }
         }
     }
 
@@ -175,7 +192,14 @@ public class ButtonManager : MonoBehaviour
             answerManager.CompareAnswer_Int(playerAnswer);
         }
         //정답 확인 ::: 혼자하기 유형 2 / 유형 3
-        else if (modeID != 2 && list.Count != 0)
+        else if (modeID == 3)
+        {
+            Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
+
+            playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
+            answerManager.CompareAnswer_Array(playerAnswerArray);
+        }
+        else if (modeID == 4 && list.Count != 0)
         {
             Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
 

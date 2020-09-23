@@ -2320,7 +2320,9 @@ MonoBehaviour:
   depth: 0.5
   beachMap: {fileID: 5269758138366213769, guid: 2659672bcb7654141ad63cc76d7ccde5,
     type: 3}
+  mapObj: {fileID: 0}
   myPhotonView: {fileID: 0}
+  anchor: {fileID: 0}
   backGround: {fileID: 0}
   mapMgr: {fileID: 0}
   hostBt: {fileID: 0}
@@ -8646,7 +8648,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &223934725
 MonoBehaviour:
@@ -16481,6 +16483,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  currStage: {fileID: 0}
 --- !u!4 &436992274
 Transform:
   m_ObjectHideFlags: 0

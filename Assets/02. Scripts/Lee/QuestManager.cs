@@ -23,7 +23,7 @@ public class QuestManager : MonoBehaviour
 
     //선택된 mode와 stage에 따른 문제
     public GameObject[] questModeArray = new GameObject[9];
-    private GameObject currStage;
+    public GameObject currStage;
 
     void Start()
     {
