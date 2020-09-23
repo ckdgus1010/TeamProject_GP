@@ -23,14 +23,7 @@ public class CardBoardSetting : MonoBehaviour
     {
         touchCount = 0;
 
-        if (GameManager.Instance.modeID == 0 || GameManager.Instance.modeID == 2)
-        {
-            isCardBoardOn = false;
-        }
-        else
-        {
-            isCardBoardOn = true;
-        }
+        isCardBoardOn = false;
 
         rectTr = GetComponent<RectTransform>();
         ChangeCard();

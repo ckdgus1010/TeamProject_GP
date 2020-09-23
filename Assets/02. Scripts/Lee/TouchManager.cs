@@ -192,7 +192,7 @@ public class TouchManager : MonoBehaviour
             case 3:     //혼자하기 모드 - 유형2
             case 4:     //혼자하기 모드 - 유형3
                 playButtons.SetActive(true);
-                cardBoardSetting.isCardBoardOn = false;
+                cardBoardSetting.isCardBoardOn = true;
                 break;
         }
 
