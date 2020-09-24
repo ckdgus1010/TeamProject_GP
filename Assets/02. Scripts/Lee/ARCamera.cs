@@ -6,22 +6,22 @@ using UnityEngine.UI;
 public class ARCamera : MonoBehaviour
 {
     public GameObject blockImg;
-    [SerializeField]
-    private SphereCollider coll;
+    private SphereCollider sphereCollider;
     private Vector3 originScale; 
 
     public Slider boardSizeSlider;
 
     private void Start()
     {
-        originScale = coll.transform.localScale;
+        sphereCollider = GetComponent<SphereCollider>();
+        originScale = sphereCollider.transform.localScale;
     }
 
     public void ColliderSize()
     {
         float scaleFactor = boardSizeSlider.value;
 
-        coll.transform.localScale = originScale * scaleFactor;
+        sphereCollider.transform.localScale = originScale * scaleFactor;
     }
 
     private void OnTriggerEnter(Collider other)

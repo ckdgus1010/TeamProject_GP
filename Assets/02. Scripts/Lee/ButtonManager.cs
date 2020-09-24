@@ -49,6 +49,9 @@ public class ButtonManager : MonoBehaviour
     public CheckBoardMgr checkBoardMgr;
     public List<int>[] playerAnswerArray = new List<int>[3];
 
+    //스크린샷
+    public ScreenShot screenShot;
+
     private void Start()
     {
         if (nickName_Text != null)
@@ -296,5 +299,10 @@ public class ButtonManager : MonoBehaviour
 
         answerManager.isChecked = false;
         answerManager.blurredImage.SetActive(false);
+    }
+
+    public void ScreenShot()
+    {
+        screenShot.Capture_Button();
     }
 }
