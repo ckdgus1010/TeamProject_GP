@@ -46,7 +46,7 @@ public class TouchManager : MonoBehaviour
     public GameObject hostBt;
     public GameObject resolveBt;
     private GameObject player;
-    private Player playerCs;
+   // private Player playerCs;
 
     void Start()
     {
@@ -56,9 +56,8 @@ public class TouchManager : MonoBehaviour
         if (GameManager.Instance.modeID == 5)
         {
             gameMap = mapMgr.GetComponent<GameMap>();
-            player = GameObject.Find("Player(Clone)");
+            player = GameObject.FindGameObjectWithTag("MINE");
             myPhotonView = player.GetComponent<PhotonView>();
-            
 
             if (PhotonNetwork.IsMasterClient) 
             {
@@ -116,11 +115,11 @@ public class TouchManager : MonoBehaviour
     }
     public void OnClickHost_ResoleButton()
     {
-        playerCs = player.GetComponent<Player>();
+       // playerCs = player.GetComponent<Player>();
         print("호스팅버튼");
         print("누구냐 넌 : " + PhotonNetwork.IsMasterClient);
         print("hostingCount : " + hostingCount);
-        print("playerCs.isReceive ///" + playerCs.isReceive);
+        print("playerCs.isReceive ///" + Player.isReceive);
 
         if (PhotonNetwork.IsMasterClient && hostingCount == 0)
         {
@@ -128,7 +127,7 @@ public class TouchManager : MonoBehaviour
             StartCoroutine(HostCloudAnchor(anchor));//코루틴 실행ㅡ
             hostingCount = 1;
         }
-        if (!PhotonNetwork.IsMasterClient && playerCs.isReceive == true)
+        if (!PhotonNetwork.IsMasterClient && Player.isReceive == true)
         {
             print("리졸브클라우드앵커 코루틴 실행");
             print(Player.cloudID);

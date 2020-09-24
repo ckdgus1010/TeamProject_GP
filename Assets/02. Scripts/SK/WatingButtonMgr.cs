@@ -51,7 +51,10 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         GameObject player = PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
         myPhotonView = player.GetComponent<PhotonView>();
         PhotonNetwork.AutomaticallySyncScene = true;
-
+        if (myPhotonView.IsMine)
+        {
+            player.tag = "MINE";
+        }
         mapName = GameObject.Find("MapText").GetComponent<Text>();
         AddmapList();
         mapName.text = mapList2[0];

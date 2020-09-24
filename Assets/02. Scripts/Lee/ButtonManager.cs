@@ -165,6 +165,20 @@ public class ButtonManager : MonoBehaviour
             }
         }
     }
+    public void Photon_ResetCube()
+    {
+        if (list.Count > 0)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+               PhotonNetwork.Destroy(list[i].gameObject);
+            }
+            list.Clear();
+            Debug.Log("ButtonManager ::: 큐브 리셋");
+        }
+
+        
+    }
 
     //Cube 삭제
     public void DeleteCube()
@@ -182,7 +196,21 @@ public class ButtonManager : MonoBehaviour
             }
         }
     }
-
+    public void Photon_DeleteCube()
+    {
+        if (cubeSetting.currCube != null)
+        {
+            if (GameManager.Instance.modeID == 3)
+            {
+                cubeSetting.currCube.SetActive(false);
+            }
+            else
+            {
+                PhotonNetwork.Destroy(cubeSetting.currCube);
+                Debug.Log("ButtonManager ::: 큐브 삭제");
+            }
+        }
+    }
     //Create Mode 전용 - 다운로드
     public void DownLoadCube()
     {

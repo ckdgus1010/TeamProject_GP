@@ -7,7 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviourPun
 {
     public static string cloudID;
-    public bool isReceive;
+    public static bool isReceive;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
