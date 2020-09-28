@@ -15,6 +15,8 @@ public class CubeSetting : MonoBehaviour
     [HideInInspector]
     public GameObject currCube;
 
+    public GameObject hitObj;
+
     private void Start()
     {
         isGuideOn = false;
@@ -27,19 +29,19 @@ public class CubeSetting : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, rayDistance, 1 << 8))
         {
+            hitObj = hit.collider.gameObject;
             //Cube를 감지했을 때
             if (hit.collider.CompareTag("CUBE"))
             {
                 GuideCubeOff();
 
-                GameObject hitcube = hit.collider.gameObject;
 
-                if (hitcube != currCube && currCube != null)
+                if (hitObj != currCube && currCube != null)
                 {
                     currCube.GetComponent<MeshRenderer>().material.color = Color.white;
                 }
 
-                currCube = hitcube;
+                currCube = hitObj;
                 currCube.GetComponent<MeshRenderer>().material.color = Color.yellow;
 
                 Vector3 normalVec = hit.normal;

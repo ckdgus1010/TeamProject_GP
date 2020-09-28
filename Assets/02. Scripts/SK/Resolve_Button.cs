@@ -11,7 +11,7 @@ public class Resolve_Button : MonoBehaviour
     AsyncTask<CloudAnchorResult> result_AsyncTask;
     public void OnClickResoleButton()
     {
-        StartCoroutine(ResolveCloudAnchor(Player.cloudID));//코루틴 실행ㅡ
+        StartCoroutine(ResolveCloudAnchor(PlayerMgr.cloudID));//코루틴 실행ㅡ
 
     }
     IEnumerator ResolveCloudAnchor(string cloudID)

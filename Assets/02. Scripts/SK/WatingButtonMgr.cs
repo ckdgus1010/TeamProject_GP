@@ -8,6 +8,7 @@ using System;
 //using Google.Protobuf.WellKnownTypes;
 using Photon.Pun.UtilityScripts;
 //using WebSocketSharp;
+using UnityEngine.SceneManagement;
 
 public enum Levels
 {
@@ -41,15 +42,26 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     List<string> mapList2;
     private Text mapName;
 
-
+    private GameObject player;
+    private PlayerMgr playerCs;
     public Levels curruntLevels;
+
+    private GameObject profile;
+
+    //플레이어 인덱스 번호 받기
+    public int[] playerList = { 0, 0, 0 };
+    public int myIndexNumber;
+    public int emptyIndex;
+    public int playerIndex;
+    public Array array;
     private void Start()
     {
         instance = this;
         proFileList = new List<Profile>();
         mapList2 = new List<string>();
-        GameObject player = PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
+        player = PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
         myPhotonView = player.GetComponent<PhotonView>();
+        playerCs = player.GetComponent<PlayerMgr>();
         PhotonNetwork.AutomaticallySyncScene = true;
         if (myPhotonView.IsMine)
         {
@@ -58,7 +70,6 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         mapName = GameObject.Find("MapText").GetComponent<Text>();
         AddmapList();
         mapName.text = mapList2[0];
-
     }
 
 
@@ -68,11 +79,14 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     {
         GameObject profile = Instantiate(profileFac);
         profile.transform.SetParent(content);
+
+        if (player.tag == "MINE")
+        {
+            profile.tag = "MINEPROFILE";
+        }
         Profile pf = profile.GetComponent<Profile>();
         pf.SetInfo(nickName);
         proFileList.Add(pf);
-
-
     }
 
     public void OnClickReady()
@@ -85,11 +99,11 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
         else
         {
-            WatingButtonMgr.instance.myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);
+            WatingButtonMgr.instance.myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);//playerCs.proFileList, PhotonNetwork.NickName, !issReady
         }
     }
 
-    public void OnClickGameReady(string nickName, bool isReady)
+    public void OnClickGameReady(string nickName, bool isReady) //List<Profile> proFileList, string nickName, bool isReady
     {
         if (myPhotonView.IsMine)
         {
@@ -116,7 +130,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         print("RPC에서 OnClickGameStart 으로 받음 ");
 
         issReady = isReady;
-        if(SelectLevel.instance.levelCilck == true)
+        if (SelectLevel.instance.levelCilck == true)
         {
             for (int i = 0; i < proFileList.Count; i++)
             {
@@ -127,7 +141,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
             PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
         }
-      
+
 
     }
 
@@ -139,11 +153,11 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         //    PhotonNetwork.SetMasterClient(PhotonNetwork.PlayerList[1]);
         //}
         PhotonNetwork.LeaveRoom();
-
+       // PhotonNetwork.LoadLevel("11. TogetherModeList");
     }
     public override void OnLeftRoom()
     {
-        PhotonNetwork.LoadLevel("11. TogetherModeList");
+       SceneManager.LoadScene("11. TogetherModeList");
         base.OnLeftRoom();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
@@ -151,8 +165,30 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public override void OnDisconnected(DisconnectCause cause)
     {
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
-
+        PhotonNetwork.ConnectUsingSettings();
     }
+   
+    //public void AddPlayer(int playerActorNumber)
+    //{
+    //    emptyIndex = Array.IndexOf(playerList, 0);
+    //    playerList[emptyIndex] = playerActorNumber;
+    //    myPhotonView.RPC("UpdatePlayerList", RpcTarget.All, playerList);
+    //}
+    //public void RemovePlayer(int playerActorNumber)
+    //{
+    //    playerIndex = Array.IndexOf(playerList, playerActorNumber);
+    //    playerList[playerIndex] = 0;
+    //    photonView.RPC("UpdatePlayerList", RpcTarget.All, playerList);
+    //}
+
+   
+    ////플레이어 
+    //[PunRPC]
+    //void UpdatePlayerList(int[] newPlayerList)
+    //{
+    //    myIndexNumber = Array.IndexOf(playerList, PhotonNetwork.LocalPlayer.ActorNumber);
+    //}
+
     #endregion
 
     #region MapSetting
@@ -197,7 +233,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
                 break;
             case 3:
                 mapName.text = mapList2[map_Count]; //3 혼돈의 카오스
-                break; 
+                break;
             case 4:
                 mapName.text = mapList2[map_Count]; //4 올라프 성
                 break;

@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonManager : MonoBehaviour
+public class ButtonManager : MonoBehaviourPun
 {
+    public static ButtonManager instance;
     //프로필 
     public Text nickName_Text;
 
@@ -52,6 +53,13 @@ public class ButtonManager : MonoBehaviour
     //스크린샷
     public ScreenShot screenShot;
 
+    //같이하기
+    public GameObject mulCubeFac;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         if (nickName_Text != null)
@@ -120,7 +128,7 @@ public class ButtonManager : MonoBehaviour
     //Cube 생성
     public void MakeCube()
     {
-        if (guideCube.activeSelf)
+        if (guideCube.activeSelf && GameManager.Instance.modeID != 5)
         {
             GameObject cube = Instantiate(cubePrefab
                                          , cubeSetting.guideCube.transform.position
@@ -128,28 +136,124 @@ public class ButtonManager : MonoBehaviour
                                          , cubeList.transform);
             list.Add(cube);
 
-            Debug.Log("ButtonManager ::: 큐브 생성");
+            Debug.Log("ButtonManager MakeCube() ::: 큐브 생성");
         }
     }
     public void Photon_MakeCube()
     {
-        if (GameManager.Instance.modeID == 5 && guideCube.activeSelf)
+        if (guideCube.activeSelf)
         {
-            GameObject cube = PhotonNetwork.Instantiate("Cube_Sample02"
-                                         , cubeSetting.guideCube.transform.position
-                                         , gameBoard.transform.rotation
-                                         );
-            
-            cube.transform.SetParent(cubeList.transform);
-            list.Add(cube);
+            // 큐브셋팅에 hitobj.GetChild(0) 가져와
+            GameObject hitObj = cubeSetting.hitObj;
+            Debug.Log("난 마스터 : " + hitObj.name);
+            Transform cubePos = hitObj.transform.GetChild(0).transform;
 
-            Debug.Log("ButtonManager ::: 큐브 생성");
+
+            //다른애들도 hitobj.GetChild(0) 찾고 거기에 큐브 생성하라고 명령해
+            photonView.RPC("RpcMakeCube", RpcTarget.AllBuffered, hitObj.name);
+            print("클라이언트들에게 RpcMakeCube 보냄");
+
+        }
+        // 거기에다 생성해
+        //Instantiate(mulCubeFac, cubePos.position, gameBoard.transform.rotation, cubeList.transform);
+        //print("큐브 위치 보여줘 : " + cubePos.position);
+
+        #region Mr.Gun
+        /////////////////////////////////
+        // 1. 그 자리에 큐브가 있는지 확인
+
+        // 1-1. 큐브가 있다
+
+
+        // 1-2. 큐브가 없다
+        {
+            // 1-2-2. 그 자리에 큐브를 만든다.
+            //확인배열 채우기 +1
+            //함수호출
+
+        }
+
+        //pos의 위치에 큐브 생성
+        //확인배열[x][y][z]이 +1이면 return
+        //확인배열[x][y][z]이 0이면 -1
+
+        //remove
+        //1. 그 위치의 확인배열이 1인지 확인
+        //함수호출 rpcremove
+
+        //rpcremove
+        //1-1. 1이면 없애고 배열을 0, 너도 없애라
+        #endregion
+    }
+    [PunRPC]
+    public void RpcMakeCube(string hitObj)
+    {
+        Debug.Log("난 클라이언트 : " + hitObj);
+        
+        GameObject obj = GameObject.Find(hitObj).gameObject;
+        Transform cubePos = obj.transform.GetChild(0).transform;
+
+        int cubeNum = GameManager.Instance.cubeNum++;
+      
+        GameObject cube = Instantiate(mulCubeFac, cubePos.position, gameBoard.transform.rotation, cubeList.transform);
+
+        //생성한 CUBE의 isMine을 체크하고 내꺼면 다른 애들 큐브이름을 바꿔
+        cube.name = "Cube(" + cubeNum + ")";
+        Debug.Log( "생성한 큐브 이름 확인 : " + cube.name);
+        Debug.Log(cubePos.position);
+
+       
+    }
+
+   
+    //Cube 삭제
+    public void DeleteCube()
+    {
+        if (GameManager.Instance.modeID == 5 && cubeSetting.currCube != null)
+        {
+            WatingButtonMgr.instance.myPhotonView.RPC("RpcResetCube", RpcTarget.AllBuffered, cubeSetting.currCube);
+            Debug.Log("ButtonManager ::: 큐브 삭제");
+        }
+
+        if (GameManager.Instance.modeID != 5 && cubeSetting.currCube != null)
+        {
+            if (GameManager.Instance.modeID == 3)
+            {
+                cubeSetting.currCube.SetActive(false);
+            }
+            else
+            {
+                Destroy(cubeSetting.currCube);
+                Debug.Log("ButtonManager ::: 큐브 삭제");
+            }
         }
     }
+    public void Photon_DeleteCube(GameObject currCube)
+    {
+
+        Destroy(currCube);
+        Debug.Log("ButtonManager ::: 큐브 삭제");
+
+    }
+    //Create Mode 전용 - 다운로드
+    public void DownLoadCube()
+    {
+        Debug.Log("ButtonManager ::: CreateMode 저장하기");
+    }
+
     //Cube 리셋
     public void ResetCube()
     {
-        if (list.Count > 0)
+        //같이하기 지우기 
+        if (GameManager.Instance.modeID == 5 && list.Count > 0)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                WatingButtonMgr.instance.myPhotonView.RPC("RpcResetCube", RpcTarget.AllBuffered, list[i]);
+            }
+        }
+
+        if (GameManager.Instance.modeID != 5 && list.Count > 0)
         {
             for (int i = 0; i < list.Count; i++)
             {
@@ -168,57 +272,14 @@ public class ButtonManager : MonoBehaviour
             }
         }
     }
-    public void Photon_ResetCube()
+    public void Photon_ResetCube(int i)
     {
-        if (list.Count > 0)
-        {
-            for (int i = 0; i < list.Count; i++)
-            {
-               PhotonNetwork.Destroy(list[i].gameObject);
-            }
-            list.Clear();
-            Debug.Log("ButtonManager ::: 큐브 리셋");
-        }
+        Destroy(list[i].gameObject);
 
-        
+        list.Clear();
+        Debug.Log("ButtonManager ::: 큐브 리셋");
     }
 
-    //Cube 삭제
-    public void DeleteCube()
-    {
-        if (cubeSetting.currCube != null)
-        {
-            if (GameManager.Instance.modeID == 3)
-            {
-                cubeSetting.currCube.SetActive(false);
-            }
-            else
-            {
-                Destroy(cubeSetting.currCube);
-                Debug.Log("ButtonManager ::: 큐브 삭제");
-            }
-        }
-    }
-    public void Photon_DeleteCube()
-    {
-        if (cubeSetting.currCube != null)
-        {
-            if (GameManager.Instance.modeID == 3)
-            {
-                cubeSetting.currCube.SetActive(false);
-            }
-            else
-            {
-                PhotonNetwork.Destroy(cubeSetting.currCube);
-                Debug.Log("ButtonManager ::: 큐브 삭제");
-            }
-        }
-    }
-    //Create Mode 전용 - 다운로드
-    public void DownLoadCube()
-    {
-        Debug.Log("ButtonManager ::: CreateMode 저장하기");
-    }
 
     //정답 확인
     public void CheckAnswer()
@@ -247,7 +308,6 @@ public class ButtonManager : MonoBehaviour
         else if (modeID == 4 && list.Count != 0)
         {
             Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
-
             playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
             answerManager.CompareAnswer_Array(playerAnswerArray);
         }

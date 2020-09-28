@@ -14,6 +14,7 @@ public class TouchManager : MonoBehaviour
     public CardBoardSetting cardBoardSetting;
 
     public GameObject gameBoard;
+    public Transform gameBoardTr;
 
     public GameObject pointImage;
     public CubeSetting cubeSetting;
@@ -46,8 +47,9 @@ public class TouchManager : MonoBehaviour
     public GameObject hostBt;
     public GameObject resolveBt;
     private GameObject player;
-   // private Player playerCs;
-
+    //private PlayerMgr playerCs;
+    public Quaternion gameboardQuaternion;
+    public Vector3  gameboardTransform;
     void Start()
     {
         count = 0;
@@ -58,8 +60,8 @@ public class TouchManager : MonoBehaviour
             gameMap = mapMgr.GetComponent<GameMap>();
             player = GameObject.FindGameObjectWithTag("MINE");
             myPhotonView = player.GetComponent<PhotonView>();
-
-            if (PhotonNetwork.IsMasterClient) 
+       //     playerCs = player.GetComponent<PlayerMgr>();
+            if (PhotonNetwork.IsMasterClient)
             {
                 hostBt.SetActive(true);
             }
@@ -87,18 +89,24 @@ public class TouchManager : MonoBehaviour
             //같이하기 모드인 경우
             if (GameManager.Instance.modeID == 5 && PhotonNetwork.IsMasterClient)
             {
+               
                 //GameBoard 생성
                 gameBoard.SetActive(true);
 
                 //GameBoard 위치 설정
                 gameBoard.transform.position = anchor.transform.position;
+                gameboardTransform = anchor.transform.position;
+                //gameBoardTr.position = anchor.transform.position;//+
                 var rot = Quaternion.LookRotation(cam.transform.position - hit.Pose.position);
                 gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
+                gameboardQuaternion = gameBoard.transform.rotation;
 
                 //GameBoard 생성
-                mapObj = Instantiate(gameMap.map, backGround.transform.position, Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z));
-                mapObj.transform.SetParent(backGround.transform);
-                Debug.Log("앵커 만들어짐 : " + mapObj.transform.position);
+                mapObj = Instantiate(gameMap.map, backGround.transform.position, gameboardQuaternion, backGround.transform);
+                //mapObj.transform.SetParent(backGround.transform);
+                Debug.Log("호스트 앵커 위치 : " + anchor.transform.position);
+                Debug.Log("호스트 게임 보드 위치 : " + gameBoard.transform.position);
+                Debug.Log("호스트 맵 위치 : " + mapObj.transform.position);
 
                 pointImage.SetActive(true);
                 cubeSetting.enabled = true;
@@ -115,23 +123,24 @@ public class TouchManager : MonoBehaviour
     }
     public void OnClickHost_ResoleButton()
     {
-       // playerCs = player.GetComponent<Player>();
+        // playerCs = player.GetComponent<Player>();
         print("호스팅버튼");
-        print("누구냐 넌 : " + PhotonNetwork.IsMasterClient);
+        print("마스터냐 넌 : " + PhotonNetwork.IsMasterClient);
         print("hostingCount : " + hostingCount);
-        print("playerCs.isReceive ///" + Player.isReceive);
+        print("playerCs.isReceive ///" + PlayerMgr.isReceive);
 
         if (PhotonNetwork.IsMasterClient && hostingCount == 0)
         {
+           
             print("호스트클라우드앵커 코루틴 실행");
-            StartCoroutine(HostCloudAnchor(anchor));//코루틴 실행ㅡ
+            StartCoroutine(HostCloudAnchor(anchor));//코루틴 실행
             hostingCount = 1;
         }
-        if (!PhotonNetwork.IsMasterClient && Player.isReceive == true)
+        if (!PhotonNetwork.IsMasterClient && PlayerMgr.isReceive == true)
         {
             print("리졸브클라우드앵커 코루틴 실행");
-            print(Player.cloudID);
-            StartCoroutine(ResolveCloudAnchor(Player.cloudID, anchor));//코루틴 실행ㅡ
+            print(PlayerMgr.cloudID);
+            StartCoroutine(ResolveCloudAnchor(PlayerMgr.cloudID));//코루틴 실행
             print("ID 받았어요");
 
         }
@@ -147,40 +156,54 @@ public class TouchManager : MonoBehaviour
 
         string cloudId = result_AsyncTask.Result.Anchor.CloudId;
         Debug.Log(cloudId);
-        myPhotonView.RPC("SendCloudInfo", RpcTarget.AllBuffered, cloudId);
+        myPhotonView.RPC("SendCloudInfo", RpcTarget.Others, cloudId, gameboardQuaternion, gameboardTransform);
         hostBt.SetActive(false);
-        print(anchor.transform.position);
-        print(gameBoard.transform.position);
+        print("!!!호스트 앵커 위치 :  " + anchor.transform.position);
+        print("호스트 게임보드 위치 :  " + gameBoard.transform.position);
     }
 
-    IEnumerator ResolveCloudAnchor(string cloudID, Anchor anchor)
+    IEnumerator ResolveCloudAnchor(string cloudID)
     {
         Debug.Log("리졸빙 코루틴 들어옴" + cloudID);
         result_AsyncTask = XPSession.ResolveCloudAnchor(cloudID);
         yield return new WaitUntil(() => result_AsyncTask.IsComplete);
+
         Debug.Log("리졸빙 응답 대기중....");
         Debug.Log(result_AsyncTask.Result.Response);
         Debug.Log(result_AsyncTask.Result.Anchor);
         Debug.Log(result_AsyncTask.Result.Anchor.CloudId);
 
-        //GameBoard 생성
+        //GameBoard 위치 설정
+        //gameBoard.transform.position = PlayerMgr.gameboardTransform_;
+        //var rot = Quaternion.LookRotation(cam.transform.position - result_AsyncTask.Result.Anchor.transform.position);
+        //gameBoard.transform.rotation = PlayerMgr.gameboardQuaternion_;
+        //print("!!!!클라이언트가 받은 앵커 위치는 : " + result_AsyncTask.Result.Anchor.transform.position);
+        //print("클라이언트 앵커 위치 :  " + anchor.transform.position);
+        //print("클라이언트 게임보드 위치 :  " + gameBoard.transform.position);
+        ////GameBoard 생성
         gameBoard.SetActive(true);
 
-        //GameBoard 위치 설정
         gameBoard.transform.position = result_AsyncTask.Result.Anchor.transform.position;
-        var rot = Quaternion.LookRotation(cam.transform.position - result_AsyncTask.Result.Anchor.transform.position);
-        gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
+        print("!!!클라이언트가 받은 앵커 위치는 : " + result_AsyncTask.Result.Anchor.transform.position);
+        gameBoard.transform.rotation = PlayerMgr.gameboardQuaternion_;
+        gameBoard.SetActive(true);
+        //var rot = Quaternion.LookRotation(cam.transform.position - anchor.transform.position);
+        //gameBoard.transform.rotation = anchor.transform.rotation;
 
-        mapObj = Instantiate(gameMap.map, backGround.transform.position, Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z));
+        // mapObj = Instantiate(gameMap.map, backGround.transform.position, Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z), backGround.transform);
+        mapObj = Instantiate(gameMap.map, backGround.transform.position, gameBoard.transform.rotation, backGround.transform);
         //mapObj = Instantiate(gameMap.map, result_AsyncTask.Result.Anchor.transform.position, Quaternion.identity);
-        mapObj.transform.SetParent(backGround.transform);
+        //mapObj.transform.SetParent(backGround.transform);
         //mapObj.transform.SetParent(result_AsyncTask.Result.Anchor.transform);
+        print("클라이언트 맵 위치 :  " + mapObj.transform.position);
+
         resolveBt.SetActive(false);
         pointImage.SetActive(true);
         cubeSetting.enabled = true;
         boardSizePanel.SetActive(true);
-        print(result_AsyncTask.Result.Anchor.transform.position);
+
         print($"{result_AsyncTask.Result.Anchor.transform.position} ::: {gameBoard.transform.position}");
+
         if (result_AsyncTask.Result.Anchor.transform.position == gameBoard.transform.position)
         {
             Debug.Log("둘이 똑같다");

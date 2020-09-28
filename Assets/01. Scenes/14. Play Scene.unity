@@ -2472,6 +2472,7 @@ MonoBehaviour:
   cam: {fileID: 1567310691}
   cardBoardSetting: {fileID: 518179426}
   gameBoard: {fileID: 422357301}
+  gameBoardTr: {fileID: 0}
   pointImage: {fileID: 1372865555}
   cubeSetting: {fileID: 223934722}
   gridSizePanel: {fileID: 1182716639}
@@ -8736,7 +8737,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockImg: {fileID: 820282459}
-  sphereCollider: {fileID: 223934724}
   boardSizeSlider: {fileID: 457985319}
 --- !u!1 &227596327
 GameObject:
@@ -78933,6 +78933,7 @@ MonoBehaviour:
   cardBoardSetting: {fileID: 518179426}
   checkBoardMgr: {fileID: 175244743}
   screenShot: {fileID: 37728018}
+  mulCubeFac: {fileID: 0}
 --- !u!1 &2050667145
 GameObject:
   m_ObjectHideFlags: 0

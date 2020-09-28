@@ -6,7 +6,7 @@ using Photon.Pun;
 using Photon.Realtime;
 public class Profile : MonoBehaviourPun
 {
-    Text nameText;
+    public Text nameText;
     public Image img_Ready;
     private bool isReady;
     private int masterArId;
@@ -18,14 +18,26 @@ public class Profile : MonoBehaviourPun
 
         // img_Ready = GetComponentInChildren<Image>();
     }
+    public void Start()
+    {
+        //if (WatingButtonMgr.instance.myPhotonView.IsMine)
+        //{
+        //    gameObject.tag = "MINEPROFILE";
+        //    SetInfo(PhotonNetwork.NickName);
+
+        //}
+       
+    }
+
     public void SetInfo(string nickName)
     {
-        nameText.text = nickName;
+         nameText.text = nickName;
     }
     public void OnClickReady()
     {
         Debug.Log(" OnClickReady");
         WatingButtonMgr.instance.myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, nameText.text, !isReady);
+
     }
 
     public void ChangeReadyState(string nickName, bool ready)

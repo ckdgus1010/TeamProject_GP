@@ -2166,6 +2166,7 @@ MonoBehaviour:
   cam: {fileID: 1567310691}
   cardBoardSetting: {fileID: 0}
   gameBoard: {fileID: 422357301}
+  gameBoardTr: {fileID: 0}
   pointImage: {fileID: 1372865555}
   cubeSetting: {fileID: 223934722}
   gridSizePanel: {fileID: 1182716639}
@@ -2187,6 +2188,8 @@ MonoBehaviour:
   mapMgr: {fileID: 1060709250}
   hostBt: {fileID: 232974612}
   resolveBt: {fileID: 879662708}
+  gameboardQuaternion: {x: 0, y: 0, z: 0, w: 0}
+  gameboardTransform: {x: 0, y: 0, z: 0}
 --- !u!1 &80279580
 GameObject:
   m_ObjectHideFlags: 0
@@ -8109,6 +8112,7 @@ MonoBehaviour:
   guideCube: {fileID: 893801965}
   isGuideOn: 0
   currCube: {fileID: 0}
+  hitObj: {fileID: 0}
 --- !u!54 &223934723
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8151,7 +8155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockImg: {fileID: 820282459}
-  coll: {fileID: 223934724}
   boardSizeSlider: {fileID: 457985319}
 --- !u!1 &227596327
 GameObject:
@@ -36127,7 +36130,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2047759550}
-        m_MethodName: Photon_DeleteCube
+        m_MethodName: DeleteCube
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -41560,7 +41563,7 @@ GameObject:
   - component: {fileID: 1166809293}
   - component: {fileID: 1166809292}
   m_Layer: 8
-  m_Name: Grid (4)
+  m_Name: Grid 3x3 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54738,7 +54741,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2047759550}
-        m_MethodName: Photon_ResetCube
+        m_MethodName: ResetCube
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -74677,6 +74680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2047759549}
   - component: {fileID: 2047759550}
+  - component: {fileID: 2047759551}
   m_Layer: 0
   m_Name: ButtonManager
   m_TagString: Untagged
@@ -74734,6 +74738,31 @@ MonoBehaviour:
   playButtons: {fileID: 432441498}
   cardBoardSetting: {fileID: 518179426}
   checkBoardMgr: {fileID: 175244743}
+  screenShot: {fileID: 0}
+  mulCubeFac: {fileID: 4477412753377175598, guid: 9ac1ef41427491a4693e6615d6c90b1c,
+    type: 3}
+--- !u!114 &2047759551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047759548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2050667145
 GameObject:
   m_ObjectHideFlags: 0

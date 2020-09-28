@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
     //04-2. Alone Stage Select Scene에서 선택한 Stage의 정보
     public int stageID = 0;
 
+    // 같이하기 큐브생성번호 
+    public int cubeNum = 0;
     private void Start()
     {
         //GenerateData();
