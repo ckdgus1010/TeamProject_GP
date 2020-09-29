@@ -4243,7 +4243,6 @@ MonoBehaviour:
   mode03_StageStatusList: 000000000000000000000000000000000000000000000000000000000000000000000000
   modeID: 1000
   stageID: 0
-  cubeNum: 0
 --- !u!4 &1409345558
 Transform:
   m_ObjectHideFlags: 0
@@ -4759,8 +4758,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2047759550}
-        m_MethodName: ConvertGameOption
+      - m_Target: {fileID: 1885743522}
+        m_MethodName: ChangeMainMenuScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

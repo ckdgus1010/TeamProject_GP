@@ -132,7 +132,7 @@ public class SceneChange : MonoBehaviourPunCallbacks
     }
     public override void OnLeftRoom()
     {
-        PhotonNetwork.LoadLevel("11. TogetherModeList");
+        SceneManager.LoadScene("11. TogetherModeList");
         base.OnLeftRoom();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
 

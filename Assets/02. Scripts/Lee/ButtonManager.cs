@@ -55,7 +55,7 @@ public class ButtonManager : MonoBehaviourPun
 
     //같이하기
     public GameObject mulCubeFac;
-
+    private int cubeNum;
     private void Awake()
     {
         instance = this;
@@ -125,6 +125,7 @@ public class ButtonManager : MonoBehaviourPun
         cardBoardSetting.ShowCard();
     }
 
+    #region Cube 생성
     //Cube 생성
     public void MakeCube()
     {
@@ -139,24 +140,32 @@ public class ButtonManager : MonoBehaviourPun
             Debug.Log("ButtonManager MakeCube() ::: 큐브 생성");
         }
     }
+
+    // 같이하기 Cube 생성
     public void Photon_MakeCube()
     {
         if (guideCube.activeSelf)
         {
             // 큐브셋팅에 hitobj.GetChild(0) 가져와
             GameObject hitObj = cubeSetting.hitObj;
-            Debug.Log("난 마스터 : " + hitObj.name);
+            Debug.Log("히트 된 오브젝트 이름 : " + hitObj.name);
             Transform cubePos = hitObj.transform.GetChild(0).transform;
 
+            cubeNum++;
+
+            GameObject cube = Instantiate(mulCubeFac, cubePos.position, gameBoard.transform.rotation, cubeList.transform);
+            list.Add(cube);
+
+            cube.name = PhotonNetwork.NickName + "Cube(" + cubeNum + ")";
+            Debug.Log("생성한  큐브 이름 확인 : " + cube.name);
+            Debug.Log(cubePos.position);
 
             //다른애들도 hitobj.GetChild(0) 찾고 거기에 큐브 생성하라고 명령해
-            photonView.RPC("RpcMakeCube", RpcTarget.AllBuffered, hitObj.name);
+            photonView.RPC("RpcMakeCube", RpcTarget.Others, hitObj.name, PhotonNetwork.NickName, cubeNum);
             print("클라이언트들에게 RpcMakeCube 보냄");
 
         }
-        // 거기에다 생성해
-        //Instantiate(mulCubeFac, cubePos.position, gameBoard.transform.rotation, cubeList.transform);
-        //print("큐브 위치 보여줘 : " + cubePos.position);
+
 
         #region Mr.Gun
         /////////////////////////////////
@@ -186,35 +195,28 @@ public class ButtonManager : MonoBehaviourPun
         #endregion
     }
     [PunRPC]
-    public void RpcMakeCube(string hitObj)
+    public void RpcMakeCube(string hitObj, string otherName, int cubeNum)
     {
-        Debug.Log("난 클라이언트 : " + hitObj);
-        
         GameObject obj = GameObject.Find(hitObj).gameObject;
         Transform cubePos = obj.transform.GetChild(0).transform;
 
-        int cubeNum = GameManager.Instance.cubeNum++;
-      
         GameObject cube = Instantiate(mulCubeFac, cubePos.position, gameBoard.transform.rotation, cubeList.transform);
-
+        list.Add(cube);
         //생성한 CUBE의 isMine을 체크하고 내꺼면 다른 애들 큐브이름을 바꿔
-        cube.name = "Cube(" + cubeNum + ")";
-        Debug.Log( "생성한 큐브 이름 확인 : " + cube.name);
+
+        cube.name = otherName + "Cube(" + cubeNum + ")";
+        Debug.Log("생성한  큐브 이름 확인 : " + cube.name);
         Debug.Log(cubePos.position);
 
-       
-    }
 
-   
+    }
+    #endregion
+
+    #region Cube삭제
+
     //Cube 삭제
     public void DeleteCube()
     {
-        if (GameManager.Instance.modeID == 5 && cubeSetting.currCube != null)
-        {
-            WatingButtonMgr.instance.myPhotonView.RPC("RpcResetCube", RpcTarget.AllBuffered, cubeSetting.currCube);
-            Debug.Log("ButtonManager ::: 큐브 삭제");
-        }
-
         if (GameManager.Instance.modeID != 5 && cubeSetting.currCube != null)
         {
             if (GameManager.Instance.modeID == 3)
@@ -228,31 +230,27 @@ public class ButtonManager : MonoBehaviourPun
             }
         }
     }
-    public void Photon_DeleteCube(GameObject currCube)
+    public void Photon_DeleteCube()
     {
+        Destroy(cubeSetting.currCube);
+        photonView.RPC("RpcDeleteCube", RpcTarget.Others, cubeSetting.currCube.name);
 
-        Destroy(currCube);
         Debug.Log("ButtonManager ::: 큐브 삭제");
+    }
 
-    }
-    //Create Mode 전용 - 다운로드
-    public void DownLoadCube()
+    [PunRPC]
+    public void RpcDeleteCube(string currCubeName)
     {
-        Debug.Log("ButtonManager ::: CreateMode 저장하기");
+        GameObject currCube = GameObject.Find(currCubeName).gameObject;
+        Destroy(currCube);
     }
+    #endregion
+
+    #region Cube 리셋
 
     //Cube 리셋
     public void ResetCube()
     {
-        //같이하기 지우기 
-        if (GameManager.Instance.modeID == 5 && list.Count > 0)
-        {
-            for (int i = 0; i < list.Count; i++)
-            {
-                WatingButtonMgr.instance.myPhotonView.RPC("RpcResetCube", RpcTarget.AllBuffered, list[i]);
-            }
-        }
-
         if (GameManager.Instance.modeID != 5 && list.Count > 0)
         {
             for (int i = 0; i < list.Count; i++)
@@ -271,13 +269,41 @@ public class ButtonManager : MonoBehaviourPun
                 obj.SetActive(true);
             }
         }
-    }
-    public void Photon_ResetCube(int i)
-    {
-        Destroy(list[i].gameObject);
 
+    }
+
+    public void Photon_ResetCube()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            print("Photon_ResetCube클릭");
+            for (int i = 0; i < list.Count; i++)
+            {
+                print("얘들아 큐브 리셋하자 Rpc");
+                //PhotonNetwork.Destroy(list[i].gameObject);
+                photonView.RPC("RpcResetCube", RpcTarget.AllBuffered, (int)list.Count);
+            }
+            list.Clear();
+        }
+
+    }
+
+    [PunRPC]
+    public void RpcResetCube(int listcount)
+    {
+        for (int i = 0; i < listcount; i++)
+        {
+            Destroy(list[i].gameObject);
+        }
         list.Clear();
         Debug.Log("ButtonManager ::: 큐브 리셋");
+    }
+
+    #endregion
+    //Create Mode 전용 - 다운로드
+    public void DownLoadCube()
+    {
+        Debug.Log("ButtonManager ::: CreateMode 저장하기");
     }
 
 

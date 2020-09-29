@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
     public int stageID = 0;
 
     // 같이하기 큐브생성번호 
-    public int cubeNum = 0;
+   
     private void Start()
     {
         //GenerateData();
