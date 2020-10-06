@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 451984}
   - component: {fileID: 3341784}
   - component: {fileID: 2336844}
+  - component: {fileID: 3620472022632585562}
   - component: {fileID: 64156138915029614}
   m_Layer: 0
   m_Name: seagull
@@ -83,6 +84,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3620472022632585562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dce598dddb743448b8900c35502ac9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &64156138915029614
 MeshCollider:
   m_ObjectHideFlags: 0

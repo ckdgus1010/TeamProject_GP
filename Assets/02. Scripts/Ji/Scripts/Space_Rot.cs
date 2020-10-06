@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotTest : MonoBehaviour
+public class Space_Rot : MonoBehaviour
 {
     float a = 1;
 
