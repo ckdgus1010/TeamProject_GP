@@ -10,6 +10,9 @@ public class AnswerManager : MonoBehaviour
     public AnswerData01 answerData01;
     public AnswerData02 answerData02;
     public AnswerData03 answerData03;
+    public AnswerDataEasy answerDataEasy;
+    public AnswerDataNomal answerDataNomal;
+    public AnswerDataHard answerDataHard;
 
     //정답 정보를 가지고 있는 Array ( front = 0, side = 1, top = 2 )
     public List<int>[] answerArray;
@@ -83,6 +86,7 @@ public class AnswerManager : MonoBehaviour
         //modeID에 따라 AnswerData Script에서 정답 가져오기
         int modeID = GameManager.Instance.modeID;
         int stageID = GameManager.Instance.stageID;
+        Debug.Log("정답메니져라고 이자이자이자식아" + GameManager.Instance.modeID + "//" + GameManager.Instance.stageID);
 
         if (modeID == 3)
         {
@@ -98,7 +102,45 @@ public class AnswerManager : MonoBehaviour
                 answerArray[i] = answerData03.ChooseAnswerList(stageID)[i];
             }
         }
+        else if (modeID == 5)
+        {
+            Debug.Log("나는 같이하기 유형이야 ^^;;");
+        }
+        else if (modeID == 6)
+        {
+            Debug.Log("666666666나는 같이하기 Easy 모드야 ^^;;");
+            for (int i = 0; i < answerArray.Length; i++)
+            {
+                answerArray[i] = answerDataEasy.ChooseAnswerList(stageID)[i];
+            }
+        }
+        else if (modeID == 7)
+        {
+            Debug.Log("777777나는 같이하기 Nomal 모드야 ^^;;");
+            for (int i = 0; i < answerArray.Length; i++)
+            {
+                answerArray[i] = answerDataNomal.ChooseAnswerList(stageID)[i];
+            }
+        }
+        else if (modeID == 8)
+        {
+            Debug.Log("88888888나는 같이하기 Hard 모드야 ^^;;");
+            for (int i = 0; i < answerArray.Length; i++)
+            {
+                answerArray[i] = answerDataHard.ChooseAnswerList(stageID)[i];
+            }
+        }
 
+        Debug.Log("넌 디졌어");
+        for (int i = 0; i < answerArray.Length; i++)
+        {
+            for(int j = 0; j < answerArray[i].Count; j++)
+            {
+                Debug.Log($"answerArray[{i}][{j}] ::: {answerArray[i][j]}");
+
+            }
+        }
+        Debug.Log("kcLNAE;ALFHSDL,J"+answerArray.ToString());
         //정답 확인
         CompareLists(playerAnswerArray, answerArray, modeID, stageID);
     }
@@ -146,7 +188,7 @@ public class AnswerManager : MonoBehaviour
         if (count == 3)
         {
             Debug.Log("AnswerManager ::: \n 축하합니다. 정답입니다.");
-            UpdateClearData(_modeID, _stageID);
+            //UpdateClearData(_modeID, _stageID);
             currPanel = oPanel;
         }
         else

@@ -12,7 +12,7 @@ using UnityEngine.SceneManagement;
 
 public enum Levels
 {
-    Easy, Nomal, Hard
+    Easy, Nomal, Hard, none
 }
 public class WatingButtonMgr : MonoBehaviourPunCallbacks
 {
@@ -113,7 +113,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         print("RPC에서 OnClickGameReady 으로 받음 ");
 
         issReady = isReady;
-
+        GameManager.Instance.stageID = 1;
         for (int i = 0; i < proFileList.Count; i++)
         {
             if (WatingButtonMgr.instance.myPhotonView.IsMine)
@@ -130,8 +130,8 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         print("RPC에서 OnClickGameStart 으로 받음 ");
 
         issReady = isReady;
-        if (SelectLevel.instance.levelCilck == true)
-        {
+        //if (SelectLevel.instance.levelCilck == true)
+        //{
             for (int i = 0; i < proFileList.Count; i++)
             {
                 proFileList[i].ChangeReadyState(nickName, isReady);
@@ -140,7 +140,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
             }
 
             PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
-        }
+       // }
 
 
     }
@@ -158,15 +158,14 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
        SceneManager.LoadScene("11. TogetherModeList");
-        base.OnLeftRoom();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
     }
-    public override void OnDisconnected(DisconnectCause cause)
-    {
-        print(System.Reflection.MethodBase.GetCurrentMethod().Name);
-        PhotonNetwork.ConnectUsingSettings();
-    }
+    //public override void OnDisconnected(DisconnectCause cause)
+    //{
+    //    print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+    //    PhotonNetwork.ConnectUsingSettings();
+    //}
    
     //public void AddPlayer(int playerActorNumber)
     //{
@@ -195,8 +194,8 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
     private void AddmapList()
     {
-        mapList2.Add("반짝반짝 모래마을");
-        mapList2.Add("글로브포인트마을");
+        mapList2.Add("반짝모래마을");
+        mapList2.Add("글포마을");
         mapList2.Add("좀비성");
         mapList2.Add("혼돈의 카오스");
         mapList2.Add("올라프 성");

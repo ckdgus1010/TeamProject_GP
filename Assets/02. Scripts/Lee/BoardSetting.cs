@@ -19,27 +19,65 @@ public class BoardSetting : MonoBehaviour
     public Slider gridSizeSlider;
     public GameObject[] gridArray = new GameObject[5];
     private int currGridSize;
-    private GameObject currGrid;
+    public GameObject currGrid;
 
     //Check Board 크기 설정
     public GameObject[] checkBoardArray = new GameObject[5];
     private int currCheckBoardSize;
     private GameObject currCheckBoard;
 
+    public int modeID;
     private void Start()
     {
+
+        modeID = GameManager.Instance.modeID;
         originalBoardScale = gameBoard.transform.localScale;
         originalGuideScale = guideCube.transform.localScale;
 
-        currGrid = gridArray[0];
-        currGridSize = 0;
 
-        currCheckBoard = checkBoardArray[0];
-        currCheckBoardSize = 0;
+        switch (modeID)
+        {
+            case 0:
+                currGrid = gridArray[4];
+                currGridSize = 0;
 
+                currCheckBoard = checkBoardArray[4];
+                currCheckBoardSize = 0;
+                break;
+            case 1:
+                Debug.LogError("BoardSetting ::: modeID 확인 좀...");
+                break;
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                currGrid = gridArray[0];
+                currGridSize = 0;
+
+                currCheckBoard = checkBoardArray[0];
+                currCheckBoardSize = 0;
+                break;
+            case 7:
+                currGrid = gridArray[1];
+                currGridSize = 0;
+
+                currCheckBoard = checkBoardArray[1];
+                currCheckBoardSize = 0;
+                break;
+            case 8:
+                currGrid = gridArray[2];
+                currGridSize = 0;
+
+                currCheckBoard = checkBoardArray[2];
+                currCheckBoardSize = 0;
+                break;
+        }
+
+
+        currGrid.SetActive(true);
+        currCheckBoard.SetActive(true);
         BoardSize();
-        GridSize();
-        CheckBoardSize();
     }
 
     public void BoardSize()

@@ -9,14 +9,13 @@ public class CheckBoardMgr : MonoBehaviour
     public Slider gridSizeSlider;
     public GameObject[] cbArray = new GameObject[5];
     private int num;
-    private GameObject currCB;
+    public GameObject currCB;
 
     private List<int>[] playerAnswerArray = new List<int>[3];
 
     private void Start()
     {
         num = 0;
-        currCB = cbArray[0];
     }
 
     public void CBSize()
@@ -36,8 +35,12 @@ public class CheckBoardMgr : MonoBehaviour
 
     public List<int>[] MakePlayerAnswerArray()
     {
+        currCB = cbArray[(int)gridSizeSlider.value - (int)gridSizeSlider.minValue];
         CBCtrl cbCtrl = currCB.GetComponent<CBCtrl>();
-        playerAnswerArray = cbCtrl.MakePlayerAnswerArray();
+
+        Debug.Log($"currCB = {currCB}");
+        int arraySize = (int)gridSizeSlider.value * (int)gridSizeSlider.value;
+        playerAnswerArray = cbCtrl.MakePlayerAnswerArray(arraySize);
 
         return playerAnswerArray;
     }

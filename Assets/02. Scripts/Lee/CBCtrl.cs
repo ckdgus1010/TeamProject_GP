@@ -8,12 +8,13 @@ using System.Linq;
 public class CBCtrl : MonoBehaviour
 {
     public Slider gridSizeSlider;
-    public AnswerMgr answerMgr;
+    public AnswerManager answerMgr;
 
-    //Debug용 - 삭제해도 무방
     private enum RayDirection { front, side, top };
 
     //RayQuad 모음
+    //배열 선언 시 크기를 정해줘야 해서 가장 작은 값 9를 대입
+    //inspector 창에서 변경할 것
     private RayforCheck[][] rayQuadArray;
     public RayforCheck[] topArray = new RayforCheck[9];
     public RayforCheck[] forwardArray = new RayforCheck[9];
@@ -25,18 +26,17 @@ public class CBCtrl : MonoBehaviour
     private List<int> frontPlayerList = new List<int>();
     private List<int> sidePlayerList = new List<int>();
 
+    private int arraySize;
+
     private void Start()
     {
         rayQuadArray = new RayforCheck[][] { forwardArray, sideArray, topArray };
         playerAnswerArray = new List<int>[3] { frontPlayerList, sidePlayerList, topPlayerList };
     }
 
-    public List<int>[] MakePlayerAnswerArray()
+    public List<int>[] MakePlayerAnswerArray(int arraySize)
     {
-        //int arraySize = (int)gridSizeSlider.value * (int)gridSizeSlider.value;
-        int arraySize = 9;
         Debug.Log($"arraySize ::: {arraySize}");
-
         Check(arraySize);
 
         return playerAnswerArray;
@@ -44,12 +44,17 @@ public class CBCtrl : MonoBehaviour
 
     void Check(int _arraySize)
     {
+        Debug.Log($"1");
+
         for (int i = 0; i < playerAnswerArray.Length; i++)
         {
+            Debug.Log($"2");
             if (playerAnswerArray[i].Count > 0)
             {
                 playerAnswerArray[i].Clear();
             }
+
+        Debug.Log($"3");
 
             //Grid에서 발사한 ray로 player가 놓은 큐브 감지
             for (int j = 0; j < _arraySize; j++)
@@ -61,6 +66,8 @@ public class CBCtrl : MonoBehaviour
                 Debug.Log($"{(RayDirection)i}[{j}] ::: {playerAnswerArray[i][j]}");
             }
         }
+        Debug.Log($"4");
+
     }
 }
 

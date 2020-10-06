@@ -35,27 +35,32 @@ public class TouchManager : MonoBehaviour
     public float depth = 0.5f;
 
     // 같이하기 
+    public GameObject backGround;
     public GameObject beachMap;
     public GameObject mapObj;
-    AsyncTask<CloudAnchorResult> result_AsyncTask;
-    public PhotonView myPhotonView;
-    [HideInInspector] public Anchor anchor;
-    public GameObject backGround;
     public GameObject mapMgr;
     private GameMap gameMap;
+
+    public Quaternion gameboardQuaternion;
+    public Vector3  gameboardTransform;
+
+    public PhotonView myPhotonView;
+
+    [HideInInspector] public Anchor anchor;
+    AsyncTask<CloudAnchorResult> result_AsyncTask;
     private int hostingCount = 0;
+
     public GameObject hostBt;
     public GameObject resolveBt;
     private GameObject player;
-    //private PlayerMgr playerCs;
-    public Quaternion gameboardQuaternion;
-    public Vector3  gameboardTransform;
+
+    public bool resolveFinish;
     void Start()
     {
         count = 0;
 
         //같이하기 모드인 경우
-        if (GameManager.Instance.modeID == 5)
+        if (GameManager.Instance.modeID == 6 || GameManager.Instance.modeID == 7 || GameManager.Instance.modeID == 8 || GameManager.Instance.modeID == 5)
         {
             gameMap = mapMgr.GetComponent<GameMap>();
             player = GameObject.FindGameObjectWithTag("MINE");
@@ -87,7 +92,7 @@ public class TouchManager : MonoBehaviour
         {
             anchor = hit.Trackable.CreateAnchor(hit.Pose);
             //같이하기 모드인 경우
-            if (GameManager.Instance.modeID == 5 && PhotonNetwork.IsMasterClient)
+            if (GameManager.Instance.modeID == 6 || GameManager.Instance.modeID == 7 || GameManager.Instance.modeID == 8 || GameManager.Instance.modeID == 5 && PhotonNetwork.IsMasterClient)
             {
                
                 //GameBoard 생성
@@ -208,6 +213,8 @@ public class TouchManager : MonoBehaviour
         {
             Debug.Log("둘이 똑같다");
         }
+
+        
     }
 
     public void SoloPlay(TrackableHit hit, Anchor anchor)

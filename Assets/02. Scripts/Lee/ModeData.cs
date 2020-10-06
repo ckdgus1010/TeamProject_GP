@@ -16,6 +16,9 @@ public class ModeData : MonoBehaviour
         //modeID = 3 ::: 혼자하기 모드 - 유형2
         //modeID = 4 ::: 혼자하기 모드 - 유형3
         //modeID = 5 ::: 같이하기 모드
+        //modeID = 6 ::: 같이하기 Easy 모드
+        //modeID = 7 ::: 같이하기 Nomal 모드
+        //modeID = 8 ::: 같이하기 Hard 모드
 
         switch(modeID)
         {
@@ -41,6 +44,24 @@ public class ModeData : MonoBehaviour
             case 5:
                 //SceneManager.LoadScene("11. TogetherModeList");
                 break;
+            case 6:
+                //Easy_mode
+                Debug.Log("Easy_mode");
+                break;
+            case 7:
+                //Nomal_mode
+                Debug.Log("Nomal_mode");
+
+                break;
+
+            case 8:
+                //Hard_mode
+                Debug.Log("Hard_mode");
+
+                break;
+
         }
     }
+
+
 }

@@ -232,10 +232,14 @@ public class ButtonManager : MonoBehaviourPun
     }
     public void Photon_DeleteCube()
     {
-        Destroy(cubeSetting.currCube);
-        photonView.RPC("RpcDeleteCube", RpcTarget.Others, cubeSetting.currCube.name);
+        if (cubeSetting.currCube != null)
+        {
+            Destroy(cubeSetting.currCube);
+            photonView.RPC("RpcDeleteCube", RpcTarget.Others, cubeSetting.currCube.name);
 
-        Debug.Log("ButtonManager ::: 큐브 삭제");
+            Debug.Log("ButtonManager ::: 큐브 삭제");
+
+        }
     }
 
     [PunRPC]
@@ -334,6 +338,31 @@ public class ButtonManager : MonoBehaviourPun
         else if (modeID == 4 && list.Count != 0)
         {
             Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
+            playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
+            answerManager.CompareAnswer_Array(playerAnswerArray);
+        }
+        else if (modeID == 5)
+        {
+            Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
+            answerManager.CompareAnswer_Array(playerAnswerArray);
+        }
+        else if (modeID == 6)
+        {
+            Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
+            playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
+            answerManager.CompareAnswer_Array(playerAnswerArray);
+        }
+        else if (modeID == 7)
+        {
+            Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
+            gridSizeSlider.value = 4;          
+            playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
+            answerManager.CompareAnswer_Array(playerAnswerArray);
+        }
+        else if (modeID == 8)
+        {
+            Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
+            gridSizeSlider.value = 5;
             playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
             answerManager.CompareAnswer_Array(playerAnswerArray);
         }

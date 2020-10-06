@@ -18,6 +18,7 @@ public class CardBoardSetting : MonoBehaviour
 
     public GameObject[] modeArray02 = new GameObject[9];
     public GameObject[] modeArray03 = new GameObject[9];
+    public GameObject[] modeArray04 = new GameObject[9];
 
     private void Start()
     {
@@ -54,6 +55,11 @@ public class CardBoardSetting : MonoBehaviour
         else if (modeID == 4)
         {
             currStageCard = modeArray03[stageID - 1];
+            currStageCard.SetActive(true);
+        }
+        else if (modeID == 5)
+        {
+            currStageCard = modeArray04[stageID - 1];
             currStageCard.SetActive(true);
         }
     }

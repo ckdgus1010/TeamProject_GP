@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LobbyMgr : MonoBehaviourPunCallbacks
 {
@@ -151,16 +152,17 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     }
     public void OnClickLeaveLobby()
     {
-        PhotonNetwork.LeaveLobby();
-        
-    }
-    public override void OnLeftLobby()
-    {
+        SceneManager.LoadScene("05. PlayMode");
         PhotonNetwork.Disconnect();
-        PhotonNetwork.LoadLevel("05. PlayMode");
-        base.OnLeftLobby();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        //PhotonNetwork.LeaveLobby();
     }
+    //public override void OnLeftLobby()
+    //{
+    //    SceneManager.LoadScene("05. PlayMode");
+    //    PhotonNetwork.Disconnect();
+    //    print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+    //}
     public override void OnDisconnected(DisconnectCause cause)
     {
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
