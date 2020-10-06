@@ -35,6 +35,7 @@ public class QuestManager : MonoBehaviour
         modeID = GameManager.Instance.modeID;
         stageID = GameManager.Instance.stageID;
 
+        print("QuestMgr :::: "+ modeID + stageID);
         //modeID에 맞는 유형 Stage Array
         //modeID ::: 2 / 혼자하기 유형1
         //modeID ::: 3 / 혼자하기 유형2

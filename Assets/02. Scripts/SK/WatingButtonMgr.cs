@@ -54,22 +54,29 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public int emptyIndex;
     public int playerIndex;
     public Array array;
+
     private void Start()
     {
         instance = this;
+
         proFileList = new List<Profile>();
         mapList2 = new List<string>();
+
+        //플레이어 생성
         player = PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
         myPhotonView = player.GetComponent<PhotonView>();
         playerCs = player.GetComponent<PlayerMgr>();
+
         PhotonNetwork.AutomaticallySyncScene = true;
+
         if (myPhotonView.IsMine)
         {
             player.tag = "MINE";
         }
+
         mapName = GameObject.Find("MapText").GetComponent<Text>();
         AddmapList();
-        mapName.text = mapList2[0];
+        mapName.text = mapList2[0];    
     }
 
 
@@ -93,13 +100,12 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     {
         if (myPhotonView.IsMine && PhotonNetwork.IsMasterClient)
         {
-
-            WatingButtonMgr.instance.myPhotonView.RPC("RpcMasterSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);
+            myPhotonView.RPC("RpcMasterSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);
         }
 
         else
         {
-            WatingButtonMgr.instance.myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);//playerCs.proFileList, PhotonNetwork.NickName, !issReady
+            myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);//playerCs.proFileList, PhotonNetwork.NickName, !issReady
         }
     }
 
@@ -130,19 +136,28 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         print("RPC에서 OnClickGameStart 으로 받음 ");
 
         issReady = isReady;
-        //if (SelectLevel.instance.levelCilck == true)
-        //{
-            for (int i = 0; i < proFileList.Count; i++)
-            {
-                proFileList[i].ChangeReadyState(nickName, isReady);
-                print("RPC에서 ChangeReadyState 으로 보냄 ");
+        
+        for (int i = 0; i < proFileList.Count; i++)
+        {
+            proFileList[i].ChangeReadyState(nickName, isReady);
+            print("RPC에서 ChangeReadyState 으로 보냄 ");
+        }
 
-            }
+        //마스터만 Client들한테 modeID, stageID 넘겨주기
+        if (PhotonNetwork.IsMasterClient)
+        {
+            int modeID = GameManager.Instance.modeID;
+            // 나중에 난수 생성
+            int stageID = UnityEngine.Random.Range(1,10);
+            print(stageID);
+            GameManager.Instance.stageID = stageID;
+            print(" 와팅 와팅 Mgr:::::" + GameManager.Instance.modeID + "//" + modeID + "//" + stageID);
+            myPhotonView.RPC("RpcSetGameData", RpcTarget.Others, modeID, stageID);
 
-            PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
-       // }
+            //Scene 전환
+            //PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
 
-
+        }
     }
 
 
@@ -153,11 +168,11 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         //    PhotonNetwork.SetMasterClient(PhotonNetwork.PlayerList[1]);
         //}
         PhotonNetwork.LeaveRoom();
-       // PhotonNetwork.LoadLevel("11. TogetherModeList");
+        // PhotonNetwork.LoadLevel("11. TogetherModeList");
     }
     public override void OnLeftRoom()
     {
-       SceneManager.LoadScene("11. TogetherModeList");
+        SceneManager.LoadScene("11. TogetherModeList");
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
     }
@@ -166,7 +181,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     //    print(System.Reflection.MethodBase.GetCurrentMethod().Name);
     //    PhotonNetwork.ConnectUsingSettings();
     //}
-   
+
     //public void AddPlayer(int playerActorNumber)
     //{
     //    emptyIndex = Array.IndexOf(playerList, 0);
@@ -180,7 +195,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     //    photonView.RPC("UpdatePlayerList", RpcTarget.All, playerList);
     //}
 
-   
+
     ////플레이어 
     //[PunRPC]
     //void UpdatePlayerList(int[] newPlayerList)

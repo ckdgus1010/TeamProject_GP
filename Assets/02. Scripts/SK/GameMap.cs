@@ -19,7 +19,7 @@ public class GameMap : MonoBehaviour
         touchManager = GetComponent<TouchManager>();
         //map = Instantiate(mapList[WatingButtonMgr.instance.mapCount]);
         map = mapList[WatingButtonMgr.instance.mapCount];
-        map.transform.position = transform.position;
+        //map.transform.position = transform.position;
 
         // 터치매니저에서 클라이언트가 리졸브를 다 받았다면
         // 퀘스트매니저에서 watingmgr에서 mlevel를 확인하고 

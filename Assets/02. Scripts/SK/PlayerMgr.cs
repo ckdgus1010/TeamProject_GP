@@ -8,9 +8,12 @@ public class PlayerMgr : MonoBehaviourPun
 {
     public static string cloudID;
     public static bool isReceive;
+
+    //proFile = 준비 상태 불들어오는거
     //public List<Profile> proFileList;
     public GameObject cubeFac;
     public int myIndexNumber;
+
     public static Quaternion gameboardQuaternion_;
     public static Vector3 gameboardTransform_;
     // public Profile pf;
@@ -21,21 +24,20 @@ public class PlayerMgr : MonoBehaviourPun
     {
         DontDestroyOnLoad(gameObject);
     }
-    // Start is called before the first frame update
+
     void Start()
     {
-
         if (photonView.IsMine)
         {
             photonView.RPC("RpcMakeProfile", RpcTarget.AllBuffered, PhotonNetwork.NickName);
         }
-
 
         //proFileList = new List<Profile>();
         //myphotonView = this.gameObject.GetComponent<PhotonView>();
         //CreatePlayerListUI(PhotonNetwork.NickName);
 
     }
+
     //public void CreatePlayerListUI(string nickName)
     //{
     //    profile = PhotonNetwork.Instantiate("ProFile_ReadtBt", Vector3.zero, Quaternion.identity);
@@ -51,24 +53,25 @@ public class PlayerMgr : MonoBehaviourPun
     //    pf.SetInfo(nickName);
     //    proFileList.Add(pf);
     //}
+
     [PunRPC]
     void RpcMakeProfile(string nickName) //1
     {
         WatingButtonMgr.instance.CreatePlayerListUI(nickName);
     }
+
     //[PunRPC]
     //void RpcSetProfileInfo(string nickName)
     //{
     //    pf.SetInfo(nickName);
 
     //}
+
     [PunRPC]
     void RpcMasterSetReady(string nickName, bool isReady)
     {
         WatingButtonMgr.instance.OnClickGameStart(nickName, isReady);
     }
-
-
 
     [PunRPC]
     void RpcSetReady(string nickName, bool isReady)
@@ -117,6 +120,15 @@ public class PlayerMgr : MonoBehaviourPun
         //isReceiveId = true;
     }
 
+    [PunRPC]
+    public void RpcSetGameData(int _modeID, int _stageID)
+    {
+        GameManager.Instance.modeID = _modeID;
+        GameManager.Instance.stageID = _stageID;
+
+        Debug.Log($"PlayerMgr ::: {PhotonNetwork.IsMasterClient} \n {GameManager.Instance.modeID} // {_modeID} ::: {GameManager.Instance.stageID} // {_stageID}");
+    }
+
     //[PunRPC]
     //public void RpcMakeCube(GameObject hitObj)
     //{
@@ -130,6 +142,7 @@ public class PlayerMgr : MonoBehaviourPun
     //    //GameObject cube = Instantiate(cubeFac, position, rotation);
     //    ButtonManager.instance.Photon_MakeCube(position, rotation);
     //}
+
     /////////큐브만들기
     //[PunRPC]
     //public void RpcResetCube(Vector3 position, Quaternion rotation)
@@ -137,6 +150,7 @@ public class PlayerMgr : MonoBehaviourPun
     //    //GameObject cube = Instantiate(cubeFac, position, rotation);
     //    ButtonManager.instance.Photon_ResetCube(position, rotation);
     //} 
+
     /////////큐브만들기
     //[PunRPC]
     //public void RpcDeleteCube(Vector3 position, Quaternion rotation)

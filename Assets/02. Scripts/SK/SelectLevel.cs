@@ -10,7 +10,7 @@ public class SelectLevel : MonoBehaviour
     public Levels mLevel;
     public SelectLevel[] selectLevels;
     private Image image;
-   // public bool levelCilck;
+    // public bool levelCilck;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,7 @@ public class SelectLevel : MonoBehaviour
         instance = this;
         // if (WatingButtonMgr.instance.curruntLevels == mLevel) SelectColor();
         //else UnSelectColor();
-      //  print(levelCilck);
+        //print(levelCilck);
     }
 
     public void OnClick()
@@ -31,6 +31,7 @@ public class SelectLevel : MonoBehaviour
             return;
         }
 
+        // 마스터만 난이도 선택이 가능하다
         if (PhotonNetwork.IsMasterClient) 
         {
             //SelectColor();
@@ -42,7 +43,6 @@ public class SelectLevel : MonoBehaviour
                     //selectLevels[i].UnSelectColor();
                     WatingButtonMgr.instance.myPhotonView.RPC("RpcUnSelectColor", RpcTarget.AllBuffered, i);
                 }
-
             }
         }
        // levelCilck = true;
