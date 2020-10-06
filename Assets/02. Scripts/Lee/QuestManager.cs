@@ -35,7 +35,6 @@ public class QuestManager : MonoBehaviour
         modeID = GameManager.Instance.modeID;
         stageID = GameManager.Instance.stageID;
 
-        print("QuestMgr :::: "+ modeID + stageID);
         //modeID에 맞는 유형 Stage Array
         //modeID ::: 2 / 혼자하기 유형1
         //modeID ::: 3 / 혼자하기 유형2
@@ -65,7 +64,6 @@ public class QuestManager : MonoBehaviour
             case 7:
             case 8:
                 Debug.Log($"퀘스트 메니져 :: {modeID}");
-                stageID = 1;
                 SelectQuest(modeID - 1, stageID);
                 break;
           
@@ -76,7 +74,9 @@ public class QuestManager : MonoBehaviour
 
     void SelectQuest(int _modeID, int _stageID)
     {
+        Debug.Log($"SelectQuest ::: {_modeID} // {_stageID}");
         questModeArray = questList[_modeID - 2];
+        Debug.Log($"SelectQuest ::: {questList[_modeID - 2]}");
 
         //stageID에 맞는 문제 On
         currStage = questModeArray[_stageID - 1];

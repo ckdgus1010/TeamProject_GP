@@ -33,6 +33,7 @@ public class CheckBoardMgr : MonoBehaviour
         currCB.SetActive(true);
     }
 
+    // 플레이어가 작성한 정답을 가져옴
     public List<int>[] MakePlayerAnswerArray()
     {
         currCB = cbArray[(int)gridSizeSlider.value - (int)gridSizeSlider.minValue];

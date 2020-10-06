@@ -38,6 +38,12 @@ public class AnswerDataHard : MonoBehaviour
             case 7:
                 Stage07();
                 break;
+            case 8:
+                Stage01();
+                break;
+            case 9:
+                Stage02();
+                break;
 
         }
         answerArray = new List<int>[3] { frontAnswerList, sideAnswerList, topAnswerList };

@@ -56,10 +56,14 @@ public class ButtonManager : MonoBehaviourPun
     //같이하기
     public GameObject mulCubeFac;
     private int cubeNum;
+
+    private bool _isCorrect;
+
     private void Awake()
     {
         instance = this;
     }
+
     private void Start()
     {
         if (nickName_Text != null)
@@ -311,7 +315,8 @@ public class ButtonManager : MonoBehaviourPun
     }
 
 
-    //정답 확인
+    //정답 확인 // // Rpc 로 패널 넘기기 
+
     public void CheckAnswer()
     {
         if (cardBoardSetting.isCardBoardOn)
@@ -321,51 +326,63 @@ public class ButtonManager : MonoBehaviourPun
 
         int modeID = GameManager.Instance.modeID;
 
-        //정답 확인 ::: 혼자하기 유형 1
-        if (modeID == 2 && string.IsNullOrEmpty(inputField.text) == false)
+        switch (modeID)
         {
-            int playerAnswer = int.Parse(inputField.text);
-            answerManager.CompareAnswer_Int(playerAnswer);
-        }
-        //정답 확인 ::: 혼자하기 유형 2 / 유형 3
-        else if (modeID == 3)
-        {
-            Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
+            //정답 확인 ::: 혼자하기 유형 1
+            case 2:
+                if (string.IsNullOrEmpty(inputField.text) == false)
+                {
+                    int playerAnswer = int.Parse(inputField.text);
+                    answerManager.CompareAnswer_Int(playerAnswer);
+                }
+                break;
+            //정답 확인 ::: 혼자하기 유형 2 / 유형 3
+            case 3:
+                Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
 
-            playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
-            answerManager.CompareAnswer_Array(playerAnswerArray);
+                playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
+                answerManager.CompareAnswer_Array(playerAnswerArray);
+                break;
+            case 4:
+                if (list.Count != 0)
+                {
+                    Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
+                    playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
+                    answerManager.CompareAnswer_Array(playerAnswerArray);
+                }
+                break;
+            case 5:
+                Debug.Log($"ButtonManager ::: \n {modeID}");
+                break;
+
+            case 6:
+            case 7:
+            case 8:
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    CheckAnswerTogether(modeID);
+                    _isCorrect = answerManager.isCorrect;
+
+                    photonView.RPC("RpcSendAnswerManagerInfo", RpcTarget.Others, _isCorrect, answerManager.isChecked); 
+                }
+                break;
         }
-        else if (modeID == 4 && list.Count != 0)
-        {
-            Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
-            playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
-            answerManager.CompareAnswer_Array(playerAnswerArray);
-        }
-        else if (modeID == 5)
-        {
-            Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
-            answerManager.CompareAnswer_Array(playerAnswerArray);
-        }
-        else if (modeID == 6)
-        {
-            Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
-            playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
-            answerManager.CompareAnswer_Array(playerAnswerArray);
-        }
-        else if (modeID == 7)
-        {
-            Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
-            gridSizeSlider.value = 4;          
-            playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
-            answerManager.CompareAnswer_Array(playerAnswerArray);
-        }
-        else if (modeID == 8)
-        {
-            Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
-            gridSizeSlider.value = 5;
-            playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
-            answerManager.CompareAnswer_Array(playerAnswerArray);
-        }
+    }
+
+    //같이하기 정답체크
+    public void CheckAnswerTogether(int modeID)
+    { 
+        Debug.Log($"ButtonManager ::: \n {modeID} 정답 체크하겠습니다.");
+
+        gridSizeSlider.value = modeID - 3;
+        playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
+        answerManager.CompareAnswer_Array(playerAnswerArray);
+    }
+
+    [PunRPC]
+    public void RpcSendAnswerManagerInfo(bool isCorrect, bool isChecked)
+    {
+        answerManager.SendAnswerManagerInfo(isCorrect, isChecked);
     }
 
     //다음 단계로
@@ -413,8 +430,38 @@ public class ButtonManager : MonoBehaviourPun
         Debug.Log("이어하기 버튼 클릭");
 
         answerManager.isChecked = false;
+        bool isChecked = answerManager.isChecked;
+
+        Debug.Log($"ButtonManager ::: {answerManager.isChecked} // {isChecked}");
+
         answerManager.blurredImage.SetActive(false);
     }
+
+    #region 같이하기 모드
+
+    public void ContinueGame_Together()
+    {
+        //같이하기 모드에서 이어하기
+        //클라이언트들에게 방장이 이어하기 버튼을 눌렀다는 사실을 전달
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("이어하기 버튼 클릭");
+
+            answerManager.isChecked = false;
+            bool isChecked = answerManager.isChecked;
+
+            Debug.Log($"ButtonManager(ContinueGame_Together) ::: {answerManager.isChecked} // {isChecked}");
+            Debug.Log("ButtonManager ::: 방장님 이어하기 버튼 클릭");
+
+            photonView.RPC("RpcSendAnswerManagerInfo", RpcTarget.Others, _isCorrect, isChecked);
+
+            answerManager.blurredImage.SetActive(false);
+        }
+    }
+
+    #endregion
+
+
 
     public void ScreenShot()
     {

@@ -35,11 +35,19 @@ public class AnswerDataNomal : MonoBehaviour
             case 6:
                 Stage06();
                 break;
+            case 7:
+                Stage01();
+                break;
+            case 8:
+                Stage02();
+                break;
+            case 9:
+                Stage03();
+                break;
 
         }
         answerArray = new List<int>[3] { frontAnswerList, sideAnswerList, topAnswerList };
-        Debug.Log("AnswerData_Normal");
-        Debug.Log(frontAnswerList);
+        Debug.Log($"AnswerData_Normal ::: {_stageID}");
         return answerArray;
     }
 

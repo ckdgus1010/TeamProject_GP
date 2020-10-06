@@ -155,7 +155,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
             myPhotonView.RPC("RpcSetGameData", RpcTarget.Others, modeID, stageID);
 
             //Scene 전환
-            //PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
+            PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
 
         }
     }

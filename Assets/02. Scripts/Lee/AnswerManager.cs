@@ -24,6 +24,7 @@ public class AnswerManager : MonoBehaviour
     public GameObject blurredImage;
 
     //정답, 오답 확인 여부
+    public bool isCorrect = false;
     public bool isChecked = false;
     public float lerpSpeed = 10.0f;
 
@@ -134,13 +135,13 @@ public class AnswerManager : MonoBehaviour
         Debug.Log("넌 디졌어");
         for (int i = 0; i < answerArray.Length; i++)
         {
-            for(int j = 0; j < answerArray[i].Count; j++)
+            for (int j = 0; j < answerArray[i].Count; j++)
             {
                 Debug.Log($"answerArray[{i}][{j}] ::: {answerArray[i][j]}");
 
             }
         }
-        Debug.Log("kcLNAE;ALFHSDL,J"+answerArray.ToString());
+        Debug.Log("kcLNAE;ALFHSDL,J" + answerArray.ToString());
         //정답 확인
         CompareLists(playerAnswerArray, answerArray, modeID, stageID);
     }
@@ -154,6 +155,7 @@ public class AnswerManager : MonoBehaviour
         //문제 카드와 일치하면 count += 1, 그렇지 않으면 count += 0
         //count = 3 이면 정답, 아니면 오답
         int count = 0;
+        isCorrect = false;
 
         //위, 앞, 옆 정답 확인
         for (int i = 0; i < _answerArray.Length; i++)
@@ -185,22 +187,36 @@ public class AnswerManager : MonoBehaviour
             }
         }
 
+        OXPanel(count);
+    }
+
+    public void OXPanel(int count)
+    {
         if (count == 3)
         {
             Debug.Log("AnswerManager ::: \n 축하합니다. 정답입니다.");
             //UpdateClearData(_modeID, _stageID);
             currPanel = oPanel;
+
+            isCorrect = true;
         }
         else
         {
             Debug.Log($"AnswerManager ::: \n 틀렸습니다. 다시 생각해보세요.");
             currPanel = xPanel;
+
+            isCorrect = false;
         }
 
         isChecked = true;
         blurredImage.SetActive(true);
     }
 
+    public void SendAnswerManagerInfo(bool isCorrect, bool _isChecked)
+    {
+        currPanel = isCorrect ? oPanel : xPanel;
+        isChecked = _isChecked;
+    }
 
     //Stage Clear 정보를 가지고 있는 GameManager의 stageStateList를 최신화
     void UpdateClearData(int _modeID, int _stageID)
