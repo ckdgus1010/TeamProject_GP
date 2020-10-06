@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjTest : MonoBehaviour
+public class BalloonU_D : MonoBehaviour
 {
     
     float a = 1;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+   
 
     // Update is called once per frame
     void Update()

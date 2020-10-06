@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjTest1 : MonoBehaviour
+public class SharkU_D : MonoBehaviour
 {
     
     float a = 1;
@@ -23,7 +23,7 @@ public class ObjTest1 : MonoBehaviour
             a = -1;
         }
 
-        transform.Translate(Vector3.up * 0.008f * Time.deltaTime * a);
+        transform.Translate(Vector3.up * 0.002f * Time.deltaTime * a);
     }
 
 

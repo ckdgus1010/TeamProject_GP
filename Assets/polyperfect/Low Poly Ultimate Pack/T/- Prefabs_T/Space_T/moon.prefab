@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4000011429259224}
   - component: {fileID: 33000010006225780}
   - component: {fileID: 23000010027299658}
+  - component: {fileID: 5524981278077444227}
   - component: {fileID: 135000010414472808}
   m_Layer: 0
   m_Name: moon
@@ -80,6 +81,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5524981278077444227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013336718754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ac70faf24107549aef2f9f8efb9e96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135000010414472808
 SphereCollider:
   m_ObjectHideFlags: 0
