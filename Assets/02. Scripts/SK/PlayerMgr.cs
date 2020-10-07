@@ -54,6 +54,7 @@ public class PlayerMgr : MonoBehaviourPun
     //    proFileList.Add(pf);
     //}
 
+    // 프로필 만들기
     [PunRPC]
     void RpcMakeProfile(string nickName) //1
     {
@@ -67,12 +68,14 @@ public class PlayerMgr : MonoBehaviourPun
 
     //}
 
+    // 마스터가 게임 시작 버튼 눌렀을때 
     [PunRPC]
     void RpcMasterSetReady(string nickName, bool isReady)
     {
         WatingButtonMgr.instance.OnClickGameStart(nickName, isReady);
     }
 
+    // 클라이언트 일때 프로필 준비버튼 색 바꾸는 함수
     [PunRPC]
     void RpcSetReady(string nickName, bool isReady)
     {
@@ -81,18 +84,21 @@ public class PlayerMgr : MonoBehaviourPun
         print("RPC에서 OnClickGameReady 으로 보냄 ");
     }
 
+    // 마스터가 바꾸는 맵정보 띄우기  >>
     [PunRPC]
     void RpcNextMapText(int map_Count)
     {
         WatingButtonMgr.instance.ChangeMapText(map_Count);
     }
 
+    // 마스터가 바꾸는 맵정보 띄우기 <<
     [PunRPC]
     void RpcBackMapText(int map_Count)
     {
         WatingButtonMgr.instance.ChangeMapText(map_Count);
     }
 
+    // 마스터가 설정한 게임 난이도 넘기기 , 색 띄우기 
     [PunRPC]
     void RpcSendLevel(Levels mLevel, int i)
     {
@@ -101,12 +107,14 @@ public class PlayerMgr : MonoBehaviourPun
         SelectLevel.instance.selectLevels[i].SelectColor();
     }
 
+    //선택되지 않은 난이도 색 끄기
     [PunRPC]
     void RpcUnSelectColor(int i)
     {
         SelectLevel.instance.selectLevels[i].UnSelectColor();
     }
 
+    // 마스터가 올린 클라우드 앵커아이디 클라이언트는 받기 
     [PunRPC]
     public void SendCloudInfo(string cloudId, Quaternion gameboardQuaternion, Vector3 gameboardTransform)
     {
@@ -120,6 +128,7 @@ public class PlayerMgr : MonoBehaviourPun
         //isReceiveId = true;
     }
 
+    // 마스터가 설정한 설정한 난이도와 스테이지 클라이언트들에게 넘기기 
     [PunRPC]
     public void RpcSetGameData(int _modeID, int _stageID)
     {

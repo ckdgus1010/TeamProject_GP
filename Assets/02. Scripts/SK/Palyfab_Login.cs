@@ -20,11 +20,23 @@ public class Palyfab_Login : MonoBehaviour
     public static string myPlayfabInfo;
 
     public GameObject loadingPanel;
+
+    private float timer = 0;
+    private bool isLoginTried = false;
+
     //TitleId를 세팅
     void Start()
     {
         PlayFabSettings.TitleId = "90ED5";
         noteText = notePanel.GetComponentInChildren<Text>();
+    }
+
+    private void Update()
+    {
+        if (isLoginTried == true)
+        {
+            timer += Time.deltaTime;
+        }
     }
 
     //InputField의 Value값이 변경되면 해당함수를 실행
@@ -47,11 +59,13 @@ public class Palyfab_Login : MonoBehaviour
     #region 로그인
     public void Login()
     {
+        isLoginTried = true;
         // 다음의 로그인 정보를 가지고 로그인한다. 
-        var request = new LoginWithPlayFabRequest { Username = username, Password = password };
+        //var request = new LoginWithPlayFabRequest { Username = username, Password = password };
+        var request = new LoginWithEmailAddressRequest { Email = Email_Input.text, Password = PW_Input.text };
         //PlayFab 서버로 로그인
-        myPlayfabInfo = request.Username;
-        PlayFabClientAPI.LoginWithPlayFab(request, OnLoginSuccess, OnLoginFailure);
+        //myPlayfabInfo = request.Username;
+        PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnLoginFailure);
         //loadingPanel.SetActive(true);
        
     //    var request2 = new UpdateUserTitleDisplayNameRequest { DisplayName = username };
@@ -75,6 +89,8 @@ public class Palyfab_Login : MonoBehaviour
     private void OnLoginSuccess(LoginResult result)
     {
         Debug.Log("로그인 성공");
+        Debug.Log(timer);
+        isLoginTried = false;
         SceneManager.LoadScene("04. MainMenu");
     }
 

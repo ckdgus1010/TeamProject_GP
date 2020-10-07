@@ -97,7 +97,7 @@ public class AnswerDataNomal : MonoBehaviour
                                         , 1, 0, 1, 0
                                         , 1, 1, 1, 1 };
 
-        sideAnswerList = new List<int>  { 0, 0, 0, 1
+        sideAnswerList = new List<int>  { 0, 0, 0, 0
                                         , 0, 0, 0, 1
                                         , 1, 1, 0, 1
                                         , 1, 1, 1, 1 };

@@ -383,10 +383,11 @@ public class ButtonManager : MonoBehaviourPun
     public void RpcSendAnswerManagerInfo(bool isCorrect, bool isChecked)
     {
         answerManager.SendAnswerManagerInfo(isCorrect, isChecked);
+        cardBoardSetting.isCardBoardOn = false;
     }
 
     //다음 단계로
-    public void NextLevel()
+    public void NextLevel()    
     {
         Debug.Log("다음 단계로 버튼 클릭");
 
@@ -398,6 +399,7 @@ public class ButtonManager : MonoBehaviourPun
         {
             questManager.ChangeQuset();
             cardBoardSetting.ChangeCard();
+
         }
         else
         {
@@ -408,6 +410,26 @@ public class ButtonManager : MonoBehaviourPun
         }
     }
 
+    //마스터만 다음 레벨 버튼 누를 수 있음
+    public void NextLevel_Together()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            //쌓여있는 큐브 리셋하기
+            Photon_ResetCube();
+            photonView.RPC("RpcChangeQuest_Card", RpcTarget.AllBuffered);
+        }
+    }
+
+    [PunRPC]
+    public void RpcChangeQuest_Card()
+    {
+        questManager.ChangeQuset();
+        cardBoardSetting.ChangeCard();
+        answerManager.isChecked = false;
+        cardBoardSetting.isCardBoardOn = false;
+        answerManager.blurredImage.SetActive(false);
+    }
     public void RetryAloneMode()
     {
         Debug.Log("다시하기 버튼 클릭");
@@ -458,10 +480,7 @@ public class ButtonManager : MonoBehaviourPun
             answerManager.blurredImage.SetActive(false);
         }
     }
-
     #endregion
-
-
 
     public void ScreenShot()
     {

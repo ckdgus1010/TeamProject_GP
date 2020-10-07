@@ -121,7 +121,7 @@ public class SceneChange : MonoBehaviourPunCallbacks
                 
                 break;
         }
-    }
+    }   
     public void OnClickLeaveRoom()
     {
         //if (PhotonNetwork.IsMasterClient)
@@ -133,7 +133,7 @@ public class SceneChange : MonoBehaviourPunCallbacks
     }
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene("11. TogetherModeList");
+        PhotonNetwork.LoadLevel("11. TogetherModeList");
         base.OnLeftRoom();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
