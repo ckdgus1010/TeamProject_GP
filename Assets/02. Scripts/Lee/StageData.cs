@@ -19,7 +19,8 @@ public class StageData : MonoBehaviour
         status = (int)stageStateList[stageID - 1];
 
         Image img = GetComponent<Image>();
-        img.color = GameManager.Instance.buttonColor[status];
+        //img.color = GameManager.Instance.buttonColor[status];
+        img.sprite = GameManager.Instance.buttonImageArray[status];
     }
 
     public void ConvertScene()

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class AnswerManager : MonoBehaviour
 {
     //정답 정보를 가지고 있는 Script
+    [Header("정답 데이터")]
     public AnswerData01 answerData01;
     public AnswerData02 answerData02;
     public AnswerData03 answerData03;
@@ -15,10 +16,11 @@ public class AnswerManager : MonoBehaviour
     public AnswerDataHard answerDataHard;
 
     //정답 정보를 가지고 있는 Array ( front = 0, side = 1, top = 2 )
-    public List<int>[] answerArray;
+    public List<int>[] answerArray = new List<int>[3];
     private enum CardDirection { front, side, top };
 
     //정답, 오답 패널
+    [Header("정답, 오답 패널")]
     public RectTransform oPanel;
     public RectTransform xPanel;
     public GameObject blurredImage;
@@ -37,14 +39,12 @@ public class AnswerManager : MonoBehaviour
 
     private void Start()
     {
-        answerArray = new List<int>[3];
-
         currPanel = null;
-        Debug.Log($"AnswerManager ::: \n answerArray.Length // {answerArray.Length}");
     }
 
     private void Update()
     {
+        //정답, 오답 팝업창 이동
         if (currPanel != null)
         {
             RectTransform posSP = isChecked ? endPos : startPos;
@@ -88,52 +88,95 @@ public class AnswerManager : MonoBehaviour
         //modeID에 따라 AnswerData Script에서 정답 가져오기
         int modeID = GameManager.Instance.modeID;
         int stageID = GameManager.Instance.stageID;
-        Debug.Log("정답메니져라고 이자이자이자식아" + GameManager.Instance.modeID + "//" + GameManager.Instance.stageID);
+        Debug.Log($"AnswerManager ::: \n GameManager.Instance.modeID // GameManager.Instance.stageID :: {GameManager.Instance.modeID} //{GameManager.Instance.stageID}");
 
-        if (modeID == 3)
+        switch(modeID)
         {
-            for (int i = 0; i < answerArray.Length; i++)
-            {
-                answerArray[i] = answerData02.ChooseAnswerList(stageID)[i];
-            }
-        }
-        else if (modeID == 4)
-        {
-            for (int i = 0; i < answerArray.Length; i++)
-            {
-                answerArray[i] = answerData03.ChooseAnswerList(stageID)[i];
-            }
-        }
-        else if (modeID == 5)
-        {
-            Debug.Log("나는 같이하기 유형이야 ^^;;");
-        }
-        else if (modeID == 6)
-        {
-            Debug.Log("666666666나는 같이하기 Easy 모드야 ^^;;");
-            for (int i = 0; i < answerArray.Length; i++)
-            {
-                answerArray[i] = answerDataEasy.ChooseAnswerList(stageID)[i];
-            }
-        }
-        else if (modeID == 7)
-        {
-            Debug.Log("777777나는 같이하기 Nomal 모드야 ^^;;");
-            for (int i = 0; i < answerArray.Length; i++)
-            {
-                answerArray[i] = answerDataNomal.ChooseAnswerList(stageID)[i];
-            }
-        }
-        else if (modeID == 8)
-        {
-            Debug.Log("88888888나는 같이하기 Hard 모드야 ^^;;");
-            for (int i = 0; i < answerArray.Length; i++)
-            {
-                answerArray[i] = answerDataHard.ChooseAnswerList(stageID)[i];
-            }
+            case 3:
+                for (int i = 0; i < answerArray.Length; i++)
+                {
+                    answerArray[i] = answerData02.ChooseAnswerList(stageID)[i];
+                }
+                break;
+            case 4:
+                for (int i = 0; i < answerArray.Length; i++)
+                {
+                    answerArray[i] = answerData03.ChooseAnswerList(stageID)[i];
+                }
+                break;
+            case 5:
+                Debug.Log($"AnswerManager ::: CompareAnswer_Array // modeID = 5, 잘못 들어옴");
+                break;
+            case 6:
+                Debug.Log("666666666나는 같이하기 Easy 모드야 ^^;;");
+                for (int i = 0; i < answerArray.Length; i++)
+                {
+                    answerArray[i] = answerDataEasy.ChooseAnswerList(stageID)[i];
+                }
+                break;
+            case 7:
+                Debug.Log("777777나는 같이하기 Nomal 모드야 ^^;;");
+                for (int i = 0; i < answerArray.Length; i++)
+                {
+                    answerArray[i] = answerDataNomal.ChooseAnswerList(stageID)[i];
+                }
+                break;
+            case 8:
+                Debug.Log("88888888나는 같이하기 Hard 모드야 ^^;;");
+                for (int i = 0; i < answerArray.Length; i++)
+                {
+                    answerArray[i] = answerDataHard.ChooseAnswerList(stageID)[i];
+                }
+                break;
         }
 
-        Debug.Log("넌 디졌어");
+        #region 수정 전 답안 가져오기 코드
+        //if (modeID == 3)
+        //{
+        //    for (int i = 0; i < answerArray.Length; i++)
+        //    {
+        //        answerArray[i] = answerData02.ChooseAnswerList(stageID)[i];
+        //    }
+        //}
+        //else if (modeID == 4)
+        //{
+        //    for (int i = 0; i < answerArray.Length; i++)
+        //    {
+        //        answerArray[i] = answerData03.ChooseAnswerList(stageID)[i];
+        //    }
+        //}
+        //else if (modeID == 5)
+        //{
+        //    Debug.Log("나는 같이하기 유형이야 ^^;;");
+        //}
+        //else if (modeID == 6)
+        //{
+        //    Debug.Log("666666666나는 같이하기 Easy 모드야 ^^;;");
+        //    for (int i = 0; i < answerArray.Length; i++)
+        //    {
+        //        answerArray[i] = answerDataEasy.ChooseAnswerList(stageID)[i];
+        //    }
+        //}
+        //else if (modeID == 7)
+        //{
+        //    Debug.Log("777777나는 같이하기 Nomal 모드야 ^^;;");
+        //    for (int i = 0; i < answerArray.Length; i++)
+        //    {
+        //        answerArray[i] = answerDataNomal.ChooseAnswerList(stageID)[i];
+        //    }
+        //}
+        //else if (modeID == 8)
+        //{
+        //    Debug.Log("88888888나는 같이하기 Hard 모드야 ^^;;");
+        //    for (int i = 0; i < answerArray.Length; i++)
+        //    {
+        //        answerArray[i] = answerDataHard.ChooseAnswerList(stageID)[i];
+        //    }
+        //}
+
+        #endregion
+
+        Debug.Log("AnswerManager ::: 정답 정보 가져옴");
         for (int i = 0; i < answerArray.Length; i++)
         {
             for (int j = 0; j < answerArray[i].Count; j++)
@@ -142,7 +185,7 @@ public class AnswerManager : MonoBehaviour
 
             }
         }
-        Debug.Log("kcLNAE;ALFHSDL,J" + answerArray.ToString());
+
         //정답 확인
         CompareLists(playerAnswerArray, answerArray, modeID, stageID);
     }
@@ -188,19 +231,37 @@ public class AnswerManager : MonoBehaviour
             }
         }
 
-        OXPanel(count);
+        OXPanel(_modeID, _stageID, count);
     }
 
-    public void OXPanel(int count)
+    public void OXPanel(int modeID, int stageID, int count)
     {
         if (count == 3)
         {
             Debug.Log("AnswerManager ::: \n 축하합니다. 정답입니다.");
-            //UpdateClearData(_modeID, _stageID);
             currPanel = oPanel;
 
-
             isCorrect = true;
+
+            //혼자하기 모드의 경우 스테이지 클리어 데이터 업데이트
+            switch (modeID)
+            {
+                case 0:
+                case 1:
+                case 5:
+                    Debug.Log($"AnswerManager ::: OXPanel() // modeID 오류 {modeID}");
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    UpdateClearData(modeID, stageID);
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    Debug.Log("AnswerManager ::: OXPanel() // 같이하기 모드 정답입니다.");
+                    break;
+            }
         }
         else
         {
@@ -220,6 +281,8 @@ public class AnswerManager : MonoBehaviour
 
         isChecked = _isChecked;
     }
+
+    //----------------------------------------------------------------------------------------------------
 
     //Stage Clear 정보를 가지고 있는 GameManager의 stageStateList를 최신화
     void UpdateClearData(int _modeID, int _stageID)

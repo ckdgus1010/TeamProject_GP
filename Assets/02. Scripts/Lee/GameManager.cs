@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -52,8 +53,11 @@ public class GameManager : MonoBehaviour
     //혼자하기 모드 유형별 진행 상황
     public List<StageState> stageStateList;
 
-    //혼자하기 모드 스테이지 상태
+    //혼자하기 모드 스테이지 상태 - 색깔
     public Color[] buttonColor = new Color[3];
+
+    //혼자히기 모드 스테이지 상태 - 그림
+    public Sprite[] buttonImageArray = new Sprite[3];
 
     //혼자하기 모드 유형별 저장된 진행 상황
     public List<StageState>[] stageStateArray;
@@ -67,7 +71,8 @@ public class GameManager : MonoBehaviour
     //04-2. Alone Stage Select Scene에서 선택한 Stage의 정보
     public int stageID = 0;
 
-    // 같이하기 큐브생성번호 
+    // 같이하기 모드 방장을 한 횟수
+    public int masterCount = 0;
    
     private void Start()
     {
@@ -89,6 +94,8 @@ public class GameManager : MonoBehaviour
 
         modeID = 1000;
         stageID = 0;
+
+        masterCount = 0;
     }
 
     void MakeDefaultList(List<StageState> list)

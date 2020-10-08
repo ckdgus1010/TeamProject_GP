@@ -96,12 +96,14 @@ public class QuestManager : MonoBehaviour
             case 2:
             case 3:
             case 4:
+                Debug.Log($"QuestManager ::: ChangeQuest() // {GameManager.Instance.modeID}0{stageID}");
                 GameManager.Instance.stageID += 1;
 
                 break;
             case 6:
             case 7:
             case 8:
+                Debug.Log($"QuestManager ::: ChangeQuest() // {GameManager.Instance.modeID}0{stageID}");
                 GameManager.Instance.stageID = stageID;
                 break;
 
