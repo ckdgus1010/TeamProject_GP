@@ -9,6 +9,7 @@ using System;
 using Photon.Pun.UtilityScripts;
 //using WebSocketSharp;
 using UnityEngine.SceneManagement;
+using UnityEngine.Assertions.Must;
 
 public enum Levels
 {
@@ -41,6 +42,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     List<Profile> proFileList;
     List<string> mapList2;
     private Text mapName;
+    public Text gameStart_Ready;
 
     private GameObject player;
     private PlayerMgr playerCs;
@@ -76,7 +78,17 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
         mapName = GameObject.Find("MapText").GetComponent<Text>();
         AddmapList();
-        mapName.text = mapList2[0];    
+        mapName.text = mapList2[0];
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            gameStart_Ready.text = "Game Start";
+        }
+
+        else
+        {
+            gameStart_Ready.text = "Ready";
+        }
     }
 
 
@@ -90,6 +102,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         if (player.tag == "MINE")
         {
             profile.tag = "MINEPROFILE";
+            
         }
         Profile pf = profile.GetComponent<Profile>();
         pf.SetInfo(nickName);

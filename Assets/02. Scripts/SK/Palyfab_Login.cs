@@ -83,7 +83,7 @@ public class Palyfab_Login : MonoBehaviour
         var request = new LoginWithPlayFabRequest { Username = ID_Input.text, Password = PW_Input.text};
         //var request = new LoginWithEmailAddressRequest { Email = Email_InputField.text, Password = PW_Input.text };
         //PlayFab 서버로 로그인
-        //myPlayfabInfo = request.Username;
+        myPlayfabInfo = request.Username;
         PlayFabClientAPI.LoginWithPlayFab(request, OnLoginSuccess, OnLoginFailure);
         //loadingPanel.SetActive(true);
        

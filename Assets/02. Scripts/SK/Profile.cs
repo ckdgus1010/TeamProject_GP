@@ -10,7 +10,9 @@ public class Profile : MonoBehaviourPun
     public Image img_Ready;
     private bool isReady;
     private int masterArId;
-
+    public GameObject masterMark;
+    public GameObject clientMark;
+    public GameObject mineMark;
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,7 +33,25 @@ public class Profile : MonoBehaviourPun
 
     public void SetInfo(string nickName)
     {
-         nameText.text = nickName;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            masterMark.SetActive(true);
+            nameText.text = nickName;
+            //print(nameText.text);
+            if (photonView.IsMine)
+            {
+                mineMark.SetActive(true);
+            }
+        }
+        else
+        {
+           clientMark.SetActive(true);
+           nameText.text = nickName;
+            if (photonView.IsMine)
+            {
+                mineMark.SetActive(true);
+            }
+        }
     }
     public void OnClickReady()
     {

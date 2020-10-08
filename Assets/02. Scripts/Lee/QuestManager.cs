@@ -84,11 +84,30 @@ public class QuestManager : MonoBehaviour
         Debug.Log($"QuestManager ::: \n currStage // {currStage.name}");
     }
 
-    public void ChangeQuset()
+    public void ChangeQuset(int stageID)
     {
+        switch (GameManager.Instance.modeID)
+        {
+            case 0: 
+            case 1: 
+            case 5:
+                Debug.LogError("QuestMgr :: modeID를 체크하세요");
+                break;
+            case 2:
+            case 3:
+            case 4:
+                GameManager.Instance.stageID += 1;
+
+                break;
+            case 6:
+            case 7:
+            case 8:
+                GameManager.Instance.stageID = stageID;
+                break;
+
+        }
         currStage.SetActive(false);
 
-        GameManager.Instance.stageID += 1;
         currStage = questModeArray[GameManager.Instance.stageID - 1];
         currStage.SetActive(true);
         Debug.Log($"QuestManager ::: \n currStage is changed // {currStage.name}");

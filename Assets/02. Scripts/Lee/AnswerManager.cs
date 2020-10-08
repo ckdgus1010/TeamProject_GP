@@ -34,6 +34,7 @@ public class AnswerManager : MonoBehaviour
     public RectTransform startPos;
     public RectTransform endPos;
 
+
     private void Start()
     {
         answerArray = new List<int>[3];
@@ -198,6 +199,7 @@ public class AnswerManager : MonoBehaviour
             //UpdateClearData(_modeID, _stageID);
             currPanel = oPanel;
 
+
             isCorrect = true;
         }
         else
@@ -215,6 +217,7 @@ public class AnswerManager : MonoBehaviour
     public void SendAnswerManagerInfo(bool isCorrect, bool _isChecked)
     {
         currPanel = isCorrect ? oPanel : xPanel;
+
         isChecked = _isChecked;
     }
 
