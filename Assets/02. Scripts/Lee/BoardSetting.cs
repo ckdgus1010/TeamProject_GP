@@ -38,10 +38,10 @@ public class BoardSetting : MonoBehaviour
         switch (modeID)
         {
             case 0:
-                currGrid = gridArray[4];
+                currGrid = gridArray[2];
                 currGridSize = 0;
 
-                currCheckBoard = checkBoardArray[4];
+                currCheckBoard = checkBoardArray[2];
                 currCheckBoardSize = 0;
                 break;
             case 1:

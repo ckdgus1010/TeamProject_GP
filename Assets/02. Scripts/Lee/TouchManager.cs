@@ -282,6 +282,7 @@ public class TouchManager : MonoBehaviour
         boardSizePanel.SetActive(true);
         cardButton.SetActive(true);
         checkingButton.SetActive(true);
+        blockImg.SetActive(false);
     }
     public void SetOrigin()
     {
