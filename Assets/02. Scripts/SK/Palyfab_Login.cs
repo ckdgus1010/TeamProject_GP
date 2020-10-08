@@ -5,14 +5,19 @@ using UnityEngine.UI;
 using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 public class Palyfab_Login : MonoBehaviour
 {
     public InputField ID_Input;
     public InputField PW_Input;
-    public InputField Email_Input;
+    public GameObject Email_Input;
+    public InputField Email_InputField;
 
     public GameObject notePanel;
+
     Text noteText;
+ 
     private string username;
     private string password;
     private string email;
@@ -20,15 +25,27 @@ public class Palyfab_Login : MonoBehaviour
     public static string myPlayfabInfo;
 
     public GameObject loadingPanel;
+    public GameObject signInImage;
+    public GameObject signUpImage;
+    public GameObject email_Active_Image;
 
     private float timer = 0;
     private bool isLoginTried = false;
+    private bool isSignUpCount;
+
+    private Animator id_Animator;
+    private Animator pw_Animator;
 
     //TitleId를 세팅
     void Start()
     {
         PlayFabSettings.TitleId = "90ED5";
         noteText = notePanel.GetComponentInChildren<Text>();
+
+        id_Animator = ID_Input.GetComponent<Animator>();
+        pw_Animator = PW_Input.GetComponent<Animator>();
+
+        Email_InputField = Email_Input.GetComponent<InputField>();
     }
 
     private void Update()
@@ -39,6 +56,7 @@ public class Palyfab_Login : MonoBehaviour
         }
     }
 
+    #region Inputfiled
     //InputField의 Value값이 변경되면 해당함수를 실행
     public void ID_value_Changed()
     {
@@ -52,20 +70,21 @@ public class Palyfab_Login : MonoBehaviour
 
     public void Email_value_Changed()
     {
-        email = Email_Input.text.ToString();
+        email = Email_InputField.text.ToString();
     }
 
+# endregion
 
     #region 로그인
     public void Login()
     {
         isLoginTried = true;
         // 다음의 로그인 정보를 가지고 로그인한다. 
-        //var request = new LoginWithPlayFabRequest { Username = username, Password = password };
-        var request = new LoginWithEmailAddressRequest { Email = Email_Input.text, Password = PW_Input.text };
+        var request = new LoginWithPlayFabRequest { Username = ID_Input.text, Password = PW_Input.text};
+        //var request = new LoginWithEmailAddressRequest { Email = Email_InputField.text, Password = PW_Input.text };
         //PlayFab 서버로 로그인
         //myPlayfabInfo = request.Username;
-        PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnLoginFailure);
+        PlayFabClientAPI.LoginWithPlayFab(request, OnLoginSuccess, OnLoginFailure);
         //loadingPanel.SetActive(true);
        
     //    var request2 = new UpdateUserTitleDisplayNameRequest { DisplayName = username };
@@ -131,7 +150,34 @@ public class Palyfab_Login : MonoBehaviour
     //RequireBothUsernameAndEmail = false로 설정하면 아이디 (Username) 하나만 받는다.
     #endregion
 
+    public void OnClickSignInButton()
+    {
+        if (isSignUpCount == false)
+        {
+            return;
+        }
+        signInImage.SetActive(true);
+        signUpImage.SetActive(false);
+        id_Animator.SetBool("SignUP_ID", false);
+        id_Animator.SetBool("SignIn_ID", true);
+        pw_Animator.SetBool("SignUP_PW", false);
+        pw_Animator.SetBool("SignIn_PW", true);
+        Email_Input.SetActive(false);
+        email_Active_Image.SetActive(false);
+    }
 
+    public void OnClickSignUpButton()
+    {
+        signInImage.SetActive(false);
+        signUpImage.SetActive(true);
+        id_Animator.SetBool("SignUP_ID", true);
+        id_Animator.SetBool("SignIn_ID", false);
+        pw_Animator.SetBool("SignUP_PW", true);
+        pw_Animator.SetBool("SignIn_PW", false);
+        Email_Input.SetActive(true);
+        email_Active_Image.SetActive(true);
+        isSignUpCount = true;
+    }
     public void OnCilck_XBt()
     {
         notePanel.SetActive(false);
