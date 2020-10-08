@@ -89,21 +89,20 @@ public class QuestManager : MonoBehaviour
         switch (GameManager.Instance.modeID)
         {
             case 0: 
-            case 1: 
+            case 1:
             case 5:
                 Debug.LogError("QuestMgr :: modeID를 체크하세요");
                 break;
             case 2:
             case 3:
             case 4:
-                Debug.Log($"QuestManager ::: ChangeQuest() // {GameManager.Instance.modeID}0{stageID}");
+                Debug.Log($"QuestManager ::: ChangeQuest() // 혼자하기 모드 {GameManager.Instance.modeID}0{stageID}");
                 GameManager.Instance.stageID += 1;
-
                 break;
             case 6:
             case 7:
             case 8:
-                Debug.Log($"QuestManager ::: ChangeQuest() // {GameManager.Instance.modeID}0{stageID}");
+                Debug.Log($"QuestManager ::: ChangeQuest() // 같이하기 모드 {GameManager.Instance.modeID}0{stageID}");
                 GameManager.Instance.stageID = stageID;
                 break;
 

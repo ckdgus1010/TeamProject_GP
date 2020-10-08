@@ -276,7 +276,7 @@ public class ButtonManager : MonoBehaviourPun
         //다음 문제 내기
         if (GameManager.Instance.stageID < GameManager.Instance.stageStateList.Count)
         {
-            //questManager.ChangeQuset();
+            questManager.ChangeQuset(GameManager.Instance.stageID);
             cardBoardSetting.ChangeCard();
 
         }

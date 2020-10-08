@@ -57,6 +57,7 @@ public class TouchManager : MonoBehaviour
     public MultyScreenMgr multyScreenMgr;
     public bool ishostFinish;
     public bool isresolveFinish =false;
+
     void Start()
     {
         count = 0;
@@ -139,6 +140,10 @@ public class TouchManager : MonoBehaviour
         
       
     }
+
+
+
+    #region OnClickHost_ResoleButton() // 주석 처리
     //public void OnClickHost_ResoleButton()
     //{
     //    // playerCs = player.GetComponent<Player>();
@@ -149,10 +154,10 @@ public class TouchManager : MonoBehaviour
 
     //    if (PhotonNetwork.IsMasterClient && hostingCount == 0)
     //    {
-           
+
     //        print("호스트클라우드앵커 코루틴 실행");
     //        StartCoroutine(HostCloudAnchor(anchor));//코루틴 실행
-            
+
     //    }
     //    if (!PhotonNetwork.IsMasterClient && PlayerMgr.isReceive == true)
     //    {
@@ -213,7 +218,7 @@ public class TouchManager : MonoBehaviour
     //    cubeSetting.enabled = true;
     //    boardSizePanel.SetActive(true);
 
-        
+
 
     //    print($"{result_AsyncTask.Result.Anchor.transform.position} ::: {gameBoard.transform.position}");
 
@@ -222,7 +227,7 @@ public class TouchManager : MonoBehaviour
     //        Debug.Log("둘이 똑같다");
     //    }
 
-        
+
     //}
 
     //public void ResolveFinish()
@@ -233,6 +238,10 @@ public class TouchManager : MonoBehaviour
     //        multyScreenMgr.myPhotonView.RPC("RpcMapOnCountUp", RpcTarget.MasterClient);
     //    }
     //}
+
+    #endregion
+
+
 
     public void SoloPlay(TrackableHit hit, Anchor anchor)
     {
