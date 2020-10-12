@@ -12,6 +12,10 @@ public class RoomInButton : MonoBehaviour
     {
         gameObject.name = roomName;
         roomButton_Text.text = roomName + " (" + currentPlayer + " / " + maxPlayer + ")";
+        if (currentPlayer == 0)
+        {
+            Destroy(gameObject);
+        }
     }
     public void OnClickJoinRoom()
     {
