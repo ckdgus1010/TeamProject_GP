@@ -11,7 +11,7 @@ public class BalloonU_D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.localPosition.y < -4.5f)
+        if (transform.localPosition.y < -6f)
         {
             a = 1;
         }
@@ -20,7 +20,7 @@ public class BalloonU_D : MonoBehaviour
             a = -1;
         }
 
-        transform.Translate(Vector3.up * 0.003f * Time.deltaTime * a);
+        transform.Translate(Vector3.up * 0.01f * Time.deltaTime * a);
     }
 
 

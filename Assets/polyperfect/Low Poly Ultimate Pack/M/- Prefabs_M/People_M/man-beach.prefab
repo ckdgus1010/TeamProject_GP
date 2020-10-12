@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4662793566643314}
   - component: {fileID: 33878999953175674}
   - component: {fileID: 23178128570214408}
+  - component: {fileID: 461963716222134419}
   - component: {fileID: 136168083570854064}
   m_Layer: 0
   m_Name: man-beach
@@ -61,7 +62,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: d8b3608c06351da4f8e09a879c0ddc66, type: 2}
   - {fileID: 2100000, guid: a7862d5615928c34e868320de65c2777, type: 2}
-  - {fileID: 2100000, guid: 2a9bcab9060d28d468fc3c4d93775e7d, type: 2}
+  - {fileID: 2100000, guid: fb045539f4b18a242aca8e57e88c5cd7, type: 2}
   - {fileID: 2100000, guid: 3b20fc9e84b968641b7312bdcdd1ffd8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -83,6 +84,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &461963716222134419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011019970891648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0684cfe591d1869449c60b6f53cae928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136168083570854064
 CapsuleCollider:
   m_ObjectHideFlags: 0
