@@ -10,9 +10,9 @@ public class Profile : MonoBehaviourPun
     public Image img_Ready;
     private bool isReady;
     private int masterArId;
-    public GameObject masterMark;
-    public GameObject clientMark;
-    public GameObject mineMark;
+   // public GameObject masterMark;
+   // public GameObject clientMark;
+   // public GameObject mineMark;
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,37 +22,41 @@ public class Profile : MonoBehaviourPun
     }
     public void Start()
     {
-        //if (WatingButtonMgr.instance.myPhotonView.IsMine)
-        //{
-        //    gameObject.tag = "MINEPROFILE";
-        //    SetInfo(PhotonNetwork.NickName);
 
-        //}
+        if (WatingButtonMgr.instance.myPhotonView.IsMine)
+        {
+            gameObject.tag = "MINEPROFILE";
+        }
+
+    }
+
+    //public void SetInfo(string nickName)
+    //{
        
-    }
+    //    if (PhotonNetwork.IsMasterClient && photonView.IsMine)
+    //    {
+    //        nameText.text = nickName;
+    //        if(nickName == PhotonNetwork.NickName)
+    //        {
+    //            masterMark.SetActive(true);
+    //        }
+    //        else
+    //        {
+    //            clientMark.SetActive(true);
+    //        }
+    //        //print(nameText.text);
+    //    }
+    //    else
+    //    {
+    //       clientMark.SetActive(true);
+    //       nameText.text = nickName;
 
-    public void SetInfo(string nickName)
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            masterMark.SetActive(true);
-            nameText.text = nickName;
-            //print(nameText.text);
-            if (photonView.IsMine)
-            {
-                mineMark.SetActive(true);
-            }
-        }
-        else
-        {
-           clientMark.SetActive(true);
-           nameText.text = nickName;
-            if (photonView.IsMine)
-            {
-                mineMark.SetActive(true);
-            }
-        }
-    }
+    //        if (nameText.text == PhotonNetwork.MasterClient.NickName)
+    //        {
+    //            mineMark.SetActive(true);
+    //        }
+    //    }
+    //}
     public void OnClickReady()
     {
         Debug.Log(" OnClickReady");
@@ -62,6 +66,7 @@ public class Profile : MonoBehaviourPun
 
     public void ChangeReadyState(string nickName, bool ready)
     {
+        print("ChangeReadyState실행함");
         if (nameText.text != nickName) return;
         isReady = ready;
         //ready on -> 노랑색

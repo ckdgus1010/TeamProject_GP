@@ -24,7 +24,7 @@ public class Palyfab_Login : MonoBehaviour
 
     public static string myPlayfabInfo;
 
-    public GameObject loadingPanel;
+
     public GameObject signInImage;
     public GameObject signUpImage;
     public GameObject email_Active_Image;

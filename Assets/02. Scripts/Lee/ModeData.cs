@@ -52,7 +52,7 @@ public class ModeData : MonoBehaviourPun
                 break;
             case 5:
                 Debug.Log("난 5번 모드야... 하라고 해서 함");
-                //SceneManager.LoadScene("11. TogetherModeList");
+                SceneManager.LoadScene("11. TogetherModeList");
                 break;
             case 6:
                 //Easy_mode

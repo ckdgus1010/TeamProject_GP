@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class LobbyMgr : MonoBehaviourPunCallbacks
 {
+    string gameVersion = "1";
+
     public byte personNum;
     private byte two = 2;
     private byte three = 3;
@@ -26,12 +28,40 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
     private bool sendPerson = false;
 
+    public LoadingPanelController loadingPanelController;
 
+    public void Start()
+    {
+        PhotonNetwork.GameVersion = gameVersion;
+        PhotonNetwork.ConnectUsingSettings();//1
+    }
     private void Update()
     {
         joinRoom_Bt.interactable = roomInputField.text.Length > 0 && sendPerson == true;// 불값으로 나오니까 if문을 한줄로 줄일 수 있음
     }
 
+
+    public override void OnConnected()
+    {
+        base.OnConnected();
+        print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+    }
+
+    public override void OnConnectedToMaster()//2  로비에 들어갈수 있는 상태
+    {
+        Debug.Log("-OnConnectedToMaster");
+        //PhotonNetwork.NickName = ID.text; 나중에 프로필 구현 된 다음그 아이디 받아오기
+
+        //로비로 진입
+        PhotonNetwork.JoinLobby();
+
+        PhotonNetwork.NickName = Palyfab_Login.myPlayfabInfo;
+    }
+    public override void OnJoinedLobby()//3
+    {
+        Debug.Log("-OnJoinedLobby");
+        //PhotonNetwork.LoadLevel("11. TogetherModeList");
+    }
 
 
     public void OnClickCreateRoom()
@@ -49,7 +79,6 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     {
         print(System.Reflection.MethodBase.GetCurrentMethod().Name); // 해당 함수를 프린트 해줌
     }
-
     public void OnClickJoinRoom()
     {
         PhotonNetwork.JoinRoom(roomInputField.text);
@@ -72,6 +101,9 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         UpdateCacheRoom(roomList);
 
         CreateRoomListUI();
+        loadingPanelController.FadeOut();
+        //loadingPanel.SetActive(false);
+        // 룸 리스트를 업데이트 다 한 다음에 화면 켜지기 
 
         // for (int i = 0; i < roomList.Count; i++)
         // {
@@ -81,6 +113,15 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         // {
         //     CreateRoomListUI();
         // }
+    }
+    void DeleteRoomListUI()
+    {
+        // 일단 roomlistContent 자식을 다 지우고
+        foreach (Transform tr in content)
+        {
+            Destroy(tr.gameObject); //트랜스폼을 가지고 있는 게임오브젝트를 지운다.
+            Debug.Log("-DeleteRoomListUI");
+        }
     }
     void UpdateCacheRoom(List<RoomInfo> roomList)
     {
@@ -104,15 +145,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
         }
     }
-    void DeleteRoomListUI()
-    {
-        // 일단 roomlistContent 자식을 다 지우고
-        foreach (Transform tr in content)
-        {
-            Destroy(tr.gameObject); //트랜스폼을 가지고 있는 게임오브젝트를 지운다.
-            Debug.Log("-DeleteRoomListUI");
-        }
-    }
+   
     void CreateRoomListUI()
     {
         foreach (RoomInfo info in cacheRoom.Values)// 위에있는 캐시에 있는 만큼 룸들을 다 돌면서 방을 생성한다.
@@ -163,9 +196,9 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     //    PhotonNetwork.Disconnect();
     //    print(System.Reflection.MethodBase.GetCurrentMethod().Name);
     //}
-    public override void OnDisconnected(DisconnectCause cause)
-    {
-        print(System.Reflection.MethodBase.GetCurrentMethod().Name);
-    }
+    //public override void OnDisconnected(DisconnectCause cause)
+    //{
+    //    print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+    //}
 
 }

@@ -10,6 +10,7 @@ using Photon.Pun.UtilityScripts;
 //using WebSocketSharp;
 using UnityEngine.SceneManagement;
 using UnityEngine.Assertions.Must;
+using System.Linq;
 
 public enum Levels
 {
@@ -30,6 +31,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     //public GameObject mapsellectOption_Panel;
 
     public GameObject profileFac;
+    public GameObject master_ProfileFac;
 
 
     public Transform content;
@@ -39,10 +41,12 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public int mapCount = 0;
     public bool issReady;
 
-    List<Profile> proFileList;
+    public List<Profile> proFileList;
+
     List<string> mapList2;
     private Text mapName;
     public Text gameStart_Ready;
+    public Text currentRoomName;
 
     private GameObject player;
     private PlayerMgr playerCs;
@@ -52,24 +56,30 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
     //플레이어 인덱스 번호 받기
     public int[] playerList = { 0, 0, 0 };
+    public GameObject[] profileList;
     public int myIndexNumber;
     public int emptyIndex;
     public int playerIndex;
     public Array array;
+    public bool ismaster_Mark;
 
     private void Start()
     {
+        print(PhotonNetwork.PlayerList.Length);
         instance = this;
+        PhotonNetwork.AutomaticallySyncScene = true;
 
         proFileList = new List<Profile>();
         mapList2 = new List<string>();
+
+        //방이름
+        currentRoomName.text = PhotonNetwork.CurrentRoom.Name;
 
         //플레이어 생성
         player = PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
         myPhotonView = player.GetComponent<PhotonView>();
         playerCs = player.GetComponent<PlayerMgr>();
 
-        PhotonNetwork.AutomaticallySyncScene = true;
 
         if (myPhotonView.IsMine)
         {
@@ -89,26 +99,105 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         {
             gameStart_Ready.text = "Ready";
         }
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            AddPlayer(PhotonNetwork.LocalPlayer.ActorNumber);
+            
+        }
+        
+        //FindProfile();
+        ///myIndexNumber = PhotonNetwork.LocalPlayer.ActorNumber;
     }
 
+    // 내 인덱스 번호랑 같은 프로필 번호 오브젝트를 찾는다
+    // 거기안에있는 텍스트를 내 닉네임으로 바꾸고 rpc로 애들에게 알려준다.
+    // 내 인덱스 번호와 같은 프로필 번호 오브젝트에 내꺼라는 표시를 달아준다.
+    //
+
+    // 프로필UI 
+    public void FindProfile()
+    {
+        // myIndexNumber_ = myIndexNumber - 1;
+        GameObject myProfile = profileList[myIndexNumber];
+        print(myProfile.name);  
+
+        myProfile.SetActive(true);
+
+        var profileName = myProfile.transform.GetChild(1).GetComponent<Text>();
+        GameObject masterProfileImage = myProfile.transform.GetChild(3).gameObject;
+        GameObject clientProfileImage = myProfile.transform.GetChild(4).gameObject;
+        GameObject IsmineImage = myProfile.transform.GetChild(5).gameObject;
+        profileName.text = PhotonNetwork.NickName;
+        IsmineImage.SetActive(true);
+        print("FindProfile()에서 내꺼라는 표시");
+        if (PhotonNetwork.IsMasterClient)
+        {
+            masterProfileImage.SetActive(true);
+            
+
+            ismaster_Mark = true;
+            print("마스터로 프로필 리스트 업데이트");
+            photonView.RPC("RpcProfileLisUpdate", RpcTarget.OthersBuffered, myIndexNumber, PhotonNetwork.NickName, ismaster_Mark);
+        }
+        else
+        {
+            clientProfileImage.SetActive(true);
+            ismaster_Mark = false;
+            print("클라이언트로 프로필 리스트 업데이트");
+
+            photonView.RPC("RpcProfileLisUpdate", RpcTarget.OthersBuffered, myIndexNumber, PhotonNetwork.NickName, ismaster_Mark);
+
+        }
+        print(profileName.text);
+
+    }
+    [PunRPC]
+    public void RpcProfileLisUpdate(int indexNum, string nickname, bool ismasterMark)
+    {
+       
+        GameObject myProfile = profileList[indexNum];
+        print(myProfile.name);
+
+        myProfile.SetActive(true);
+
+        var profileName = myProfile.transform.GetChild(1).GetComponent<Text>();
+        GameObject masterProfileImage = myProfile.transform.GetChild(3).gameObject;
+        GameObject clientProfileImage = myProfile.transform.GetChild(4).gameObject;
+        GameObject IsmineImage = myProfile.transform.GetChild(5).gameObject;
+        profileName.text = PhotonNetwork.NickName;
+       
+        if (ismasterMark ==true)
+        {
+            masterProfileImage.SetActive(true);
+        }
+        else
+        {
+            clientProfileImage.SetActive(true);
+        }
+        profileName.text = nickname;
+        
+    }
 
     #region Photon
 
     public void CreatePlayerListUI(string nickName)
     {
-        GameObject profile = Instantiate(profileFac);
+        print("CreatePlayerListUI만들기");
+        // GameObject profile = Instantiate(profileFac);
+        GameObject profile = PhotonNetwork.Instantiate("ProFile",Vector3.zero,Quaternion.identity);
         profile.transform.SetParent(content);
 
         if (player.tag == "MINE")
         {
             profile.tag = "MINEPROFILE";
-            
+
         }
         Profile pf = profile.GetComponent<Profile>();
-        pf.SetInfo(nickName);
+        //pf.SetInfo(nickName);
         proFileList.Add(pf);
     }
-
+   
     public void OnClickReady()
     {
         if (myPhotonView.IsMine && PhotonNetwork.IsMasterClient)
@@ -133,15 +222,14 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
         issReady = isReady;
         GameManager.Instance.stageID = 1;
-        for (int i = 0; i < proFileList.Count; i++)
+        for (int i = 0; i < profileList.Length; i++)
         {
-            if (WatingButtonMgr.instance.myPhotonView.IsMine)
+            if (myPhotonView.IsMine)
             {
-                proFileList[i].ChangeReadyState(nickName, isReady);
+                profileList[i].GetComponent<Profile>().ChangeReadyState(nickName, isReady);
                 print("RPC에서 ChangeReadyState 으로 보냄 ");
             }
         }
-
     }
 
     public void OnClickGameStart(string nickName, bool isReady)
@@ -149,10 +237,11 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         print("RPC에서 OnClickGameStart 으로 받음 ");
 
         issReady = isReady;
-        
-        for (int i = 0; i < proFileList.Count; i++)
+
+        for (int i = 0; i < profileList.Length; i++)
         {
-            proFileList[i].ChangeReadyState(nickName, isReady);
+
+            profileList[i].GetComponent<Profile>().ChangeReadyState(nickName, isReady);
             print("RPC에서 ChangeReadyState 으로 보냄 ");
         }
 
@@ -161,7 +250,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         {
             int modeID = GameManager.Instance.modeID;
             // 나중에 난수 생성
-            int stageID = UnityEngine.Random.Range(1,10);
+            int stageID = UnityEngine.Random.Range(1, 10);
             print(stageID);
             GameManager.Instance.stageID = stageID;
             print(" 와팅 와팅 Mgr:::::" + GameManager.Instance.modeID + "//" + modeID + "//" + stageID);
@@ -176,10 +265,18 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
     public void OnClickLeaveRoom()
     {
-        //if (PhotonNetwork.IsMasterClient)
-        //{
-        //    PhotonNetwork.SetMasterClient(PhotonNetwork.PlayerList[1]);
-        //}
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (PhotonNetwork.PlayerList.Length == 1)
+            {
+                PhotonNetwork.LeaveRoom();
+            }
+            else
+            {
+                PhotonNetwork.SetMasterClient(PhotonNetwork.PlayerList[1]);
+            }
+        }
+        else
         PhotonNetwork.LeaveRoom();
         // PhotonNetwork.LoadLevel("11. TogetherModeList");
     }
@@ -195,26 +292,50 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     //    PhotonNetwork.ConnectUsingSettings();
     //}
 
-    //public void AddPlayer(int playerActorNumber)
-    //{
-    //    emptyIndex = Array.IndexOf(playerList, 0);
-    //    playerList[emptyIndex] = playerActorNumber;
-    //    myPhotonView.RPC("UpdatePlayerList", RpcTarget.All, playerList);
-    //}
-    //public void RemovePlayer(int playerActorNumber)
-    //{
-    //    playerIndex = Array.IndexOf(playerList, playerActorNumber);
-    //    playerList[playerIndex] = 0;
-    //    photonView.RPC("UpdatePlayerList", RpcTarget.All, playerList);
-    //}
+    public void AddPlayer(int playerActorNumber)
+    {
+        emptyIndex = Array.IndexOf(playerList, 0);
+        playerList[emptyIndex] = playerActorNumber;
+        print("RPC_UpdatePlayerList()실행시켜줘");
 
+        photonView.RPC("UpdatePlayerList", RpcTarget.All, playerList);
+    }
+    public void RemovePlayer(int playerActorNumber)
+    {
+        playerIndex = Array.IndexOf(playerList, playerActorNumber);
+        GameObject myProfile = profileList[playerIndex];
+        print(myProfile.name);
+        myProfile.SetActive(false);
 
-    ////플레이어 
-    //[PunRPC]
-    //void UpdatePlayerList(int[] newPlayerList)
-    //{
-    //    myIndexNumber = Array.IndexOf(playerList, PhotonNetwork.LocalPlayer.ActorNumber);
-    //}
+        var profileName = myProfile.transform.GetChild(1).GetComponent<Text>();
+        GameObject masterProfileImage = myProfile.transform.GetChild(3).gameObject;
+        GameObject clientProfileImage = myProfile.transform.GetChild(4).gameObject;
+        profileName.text = "";
+        masterProfileImage.SetActive(false);
+        clientProfileImage.SetActive(false);
+        playerList[playerIndex] = 0;
+        print("RPC_UpdatePlayerList()실행시켜줘");
+
+        photonView.RPC("UpdatePlayerList", RpcTarget.All, playerList);
+
+    }
+
+    // 플레이어가 나가면
+    // 그 플레이어의 담당 프로필 정보를 싹지운다.
+    //그리고 플레이어 인덱스를 0으로 한다. 
+    //
+
+    //플레이어 
+    [PunRPC]
+    void UpdatePlayerList(int[] newPlayerList)
+    {
+        playerList = newPlayerList;
+        print("RPC_UpdatePlayerList() 실행");
+        myIndexNumber = Array.IndexOf(playerList, PhotonNetwork.LocalPlayer.ActorNumber);
+        FindProfile();
+        print("프로필 만들기" + PhotonNetwork.LocalPlayer.NickName);
+    }
+
 
     #endregion
 

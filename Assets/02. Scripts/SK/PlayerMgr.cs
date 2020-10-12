@@ -27,10 +27,12 @@ public class PlayerMgr : MonoBehaviourPun
 
     void Start()
     {
+
         if (photonView.IsMine)
         {
-            photonView.RPC("RpcMakeProfile", RpcTarget.AllBuffered, PhotonNetwork.NickName);
+            //photonView.RPC("RpcMakeProfile", RpcTarget.AllBuffered, PhotonNetwork.NickName);
         }
+   
 
         //proFileList = new List<Profile>();
         //myphotonView = this.gameObject.GetComponent<PhotonView>();
@@ -138,33 +140,4 @@ public class PlayerMgr : MonoBehaviourPun
         Debug.Log($"PlayerMgr ::: {PhotonNetwork.IsMasterClient} \n {GameManager.Instance.modeID} // {_modeID} ::: {GameManager.Instance.stageID} // {_stageID}");
     }
 
-    //[PunRPC]
-    //public void RpcMakeCube(GameObject hitObj)
-    //{
-    //    ButtonManager.instance.RpcMakeCube(hitObj);
-    //}
-
-    ///////큐브만들기
-    //[PunRPC]
-    //public void RpcMakeCube(Vector3 position, Quaternion rotation)
-    //{
-    //    //GameObject cube = Instantiate(cubeFac, position, rotation);
-    //    ButtonManager.instance.Photon_MakeCube(position, rotation);
-    //}
-
-    /////////큐브만들기
-    //[PunRPC]
-    //public void RpcResetCube(Vector3 position, Quaternion rotation)
-    //{
-    //    //GameObject cube = Instantiate(cubeFac, position, rotation);
-    //    ButtonManager.instance.Photon_ResetCube(position, rotation);
-    //} 
-
-    /////////큐브만들기
-    //[PunRPC]
-    //public void RpcDeleteCube(Vector3 position, Quaternion rotation)
-    //{
-    //    //GameObject cube = Instantiate(cubeFac, position, rotation);
-    //    ButtonManager.instance.Photon_DeleteCube(position, rotation);
-    //}
 }
