@@ -18,6 +18,9 @@ public class VideoPlayerController : MonoBehaviour
     // 영상이 끝난 후 비활성화 시킬 object
     [SerializeField] private GameObject introVideoCanvas;
 
+    // 필수 권한 확인
+    [SerializeField] private PermissionManager permissionManager;
+
     void Start()
     {
         isFinished = false;
@@ -30,13 +33,15 @@ public class VideoPlayerController : MonoBehaviour
             Debug.Log("VideoCtrl ::: 영상 끝, 로그인 화면으로 이동");
             
             isFinished = true;
-            Invoke("ShowObjects", timer);
+            Invoke("ShoLoginCanvas", timer);
         }
     }
 
-    void ShowObjects()
+    void ShoLoginCanvas()
     {
         loginCanvas.SetActive(true);
-        introVideoCanvas.SetActive(true);
+        //permissionManager.RequestPermission();
+
+        introVideoCanvas.SetActive(false);
     }
 }
