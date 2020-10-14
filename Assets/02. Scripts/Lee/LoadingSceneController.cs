@@ -64,12 +64,13 @@ public class LoadingSceneController : MonoBehaviour
     private CanvasGroup canvasGroup;
 
     [SerializeField]
-    private Slider progressBar;
+    private Slider loadingSlider;
+    private float lerpSpeed = 0.5f;
 
     private string loadSceneName;
     public bool isChecked = false;
     public enum Status { None, Success, Failure };
-    public Status isConverted = Status.None;
+    public Status status = Status.None;
 
     public void LoadScene(string sceneName)
     {
@@ -83,47 +84,71 @@ public class LoadingSceneController : MonoBehaviour
 
     private IEnumerator LoadSceneProcess()
     {
-        progressBar.value = 0.0f;
-        Debug.Log("LoadingSceneController ::: progressBar.value = 0");
-
         // coroutine 안에서 StartCoroutine으로 다른 coroutine을 실행시키면서 yield return 시키면 호출한 coroutine이 끝날 때까지 기다리게 만들 수 있음
         yield return StartCoroutine(Fade(true));
         Debug.Log("LoadingSceneController ::: Fade in");
+        
+        loadingSlider.value = 0.0f;
+        Debug.Log($"LoadingSceneController ::: progressBar.value = {loadingSlider.value}");
+
+        float timer = 0.0f;
+
+        while (timer < 4.0f)
+        {
+            yield return null;
+            timer += Time.deltaTime;
+
+            if (loadingSlider.value < 0.8f)
+            {
+                loadingSlider.value = Mathf.Lerp(loadingSlider.value, 0.8f, timer * 0.2f);
+            }
+            else
+            {
+                break;
+            }
+        }
 
         // 로그인이 끝날 때까지 대기
-        yield return new WaitUntil(() => isChecked = true && isConverted != Status.None);
+        yield return new WaitUntil(() => isChecked = true && status != Status.None);
 
-        if (isConverted == Status.Success)
+        // 로그인에 성공한 경우
+        if (status == Status.Success)
         {
-            AsyncOperation op = SceneManager.LoadSceneAsync(loadSceneName);
-            Debug.Log($"LoadingSceneController ::: {isConverted} // Scene 넘어감");
-            op.allowSceneActivation = false;
+            AsyncOperation operation = SceneManager.LoadSceneAsync(loadSceneName);
+            Debug.Log($"LoadingSceneController ::: {status} // {loadSceneName} Scene으로 넘어감");
 
-            // scene의 loading 상황을 progressBar로 표시
-            float timer = 0.0f;
-            while (!op.isDone)
+            operation.allowSceneActivation = false;
+
+            // scene의 loading 상황을 loadingSlider로 표시
+            timer = 0.0f;
+
+            while (!operation.isDone)
             {
                 //반복문이 한 번 돌 때마다 유니티 엔진에 제어권을 넘김
                 yield return null;
-                if (op.progress < 0.9f)
+
+                if (operation.progress < 0.9f)
                 {
-                    progressBar.value = op.progress;
+                    loadingSlider.value = operation.progress;
+                    Debug.Log("987");
                 }
                 else
                 {
                     timer += Time.unscaledDeltaTime;
-                    progressBar.value = Mathf.Lerp(0.9f, 1.0f, timer);
-                    if (progressBar.value >= 1.0f)
+                    loadingSlider.value = Mathf.Lerp(0.9f, 1.0f, timer);
+
+                    if (loadingSlider.value >= 1.0f)
                     {
-                        op.allowSceneActivation = true;
+                        operation.allowSceneActivation = true;
                         yield break;
                     }
                 }
             }
         }
+        // 로그인에 실패한 경우
         else
         {
-            Debug.Log($"LoadingSceneController ::: {isConverted} // 로그인 실패");
+            Debug.Log($"LoadingSceneController ::: {status} // 로그인 실패");
             StartCoroutine(Fade(false));
         }
     }
@@ -145,9 +170,9 @@ public class LoadingSceneController : MonoBehaviour
     }
 
     // Scene Loading이 끝난 시점을 알려주는 Callback 함수
-    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
-        if (arg0.name == loadSceneName)
+        if (scene.name == loadSceneName)
         {
             StartCoroutine(Fade(false));
 

@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using GooglePlayGames;
 
 public class GoogleManager : MonoBehaviour
 {
-    public Text logText;
-
     void Start()
     {
         PlayGamesPlatform.DebugLogEnabled = true;
@@ -18,14 +16,21 @@ public class GoogleManager : MonoBehaviour
     {
         Social.localUser.Authenticate((bool success) =>
         {
-            if (success) logText.text = Social.localUser.id + "\n" + Social.localUser.userName;
-            else logText.text = "구글 로그인 실패";
+            if (success)
+            {
+                Debug.Log($"{Social.localUser.id} \n {Social.localUser.userName}");
+                SceneManager.LoadScene("04. MainMenu");
+            }
+            else 
+            {
+                Debug.Log("구글 로그인 실패");
+            }
         });
     }
 
     public void Logout()
     {
         ((PlayGamesPlatform)Social.Active).SignOut();
-        logText.text = "구글 로그아웃";
+        Debug.Log("구글 로그아웃");
     }
 }

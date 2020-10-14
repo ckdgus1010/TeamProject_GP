@@ -6,16 +6,15 @@ using UnityEngine.SceneManagement;
 using PlayFab;
 using PlayFab.ClientModels;
 using Lee;
+using PlayFab.GroupsModels;
 
 public class PlayFabManager : MonoBehaviour
 {
     public ButtonManager01 buttonManager01;
-    public GameObject loadingPanel;
-    public LoadingController loadingController;
 
     // 로그인 팝업창
     [Header("Login Popup")]
-    public InputField emailID;
+    public InputField username;
     public InputField password;
 
     // 로그인 코루틴 중복 실행 방지
@@ -30,6 +29,11 @@ public class PlayFabManager : MonoBehaviour
     public InputField passwordInput;
     public InputField nicknameInput;
 
+    private void Start()
+    {
+        PlayFabSettings.TitleId = "90ED5";
+    }
+
     #region 로그인
 
     //로그인
@@ -37,6 +41,8 @@ public class PlayFabManager : MonoBehaviour
     {
         if (isChecking == false)
         {
+            Debug.Log($"로그인 버튼 누름");
+
             StartCoroutine(LoginSequence());
         }
     }
@@ -45,11 +51,16 @@ public class PlayFabManager : MonoBehaviour
     {
         isChecking = true;
 
-        Debug.Log("PlayFabManager ::: 로그인 코루틴 들어옴");
+        Debug.Log($"PlayFabManager ::: 로그인 코루틴 들어옴");
 
-        var request = new LoginWithEmailAddressRequest { Email = emailID.text, Password = password.text };
-        PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnLoginFailure);
-        GameManager.Instance.nickName = emailID.text.Split('@')[0];
+        var request = new LoginWithPlayFabRequest { Username = username.text, Password = password.text};
+        PlayFabClientAPI.LoginWithPlayFab(request, OnLoginSuccess, OnLoginFailure);
+        Debug.Log("PlayerFabManager ::: 로그인 요청");
+
+        // 로딩 화면
+        LoadingSceneController.Instance.LoadScene("04. MainMenu");
+
+        //GameManager.Instance.nickName = username.text.Split('@')[0];
 
         yield return new WaitUntil(() => isLoginCheckFinished == true);
 
@@ -63,19 +74,14 @@ public class PlayFabManager : MonoBehaviour
         isLoginCheckFinished = true;
 
         // LoadingUI에 로그인이 성공했다고 전달
-        //LoadingSceneController.Instance.isChecked = true;
-        //LoadingSceneController.Instance.isConverted = LoadingSceneController.Status.Success;
+        LoadingSceneController.Instance.isChecked = true;
+        LoadingSceneController.Instance.status = LoadingSceneController.Status.Success;
 
         Debug.Log("PlayFabManager ::: 로그인 성공");
         Debug.Log($"PlayFabManager ::: {result.PlayFabId}");
 
         //서버에서 player profile 받아오기
         GetPlayerProfile(result.PlayFabId);
-
-        //loadingController.isLoadingStatus = false;
-        //loadingPanel.SetActive(false);
-
-
 
         SceneManager.LoadScene("04. MainMenu");
     }
@@ -86,13 +92,10 @@ public class PlayFabManager : MonoBehaviour
         isLoginCheckFinished = true;
 
         // LoadingUI에 로그인이 실패했다고 전달
-        //LoadingSceneController.Instance.isChecked = true;
-        //LoadingSceneController.Instance.isConverted = LoadingSceneController.Status.Failure;
+        LoadingSceneController.Instance.isChecked = true;
+        LoadingSceneController.Instance.status = LoadingSceneController.Status.Failure;
 
         Debug.LogError($"PlayFabManager ::: 로그인 실패 \n {error.GenerateErrorReport()}");
-
-        //loadingController.isLoadingStatus = false;
-        //loadingPanel.SetActive(false);
     }
 
     #endregion
