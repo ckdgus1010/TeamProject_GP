@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameMap : MonoBehaviour
 {
     public GameObject[] mapList;
+    public GameObject[] cubeList;
     public GameObject[] questionList;
     public GameObject map;
+    public GameObject cube;
     private GameObject levelQuestion;
     public Transform levelPos;
 
@@ -19,6 +21,7 @@ public class GameMap : MonoBehaviour
         touchManager = GetComponent<TouchManager>();
         //map = Instantiate(mapList[WatingButtonMgr.instance.mapCount]);
         map = mapList[WatingButtonMgr.instance.mapCount];
+        cube = cubeList[WatingButtonMgr.instance.mapCount];
         //map.transform.position = transform.position;
 
         // 터치매니저에서 클라이언트가 리졸브를 다 받았다면

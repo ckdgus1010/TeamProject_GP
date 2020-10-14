@@ -36,7 +36,7 @@ public class CloudAnchorController : MonoBehaviour
     public GameObject pointImage;
     public CubeSetting cubeSetting;
     public GameObject boardSizePanel;
-    public GameObject clientBoardSizePanel;
+    public GameObject boardResetBt;
     public GameObject waitingClientPopup;
     public GameObject waitingMasterPopup;
     public GameObject masterMapCreateHelp;
@@ -92,7 +92,7 @@ public class CloudAnchorController : MonoBehaviour
 
     public void CloudAnchor_Resolving()
     {
-        if (!PhotonNetwork.IsMasterClient && PlayerMgr.isReceive == true)
+        if (!PhotonNetwork.IsMasterClient)
         {
             //print("리졸브클라우드앵커 코루틴 실행");
             print("리졸브클라우드앵커 실행");
@@ -159,8 +159,9 @@ public class CloudAnchorController : MonoBehaviour
 
         //클라이언트일 경우 보드 리셋 버튼 숨김
         boardSizePanel.SetActive(true);
-        GameObject boadResetBt = boardSizePanel.transform.GetChild(1).gameObject;
-        boadResetBt.SetActive(false);
+        //GameObject boadResetBt = boardSizePanel.transform.GetChild(1).gameObject;
+        //boadResetBt.SetActive(false);
+        boardResetBt.SetActive(false);
 
         print($"{result_AsyncTask.Result.Anchor.transform.position} ::: {gameBoard.transform.position}");
 

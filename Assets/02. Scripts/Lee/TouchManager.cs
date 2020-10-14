@@ -136,8 +136,6 @@ public class TouchManager : MonoBehaviour
       
     }
 
-
-
     #region OnClickHost_ResoleButton() // 주석 처리
     //public void OnClickHost_ResoleButton()
     //{

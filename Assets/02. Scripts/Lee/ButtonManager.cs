@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonManager : MonoBehaviourPun
+public class ButtonManager : MonoBehaviourPunCallbacks
 {
     //public static ButtonManager instance;
     //프로필 
@@ -48,6 +48,7 @@ public class ButtonManager : MonoBehaviourPun
 
     public CardBoardSetting cardBoardSetting;
     public CheckBoardMgr checkBoardMgr;
+    public GameMap gameMap;
     public List<int>[] playerAnswerArray = new List<int>[3];
 
     //스크린샷
@@ -68,7 +69,7 @@ public class ButtonManager : MonoBehaviourPun
     {
         if (nickName_Text != null)
         {
-            nickName_Text.text = Palyfab_Login.myPlayfabInfo;
+            nickName_Text.text = GameManager.Instance.nickName;
         }
         PhotonNetwork.AutomaticallySyncScene = true;
     }
@@ -342,7 +343,7 @@ public class ButtonManager : MonoBehaviourPun
 
             cubeNum++;
 
-            GameObject cube = Instantiate(mulCubeFac, cubePos.position, gameBoard.transform.rotation, cubeList.transform);
+            GameObject cube = Instantiate(gameMap.cube, cubePos.position, gameBoard.transform.rotation, cubeList.transform);
             list.Add(cube);
 
             cube.name = PhotonNetwork.NickName + "Cube(" + cubeNum + ")";
@@ -388,7 +389,7 @@ public class ButtonManager : MonoBehaviourPun
         GameObject obj = GameObject.Find(hitObj).gameObject;
         Transform cubePos = obj.transform.GetChild(0).transform;
 
-        GameObject cube = Instantiate(mulCubeFac, cubePos.position, gameBoard.transform.rotation, cubeList.transform);
+        GameObject cube = Instantiate(gameMap.cube, cubePos.position, gameBoard.transform.rotation, cubeList.transform);
         list.Add(cube);
         //생성한 CUBE의 isMine을 체크하고 내꺼면 다른 애들 큐브이름을 바꿔
 
@@ -515,6 +516,7 @@ public class ButtonManager : MonoBehaviourPun
     {
         if (PhotonNetwork.IsMasterClient)
         {
+            //PhotonNetwork.LeaveRoom();
             PhotonNetwork.LoadLevel("12. TogetherModeWait");
         }
     }

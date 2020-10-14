@@ -42,7 +42,7 @@ public class CubeSetting : MonoBehaviour
                 }
 
                 currCube = hitObj;
-                currCube.GetComponent<MeshRenderer>().material.color = Color.yellow;
+                currCube.GetComponent<MeshRenderer>().material.color = Color.blue;
 
                 Vector3 normalVec = hit.normal;
 

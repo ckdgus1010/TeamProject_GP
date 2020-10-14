@@ -5,10 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using PlayFab;
 using PlayFab.ClientModels;
+using Lee;
 
 public class PlayFabManager : MonoBehaviour
 {
-    public ButtonManager buttonManager;
+    public ButtonManager01 buttonManager01;
     public GameObject loadingPanel;
     public LoadingController loadingController;
 
@@ -48,6 +49,7 @@ public class PlayFabManager : MonoBehaviour
 
         var request = new LoginWithEmailAddressRequest { Email = emailID.text, Password = password.text };
         PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnLoginFailure);
+        GameManager.Instance.nickName = emailID.text.Split('@')[0];
 
         yield return new WaitUntil(() => isLoginCheckFinished == true);
 
@@ -61,8 +63,8 @@ public class PlayFabManager : MonoBehaviour
         isLoginCheckFinished = true;
 
         // LoadingUI에 로그인이 성공했다고 전달
-        LoadingSceneController.Instance.isChecked = true;
-        LoadingSceneController.Instance.isConverted = LoadingSceneController.Status.Success;
+        //LoadingSceneController.Instance.isChecked = true;
+        //LoadingSceneController.Instance.isConverted = LoadingSceneController.Status.Success;
 
         Debug.Log("PlayFabManager ::: 로그인 성공");
         Debug.Log($"PlayFabManager ::: {result.PlayFabId}");
@@ -72,6 +74,10 @@ public class PlayFabManager : MonoBehaviour
 
         //loadingController.isLoadingStatus = false;
         //loadingPanel.SetActive(false);
+
+
+
+        SceneManager.LoadScene("04. MainMenu");
     }
 
     //로그인 실패
@@ -80,8 +86,8 @@ public class PlayFabManager : MonoBehaviour
         isLoginCheckFinished = true;
 
         // LoadingUI에 로그인이 실패했다고 전달
-        LoadingSceneController.Instance.isChecked = true;
-        LoadingSceneController.Instance.isConverted = LoadingSceneController.Status.Failure;
+        //LoadingSceneController.Instance.isChecked = true;
+        //LoadingSceneController.Instance.isConverted = LoadingSceneController.Status.Failure;
 
         Debug.LogError($"PlayFabManager ::: 로그인 실패 \n {error.GenerateErrorReport()}");
 

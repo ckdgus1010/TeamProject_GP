@@ -73,6 +73,8 @@ public class GameManager : MonoBehaviour
 
     // 같이하기 모드 방장을 한 횟수
     public int masterCount = 0;
+
+    public string nickName = "";
    
     private void Start()
     {
