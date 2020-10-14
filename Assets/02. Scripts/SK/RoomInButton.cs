@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 
+
 public class RoomInButton : MonoBehaviour
 {
     public Text roomButton_Text;
@@ -22,4 +23,6 @@ public class RoomInButton : MonoBehaviour
         PhotonNetwork.JoinRoom(gameObject.name);
         Debug.Log("joinedRoom");
     }
+    
+   
 }

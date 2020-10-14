@@ -82,13 +82,11 @@ public class CloudAnchorController : MonoBehaviour
             StartCoroutine(ResolveCloudAnchor(PlayerMgr.cloudID));//코루틴 실행
             //ResolveCloudAnchor(PlayerMgr.cloudID);//코루틴 실행
             print("ID 받았어요");
-            isResolvingFinish = true;
-            print($"Touchmgr ::: isresolveFinish // {isResolvingFinish}");
+            //isResolvingFinish = true;
+            //print($"Touchmgr ::: isresolveFinish // {isResolvingFinish}");
         }
     }
-
     IEnumerator HostCloudAnchor(Anchor anchor)
-    //public void  HostCloudAnchor(Anchor anchor)
     {
         result_AsyncTask = XPSession.CreateCloudAnchor(anchor);
         
@@ -110,7 +108,6 @@ public class CloudAnchorController : MonoBehaviour
     }
 
     IEnumerator ResolveCloudAnchor(string cloudID)
-    //public void  ResolveCloudAnchor(string cloudID)
     {
         Debug.Log("리졸빙 코루틴 들어옴" + cloudID);
         result_AsyncTask = XPSession.ResolveCloudAnchor(cloudID);
@@ -145,6 +142,8 @@ public class CloudAnchorController : MonoBehaviour
         {
             Debug.Log("둘이 똑같다");
         }
+        isResolvingFinish = true;
+        print($"Touchmgr ::: isresolveFinish // {isResolvingFinish}");
     }
 
     public void ResolveFinish()

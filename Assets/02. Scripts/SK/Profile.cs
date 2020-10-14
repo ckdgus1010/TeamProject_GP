@@ -57,12 +57,12 @@ public class Profile : MonoBehaviourPun
     //        }
     //    }
     //}
-    public void OnClickReady()
-    {
-        Debug.Log(" OnClickReady");
-        WatingButtonMgr.instance.myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, nameText.text, !isReady);
+    //public void OnClickReady()
+    //{
+    //    Debug.Log(" OnClickReady");
+    //    WatingButtonMgr.instance.myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, nameText.text, !isReady);
 
-    }
+    //}
 
     public void ChangeReadyState(string nickName, bool ready)
     {
@@ -72,16 +72,17 @@ public class Profile : MonoBehaviourPun
         //ready on -> 노랑색
         if (isReady == true)
         {
-            WatingButtonMgr.instance.readyCount += 1;
             img_Ready.color = Color.yellow;
             Debug.Log("isready is true");
+            //WatingButtonMgr.instance.myPhotonView.RPC("RpcReadyCountUp", RpcTarget.MasterClient);
         }
         //ready off -> 하얀색
         else if (isReady == false)
         {
-            WatingButtonMgr.instance.readyCount -= 1;
             img_Ready.color = Color.white;
             Debug.Log("isready is false");
+            //WatingButtonMgr.instance.myPhotonView.RPC("RpcReadyCountDown", RpcTarget.MasterClient);
+
         }
     }
 }

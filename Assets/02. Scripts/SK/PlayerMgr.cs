@@ -25,36 +25,6 @@ public class PlayerMgr : MonoBehaviourPun
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
-    {
-
-        if (photonView.IsMine)
-        {
-            //photonView.RPC("RpcMakeProfile", RpcTarget.AllBuffered, PhotonNetwork.NickName);
-        }
-   
-
-        //proFileList = new List<Profile>();
-        //myphotonView = this.gameObject.GetComponent<PhotonView>();
-        //CreatePlayerListUI(PhotonNetwork.NickName);
-
-    }
-
-    //public void CreatePlayerListUI(string nickName)
-    //{
-    //    profile = PhotonNetwork.Instantiate("ProFile_ReadtBt", Vector3.zero, Quaternion.identity);
-    //    profile.transform.SetParent(WatingButtonMgr.instance.content);
-    //    if (myphotonView.IsMine)
-    //    {
-    //        profile.tag = "MINEPROFILE";
-    //        pf = profile.GetComponent<Profile>();
-    //        photonView.RPC("RpcSetProfileInfo", RpcTarget.AllBuffered, PhotonNetwork.NickName);
-    //        pf.nameText.text = PhotonNetwork.NickName;
-    //        proFileList.Add(pf);
-    //    }
-    //    pf.SetInfo(nickName);
-    //    proFileList.Add(pf);
-    //}
 
     // 프로필 만들기
     [PunRPC]
@@ -63,25 +33,17 @@ public class PlayerMgr : MonoBehaviourPun
         WatingButtonMgr.instance.CreatePlayerListUI(nickName);
     }
 
-    //[PunRPC]
-    //void RpcSetProfileInfo(string nickName)
-    //{
-    //    pf.SetInfo(nickName);
-
-    //}
-
     // 마스터가 게임 시작 버튼 눌렀을때 
     [PunRPC]
-    void RpcMasterSetReady(string nickName, bool isReady)
+    void RpcMasterSetReady()
     {
-        WatingButtonMgr.instance.OnClickGameStart(nickName, isReady);
+        WatingButtonMgr.instance.OnClickGameStart();
     }
 
     // 클라이언트 일때 프로필 준비버튼 색 바꾸는 함수
     [PunRPC]
     void RpcSetReady(string nickName, bool isReady)
     {
-        // WatingButtonMgr.instance.OnClickGameReady(proFileList, nickName, isReady);
         WatingButtonMgr.instance.OnClickGameReady(nickName, isReady);
         print("RPC에서 OnClickGameReady 으로 보냄 ");
     }
@@ -140,4 +102,14 @@ public class PlayerMgr : MonoBehaviourPun
         Debug.Log($"PlayerMgr ::: {PhotonNetwork.IsMasterClient} \n {GameManager.Instance.modeID} // {_modeID} ::: {GameManager.Instance.stageID} // {_stageID}");
     }
 
+    [PunRPC]
+    public void RpcReadyCountUp()
+    {
+        WatingButtonMgr.instance.readyCount += 1;
+    }
+    [PunRPC]
+    public void RpcReadyCountDown()
+    {
+        WatingButtonMgr.instance.readyCount -= 1;
+    }
 }

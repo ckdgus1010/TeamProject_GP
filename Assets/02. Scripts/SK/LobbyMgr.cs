@@ -20,7 +20,9 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
     public GameObject roomInfo;
     public GameObject roomMaker_Panel;
-    public GameObject RoomList_Panel;
+    public GameObject roomList_Panel;
+    public GameObject joinRoomfailPopup;
+    public GameObject blackBG;
 
     public Transform content;
 
@@ -89,6 +91,19 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel("12. TogetherModeWait");
     }
 
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        base.OnJoinRoomFailed(returnCode, message);
+        print("OnJoinRoomFailed");
+        joinRoomfailPopup.SetActive(true);
+        blackBG.SetActive(true);
+    }
+
+    public void OnClickXbt()
+    {
+        joinRoomfailPopup.SetActive(false);
+        blackBG.SetActive(false);
+    }
     // <"name"이라는  key 값에 수경이라는 값을 넣겠다.
     // <key 값, value 값>
     Dictionary<string, RoomInfo> cacheRoom = new Dictionary<string, RoomInfo>();
@@ -174,13 +189,13 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
     public void OnRoomMaker_Panel()
     {
-        RoomList_Panel.SetActive(false);
+        roomList_Panel.SetActive(false);
         roomMaker_Panel.SetActive(true);
     }
 
-    public void OnRoomList_Panel()
+    public void OnroomList_Panel()
     {
-        RoomList_Panel.SetActive(true);
+        roomList_Panel.SetActive(true);
         roomMaker_Panel.SetActive(false);
     }
     public void OnClickLeaveLobby()

@@ -11,6 +11,7 @@ using Photon.Pun.UtilityScripts;
 using UnityEngine.SceneManagement;
 using UnityEngine.Assertions.Must;
 using System.Linq;
+using Photon.Pun.Demo.Cockpit;
 
 public enum Levels
 {
@@ -32,6 +33,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
     public GameObject profileFac;
     public GameObject master_ProfileFac;
+    public GameObject dontGameStartPopup;
 
 
     public Transform content;
@@ -40,6 +42,8 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public int readyCount = 0;
     public int mapCount = 0;
     public bool issReady;
+    public bool isClientReady;
+    public RoomInfo roomInfo;
 
     public List<Profile> proFileList;
 
@@ -65,6 +69,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        GameManager.Instance.modeID = 7;
         print(PhotonNetwork.PlayerList.Length);
         instance = this;
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -94,7 +99,6 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         {
             gameStart_Ready.text = "Game Start";
         }
-
         else
         {
             gameStart_Ready.text = "Ready";
@@ -103,11 +107,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             AddPlayer(PhotonNetwork.LocalPlayer.ActorNumber);
-            
         }
-        
-        //FindProfile();
-        ///myIndexNumber = PhotonNetwork.LocalPlayer.ActorNumber;
     }
 
     // 내 인덱스 번호랑 같은 프로필 번호 오브젝트를 찾는다
@@ -120,7 +120,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     {
         // myIndexNumber_ = myIndexNumber - 1;
         GameObject myProfile = profileList[myIndexNumber];
-        print(myProfile.name);  
+        print(myProfile.name);
 
         myProfile.SetActive(true);
 
@@ -134,7 +134,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             masterProfileImage.SetActive(true);
-            
+            clientProfileImage.SetActive(false);
 
             ismaster_Mark = true;
             print("마스터로 프로필 리스트 업데이트");
@@ -155,7 +155,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     [PunRPC]
     public void RpcProfileLisUpdate(int indexNum, string nickname, bool ismasterMark)
     {
-       
+
         GameObject myProfile = profileList[indexNum];
         print(myProfile.name);
 
@@ -166,17 +166,18 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         GameObject clientProfileImage = myProfile.transform.GetChild(4).gameObject;
         GameObject IsmineImage = myProfile.transform.GetChild(5).gameObject;
         profileName.text = PhotonNetwork.NickName;
-       
-        if (ismasterMark ==true)
+
+        if (ismasterMark == true)
         {
             masterProfileImage.SetActive(true);
+            clientProfileImage.SetActive(false);
         }
         else
         {
             clientProfileImage.SetActive(true);
         }
         profileName.text = nickname;
-        
+
     }
 
     #region Photon
@@ -185,7 +186,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     {
         print("CreatePlayerListUI만들기");
         // GameObject profile = Instantiate(profileFac);
-        GameObject profile = PhotonNetwork.Instantiate("ProFile",Vector3.zero,Quaternion.identity);
+        GameObject profile = PhotonNetwork.Instantiate("ProFile", Vector3.zero, Quaternion.identity);
         profile.transform.SetParent(content);
 
         if (player.tag == "MINE")
@@ -197,16 +198,35 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         //pf.SetInfo(nickName);
         proFileList.Add(pf);
     }
-   
+
     public void OnClickReady()
     {
+        Debug.Log(PhotonNetwork.CurrentRoom.MaxPlayers);
         if (myPhotonView.IsMine && PhotonNetwork.IsMasterClient)
         {
-            myPhotonView.RPC("RpcMasterSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);
+            if (readyCount == PhotonNetwork.CurrentRoom.MaxPlayers - 1)
+            {
+                myPhotonView.RPC("RpcMasterSetReady", RpcTarget.AllBuffered);
+            }
+            else
+            {
+                dontGameStartPopup.SetActive(true);
+                Debug.Log("모든 플레이어가 준비가 될때까지 기다려주세요");
+            }
         }
 
         else
         {
+            isClientReady = !isClientReady;
+            if (isClientReady == true)
+            {
+                myPhotonView.RPC("RpcReadyCountUp", RpcTarget.MasterClient);
+            }
+            else
+            {
+                myPhotonView.RPC("RpcReadyCountDown", RpcTarget.MasterClient);
+
+            }
             myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);//playerCs.proFileList, PhotonNetwork.NickName, !issReady
         }
     }
@@ -231,37 +251,24 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
             }
         }
     }
-
-    public void OnClickGameStart(string nickName, bool isReady)
+    public void OnClickGameStart()
     {
         print("RPC에서 OnClickGameStart 으로 받음 ");
 
-        issReady = isReady;
-
-        for (int i = 0; i < profileList.Length; i++)
-        {
-
-            profileList[i].GetComponent<Profile>().ChangeReadyState(nickName, isReady);
-            print("RPC에서 ChangeReadyState 으로 보냄 ");
-        }
-
         //마스터만 Client들한테 modeID, stageID 넘겨주기
-        if (PhotonNetwork.IsMasterClient)
-        {
-            int modeID = GameManager.Instance.modeID;
-            // 나중에 난수 생성
-            int stageID = UnityEngine.Random.Range(1, 10);
-            print(stageID);
-            GameManager.Instance.stageID = stageID;
-            print(" 와팅 와팅 Mgr:::::" + GameManager.Instance.modeID + "//" + modeID + "//" + stageID);
-            myPhotonView.RPC("RpcSetGameData", RpcTarget.Others, modeID, stageID);
+        Debug.Log(readyCount);
+        int modeID = GameManager.Instance.modeID;
+        // 나중에 난수 생성
+        int stageID = UnityEngine.Random.Range(1, 10);
+        print(stageID);
+        GameManager.Instance.stageID = stageID;
+        print(" 와팅 와팅 Mgr:::::" + GameManager.Instance.modeID + "//" + modeID + "//" + stageID);
+        myPhotonView.RPC("RpcSetGameData", RpcTarget.Others, modeID, stageID);
 
-            //Scene 전환
-            PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
+        //Scene 전환
+        PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
 
-        }
     }
-
 
     public void OnClickLeaveRoom()
     {
@@ -277,7 +284,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
             }
         }
         else
-        PhotonNetwork.LeaveRoom();
+            PhotonNetwork.LeaveRoom();
         // PhotonNetwork.LoadLevel("11. TogetherModeList");
     }
     public override void OnLeftRoom()
@@ -336,7 +343,10 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         print("프로필 만들기" + PhotonNetwork.LocalPlayer.NickName);
     }
 
-
+    public void Xbt()
+    {
+        dontGameStartPopup.SetActive(false);
+    }
     #endregion
 
     #region MapSetting
@@ -389,4 +399,5 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     }
 
     #endregion
+
 }
