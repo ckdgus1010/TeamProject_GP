@@ -27,6 +27,7 @@ public class CloudAnchorController : MonoBehaviour
     public bool isResolvingFinish = false;
 
     private GameObject player;
+    private PlayerMgr playerMgr;
     public PhotonView myPhotonView;
 
     public TouchManager touchManager;
@@ -35,6 +36,10 @@ public class CloudAnchorController : MonoBehaviour
     public GameObject pointImage;
     public CubeSetting cubeSetting;
     public GameObject boardSizePanel;
+    public GameObject clientBoardSizePanel;
+    public GameObject waitingClientPopup;
+    public GameObject waitingMasterPopup;
+    public GameObject masterMapCreateHelp;
 
     private int mapOnCount = 0;
 
@@ -45,15 +50,28 @@ public class CloudAnchorController : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("MINE");
         myPhotonView = player.GetComponent<PhotonView>();
+        playerMgr = player.GetComponent<PlayerMgr>();
     }
 
     private void Update()
     {
+        if(!PhotonNetwork.IsMasterClient && PlayerMgr.isReceive == true)
+        {
+            Debug.Log("이제 패널 끄자");
+            //방장이 맵을 생성할 때까지 잠시만 기다려주세요! 끄기
+            waitingMasterPopup.SetActive(false);
+            resolveBt.SetActive(true);
+            PlayerMgr.isReceive = false;
+        }
+
         if (isResolvingFinish == true && mapOnCount == 0)
         {
             print("CloudAnchorController ::: " + isResolvingFinish);
             ResolveFinish();
             mapOnCount = 1;
+
+            //다른 플레이어가 맵을 생성할 때까지 잠시만 기다려주세요! 끄기
+            waitingClientPopup.SetActive(false);
         }
     }
 
@@ -103,6 +121,10 @@ public class CloudAnchorController : MonoBehaviour
         hostBt.SetActive(false);
         isHostingFinish = true;
 
+        //다른 플레이어가 맵을 생성할 때까지 잠시만 기다려주세요! 켜기
+        waitingClientPopup.SetActive(true);
+        backGround.SetActive(true);
+        
         print("!!!호스트 앵커 위치 :  " + anchor.transform.position);
         print("호스트 게임보드 위치 :  " + gameBoard.transform.position);
     }
@@ -134,7 +156,11 @@ public class CloudAnchorController : MonoBehaviour
         resolveBt.SetActive(false);
         pointImage.SetActive(true);
         cubeSetting.enabled = true;
+
+        //클라이언트일 경우 보드 리셋 버튼 숨김
         boardSizePanel.SetActive(true);
+        GameObject boadResetBt = boardSizePanel.transform.GetChild(1).gameObject;
+        boadResetBt.SetActive(false);
 
         print($"{result_AsyncTask.Result.Anchor.transform.position} ::: {gameBoard.transform.position}");
 

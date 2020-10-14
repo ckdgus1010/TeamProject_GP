@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviourPun
 {
-    public static ButtonManager instance;
+    //public static ButtonManager instance;
     //프로필 
     public Text nickName_Text;
 
@@ -61,7 +61,7 @@ public class ButtonManager : MonoBehaviourPun
 
     private void Awake()
     {
-        instance = this;
+       // instance = this;
     }
 
     private void Start()

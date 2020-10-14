@@ -40,6 +40,7 @@ public class TouchManager : MonoBehaviour
     public GameObject mapObj;
     public GameObject mapMgr;
     private GameMap gameMap;
+    public GameObject masterMapCreateHelp;
 
     public Quaternion gameboardQuaternion;
     public Vector3  gameboardTransform;
@@ -69,14 +70,6 @@ public class TouchManager : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("MINE");
             myPhotonView = player.GetComponent<PhotonView>();
        //     playerCs = player.GetComponent<PlayerMgr>();
-            if (PhotonNetwork.IsMasterClient)
-            {
-                hostBt.SetActive(true);
-            }
-            else
-            {
-                resolveBt.SetActive(true);
-            }
         }
     }
 
@@ -105,6 +98,7 @@ public class TouchManager : MonoBehaviour
             {
                 if (PhotonNetwork.IsMasterClient)
                 {
+                    masterMapCreateHelp.SetActive(false);
                     //GameBoard 생성
                     gameBoard.SetActive(true);
 
@@ -127,6 +121,7 @@ public class TouchManager : MonoBehaviour
                     pointImage.SetActive(true);
                     cubeSetting.enabled = true;
                     boardSizePanel.SetActive(true);
+                    hostBt.SetActive(true);
                 }
             }
             //Create Mode 또는 혼자하기 모드인 경우

@@ -18,6 +18,9 @@ public class MultyScreenMgr : MonoBehaviourPun
     public GameObject blackBG;
     public GameObject notePanel;
     public GameObject hr_Background;
+    public GameObject waitingClientPopup;
+    public GameObject waitingMasterPopup;
+    public GameObject masterMapCreateHelp;
 
     public int mapOnCount = 0;
     public float lerpSpeed = 3.0f;
@@ -38,6 +41,16 @@ public class MultyScreenMgr : MonoBehaviourPun
         blackBG.SetActive(false);
         notePanel.SetActive(false);
         isNotePanelOff = true;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            //바닥을 충분히 인식했다면,원하는 위치를 눌러 맵을 생성하세요.
+            masterMapCreateHelp.SetActive(true);
+        }
+        else
+        {
+            //방장이 맵을 생성할 때까지 잠시만 기다려주세요! 켜기
+            waitingMasterPopup.SetActive(true);
+        }
     }
 
     void Update()
@@ -53,16 +66,6 @@ public class MultyScreenMgr : MonoBehaviourPun
             {
                 client_PlayButtons.anchoredPosition = Vector2.Lerp(client_PlayButtons.anchoredPosition, endPos_PlayButtons.anchoredPosition, Time.deltaTime * lerpSpeed);
             }
-
-            //if (PhotonNetwork.IsMasterClient)
-            //{
-            //    print("다른 플레이어가 맵을 생성할 동안 잠시만 기다려 주세요");
-            //}
-            //if (!PhotonNetwork.IsMasterClient)
-            //{
-            //    print("자 준비하세요 곧 시작합니다.");
-            //    Invoke("GameStart", 3);
-            //}
         }
 
         if (mapOnCount == 1)
@@ -87,6 +90,12 @@ public class MultyScreenMgr : MonoBehaviourPun
     {
         Debug.Log($"RpcGameStart() 들어왔어");
         hr_Background.SetActive(false);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            //다른 플레이어가 맵을 생성할 때까지 잠시만 기다려주세요! 끄기
+            waitingClientPopup.SetActive(false);
+        }
+
         Debug.Log($"blackBG 껐어");
 
     }

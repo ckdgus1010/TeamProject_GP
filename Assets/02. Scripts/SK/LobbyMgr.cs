@@ -205,15 +205,4 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
         //PhotonNetwork.LeaveLobby();
     }
-    //public override void OnLeftLobby()
-    //{
-    //    SceneManager.LoadScene("05. PlayMode");
-    //    PhotonNetwork.Disconnect();
-    //    print(System.Reflection.MethodBase.GetCurrentMethod().Name);
-    //}
-    //public override void OnDisconnected(DisconnectCause cause)
-    //{
-    //    print(System.Reflection.MethodBase.GetCurrentMethod().Name);
-    //}
-
 }

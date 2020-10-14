@@ -13,6 +13,7 @@ public class PlayerMgr : MonoBehaviourPun
     //public List<Profile> proFileList;
     public GameObject cubeFac;
     public int myIndexNumber;
+    public bool isRecevied;
 
     public static Quaternion gameboardQuaternion_;
     public static Vector3 gameboardTransform_;
@@ -25,6 +26,10 @@ public class PlayerMgr : MonoBehaviourPun
         DontDestroyOnLoad(gameObject);
     }
 
+    public void Update()
+    {
+       
+    }
 
     // 프로필 만들기
     [PunRPC]
@@ -89,7 +94,10 @@ public class PlayerMgr : MonoBehaviourPun
         print("Player isReceive : " + isReceive);
         gameboardQuaternion_ = gameboardQuaternion;
         gameboardTransform_ = gameboardTransform;
+        //isRecevied = true;
+        //print(isRecevied);
         //isReceiveId = true;
+        // 이제 리졸브버튼 누르세요 하기
     }
 
     // 마스터가 설정한 설정한 난이도와 스테이지 클라이언트들에게 넘기기 
@@ -112,4 +120,5 @@ public class PlayerMgr : MonoBehaviourPun
     {
         WatingButtonMgr.instance.readyCount -= 1;
     }
+    
 }

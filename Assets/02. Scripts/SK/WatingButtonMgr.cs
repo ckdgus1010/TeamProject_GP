@@ -253,21 +253,23 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     }
     public void OnClickGameStart()
     {
-        print("RPC에서 OnClickGameStart 으로 받음 ");
+        if (PhotonNetwork.IsMasterClient)
+        {
+            print("RPC에서 OnClickGameStart 으로 받음 ");
 
-        //마스터만 Client들한테 modeID, stageID 넘겨주기
-        Debug.Log(readyCount);
-        int modeID = GameManager.Instance.modeID;
-        // 나중에 난수 생성
-        int stageID = UnityEngine.Random.Range(1, 10);
-        print(stageID);
-        GameManager.Instance.stageID = stageID;
-        print(" 와팅 와팅 Mgr:::::" + GameManager.Instance.modeID + "//" + modeID + "//" + stageID);
-        myPhotonView.RPC("RpcSetGameData", RpcTarget.Others, modeID, stageID);
+            //마스터만 Client들한테 modeID, stageID 넘겨주기
+            Debug.Log(readyCount);
+            int modeID = GameManager.Instance.modeID;
+            // 나중에 난수 생성
+            int stageID = UnityEngine.Random.Range(1, 10);
+            print(stageID);
+            GameManager.Instance.stageID = stageID;
+            print(" 와팅 와팅 Mgr:::::" + GameManager.Instance.modeID + "//" + modeID + "//" + stageID);
+            myPhotonView.RPC("RpcSetGameData", RpcTarget.Others, modeID, stageID);
 
-        //Scene 전환
-        PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
-
+            //Scene 전환
+            PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
+        }
     }
 
     public void OnClickLeaveRoom()
