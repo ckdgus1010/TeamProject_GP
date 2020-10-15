@@ -39,6 +39,11 @@ public class ButtonManager : MonoBehaviourPunCallbacks
     public GameObject cubeList;
     public List<GameObject> list;
 
+    //큐브 Effect
+    public GameObject createEffect;
+    public GameObject removeEffect;
+    public GameObject boardResetEffect;
+
     //정답 확인
     public QuestManager questManager;
     public AnswerManager answerManager;
@@ -84,6 +89,12 @@ public class ButtonManager : MonoBehaviourPunCallbacks
         boardSizeSlider.value = 0.1f;
         gridSizeSlider.value = gridSizeSlider.minValue;
         blockImage.SetActive(true);
+
+        //이펙트
+        GameObject effect = Instantiate(boardResetEffect);
+        //이펙트 생성장소
+        effect.transform.position = touchManager.gameBoard.transform.position;
+        effect.transform.localScale *= boardSizeSlider.value;
     }
 
     public void Multiy_ResetGameBoard()
@@ -144,6 +155,9 @@ public class ButtonManager : MonoBehaviourPunCallbacks
                                          , cubeList.transform);
             list.Add(cube);
 
+            //이펙트 공장
+            GameObject effect = Instantiate(createEffect);
+
             Debug.Log("ButtonManager MakeCube() ::: 큐브 생성");
         }
     }
@@ -156,9 +170,16 @@ public class ButtonManager : MonoBehaviourPunCallbacks
             if (GameManager.Instance.modeID == 3)
             {
                 cubeSetting.currCube.SetActive(false);
+                
             }
             else
             {
+                //이펙트 공장
+                GameObject effect = Instantiate(removeEffect);
+                //이펙트가 생성될 장소
+                effect.transform.position = cubeSetting.currCube.transform.position;
+                effect.transform.localScale *= boardSizeSlider.value;
+
                 Destroy(cubeSetting.currCube);
                 Debug.Log("ButtonManager ::: 큐브 삭제");
             }
@@ -345,6 +366,8 @@ public class ButtonManager : MonoBehaviourPunCallbacks
 
             GameObject cube = Instantiate(gameMap.cube, cubePos.position, gameBoard.transform.rotation, cubeList.transform);
             list.Add(cube);
+            //이펙트 공장
+            GameObject effect = Instantiate(createEffect);
 
             cube.name = PhotonNetwork.NickName + "Cube(" + cubeNum + ")";
             Debug.Log("생성한  큐브 이름 확인 : " + cube.name);
@@ -390,6 +413,8 @@ public class ButtonManager : MonoBehaviourPunCallbacks
         Transform cubePos = obj.transform.GetChild(0).transform;
 
         GameObject cube = Instantiate(gameMap.cube, cubePos.position, gameBoard.transform.rotation, cubeList.transform);
+        //이펙트 공장
+        GameObject effect = Instantiate(createEffect);
         list.Add(cube);
         //생성한 CUBE의 isMine을 체크하고 내꺼면 다른 애들 큐브이름을 바꿔
 
@@ -403,6 +428,12 @@ public class ButtonManager : MonoBehaviourPunCallbacks
     {
         if (cubeSetting.currCube != null)
         {
+            //이펙트 공장
+            GameObject effect = Instantiate(removeEffect);
+            //이펙트가 생성될 장소
+            effect.transform.position = cubeSetting.currCube.transform.position;
+            effect.transform.localScale *= boardSizeSlider.value;
+
             Destroy(cubeSetting.currCube);
             photonView.RPC("RpcDeleteCube", RpcTarget.Others, cubeSetting.currCube.name);
 
@@ -415,6 +446,13 @@ public class ButtonManager : MonoBehaviourPunCallbacks
     public void RpcDeleteCube(string currCubeName)
     {
         GameObject currCube = GameObject.Find(currCubeName).gameObject;
+
+        //이펙트 공장
+        GameObject effect = Instantiate(removeEffect);
+        //이펙트가 생성될 장소
+        effect.transform.position =currCube.transform.position;
+        effect.transform.localScale *= boardSizeSlider.value;
+
         Destroy(currCube);
     }
 
