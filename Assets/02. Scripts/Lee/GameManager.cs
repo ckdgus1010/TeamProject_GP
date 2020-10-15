@@ -47,14 +47,23 @@ public class GameManager : MonoBehaviour
 
     //---------------------------------------------
 
+    [Header("User Infomation")]
+    public string username = "Guest";
+    public List<Sprite> profileImage = new List<Sprite>();      // 프로필 사진
+
+    [Header("User Achievement")]
+    public int masterCount = 0;     // 같이하기 모드에서 방장을 한 횟수
+    public bool[] achievement = new bool[10];
+
+    [Header("Stage Infomation")]
+    public int modeID = 1000;       // Play Mode의 정보
+    public int stageID = 0;         // Stage의 정보
+
     //Stage Clear 여부 정보 생성
     public enum StageState { Forbidden, Cleared, Current };
 
     //혼자하기 모드 유형별 진행 상황
     public List<StageState> stageStateList;
-
-    //혼자하기 모드 스테이지 상태 - 색깔
-    public Color[] buttonColor = new Color[3];
 
     //혼자히기 모드 스테이지 상태 - 그림
     public Sprite[] buttonImageArray = new Sprite[3];
@@ -65,16 +74,7 @@ public class GameManager : MonoBehaviour
     public List<StageState> mode02_StageStatusList;           //혼자하기 모드 - 유형2
     public List<StageState> mode03_StageStatusList;           //혼자하기 모드 - 유형3
 
-    //04-1. Alone Mode Select Scene에서 선택한 Mode의 정보
-    public int modeID = 1000;
 
-    //04-2. Alone Stage Select Scene에서 선택한 Stage의 정보
-    public int stageID = 0;
-
-    // 같이하기 모드 방장을 한 횟수
-    public int masterCount = 0;
-
-    public string nickName = "";
    
     private void Start()
     {

@@ -57,7 +57,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         //로비로 진입
         PhotonNetwork.JoinLobby();
 
-        PhotonNetwork.NickName = GameManager.Instance.nickName;
+        PhotonNetwork.NickName = GameManager.Instance.username;
     }
     public override void OnJoinedLobby()//3
     {

@@ -74,7 +74,7 @@ public class ButtonManager : MonoBehaviourPunCallbacks
     {
         if (nickName_Text != null)
         {
-            nickName_Text.text = GameManager.Instance.nickName;
+            nickName_Text.text = GameManager.Instance.username;
         }
         PhotonNetwork.AutomaticallySyncScene = true;
     }

@@ -156,6 +156,7 @@ public class PlayFabManager : MonoBehaviour
     void OnGetPlayerProfileSuccess(GetPlayerProfileResult result)
     {
         Debug.Log("The player's DisplayName profile data is: " + result.PlayerProfile.DisplayName);
+        GameManager.Instance.username = result.PlayerProfile.DisplayName;
     }
 
     void OnGetPlayerProfileFailure(PlayFabError error)
