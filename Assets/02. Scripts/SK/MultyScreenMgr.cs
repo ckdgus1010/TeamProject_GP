@@ -21,6 +21,9 @@ public class MultyScreenMgr : MonoBehaviourPun
     public GameObject waitingClientPopup;
     public GameObject waitingMasterPopup;
     public GameObject masterMapCreateHelp;
+    public GameObject front_Hidden;
+    public GameObject side_Hidden;
+    public GameObject up_Hidden;
 
     public int mapOnCount = 0;
     public float lerpSpeed = 3.0f;
@@ -28,30 +31,101 @@ public class MultyScreenMgr : MonoBehaviourPun
 
     public int maxplayerNum;
 
-    private List<string> fstList = new List<string>() { "앞", "옆", "위" };
+    private List<string> fstList3 = new List<string>() { "앞", "옆", "위" };
+    private List<string> fstList2 = new List<string>() { "앞", "옆" };
     public List<string> list;
+    public string[] fstListlist;
+    public string myRole;
+
     void Start()
     {
         myPhotonView = GetComponent<PhotonView>();
         Invoke("OffNotePanel", 3);
         maxplayerNum = 2;
         hr_Background.SetActive(true);
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.MaxPlayers == 3)
         {
-            RandomNum();
+            RandomNum3();
+        }
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.MaxPlayers == 2)
+        {
+            RandomNum2();
         }
     }
-    public void RandomNum()
+    //방장이 앞,옆,위 역할을 랜덤으로 만들어 리스트에 저장한다.
+    public void RandomNum3()
     {
         for (int i = 0; i < 3; i++)
         {
-            int rand = Random.Range(0, fstList.Count);
-            print(fstList[rand]);
-            list.Add(fstList[rand]);
-            //GetRandomNum getRandomNum = playerList[rand].GetComponent<GetRandomNum>();
-            //getRandomNum.FindMyindex();
-            fstList.RemoveAt(rand);
+            int rand = Random.Range(0, fstList3.Count);
+            //print(fstList3[rand]);
+            list.Add(fstList3[rand]);
+
+            fstList3.RemoveAt(rand);
         }
+        fstListlist = list.ToArray();
+        //리스트를 모든 사람에게 뿌린다.
+        photonView.RPC("GetNum3", RpcTarget.All, fstListlist);
+    }
+    public void RandomNum2()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            int rand = Random.Range(0, fstList2.Count);
+            //print(fstList2[rand]);
+            list.Add(fstList2[rand]);
+
+            fstList2.RemoveAt(rand);
+        }
+        fstListlist = list.ToArray();
+        photonView.RPC("GetNum2", RpcTarget.All, fstListlist);
+
+    }
+
+    // 내 인덱스번호와 맞는 리스트의 값을 내 역할에 넣는다.
+    [PunRPC]
+    public void GetNum3(string[] list)
+    {
+        fstListlist = list;
+        myRole = fstListlist[WatingButtonMgr.instance.myIndexNumber];
+
+        if (myRole == "앞")
+        {
+            print("나는 앞이야");
+            front_Hidden.SetActive(false);
+        }
+        if (myRole == "옆")
+        {
+            print("나는 옆이야");
+            side_Hidden.SetActive(false);
+        }
+        if (myRole == "위")
+        {
+            print("나는 위야");
+            up_Hidden.SetActive(false);
+        }
+
+    }
+
+    [PunRPC]
+
+    public void GetNum2(string[] list)
+    {
+        fstListlist = list;
+        myRole = fstListlist[WatingButtonMgr.instance.myIndexNumber];
+
+        if (myRole == "앞")
+        {
+            print("나는 앞이야");
+            front_Hidden.SetActive(false);
+        }
+        if (myRole == "옆")
+        {
+            print("나는 옆이야");
+            side_Hidden.SetActive(false);
+        }
+
+        up_Hidden.SetActive(false);
     }
     public void OffNotePanel()
     {
@@ -73,11 +147,11 @@ public class MultyScreenMgr : MonoBehaviourPun
     void Update()
     {
         // 플레이어들이 맵을 생성하면
-        if(cloudAnchorController.isResolvingFinish == true || cloudAnchorController.isHostingFinish == true)
+        if (cloudAnchorController.isResolvingFinish == true || cloudAnchorController.isHostingFinish == true)
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                master_PlayButtons.anchoredPosition = Vector2.Lerp(master_PlayButtons.anchoredPosition, endPos_PlayButtons.anchoredPosition,Time.deltaTime*lerpSpeed);
+                master_PlayButtons.anchoredPosition = Vector2.Lerp(master_PlayButtons.anchoredPosition, endPos_PlayButtons.anchoredPosition, Time.deltaTime * lerpSpeed);
             }
             if (!PhotonNetwork.IsMasterClient)
             {
