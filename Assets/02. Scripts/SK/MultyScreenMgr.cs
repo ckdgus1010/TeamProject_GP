@@ -28,14 +28,31 @@ public class MultyScreenMgr : MonoBehaviourPun
 
     public int maxplayerNum;
 
+    private List<string> fstList = new List<string>() { "앞", "옆", "위" };
+    public List<string> list;
     void Start()
     {
         myPhotonView = GetComponent<PhotonView>();
         Invoke("OffNotePanel", 3);
         maxplayerNum = 2;
         hr_Background.SetActive(true);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            RandomNum();
+        }
     }
-
+    public void RandomNum()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            int rand = Random.Range(0, fstList.Count);
+            print(fstList[rand]);
+            list.Add(fstList[rand]);
+            //GetRandomNum getRandomNum = playerList[rand].GetComponent<GetRandomNum>();
+            //getRandomNum.FindMyindex();
+            fstList.RemoveAt(rand);
+        }
+    }
     public void OffNotePanel()
     {
         blackBG.SetActive(false);

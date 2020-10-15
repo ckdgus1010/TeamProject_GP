@@ -17,9 +17,6 @@ public class SelectLevel : MonoBehaviour
         //levelCilck = false;
         image = GetComponent<Image>();
         instance = this;
-        // if (WatingButtonMgr.instance.curruntLevels == mLevel) SelectColor();
-        //else UnSelectColor();
-        //print(levelCilck);
     }
 
     public void OnClick()
