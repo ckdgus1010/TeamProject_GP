@@ -78,6 +78,10 @@ public class GameManager : MonoBehaviour
    
     private void Start()
     {
+        // 플레이어 기본 이름 생성
+        int num = Random.Range(0, 1000);
+        username = username + num;
+
         //GenerateData();
         SaveManager.Load();
         //Debug.Log($"GameManager.stageStateList // SaveManager.stageStatus ::: {GameManager.Instance.stageStateList.Count} // {SaveManager.stageStatus.Count}");

@@ -98,7 +98,7 @@ public class LoadingSceneController : MonoBehaviour
             yield return null;
             timer += Time.deltaTime;
 
-            if (loadingSlider.value < 0.8f)
+            if (loadingSlider.value < 0.9f)
             {
                 loadingSlider.value = Mathf.Lerp(loadingSlider.value, 0.8f, timer * 0.2f);
             }

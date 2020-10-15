@@ -11,6 +11,8 @@ using PlayFab.GroupsModels;
 public class PlayFabManager : MonoBehaviour
 {
     public ButtonManager01 buttonManager01;
+    public GameObject loginPanel;
+    public GameObject mainMenuPanel;
 
     // 로그인 팝업창
     [Header("Login Popup")]
@@ -60,8 +62,6 @@ public class PlayFabManager : MonoBehaviour
         // 로딩 화면
         LoadingSceneController.Instance.LoadScene("04. MainMenu");
 
-        //GameManager.Instance.nickName = username.text.Split('@')[0];
-
         yield return new WaitUntil(() => isLoginCheckFinished == true);
 
         isChecking = false;
@@ -83,7 +83,8 @@ public class PlayFabManager : MonoBehaviour
         //서버에서 player profile 받아오기
         GetPlayerProfile(result.PlayFabId);
 
-        SceneManager.LoadScene("04. MainMenu");
+        //mainMenuPanel.SetActive(true);
+        //loginPanel.SetActive(false);
     }
 
     //로그인 실패

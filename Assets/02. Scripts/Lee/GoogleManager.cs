@@ -6,6 +6,9 @@ using GooglePlayGames;
 
 public class GoogleManager : MonoBehaviour
 {
+    [SerializeField] private GameObject loginPanel;
+    [SerializeField] private GameObject mainMenuPanel;
+
     void Start()
     {
         PlayGamesPlatform.DebugLogEnabled = true;
@@ -19,6 +22,10 @@ public class GoogleManager : MonoBehaviour
             if (success)
             {
                 Debug.Log($"{Social.localUser.id} \n {Social.localUser.userName}");
+                GameManager.Instance.username = Social.localUser.userName;
+
+                //mainMenuPanel.SetActive(true);
+                //loginPanel.SetActive(false);
                 SceneManager.LoadScene("04. MainMenu");
             }
             else 

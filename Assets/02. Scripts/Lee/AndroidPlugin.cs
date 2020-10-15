@@ -18,7 +18,6 @@ public class AndroidPlugin : MonoBehaviour
         Kotlin = new AndroidJavaObject("com.on_off.myapplication.unityGallery");
     }
 
-
     public void GalleryOpen()
     {
         Debug.Log("AndroidPlugin ::: 갤러리 오픈");
