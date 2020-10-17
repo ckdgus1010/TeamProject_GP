@@ -108,6 +108,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         {
             AddPlayer(PhotonNetwork.LocalPlayer.ActorNumber);
         }
+        Debug.Log(PhotonNetwork.CurrentRoom.MaxPlayers);
     }
 
     // 내 인덱스 번호랑 같은 프로필 번호 오브젝트를 찾는다

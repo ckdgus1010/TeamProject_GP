@@ -27,6 +27,8 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     public Transform content;
 
     public Button joinRoom_Bt;
+    public Image image2;
+    public Image image3;
 
     private bool sendPerson = false;
 
@@ -160,7 +162,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
         }
     }
-   
+
     void CreateRoomListUI()
     {
         foreach (RoomInfo info in cacheRoom.Values)// 위에있는 캐시에 있는 만큼 룸들을 다 돌면서 방을 생성한다.
@@ -179,12 +181,16 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     {
         personNum = two;
         sendPerson = true;
+        image2.color = new Color(image2.color.r, image2.color.g, image2.color.b, 1.0f);
+        image3.color = new Color(image3.color.r, image3.color.g, image3.color.b, 0.4f);
     }
 
     public void Send3()
     {
         personNum = three;
         sendPerson = true;
+        image3.color = new Color(image3.color.r, image3.color.g, image3.color.b, 1.0f);
+        image2.color = new Color(image2.color.r, image2.color.g, image2.color.b, 0.4f);
     }
 
     public void OnRoomMaker_Panel()
