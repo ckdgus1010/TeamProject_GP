@@ -33,11 +33,11 @@ public class VideoPlayerController : MonoBehaviour
             Debug.Log("VideoCtrl ::: 영상 끝, 로그인 화면으로 이동");
             
             isFinished = true;
-            Invoke("ShoLoginCanvas", timer);
+            Invoke("ShowLoginCanvas", timer);
         }
     }
 
-    void ShoLoginCanvas()
+    void ShowLoginCanvas()
     {
         loginCanvas.SetActive(true);
         //permissionManager.RequestPermission();

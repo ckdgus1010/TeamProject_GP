@@ -6,13 +6,52 @@ using Photon.Pun;
 
 public class ModeData : MonoBehaviourPun
 {
-    public int modeID = 0;
+    [SerializeField] private CanvasController canvasController;
+    [SerializeField] private int modeID = 0;
 
     public void MasterConvertScene()
     {
         if (PhotonNetwork.IsMasterClient)
         {
             ConvertScene();
+        }
+    }
+
+    public void ConvertCanvas()
+    {
+        GameManager.Instance.modeID = modeID;
+
+        switch (modeID)
+        {
+            case 0:
+                Debug.Log($"{this.gameObject.name} // ModeData {modeID} ::: Create Mode로 이동");
+                GameManager.Instance.stageID = 1;
+                SceneManager.LoadScene("06. CreateMode");
+                break;
+            case 1:
+                Debug.Log($"{this.gameObject.name} // ModeData {modeID} ::: \n 혼자하기 유형 선택 화면으로 이동");
+
+                // Canvas 전환
+                canvasController.OpenAloneModeCanvas();
+                break;
+            case 2:
+            case 3:
+            case 4:
+                Debug.Log($"{this.gameObject.name} // ModeData {modeID} ::: \n 혼자하기 스테이지 선택 화면으로 이동");
+
+                GameManager.Instance.stageStateList = GameManager.Instance.stageStateArray[modeID - 2];
+                // Canvas 전환
+                canvasController.OpenStageSelectCanvas();
+                break;
+            case 5:
+                Debug.Log($"{this.gameObject.name} // ModeData {modeID} ::: \n 같이하기 모드 방목록 화면으로 이동");
+                SceneManager.LoadScene("11. TogetherModeList");
+                break;
+            case 6:
+            case 7:
+            case 8:
+                Debug.Log($"{this.gameObject.name}ModeData {modeID} ::: \n 이 에러를 봤다면 작업을 중단하고 연락주세요.");
+                break;
         }
     }
 

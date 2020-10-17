@@ -45,10 +45,10 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    //---------------------------------------------
+    //--------------------------------------------------------------
 
     [Header("User Infomation")]
-    public string username = "Guest";
+    public string username = "";
     public Sprite profileImage = null;
     public List<Sprite> profileImageList = new List<Sprite>();      // 프로필 사진
 
@@ -63,11 +63,12 @@ public class GameManager : MonoBehaviour
     //Stage Clear 여부 정보 생성
     public enum StageState { Forbidden, Cleared, Current };
 
-    //혼자하기 모드 유형별 진행 상황
-    public List<StageState> stageStateList;
-
     //혼자히기 모드 스테이지 상태 - 그림
     public Sprite[] buttonImageArray = new Sprite[3];
+    public Color[] buttonColorArray = new Color[3];
+
+    //혼자하기 모드 유형별 진행 상황
+    public List<StageState> stageStateList;
 
     //혼자하기 모드 유형별 저장된 진행 상황
     public List<StageState>[] stageStateArray;
@@ -81,7 +82,7 @@ public class GameManager : MonoBehaviour
     {
         // 플레이어 기본 이름 생성
         int num = Random.Range(0, 1000);
-        username = username + num;
+        username = "Guest " + num;
 
         //GenerateData();
         SaveManager.Load();

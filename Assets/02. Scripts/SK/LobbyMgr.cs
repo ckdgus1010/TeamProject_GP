@@ -206,7 +206,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     }
     public void OnClickLeaveLobby()
     {
-        SceneManager.LoadScene("05. PlayMode");
+        SceneManager.LoadScene("01. Intro");
         PhotonNetwork.Disconnect();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
         //PhotonNetwork.LeaveLobby();

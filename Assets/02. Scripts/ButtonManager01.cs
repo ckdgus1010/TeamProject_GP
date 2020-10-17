@@ -8,6 +8,11 @@ namespace Lee
 {
     public class ButtonManager01 : MonoBehaviour
     {
+        [SerializeField] private GameObject mainMenuCanvas;
+        [SerializeField] private GameObject playModeCanvas;
+        [SerializeField] private GameObject aloneModeCanvas;
+        [SerializeField] private GameObject aloneStageCanvas;
+
         #region 로그인 화면
 
         [Header("Login Panel")]
@@ -87,8 +92,9 @@ namespace Lee
 
         [Header("Main Menu Panel")]
         [SerializeField] private GameObject profilePanel;
-        [SerializeField] private GameObject settingPanel;
+        [SerializeField] private GameObject settingCanvas;
         [SerializeField] private AndroidPlugin androidPlugin;
+
 
         // 프로필 팝업창
         public void ConvertProfilePanel()
@@ -107,8 +113,8 @@ namespace Lee
         // 옵션 팝업창
         public void ConvertSettingPanel()
         {
-            Debug.Log($"ButtonManager01 ::: setting panel // {!settingPanel.activeSelf}");
-            settingPanel.SetActive(!settingPanel.activeSelf);
+            Debug.Log($"ButtonManager01 ::: setting panel // {!settingCanvas.activeSelf}");
+            settingCanvas.SetActive(!settingCanvas.activeSelf);
         }
 
         // 배경음악 조절
@@ -135,6 +141,68 @@ namespace Lee
             Debug.Log($"ButtonManager01 ::: 만든이 버튼 클릭");
         }
 
+
         #endregion
+
+
+
+        #region 혼자하기 모드 유형 선택화면
+
+        [SerializeField] private StageData[] stageButtons = new StageData[9];
+
+        // 스테이지 정보 갱신
+        public void UpdateStageData()
+        {
+            Debug.Log("ButtonManager01 ::: 스테이지 정보 갱신");
+
+            for (int i = 0; i < stageButtons.Length; i++)
+            {
+                stageButtons[i].UpdateStageData();
+            }
+        }
+
+        #endregion
+
+
+
+
+        // 메인 메뉴 화면 → 플레이 모드 선택 화면으로 이동
+        public void ChangePlayModeCanvas()
+        {
+            Debug.Log("ButtonManager01 ::: 플레이 모드 선택화면으로 이동");
+
+            playModeCanvas.SetActive(true);
+            mainMenuCanvas.SetActive(false);
+        }
+
+        // 뒤로 가기 (플레이 모드 선택 화면 → 메인 메뉴 화면)
+        public void BacktoMainMenuCanvas()
+        {
+            Debug.Log("ButtonManager01 ::: 뒤로가기 버튼 클릭 // 메인 메뉴로 이동");
+            GameManager.Instance.modeID = 1000;
+
+            mainMenuCanvas.SetActive(true);
+            playModeCanvas.SetActive(false);
+        }
+
+        // 뒤로 가기(혼자하기 모드 유형 선택 화면 → 플레이 모드 선택 화면)
+        public void BacktoPlayModeSelectCanvas()
+        {
+            Debug.Log("ButtonManager01 ::: 뒤로가기 버튼 클릭 // 플레이모드 선택 화면으로 이동");
+            GameManager.Instance.modeID = 1000;
+
+            playModeCanvas.SetActive(true);
+            aloneModeCanvas.SetActive(false);
+        }
+
+        // 뒤로 가기 (혼자하기 모드 스테이지 선택 화면 → 혼자하기 모드 유형 선택 화면)
+        public void BacktoAloneModeSelectCanvas()
+        {
+            Debug.Log("ButtonManager01 ::: 뒤로가기 버튼 클릭 // 혼자하기 모드 유형 선택 화면으로 이동");
+            GameManager.Instance.modeID = 1;
+
+            aloneModeCanvas.SetActive(true);
+            aloneStageCanvas.SetActive(false);
+        }
     }
 }

@@ -10,8 +10,20 @@ public class StageData : MonoBehaviour
     public int stageID = 0;
     private int status;
 
-    //나중에 Start 함수로 바꿀 것
-    private void Start()
+    ////나중에 Start 함수로 바꿀 것
+    //private void Start()
+    //{
+    //    List<GameManager.StageState> stageStateList = GameManager.Instance.stageStateList;
+
+    //    //Stage Clear 여부 확인
+    //    status = (int)stageStateList[stageID - 1];
+
+    //    Image img = GetComponent<Image>();
+    //    //img.color = GameManager.Instance.buttonColor[status];
+    //    img.sprite = GameManager.Instance.buttonImageArray[status];
+    //}
+
+    public void UpdateStageData()
     {
         List<GameManager.StageState> stageStateList = GameManager.Instance.stageStateList;
 
@@ -19,8 +31,8 @@ public class StageData : MonoBehaviour
         status = (int)stageStateList[stageID - 1];
 
         Image img = GetComponent<Image>();
-        //img.color = GameManager.Instance.buttonColor[status];
-        img.sprite = GameManager.Instance.buttonImageArray[status];
+        img.color = GameManager.Instance.buttonColorArray[status];
+        //img.sprite = GameManager.Instance.buttonImageArray[status];
     }
 
     public void ConvertScene()
