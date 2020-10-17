@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -96,6 +97,13 @@ namespace Lee
             profilePanel.SetActive(!profilePanel.activeSelf);
         }
 
+        // 프로필 사진 바꾸기
+        public void ChangeProfilePhoto()
+        {
+            Debug.Log("ButtonManager01 ::: 프로필 사진 바꾸기 버튼 클릭");
+            androidPlugin.GalleryOpen();
+        }
+
         // 옵션 팝업창
         public void ConvertSettingPanel()
         {
@@ -103,10 +111,28 @@ namespace Lee
             settingPanel.SetActive(!settingPanel.activeSelf);
         }
 
-        // 프로필 사진 바꾸기
-        public void ChangeProfilePhoto()
+        // 배경음악 조절
+        public void ControlBGM()
         {
-            androidPlugin.GalleryOpen();
+            Debug.Log($"ButtonManager01 ::: BGM // ");
+        }
+
+        // 효과음 조절
+        public void ControlEffectSound()
+        {
+            Debug.Log($"ButtonManager01 ::: Effect Sound // ");
+        }
+
+        // 튜토리얼 버튼
+        public void OpenTutorialCanvas()
+        {
+            Debug.Log($"ButtonManager01 ::: 튜토리얼 버튼 클릭");
+        }
+
+        // 만든이 버튼
+        public void OpenCreditCanvas()
+        {
+            Debug.Log($"ButtonManager01 ::: 만든이 버튼 클릭");
         }
 
         #endregion
