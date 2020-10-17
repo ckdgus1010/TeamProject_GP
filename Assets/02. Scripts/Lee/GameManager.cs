@@ -49,7 +49,8 @@ public class GameManager : MonoBehaviour
 
     [Header("User Infomation")]
     public string username = "Guest";
-    public List<Sprite> profileImage = new List<Sprite>();      // 프로필 사진
+    public Sprite profileImage = null;
+    public List<Sprite> profileImageList = new List<Sprite>();      // 프로필 사진
 
     [Header("User Achievement")]
     public int masterCount = 0;     // 같이하기 모드에서 방장을 한 횟수

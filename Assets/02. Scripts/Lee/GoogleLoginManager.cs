@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using GooglePlayGames;
 
-public class GoogleManager : MonoBehaviour
+public class GoogleLoginManager : MonoBehaviour
 {
     [SerializeField] private GameObject loginPanel;
     [SerializeField] private GameObject mainMenuPanel;
+
+    // 코루틴 중복 방지
+    private bool isChecking = false;
 
     void Start()
     {
@@ -17,6 +20,19 @@ public class GoogleManager : MonoBehaviour
 
     public void Login()
     {
+        if (isChecking == false)
+        {
+            Debug.Log($"GoogleLoginManager ::: 구글 로그인 시작");
+            StartCoroutine(GoogleLogin());
+        }
+    }
+
+    IEnumerator GoogleLogin()
+    {
+        isChecking = true;
+        Debug.Log($"GoogleLoginManager ::: 구글 로그인 코루틴 들어옴");
+
+        yield return null;
         Social.localUser.Authenticate((bool success) =>
         {
             if (success)
@@ -28,7 +44,7 @@ public class GoogleManager : MonoBehaviour
                 //loginPanel.SetActive(false);
                 SceneManager.LoadScene("04. MainMenu");
             }
-            else 
+            else
             {
                 Debug.Log("구글 로그인 실패");
             }

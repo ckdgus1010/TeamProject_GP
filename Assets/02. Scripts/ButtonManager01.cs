@@ -12,9 +12,13 @@ namespace Lee
         [Header("Login Panel")]
         [SerializeField] private PermissionManager permissionManager;
         [SerializeField] private LoginPopupController loginPopupController;
-        [SerializeField] private SignupController signupController;
         [SerializeField] private PlayFabManager playFabManager;
-        [SerializeField] private GoogleManager googleManager;
+        [SerializeField] private GoogleLoginManager googleLoginManager;
+        [SerializeField] private GameObject loginErrorPanel;
+
+        [Header("Register Panel")]
+        [SerializeField] private SignupController signupController;
+        [SerializeField] private GameObject registerErrorPanel;
 
         // 필수 권한 요청
         public void RequestPermission()
@@ -35,6 +39,25 @@ namespace Lee
             }
         }
 
+        // PlayFab 로그인
+        public void Login_PlayFab()
+        {
+            playFabManager.LoginButton();
+        }
+
+        // 구글 로그인
+        public void Login_Google()
+        {
+            googleLoginManager.Login();
+        }
+
+        // 로그인 오류 패널
+        public void ConvertErrorPanel_Login()
+        {
+            Debug.Log($"ButtonManager01 ::: 로그인 오류 패널 {!loginErrorPanel.activeSelf}");
+            loginErrorPanel.SetActive(!loginErrorPanel.activeSelf);
+        }
+
         // 회원가입 패널
         public void ConvertSignupPanel()
         {
@@ -48,14 +71,11 @@ namespace Lee
             }
         }
 
-        public void Login_PlayFab()
+        // 회원가입 오류 패널
+        public void ConvertErrorPanel_Register()
         {
-            playFabManager.LoginButton();
-        }
-
-        public void Login_Google()
-        {
-            googleManager.Login();
+            Debug.Log($"ButtonManager01 ::: 회원가입 오류 패널 {registerErrorPanel.activeSelf}");
+            registerErrorPanel.SetActive(!registerErrorPanel.activeSelf);
         }
 
         #endregion
