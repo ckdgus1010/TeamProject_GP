@@ -64,11 +64,11 @@ public class Profile : MonoBehaviourPun
 
     //}
 
-    public void ChangeReadyState(string nickName, bool ready)
+    public void ChangeReadyState(string nickName)
     {
         print("ChangeReadyState실행함");
         if (nameText.text != nickName) return;
-        isReady = ready;
+        isReady = !isReady;
         //ready on -> 노랑색
         if (isReady == true)
         {

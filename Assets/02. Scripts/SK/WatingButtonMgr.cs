@@ -228,11 +228,12 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
                 myPhotonView.RPC("RpcReadyCountDown", RpcTarget.MasterClient);
 
             }
-            myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);//playerCs.proFileList, PhotonNetwork.NickName, !issReady
+            //myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);//playerCs.proFileList, PhotonNetwork.NickName, !issReady
+            myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName);//playerCs.proFileList, PhotonNetwork.NickName, !issReady
         }
     }
 
-    public void OnClickGameReady(string nickName, bool isReady) //List<Profile> proFileList, string nickName, bool isReady
+    public void OnClickGameReady(string nickName) //List<Profile> proFileList, string nickName, bool isReady
     {
         if (myPhotonView.IsMine)
         {
@@ -241,13 +242,13 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
         print("RPC에서 OnClickGameReady 으로 받음 ");
 
-        issReady = isReady;
+   
         GameManager.Instance.stageID = 1;
         for (int i = 0; i < profileList.Length; i++)
         {
             if (myPhotonView.IsMine)
             {
-                profileList[i].GetComponent<Profile>().ChangeReadyState(nickName, isReady);
+                profileList[i].GetComponent<Profile>().ChangeReadyState(nickName);
                 print("RPC에서 ChangeReadyState 으로 보냄 ");
             }
         }
@@ -326,7 +327,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         playerList[playerIndex] = 0;
         print("RPC_UpdatePlayerList()실행시켜줘");
 
-        photonView.RPC("UpdatePlayerList", RpcTarget.All, playerList);
+        photonView.RPC("UpdatePlayerList", RpcTarget.AllBuffered, playerList);
 
     }
 

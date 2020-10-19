@@ -19,7 +19,7 @@ public class PlayerMgr : MonoBehaviourPun
     public static Vector3 gameboardTransform_;
     // public Profile pf;
     //public PhotonView myphotonView;
-
+    public bool isready;
 
     private void Awake()
     {
@@ -47,9 +47,11 @@ public class PlayerMgr : MonoBehaviourPun
 
     // 클라이언트 일때 프로필 준비버튼 색 바꾸는 함수
     [PunRPC]
-    void RpcSetReady(string nickName, bool isReady)
+    //void RpcSetReady(string nickName, bool isReady)
+    void RpcSetReady(string nickName)
     {
-        WatingButtonMgr.instance.OnClickGameReady(nickName, isReady);
+       
+        WatingButtonMgr.instance.OnClickGameReady(nickName);
         print("RPC에서 OnClickGameReady 으로 보냄 ");
     }
 
