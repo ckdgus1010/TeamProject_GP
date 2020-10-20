@@ -34,6 +34,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public GameObject profileFac;
     public GameObject master_ProfileFac;
     public GameObject dontGameStartPopup;
+    public GameObject settingCanvas;
 
 
     public Transform content;
@@ -350,6 +351,11 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public void Xbt()
     {
         dontGameStartPopup.SetActive(false);
+    }
+
+    public void OnClickSetting()
+    {
+        settingCanvas.SetActive(!settingCanvas.activeSelf);
     }
     #endregion
 

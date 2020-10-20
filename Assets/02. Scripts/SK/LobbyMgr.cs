@@ -24,6 +24,12 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     public GameObject joinRoomfailPopup;
     public GameObject blackBG;
 
+    public GameObject roomList_Help_Panel;
+    public GameObject currentPanel;
+
+    public GameObject waitingRoom_Canvas;
+    public GameObject settingCanvas;
+    
     public Transform content;
 
     public Button joinRoom_Bt;
@@ -90,6 +96,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        //waitingRoom_Canvas.SetActive(!waitingRoom_Canvas.activeSelf);
         PhotonNetwork.LoadLevel("12. TogetherModeWait");
     }
 
@@ -210,5 +217,19 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         PhotonNetwork.Disconnect();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
         //PhotonNetwork.LeaveLobby();
+    }
+
+    public void OnClickRoommakerHelp()
+    {
+        roomList_Help_Panel.SetActive(true);
+        currentPanel = roomList_Help_Panel;
+    }
+    public void X_Button()
+    {
+        currentPanel.SetActive(false);
+    }
+    public void OnClickSetting()
+    {
+        settingCanvas.SetActive(!settingCanvas.activeSelf);
     }
 }

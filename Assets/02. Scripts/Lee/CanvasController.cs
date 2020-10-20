@@ -27,14 +27,18 @@ public class CanvasController : MonoBehaviour
                 Debug.Log("CanvasController ::: 인트로 영상 준비");
                 canvasArray[0].SetActive(true);
                 break;
+            case 1:
+                Debug.LogError($"CanvasController ::: GameManager.Instance.modeID // {modeID} 확인 요망");
+                break;
             case 0:
             case 5:
+            case 6:
+            case 7:
+            case 8:
                 Debug.Log("CanvasController ::: 플레이 모드 선택 화면 오픈");
                 canvasArray[0].SetActive(false);
                 canvasArray[3].SetActive(true);
-
-                // modeID 초기화
-                GameManager.Instance.modeID = 1000;
+                GameManager.Instance.modeID = 9;
                 break;
             case 2:
             case 3:
@@ -45,12 +49,6 @@ public class CanvasController : MonoBehaviour
 
                 // 스테이지 정보 업데이트
                 buttonManager01.UpdateStageData();
-                break;
-            case 1:
-            case 6:
-            case 7:
-            case 8:
-                Debug.LogError("CanvasController ::: GameManager.Instance.modeID 확인 요망");
                 break;
         }
     }

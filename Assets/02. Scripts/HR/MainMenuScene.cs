@@ -17,8 +17,8 @@ public class MainMenuScene : MonoBehaviour
     {
         Debug.Log($"SoundManager.instance.canEffect ::: {SoundManager.instance.canEffect}");
         //ES_OFF.SetActive(!SoundManager.instance.CanEffect());
-        ES_OFF.SetActive(!SoundManager.instance.canEffect);
-        BGM_OFF.SetActive(!SoundManager.instance.CanBGM());
+       // ES_OFF.SetActive(!SoundManager.instance.canEffect);
+       // BGM_OFF.SetActive(!SoundManager.instance.CanBGM());
     }
     public void OnClickProfileBtn()
     {

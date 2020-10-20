@@ -173,6 +173,7 @@ namespace Lee
 
             playModeCanvas.SetActive(true);
             mainMenuCanvas.SetActive(false);
+            GameManager.Instance.modeID = 9;
         }
 
         // 뒤로 가기 (플레이 모드 선택 화면 → 메인 메뉴 화면)
