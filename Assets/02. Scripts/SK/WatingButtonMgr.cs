@@ -67,7 +67,8 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public int playerIndex;
     public Array array;
     public bool ismaster_Mark;
-
+    public GameObject masterHelp;
+    public GameObject clientHelp;
     private void Start()
     {
         GameManager.Instance.modeID = 7;
@@ -290,6 +291,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         }
         else
             PhotonNetwork.LeaveRoom();
+        GameManager.Instance.modeID = 5;
         // PhotonNetwork.LoadLevel("11. TogetherModeList");
     }
     public override void OnLeftRoom()
@@ -356,6 +358,18 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public void OnClickSetting()
     {
         settingCanvas.SetActive(!settingCanvas.activeSelf);
+    }
+
+    public void OnCilckMasterHelp()
+    {
+        masterHelp.SetActive(true);
+        clientHelp.SetActive(false);
+    }
+    public void OnCilckCilentHelp()
+    {
+        masterHelp.SetActive(false);
+        clientHelp.SetActive(true);
+
     }
     #endregion
 

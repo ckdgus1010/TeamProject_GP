@@ -29,6 +29,10 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
     public GameObject waitingRoom_Canvas;
     public GameObject settingCanvas;
+    public GameObject masterHelp;
+    public GameObject clientHelp;
+    public GameObject mainHelp;
+
     
     public Transform content;
 
@@ -215,6 +219,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     {
         SceneManager.LoadScene("01. Intro");
         PhotonNetwork.Disconnect();
+        GameManager.Instance.modeID = 9;
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
         //PhotonNetwork.LeaveLobby();
     }
@@ -226,10 +231,27 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     }
     public void X_Button()
     {
-        currentPanel.SetActive(false);
+        currentPanel.SetActive(!currentPanel.activeSelf);
+     
     }
     public void OnClickSetting()
     {
         settingCanvas.SetActive(!settingCanvas.activeSelf);
+        mainHelp.SetActive(true);
+        clientHelp.SetActive(false);
+        masterHelp.SetActive(false);
+    }
+
+    public void OnClickMasterHelp()
+    {
+        masterHelp.SetActive(true);
+        clientHelp.SetActive(false);
+        mainHelp.SetActive(false);
+    }
+    public void OnClickClientHelp()
+    {
+        clientHelp.SetActive(true);
+        masterHelp.SetActive(false);
+        mainHelp.SetActive(false);
     }
 }
