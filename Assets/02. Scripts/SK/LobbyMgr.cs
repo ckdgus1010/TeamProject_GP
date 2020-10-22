@@ -224,6 +224,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         //PhotonNetwork.LeaveLobby();
     }
 
+    /*
     public void OnClickRoommakerHelp()
     {
         roomList_Help_Panel.SetActive(true);
@@ -253,5 +254,5 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         clientHelp.SetActive(true);
         masterHelp.SetActive(false);
         mainHelp.SetActive(false);
-    }
+    }*/
 }

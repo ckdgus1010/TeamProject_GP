@@ -735,7 +735,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2019665648}
+      - m_Target: {fileID: 1252032383}
         m_MethodName: Normal_X_Button
         m_Mode: 1
         m_Arguments:
@@ -8308,8 +8308,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2019665648}
-        m_MethodName: X_Button
+      - m_Target: {fileID: 1252032383}
+        m_MethodName: Normal_X_Button
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8817,7 +8817,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2019665648}
+      - m_Target: {fileID: 1252032383}
         m_MethodName: Normal_X_Button
         m_Mode: 1
         m_Arguments:
@@ -11964,7 +11964,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2019665648}
+      - m_Target: {fileID: 1252032383}
         m_MethodName: Normal_X_Button
         m_Mode: 1
         m_Arguments:
@@ -16560,7 +16560,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2019665648}
+      - m_Target: {fileID: 0}
         m_MethodName: Normal_X_Button
         m_Mode: 1
         m_Arguments:
@@ -17335,6 +17335,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246922507}
   m_CullTransparentMesh: 0
+--- !u!1 &1252032382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252032384}
+  - component: {fileID: 1252032383}
+  m_Layer: 0
+  m_Name: HelpPopupManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1252032383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252032382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e1c771029fceb14da955448396de6f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingCanvas: {fileID: 1279151331}
+  createMode_Help_Panel: {fileID: 1498755644}
+  alone_Help_Panel: {fileID: 1990076407}
+  alone1_Help_Panel: {fileID: 2107051364}
+  alone2_Help_Panel: {fileID: 1586646298}
+  alone3_Help_Panel: {fileID: 1817022245}
+  roomMaker_Help_Panel: {fileID: 0}
+  waitingRoom_Help_Panel: {fileID: 1301286953}
+  multy_Help_Panel: {fileID: 1975566736}
+  profile_Help_Panel: {fileID: 169154361}
+  selectGamemode_Help_Panel: {fileID: 676344769}
+  currentPanel: {fileID: 0}
+  masterHelp: {fileID: 0}
+  clientHelp: {fileID: 0}
+  mainHelp: {fileID: 0}
+--- !u!4 &1252032384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252032382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2043.7563, y: 1589.1829, z: -302}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1256152724
 GameObject:
   m_ObjectHideFlags: 0
@@ -20901,7 +20959,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2019665648}
+      - m_Target: {fileID: 1252032383}
         m_MethodName: Normal_X_Button
         m_Mode: 1
         m_Arguments:
@@ -21722,7 +21780,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2019665648}
+      - m_Target: {fileID: 1252032383}
         m_MethodName: Normal_X_Button
         m_Mode: 1
         m_Arguments:
@@ -23379,7 +23437,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2019665648}
+      - m_Target: {fileID: 1252032383}
         m_MethodName: Normal_X_Button
         m_Mode: 1
         m_Arguments:
@@ -24183,7 +24241,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2019665648}
+      - m_Target: {fileID: 1252032383}
         m_MethodName: Normal_X_Button
         m_Mode: 1
         m_Arguments:
@@ -24812,8 +24870,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2019665648}
-        m_MethodName: X_Button
+      - m_Target: {fileID: 1252032383}
+        m_MethodName: Normal_X_Button
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28612,7 +28670,6 @@ GameObject:
   - component: {fileID: 2019665647}
   - component: {fileID: 2019665646}
   - component: {fileID: 2019665645}
-  - component: {fileID: 2019665648}
   m_Layer: 5
   m_Name: Help Popup Button
   m_TagString: Untagged
@@ -28682,7 +28739,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2019665648}
+      - m_Target: {fileID: 1252032383}
         m_MethodName: OnClickHelpButton
         m_Mode: 1
         m_Arguments:
@@ -28730,32 +28787,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019665643}
   m_CullTransparentMesh: 0
---- !u!114 &2019665648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019665643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e1c771029fceb14da955448396de6f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomList_Help_Panel: {fileID: 1962515137}
-  waitingRoom_Help_Panel: {fileID: 1301286953}
-  multy_Help_Panel: {fileID: 1975566736}
-  alone_Help_Panel: {fileID: 1990076407}
-  alone1_Help_Panel: {fileID: 2107051364}
-  alone2_Help_Panel: {fileID: 1586646298}
-  alone3_Help_Panel: {fileID: 1817022245}
-  createMode_Help_Panel: {fileID: 1498755644}
-  profile_Help_Panel: {fileID: 169154361}
-  selectGamemode_Help_Panel: {fileID: 676344769}
-  currentPanel: {fileID: 0}
-  masterHelp: {fileID: 0}
-  clientHelp: {fileID: 0}
-  mainHelp: {fileID: 0}
 --- !u!1 &2023549977
 GameObject:
   m_ObjectHideFlags: 0
@@ -29356,7 +29387,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2019665648}
+      - m_Target: {fileID: 1252032383}
         m_MethodName: Normal_X_Button
         m_Mode: 1
         m_Arguments:

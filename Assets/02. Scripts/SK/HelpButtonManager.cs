@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HelpPopupManager : MonoBehaviour
+public class HelpButtonManager : MonoBehaviour
 {
-    /*
     public GameObject roomList_Help_Panel;
     public GameObject waitingRoom_Help_Panel;
     public GameObject multy_Help_Panel;
@@ -17,114 +16,10 @@ public class HelpPopupManager : MonoBehaviour
     public GameObject selectGamemode_Help_Panel;
 
     public GameObject currentPanel;
-    public GameObject masterHelp;
-    public GameObject clientHelp;
-    public GameObject mainHelp;
-    public void OnClickHelpButton()
-    {
-        switch (GameManager.Instance.modeID)
-        {
-            case 0:
-                createMode_Help_Panel.SetActive(true);
-                currentPanel = createMode_Help_Panel;
-                break;
-
-            case 1:
-                alone_Help_Panel.SetActive(true);
-                currentPanel = alone_Help_Panel;
-                break;
-
-            case 2:
-                alone1_Help_Panel.SetActive(true);
-                currentPanel = alone1_Help_Panel;
-
-                break;
-
-            case 3:
-                alone2_Help_Panel.SetActive(true);
-                currentPanel = alone2_Help_Panel;
-                break;
-
-            case 4:
-                alone3_Help_Panel.SetActive(true);
-                currentPanel = alone3_Help_Panel;
-
-                break;
-
-            case 5:
-                multy_Help_Panel.SetActive(true);
-                currentPanel = multy_Help_Panel;
-                break;
-
-            case 6:
-            case 7:
-            case 8:
-                waitingRoom_Help_Panel.SetActive(true);
-                currentPanel = waitingRoom_Help_Panel;
-                break;
-            case 9:
-                selectGamemode_Help_Panel.SetActive(true);
-                currentPanel = selectGamemode_Help_Panel;
-                break;
-            case 1000:
-                profile_Help_Panel.SetActive(true);
-                currentPanel = profile_Help_Panel;
-                break;
-        }
-    }
-    public void Normal_X_Button()
-    {
-        currentPanel.SetActive(false);
-        
-    }
-    public void Waiting_X_Button()
-    {
-        if (currentPanel != null)
-        {
-            currentPanel.SetActive(false);
-        }
-        if (mainHelp != null)
-        {
-            mainHelp.SetActive(true);
-        }
-
-        masterHelp.SetActive(true);
-        clientHelp.SetActive(false);
-    }
-    public void RoomList_X_Button()
-    {
-        if (currentPanel != null)
-        {
-            currentPanel.SetActive(false);
-        }
-        mainHelp.SetActive(true);
-        masterHelp.SetActive(false);
-        clientHelp.SetActive(false);
-    }
-    public void OnClickRoommakerHelp()
-    {
-        roomList_Help_Panel.SetActive(true);
-        currentPanel = roomList_Help_Panel;
-    }
-    */
-    
     public GameObject settingCanvas;
-
-    public GameObject createMode_Help_Panel;
-    public GameObject alone_Help_Panel;
-    public GameObject alone1_Help_Panel;
-    public GameObject alone2_Help_Panel;
-    public GameObject alone3_Help_Panel;
-    public GameObject roomMaker_Help_Panel;
-    public GameObject waitingRoom_Help_Panel;
-    public GameObject multy_Help_Panel;
-    public GameObject profile_Help_Panel;
-    public GameObject selectGamemode_Help_Panel;
-
-    public GameObject currentPanel;
-
     public GameObject masterHelp;
     public GameObject clientHelp;
+
     public GameObject mainHelp;
 
     //설정 버튼 클릭
@@ -188,13 +83,13 @@ public class HelpPopupManager : MonoBehaviour
     }
    
     //같이하기 대기방 방장 설명
-    public void OnClickMasterWaitHelp()
+    public void OnCilckMasterHelp()
     {
         masterHelp.SetActive(true);
         clientHelp.SetActive(false);
     }
     // 같이하기 대기방 팀원 설명
-    public void OnClickCilentWaitHelp()
+    public void OnCilckCilentHelp()
     {
         masterHelp.SetActive(false);
         clientHelp.SetActive(true);
@@ -203,12 +98,12 @@ public class HelpPopupManager : MonoBehaviour
     // 방 만들기 버튼 클릭
     public void OnClickRoommakerHelp()
     {
-        roomMaker_Help_Panel.SetActive(true);
-        currentPanel = roomMaker_Help_Panel;
+        roomList_Help_Panel.SetActive(true);
+        currentPanel = roomList_Help_Panel;
     }
 
     // 같이하기 셋팅 나가기
-    public void OnClickMultySetting()
+    public void OnClickSettingg()
     {
         settingCanvas.SetActive(!settingCanvas.activeSelf);
         mainHelp.SetActive(true);
@@ -227,8 +122,8 @@ public class HelpPopupManager : MonoBehaviour
     // 같이하기 팀원 설명 
     public void OnClickClientHelp()
     {
-        masterHelp.SetActive(false);
         clientHelp.SetActive(true);
+        masterHelp.SetActive(false);
         mainHelp.SetActive(false);
     }
 
@@ -266,5 +161,4 @@ public class HelpPopupManager : MonoBehaviour
         masterHelp.SetActive(false);
         clientHelp.SetActive(false);
     }
-
 }
