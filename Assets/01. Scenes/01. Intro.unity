@@ -1228,6 +1228,7 @@ GameObject:
   - component: {fileID: 120336682}
   - component: {fileID: 120336684}
   - component: {fileID: 120336683}
+  - component: {fileID: 120336685}
   m_Layer: 5
   m_Name: Panel_Mode Title
   m_TagString: Untagged
@@ -1292,6 +1293,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120336681}
   m_CullTransparentMesh: 0
+--- !u!114 &120336685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120336681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51563aad5d2faab4fb084e5cf7cb053c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 1225709125}
 --- !u!1 &125915519
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,6 +2232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasController: {fileID: 1512506329}
+  modeTitle: {fileID: 0}
   modeID: 5
 --- !u!114 &209043346
 MonoBehaviour:
@@ -4858,6 +4873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasController: {fileID: 1512506329}
+  modeTitle: {fileID: 120336685}
   modeID: 2
 --- !u!114 &380823006
 MonoBehaviour:
@@ -12904,6 +12920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasController: {fileID: 1512506329}
+  modeTitle: {fileID: 0}
   modeID: 1
 --- !u!114 &945941417
 MonoBehaviour:
@@ -17928,6 +17945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasController: {fileID: 1512506329}
+  modeTitle: {fileID: 120336685}
   modeID: 4
 --- !u!114 &1306810614
 MonoBehaviour:
@@ -18921,8 +18939,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8aed3168c712a4eac9217987e65417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loginPanel: {fileID: 1020691640}
-  mainMenuPanel: {fileID: 461881883}
+  loginCanvas: {fileID: 1020691640}
+  mainMenuCanvas: {fileID: 461881883}
 --- !u!1 &1360149587
 GameObject:
   m_ObjectHideFlags: 0
@@ -19706,6 +19724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasController: {fileID: 1512506329}
+  modeTitle: {fileID: 0}
   modeID: 0
 --- !u!114 &1389615671
 MonoBehaviour:
@@ -20561,6 +20580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasController: {fileID: 1512506329}
+  modeTitle: {fileID: 120336685}
   modeID: 3
 --- !u!114 &1441326532
 MonoBehaviour:
@@ -21462,6 +21482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonManager01: {fileID: 2012732623}
+  modetitle: {fileID: 120336685}
   canvasArray:
   - {fileID: 1239463430}
   - {fileID: 1020691640}

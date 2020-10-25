@@ -16,6 +16,12 @@ public class CheckBoardMgr : MonoBehaviour
     private void Start()
     {
         num = 0;
+
+        if (GameManager.Instance.modeID == 2)
+        {
+            Debug.Log($"CheckBoardMgr ::: modeID: {GameManager.Instance.modeID}");
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void CBSize()

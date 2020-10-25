@@ -6,6 +6,7 @@ using UnityEngine;
 public class CanvasController : MonoBehaviour
 {
     [SerializeField] private ButtonManager01 buttonManager01;
+    [SerializeField] private ModeTitle modetitle;
     [SerializeField] private GameObject[] canvasArray = new GameObject[6];
     // 0: 인트로
     // 1: 로그인 화면
@@ -47,6 +48,8 @@ public class CanvasController : MonoBehaviour
                 Debug.Log("CanvasController ::: 혼자하기 모드 스테이지 선택 화면 오픈");
                 canvasArray[0].SetActive(false);
                 canvasArray[5].SetActive(true);
+
+                modetitle.ChangeModeTitle();
 
                 // 스테이지 정보 업데이트
                 buttonManager01.UpdateStageData();

@@ -6,8 +6,8 @@ using GooglePlayGames;
 
 public class GoogleLoginManager : MonoBehaviour
 {
-    [SerializeField] private GameObject loginPanel;
-    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject loginCanvas;
+    [SerializeField] private GameObject mainMenuCanvas;
 
     // 코루틴 중복 방지
     private bool isChecking = false;
@@ -40,9 +40,8 @@ public class GoogleLoginManager : MonoBehaviour
                 Debug.Log($"{Social.localUser.id} \n {Social.localUser.userName}");
                 GameManager.Instance.username = Social.localUser.userName;
 
-                //mainMenuPanel.SetActive(true);
-                //loginPanel.SetActive(false);
-                SceneManager.LoadScene("04. MainMenu");
+                mainMenuCanvas.SetActive(true);
+                loginCanvas.SetActive(false);
             }
             else
             {

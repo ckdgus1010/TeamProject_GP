@@ -18,7 +18,7 @@ public class ScreenShot : MonoBehaviour
     private bool isCoroutinePlaying;                // 코루틴 중복방지
 
     // 파일 불러올 때 필요
-    string albumName = "asdfasdfqwer";        // 생성될 앨범의 이름
+    string albumName = "Stack Tree";        // 생성될 앨범의 이름
     
     public GameObject shareButtons;         // 공유 버튼
     public GameObject panel;                // 찍은 사진이 뜰 패널

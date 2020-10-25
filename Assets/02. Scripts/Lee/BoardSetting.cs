@@ -27,13 +27,13 @@ public class BoardSetting : MonoBehaviour
     private GameObject currCheckBoard;
 
     public int modeID;
+
+    [SerializeField] private GameObject[] maps = new GameObject[3];
     private void Start()
     {
-
         modeID = GameManager.Instance.modeID;
         originalBoardScale = gameBoard.transform.localScale;
         originalGuideScale = guideCube.transform.localScale;
-
 
         switch (modeID)
         {
@@ -50,13 +50,12 @@ public class BoardSetting : MonoBehaviour
             case 2:
             case 3:
             case 4:
+                maps[modeID - 2].SetActive(true);
+                SetGrid();
+                break;
             case 5:
             case 6:
-                currGrid = gridArray[0];
-                currGridSize = 0;
-
-                currCheckBoard = checkBoardArray[0];
-                currCheckBoardSize = 0;
+                SetGrid();
                 break;
             case 7:
                 currGrid = gridArray[1];
@@ -78,6 +77,15 @@ public class BoardSetting : MonoBehaviour
         currGrid.SetActive(true);
         currCheckBoard.SetActive(true);
         BoardSize();
+    }
+
+    void SetGrid()
+    {
+        currGrid = gridArray[0];
+        currGridSize = 0;
+
+        currCheckBoard = checkBoardArray[0];
+        currCheckBoardSize = 0;
     }
 
     public void BoardSize()

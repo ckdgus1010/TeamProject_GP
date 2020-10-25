@@ -69,7 +69,7 @@ public class TouchManager : MonoBehaviour
             gameMap = mapMgr.GetComponent<GameMap>();
             player = GameObject.FindGameObjectWithTag("MINE");
             myPhotonView = player.GetComponent<PhotonView>();
-       //     playerCs = player.GetComponent<PlayerMgr>();
+            //playerCs = player.GetComponent<PlayerMgr>();
         }
     }
 
@@ -93,47 +93,88 @@ public class TouchManager : MonoBehaviour
         if (count == 0 && touch.phase == TouchPhase.Began && Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out TrackableHit hit))
         {
             anchor = hit.Trackable.CreateAnchor(hit.Pose);
-            //같이하기 모드인 경우
-            if (GameManager.Instance.modeID == 6 || GameManager.Instance.modeID == 7 || GameManager.Instance.modeID == 8 || GameManager.Instance.modeID == 5 )
+
+            switch (GameManager.Instance.modeID)
             {
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    masterMapCreateHelp.SetActive(false);
-                    //GameBoard 생성
-                    gameBoard.SetActive(true);
+                case 0:
+                case 2:
+                case 3:
+                case 4:
+                    SoloPlay(hit, anchor);
+                    break;
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        masterMapCreateHelp.SetActive(false);
+                        //GameBoard 생성
+                        gameBoard.SetActive(true);
 
-                    //GameBoard 위치 설정
-                    gameBoard.transform.position = anchor.transform.position;
-                    gameboardTransform = anchor.transform.position;
-                    gameBoard.SetActive(true);
+                        //GameBoard 위치 설정
+                        gameBoard.transform.position = anchor.transform.position;
+                        gameboardTransform = anchor.transform.position;
+                        gameBoard.SetActive(true);
 
-                    var rot = Quaternion.LookRotation(cam.transform.position - hit.Pose.position);
-                    gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
-                    gameboardQuaternion = gameBoard.transform.rotation;
+                        var rot = Quaternion.LookRotation(cam.transform.position - hit.Pose.position);
+                        gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
+                        gameboardQuaternion = gameBoard.transform.rotation;
 
-                    //GameBoard 생성
-                    mapObj = Instantiate(gameMap.map, backGround.transform.position, gameboardQuaternion, backGround.transform);
+                        //GameBoard 생성
+                        mapObj = Instantiate(gameMap.map, backGround.transform.position, gameboardQuaternion, backGround.transform);
 
-                    Debug.Log("호스트 앵커 위치 : " + anchor.transform.position);
-                    Debug.Log("호스트 게임 보드 위치 : " + gameBoard.transform.position);
-                    Debug.Log("호스트 맵 위치 : " + mapObj.transform.position);
+                        Debug.Log("호스트 앵커 위치 : " + anchor.transform.position);
+                        Debug.Log("호스트 게임 보드 위치 : " + gameBoard.transform.position);
+                        Debug.Log("호스트 맵 위치 : " + mapObj.transform.position);
 
-                    pointImage.SetActive(true);
-                    cubeSetting.enabled = true;
-                    boardSizePanel.SetActive(true);
-                    hostBt.SetActive(true);
-                }
+                        pointImage.SetActive(true);
+                        cubeSetting.enabled = true;
+                        boardSizePanel.SetActive(true);
+                        hostBt.SetActive(true);
+                    }
+                    break;
             }
-            //Create Mode 또는 혼자하기 모드인 경우
-            else if (GameManager.Instance.modeID != 5)
-            {
-                SoloPlay(hit, anchor);
-            }
+
+            ////같이하기 모드인 경우
+            //if (GameManager.Instance.modeID == 6 || GameManager.Instance.modeID == 7 || GameManager.Instance.modeID == 8 || GameManager.Instance.modeID == 5 )
+            //{
+            //    if (PhotonNetwork.IsMasterClient)
+            //    {
+            //        masterMapCreateHelp.SetActive(false);
+            //        //GameBoard 생성
+            //        gameBoard.SetActive(true);
+
+            //        //GameBoard 위치 설정
+            //        gameBoard.transform.position = anchor.transform.position;
+            //        gameboardTransform = anchor.transform.position;
+            //        gameBoard.SetActive(true);
+
+            //        var rot = Quaternion.LookRotation(cam.transform.position - hit.Pose.position);
+            //        gameBoard.transform.rotation = Quaternion.Euler(cam.transform.position.x, rot.eulerAngles.y, cam.transform.position.z);
+            //        gameboardQuaternion = gameBoard.transform.rotation;
+
+            //        //GameBoard 생성
+            //        mapObj = Instantiate(gameMap.map, backGround.transform.position, gameboardQuaternion, backGround.transform);
+
+            //        Debug.Log("호스트 앵커 위치 : " + anchor.transform.position);
+            //        Debug.Log("호스트 게임 보드 위치 : " + gameBoard.transform.position);
+            //        Debug.Log("호스트 맵 위치 : " + mapObj.transform.position);
+
+            //        pointImage.SetActive(true);
+            //        cubeSetting.enabled = true;
+            //        boardSizePanel.SetActive(true);
+            //        hostBt.SetActive(true);
+            //    }
+            //}
+            ////Create Mode 또는 혼자하기 모드인 경우
+            //else if (GameManager.Instance.modeID != 5)
+            //{
+            //    SoloPlay(hit, anchor);
+            //}
 
             count = 1;
         }
-        
-      
     }
 
     #region OnClickHost_ResoleButton() // 주석 처리
@@ -234,8 +275,6 @@ public class TouchManager : MonoBehaviour
 
     #endregion
 
-
-
     public void SoloPlay(TrackableHit hit, Anchor anchor)
     {
         //GameBoard 생성
@@ -255,6 +294,8 @@ public class TouchManager : MonoBehaviour
         {
             case 0:     //Create Mode
                 gridSizePanel.SetActive(true);
+                pointImage.SetActive(true);
+                cubeSetting.enabled = true;
                 break;
             case 1:
                 Debug.LogError($"TouchManager ::: modeID = {GameManager.Instance.modeID}");
@@ -267,16 +308,17 @@ public class TouchManager : MonoBehaviour
             case 4:     //혼자하기 모드 - 유형3
                 playButtons.SetActive(true);
                 cardBoardSetting.isCardBoardOn = true;
+                cardButton.SetActive(true);
+                pointImage.SetActive(true);
+                cubeSetting.enabled = true;
                 break;
         }
 
-        pointImage.SetActive(true);
-        cubeSetting.enabled = true;
         boardSizePanel.SetActive(true);
-        cardButton.SetActive(true);
         checkingButton.SetActive(true);
         blockImg.SetActive(false);
     }
+
     public void SetOrigin()
     {
         gameBoard.SetActive(false);

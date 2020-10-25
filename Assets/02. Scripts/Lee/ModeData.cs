@@ -7,6 +7,7 @@ using Photon.Pun;
 public class ModeData : MonoBehaviourPun
 {
     [SerializeField] private CanvasController canvasController;
+    [SerializeField] private ModeTitle modeTitle;
     [SerializeField] private int modeID = 0;
 
     public void MasterConvertScene()
@@ -38,6 +39,7 @@ public class ModeData : MonoBehaviourPun
             case 3:
             case 4:
                 Debug.Log($"{this.gameObject.name} // ModeData {modeID} ::: \n 혼자하기 스테이지 선택 화면으로 이동");
+                modeTitle.ChangeModeTitle();
 
                 GameManager.Instance.stageStateList = GameManager.Instance.stageStateArray[modeID - 2];
                 // Canvas 전환

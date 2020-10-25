@@ -34,6 +34,9 @@ public class ButtonManager : MonoBehaviourPunCallbacks
     //Play Button - 큐브 생성 / 삭제 / 리셋
     public GameObject guideCube;
     public GameObject cubePrefab;
+    private GameObject currcubePrefab;
+    public GameObject beachCubePrefab;
+    public GameObject snowCubePrefab;
     public CubeSetting cubeSetting;
     public GameObject gameBoard;
     public GameObject cubeList;
@@ -147,16 +150,34 @@ public class ButtonManager : MonoBehaviourPunCallbacks
     //Cube 생성
     public void MakeCube()
     {
-        if (guideCube.activeSelf && GameManager.Instance.modeID != 5)
+        if (guideCube.activeSelf)
         {
-            GameObject cube = Instantiate(cubePrefab
+            switch (GameManager.Instance.modeID)
+            {
+                case 0:
+                case 2:
+                case 6:
+                case 7:
+                case 8:
+                    currcubePrefab = cubePrefab;
+                    break;
+                case 3:
+                    currcubePrefab = beachCubePrefab;
+                    break;
+                case 4:
+                    currcubePrefab = snowCubePrefab;
+                    break;
+
+            }
+            GameObject cube = Instantiate(currcubePrefab
                                          , cubeSetting.guideCube.transform.position
                                          , gameBoard.transform.rotation
                                          , cubeList.transform);
+
             list.Add(cube);
 
             //이펙트 공장
-            GameObject effect = Instantiate(createEffect);
+            //GameObject effect = Instantiate(createEffect);
 
             Debug.Log("ButtonManager MakeCube() ::: 큐브 생성");
         }
