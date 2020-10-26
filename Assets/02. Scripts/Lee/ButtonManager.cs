@@ -37,6 +37,7 @@ public class ButtonManager : MonoBehaviourPunCallbacks
     private GameObject currcubePrefab;
     public GameObject beachCubePrefab;
     public GameObject snowCubePrefab;
+    public GameObject pointImage;
     public CubeSetting cubeSetting;
     public GameObject gameBoard;
     public GameObject cubeList;
@@ -83,6 +84,17 @@ public class ButtonManager : MonoBehaviourPunCallbacks
     }
 
     #region 혼자하기 모드
+
+    // 그리드 크기 확정 버튼
+    public void ShowPlayButtons()
+    {
+        playButtons.SetActive(true);
+        pointImage.SetActive(true);
+        cubeSetting.enabled = true;
+
+        gridSizePanel.SetActive(false);
+    }
+
     //Game Board 리셋
     public void ResetGameBoard()
     {
@@ -90,14 +102,22 @@ public class ButtonManager : MonoBehaviourPunCallbacks
         cubeSetting.GuideCubeOff();
         touchManager.SetOrigin();
         boardSizeSlider.value = 0.1f;
-        gridSizeSlider.value = gridSizeSlider.minValue;
         blockImage.SetActive(true);
 
-        //이펙트
-        GameObject effect = Instantiate(boardResetEffect);
-        //이펙트 생성장소
-        effect.transform.position = touchManager.gameBoard.transform.position;
-        effect.transform.localScale *= boardSizeSlider.value;
+        if (GameManager.Instance.modeID == 0)
+        {
+            gridSizeSlider.value = 5;
+        }
+        else
+        {
+            gridSizeSlider.value = gridSizeSlider.minValue;
+        }
+
+        ////이펙트
+        //GameObject effect = Instantiate(boardResetEffect);
+        ////이펙트 생성장소
+        //effect.transform.position = touchManager.gameBoard.transform.position;
+        //effect.transform.localScale *= boardSizeSlider.value;
     }
 
     public void Multiy_ResetGameBoard()
@@ -196,10 +216,10 @@ public class ButtonManager : MonoBehaviourPunCallbacks
             else
             {
                 //이펙트 공장
-                GameObject effect = Instantiate(removeEffect);
+                //GameObject effect = Instantiate(removeEffect);
                 //이펙트가 생성될 장소
-                effect.transform.position = cubeSetting.currCube.transform.position;
-                effect.transform.localScale *= boardSizeSlider.value;
+                //effect.transform.position = cubeSetting.currCube.transform.position;
+                //effect.transform.localScale *= boardSizeSlider.value;
 
                 Destroy(cubeSetting.currCube);
                 Debug.Log("ButtonManager ::: 큐브 삭제");

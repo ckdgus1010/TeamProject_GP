@@ -43,6 +43,7 @@ public class ScreenShot : MonoBehaviour
         isCoroutinePlaying = true;
 
         // UI 없앤다...
+        Debug.Log($"ScreenShot ::: {UIArray.Length}");
         for (int i = 0; i < UIArray.Length; i++)
         {
             UIArray[i].SetActive(false);
@@ -72,9 +73,21 @@ public class ScreenShot : MonoBehaviour
         {
             UIArray[i].SetActive(true);
         }
-        if (GameManager.Instance.modeID != 2)
+
+        switch (GameManager.Instance.modeID)
         {
-            UIArray[6].SetActive(false);
+            case 0:
+            case 2:
+                break;
+            case 1:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                UIArray[6].SetActive(false);
+                break;
         }
         Debug.Log("ScreenShot ::: UI 활성화 완료");
         yield return new WaitForSecondsRealtime(0.3f);

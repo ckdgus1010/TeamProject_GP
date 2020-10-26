@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using GoogleARCore;
 using GoogleARCore.CrossPlatform;
 using Photon.Pun;
@@ -10,20 +11,21 @@ using Photon.Pun;
 
 public class TouchManager : MonoBehaviour
 {
+    [Header("AR Camera")]
     public Camera cam;
-    public CardBoardSetting cardBoardSetting;
+    public GameObject pointImage;
+    public CubeSetting cubeSetting;
 
+    [Header("Gameboard")]
     public GameObject gameBoard;
     public Transform gameBoardTr;
 
-    public GameObject pointImage;
-    public CubeSetting cubeSetting;
+    [Header("기타 UI")]
+    public CardBoardSetting cardBoardSetting;
     public GameObject gridSizePanel;
-    public GameObject boardSizePanel;
     public GameObject blockImg;
     public GameObject cardButton;
     public GameObject playButtons;
-    public GameObject checkingButton;
     public GameObject inputField;
 
     //Touch 횟수
@@ -31,10 +33,12 @@ public class TouchManager : MonoBehaviour
     public int count = 0;
 
     //GameBoard 위치 보정
+    [Header("Gameboard 위치 보정")]
     public float height = 0.1f;
     public float depth = 0.5f;
 
-    // 같이하기 
+    // 같이하기
+    [Header("같이하기")]
     public GameObject backGround;
     public GameObject beachMap;
     public GameObject mapObj;
@@ -90,6 +94,12 @@ public class TouchManager : MonoBehaviour
         TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinPolygon
                                           | TrackableHitFlags.FeaturePointWithSurfaceNormal;
 
+        // UI를 터치한 경우 터치 무시
+        if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+        {
+            return;
+        }
+
         if (count == 0 && touch.phase == TouchPhase.Began && Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out TrackableHit hit))
         {
             anchor = hit.Trackable.CreateAnchor(hit.Pose);
@@ -130,7 +140,6 @@ public class TouchManager : MonoBehaviour
 
                         pointImage.SetActive(true);
                         cubeSetting.enabled = true;
-                        boardSizePanel.SetActive(true);
                         hostBt.SetActive(true);
                     }
                     break;
@@ -294,8 +303,6 @@ public class TouchManager : MonoBehaviour
         {
             case 0:     //Create Mode
                 gridSizePanel.SetActive(true);
-                pointImage.SetActive(true);
-                cubeSetting.enabled = true;
                 break;
             case 1:
                 Debug.LogError($"TouchManager ::: modeID = {GameManager.Instance.modeID}");
@@ -314,8 +321,6 @@ public class TouchManager : MonoBehaviour
                 break;
         }
 
-        boardSizePanel.SetActive(true);
-        checkingButton.SetActive(true);
         blockImg.SetActive(false);
     }
 
@@ -327,7 +332,6 @@ public class TouchManager : MonoBehaviour
         pointImage.SetActive(false);
         cubeSetting.enabled = false;
         gridSizePanel.SetActive(false);
-        boardSizePanel.SetActive(false);
 
         count = 0;
     }

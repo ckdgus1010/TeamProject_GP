@@ -110,6 +110,8 @@ public class BoardSetting : MonoBehaviour
 
         currGrid = gridArray[gridSize];
         currGrid.SetActive(true);
+
+        Debug.Log($"BoardSetting ::: gridSize = {gridSize} // currGrid = {currGrid.gameObject.name}");
     }
 
     public void CheckBoardSize()
