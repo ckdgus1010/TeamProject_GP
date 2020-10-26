@@ -161,4 +161,10 @@ public class HelpButtonManager : MonoBehaviour
         masterHelp.SetActive(false);
         clientHelp.SetActive(false);
     }
+
+    public void OnClickMultyHelp()
+    {
+        multy_Help_Panel.SetActive(true);
+        currentPanel = multy_Help_Panel;
+    }
 }
