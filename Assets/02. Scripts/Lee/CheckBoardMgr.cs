@@ -22,6 +22,10 @@ public class CheckBoardMgr : MonoBehaviour
             Debug.Log($"CheckBoardMgr ::: modeID: {GameManager.Instance.modeID}");
             this.gameObject.SetActive(false);
         }
+        else if (GameManager.Instance.modeID == 1000)
+        {
+            currCB = cbArray[2];
+        }
     }
 
     public void CBSize()
