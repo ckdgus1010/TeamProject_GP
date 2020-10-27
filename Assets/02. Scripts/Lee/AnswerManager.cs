@@ -36,6 +36,10 @@ public class AnswerManager : MonoBehaviour
     public RectTransform startPos;
     public RectTransform endPos;
 
+    // 스크립트
+    [Header("스크립트")]
+    public SoundManager soundMgr;
+
 
     private void Start()
     {
@@ -241,6 +245,9 @@ public class AnswerManager : MonoBehaviour
             Debug.Log("AnswerManager ::: \n 축하합니다. 정답입니다.");
             currPanel = oPanel;
 
+            // 정답 사운드
+            soundMgr.answerAudio.clip = soundMgr.answerSound;
+            soundMgr.answerAudio.Play();
             isCorrect = true;
 
             //혼자하기 모드의 경우 스테이지 클리어 데이터 업데이트
@@ -267,6 +274,10 @@ public class AnswerManager : MonoBehaviour
         {
             Debug.Log($"AnswerManager ::: \n 틀렸습니다. 다시 생각해보세요.");
             currPanel = xPanel;
+
+            // 오답 사운드
+            soundMgr.answerAudio.clip = soundMgr.wrongSound;
+            soundMgr.answerAudio.Play();
 
             isCorrect = false;
         }

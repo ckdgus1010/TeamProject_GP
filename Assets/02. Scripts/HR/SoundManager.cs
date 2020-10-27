@@ -108,4 +108,10 @@ public class SoundManager : MonoBehaviour
         effectSound.PlayOneShot(effectSoundClips[index]);
     }
 
+    // 정답 & 오답 체크 사운드
+    public AudioSource answerAudio;
+
+    public AudioClip answerSound;
+    public AudioClip wrongSound;
+
 }

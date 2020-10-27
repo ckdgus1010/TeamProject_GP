@@ -113,11 +113,11 @@ public class ButtonManager : MonoBehaviourPunCallbacks
             gridSizeSlider.value = gridSizeSlider.minValue;
         }
 
-        ////이펙트
-        //GameObject effect = Instantiate(boardResetEffect);
-        ////이펙트 생성장소
-        //effect.transform.position = touchManager.gameBoard.transform.position;
-        //effect.transform.localScale *= boardSizeSlider.value;
+        //이펙트
+        GameObject effect = Instantiate(boardResetEffect);
+        //이펙트 생성장소
+        effect.transform.position = touchManager.gameBoard.transform.position;
+        effect.transform.localScale *= boardSizeSlider.value;
     }
 
     public void Multiy_ResetGameBoard()
@@ -197,7 +197,7 @@ public class ButtonManager : MonoBehaviourPunCallbacks
             list.Add(cube);
 
             //이펙트 공장
-            //GameObject effect = Instantiate(createEffect);
+            GameObject effect = Instantiate(createEffect);
 
             Debug.Log("ButtonManager MakeCube() ::: 큐브 생성");
         }
@@ -216,10 +216,10 @@ public class ButtonManager : MonoBehaviourPunCallbacks
             else
             {
                 //이펙트 공장
-                //GameObject effect = Instantiate(removeEffect);
+                GameObject effect = Instantiate(removeEffect);
                 //이펙트가 생성될 장소
-                //effect.transform.position = cubeSetting.currCube.transform.position;
-                //effect.transform.localScale *= boardSizeSlider.value;
+                effect.transform.position = cubeSetting.currCube.transform.position;
+                effect.transform.localScale *= boardSizeSlider.value;
 
                 Destroy(cubeSetting.currCube);
                 Debug.Log("ButtonManager ::: 큐브 삭제");
