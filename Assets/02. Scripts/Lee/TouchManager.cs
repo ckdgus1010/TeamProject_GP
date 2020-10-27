@@ -333,6 +333,6 @@ public class TouchManager : MonoBehaviour
         cubeSetting.enabled = false;
         gridSizePanel.SetActive(false);
 
-        count = 0;
+        count = 1;
     }
 }

@@ -8,7 +8,7 @@ public class Profile : MonoBehaviourPun
 {
     public Text nameText;
     public Image img_Ready;
-    private bool isReady;
+    public bool isReady;
     private int masterArId;
    // public GameObject masterMark;
    // public GameObject clientMark;
@@ -17,7 +17,7 @@ public class Profile : MonoBehaviourPun
     void Awake()
     {
         nameText = GetComponentInChildren<Text>();
-
+      
         // img_Ready = GetComponentInChildren<Image>();
     }
     public void Start()
@@ -68,6 +68,7 @@ public class Profile : MonoBehaviourPun
     {
         print("ChangeReadyState실행함");
         if (nameText.text != nickName) return;
+
         isReady = !isReady;
         //ready on -> 노랑색
         if (isReady == true)

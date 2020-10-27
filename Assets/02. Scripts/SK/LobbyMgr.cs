@@ -5,6 +5,8 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+
 
 public class LobbyMgr : MonoBehaviourPunCallbacks
 {
@@ -44,10 +46,12 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
     public LoadingPanelController loadingPanelController;
 
+    public int[] playerList = { 0, 0, 0 };
     public void Start()
     {
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.ConnectUsingSettings();//1
+        
     }
     private void Update()
     {
@@ -81,6 +85,10 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     public void OnClickCreateRoom()
     {
         PhotonNetwork.CreateRoom(roomInputField.text, new RoomOptions { MaxPlayers = personNum }); // 그럼 방을 만들어 준다.개
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.MaxPlayers = personNum;
+       // roomOptions.CustomRoomProperties = new Hashtable() { { "플레이어리스트", playerList } };
+        
         // Debug.Log("방이름  :   " + roomInputField.text);
         // Debug.Log("MaxPlayer  :   " + personNum + " 명");
         Debug.Log("-CreateRoom");
@@ -100,8 +108,15 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        //프로퍼티 받고 그 배열에 내 액터 넘버 넣고 
+        //터스텀 프로퍼티 업데이트 
+        // 다른 사람들도 프로퍼티 업데이트 
+
         //waitingRoom_Canvas.SetActive(!waitingRoom_Canvas.activeSelf);
+       // WatingButtonMgr.instance.playerList = playerList;
         PhotonNetwork.LoadLevel("12. TogetherModeWait");
+        //Hashtable CP = PhotonNetwork.CurrentRoom.CustomProperties;
+        //CP.Add("플레이어리스트", PhotonNetwork.LocalPlayer.ActorNumber);
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)

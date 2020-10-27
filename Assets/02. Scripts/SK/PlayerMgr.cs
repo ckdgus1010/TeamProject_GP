@@ -50,7 +50,6 @@ public class PlayerMgr : MonoBehaviourPun
     //void RpcSetReady(string nickName, bool isReady)
     void RpcSetReady(string nickName)
     {
-       
         WatingButtonMgr.instance.OnClickGameReady(nickName);
         print("RPC에서 OnClickGameReady 으로 보냄 ");
     }
