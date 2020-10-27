@@ -275,9 +275,15 @@ public class AnswerManager : MonoBehaviour
             Debug.Log($"AnswerManager ::: \n 틀렸습니다. 다시 생각해보세요.");
             currPanel = xPanel;
 
+            Debug.Log("AnswerManager ::: 오답 사운드 출력 전");
+
             // 오답 사운드
             soundMgr.answerAudio.clip = soundMgr.wrongSound;
+            Debug.Log($"AnswerManager ::: answerAudio.clip = {soundMgr.answerAudio.clip.name}");
+
             soundMgr.answerAudio.Play();
+
+            Debug.Log("AnswerManager ::: 오답 사운드 출력됨");
 
             isCorrect = false;
         }

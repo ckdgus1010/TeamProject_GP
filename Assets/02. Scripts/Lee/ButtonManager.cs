@@ -198,6 +198,9 @@ public class ButtonManager : MonoBehaviourPunCallbacks
 
             //이펙트 공장
             GameObject effect = Instantiate(createEffect);
+            //이펙트 생성위치
+            effect.transform.position = cube.transform.position;
+            effect.transform.localScale *= boardSizeSlider.value;
 
             Debug.Log("ButtonManager MakeCube() ::: 큐브 생성");
         }
