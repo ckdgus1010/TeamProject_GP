@@ -497,4 +497,17 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
     #endregion
 
+    // 튜토리얼 버튼
+    public void OpenTutorialCanvas()
+    {
+        Debug.Log($"ButtonManager01 ::: 튜토리얼 버튼 클릭");
+        SceneManager.LoadScene("03. Tutorial");
+    }
+
+    // 만든이 버튼
+    public void OpenCreditCanvas()
+    {
+        Debug.Log($"ButtonManager01 ::: 만든이 버튼 클릭");
+    }
+
 }

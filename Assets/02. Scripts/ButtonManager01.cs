@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
 namespace Lee
 {
     public class ButtonManager01 : MonoBehaviour
@@ -134,6 +134,7 @@ namespace Lee
         public void OpenTutorialCanvas()
         {
             Debug.Log($"ButtonManager01 ::: 튜토리얼 버튼 클릭");
+            SceneManager.LoadScene("03. Tutorial");
         }
 
         // 만든이 버튼
