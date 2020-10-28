@@ -22,6 +22,7 @@ public class RoomInButton : MonoBehaviour
     {
         PhotonNetwork.JoinRoom(gameObject.name);
         Debug.Log("joinedRoom");
+        //여기에도 로딩패널 켜주세요!
     }
     
    

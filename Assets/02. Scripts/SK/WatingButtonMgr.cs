@@ -6,12 +6,8 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using System;
 //using Google.Protobuf.WellKnownTypes;
-using Photon.Pun.UtilityScripts;
 //using WebSocketSharp;
 using UnityEngine.SceneManagement;
-using UnityEngine.Assertions.Must;
-using System.Linq;
-using Photon.Pun.Demo.Cockpit;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 public enum Levels
 {
@@ -164,6 +160,10 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
             ismaster_Mark = true;
             print("마스터로 프로필 리스트 업데이트");
             photonView.RPC("RpcProfileLisUpdate", RpcTarget.OthersBuffered, myIndexNumber, PhotonNetwork.NickName, ismaster_Mark);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                gameStart_Ready.text = "Game Start";
+            }
         }
         else
         {

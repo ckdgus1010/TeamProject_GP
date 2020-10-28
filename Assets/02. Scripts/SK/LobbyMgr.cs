@@ -31,9 +31,9 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
     public GameObject waitingRoom_Canvas;
     public GameObject settingCanvas;
-    public GameObject masterHelp;
-    public GameObject clientHelp;
-    public GameObject mainHelp;
+    //public GameObject masterHelp;
+    //public GameObject clientHelp;
+    //public GameObject mainHelp;
 
     
     public Transform content;
@@ -96,6 +96,9 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         currentBt = joinRoom_Bt;
         currentBt.interactable = false;
         Invoke("Bt_interaxtableTrue", 3.0f);
+
+        // 여기에 로딩패널 켜주세요!!
+
     }
     
     public override void OnCreatedRoom()
