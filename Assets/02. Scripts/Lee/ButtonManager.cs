@@ -99,26 +99,29 @@ public class ButtonManager : MonoBehaviourPunCallbacks
     //Game Board 리셋
     public void ResetGameBoard()
     {
-        ResetCube();
-        cubeSetting.GuideCubeOff();
-        touchManager.SetOrigin();
-        boardSizeSlider.value = 0.1f;
-        blockImage.SetActive(true);
-
-        if (GameManager.Instance.modeID == 0)
+        if (gameBoard.activeSelf)
         {
-            gridSizeSlider.value = 5;
-        }
-        else
-        {
-            gridSizeSlider.value = gridSizeSlider.minValue;
-        }
+            ResetCube();
+            cubeSetting.GuideCubeOff();
+            touchManager.SetOrigin();
+            boardSizeSlider.value = 0.1f;
+            blockImage.SetActive(true);
 
-        //이펙트
-        GameObject effect = Instantiate(boardResetEffect);
-        //이펙트 생성장소
-        effect.transform.position = touchManager.gameBoard.transform.position;
-        effect.transform.localScale *= boardSizeSlider.value;
+            if (GameManager.Instance.modeID == 0)
+            {
+                gridSizeSlider.value = 5;
+            }
+            else
+            {
+                gridSizeSlider.value = gridSizeSlider.minValue;
+            }
+
+            //이펙트
+            GameObject effect = Instantiate(boardResetEffect);
+            //이펙트 생성장소
+            effect.transform.position = touchManager.gameBoard.transform.position;
+            effect.transform.localScale *= boardSizeSlider.value;
+        }
     }
 
     public void Multiy_ResetGameBoard()

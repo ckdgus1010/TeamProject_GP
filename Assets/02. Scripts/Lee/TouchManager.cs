@@ -26,7 +26,7 @@ public class TouchManager : MonoBehaviour
     public GameObject blockImg;
     public GameObject cardButton;
     public GameObject playButtons;
-    public GameObject inputField;
+    public GameObject playButtons_mode01;
 
     //Touch 횟수
     [HideInInspector]
@@ -308,7 +308,7 @@ public class TouchManager : MonoBehaviour
                 Debug.LogError($"TouchManager ::: modeID = {GameManager.Instance.modeID}");
                 break;
             case 2:     //혼자하기 모드 - 유형1
-                inputField.SetActive(true);
+                playButtons_mode01.SetActive(true);
                 playButtons.SetActive(false);
                 break;
             case 3:     //혼자하기 모드 - 유형2
@@ -333,6 +333,6 @@ public class TouchManager : MonoBehaviour
         cubeSetting.enabled = false;
         gridSizePanel.SetActive(false);
 
-        count = 1;
+        count = 0;
     }
 }
