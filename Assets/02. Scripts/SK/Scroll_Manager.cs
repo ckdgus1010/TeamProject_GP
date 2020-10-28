@@ -121,9 +121,16 @@ public class Scroll_Manager : MonoBehaviourPun
     }
     public void OnClickSkip()
     {
+        print("OnClickSkip");
         scrollview.SetActive(false);
         ARCamera.SetActive(true);
         notePanel.SetActive(true);
+        Invoke("WaitingNotePanel", 5.0f);
+    }
+
+    public void WaitingNotePanel()
+    {
+        notePanel.SetActive(false);
         isNotePanelOff = true;
         if (PhotonNetwork.IsMasterClient)
         {
