@@ -8,7 +8,7 @@ public class ProfileImageData : MonoBehaviour
     [SerializeField] private int profileID = 0;
     [SerializeField] private Image profileImage = null;
 
-    private void Start()
+    public void ShowProfileImage()
     {
         if (profileID == 0)
         {

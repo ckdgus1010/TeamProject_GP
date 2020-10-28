@@ -24,6 +24,8 @@ public class AndroidPlugin : MonoBehaviour
         StartCoroutine(ShowGallery(
             (_tex, _spr) => { img.sprite = _spr; }
             ));
+
+        GameManager.Instance.profileImage = img.sprite;
     }
 
     public IEnumerator ShowGallery(UnityAction<Texture2D, Sprite> val)
