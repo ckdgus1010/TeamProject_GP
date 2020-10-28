@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+using Photon.Realtime;
 
 
 public class BoardSetting : MonoBehaviour
@@ -27,6 +29,10 @@ public class BoardSetting : MonoBehaviour
     private GameObject currCheckBoard;
 
     public int modeID;
+
+    [Header("Board Size Slider")]
+    public Slider masterBoardSizeSlider;
+    public Slider clientBoardSizeSlider;
 
     [SerializeField] private GameObject[] maps = new GameObject[3];
     private void Start()
@@ -91,10 +97,34 @@ public class BoardSetting : MonoBehaviour
 
     public void BoardSize()
     {
-        float scaleFactor = boardSizeSlider.value;
+        int _modeID = GameManager.Instance.modeID;
 
-        gameBoard.transform.localScale = originalBoardScale * scaleFactor;
-        guideCube.transform.localScale = originalGuideScale * scaleFactor;
+        if (_modeID == 6 || _modeID == 7 || _modeID == 8)
+        {
+            Debug.Log($"BoardSetting ::: 같이하기 모드 {_modeID}");
+            if (PhotonNetwork.IsMasterClient)
+            {
+                Debug.Log("BoardSetting ::: 난 마스터");
+                boardSizeSlider = masterBoardSizeSlider;
+            }
+            else
+            {
+                Debug.Log("BoardSetting ::: 난 클라이언트");
+                boardSizeSlider = clientBoardSizeSlider;
+            }
+
+            float scaleFactor = boardSizeSlider.value;
+
+            gameBoard.transform.localScale = originalBoardScale * scaleFactor;
+            guideCube.transform.localScale = originalGuideScale * scaleFactor;
+        }
+        else
+        {
+            float scaleFactor = boardSizeSlider.value;
+
+            gameBoard.transform.localScale = originalBoardScale * scaleFactor;
+            guideCube.transform.localScale = originalGuideScale * scaleFactor;
+        }
     }
 
     public void GridSize()

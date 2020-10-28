@@ -246,8 +246,8 @@ public class AnswerManager : MonoBehaviour
             currPanel = oPanel;
 
             // 정답 사운드
-            soundMgr.answerAudio.clip = soundMgr.answerSound;
-            soundMgr.answerAudio.Play();
+            //soundMgr.answerAudio.clip = soundMgr.answerSound;
+            //soundMgr.answerAudio.Play();
             isCorrect = true;
 
             //혼자하기 모드의 경우 스테이지 클리어 데이터 업데이트
@@ -278,12 +278,12 @@ public class AnswerManager : MonoBehaviour
             Debug.Log("AnswerManager ::: 오답 사운드 출력 전");
 
             // 오답 사운드
-            soundMgr.answerAudio.clip = soundMgr.wrongSound;
-            Debug.Log($"AnswerManager ::: answerAudio.clip = {soundMgr.answerAudio.clip.name}");
+            //soundMgr.answerAudio.clip = soundMgr.wrongSound;
+            //Debug.Log($"AnswerManager ::: answerAudio.clip = {soundMgr.answerAudio.clip.name}");
 
-            soundMgr.answerAudio.Play();
+            //soundMgr.answerAudio.Play();
 
-            Debug.Log("AnswerManager ::: 오답 사운드 출력됨");
+            //Debug.Log("AnswerManager ::: 오답 사운드 출력됨");
 
             isCorrect = false;
         }
