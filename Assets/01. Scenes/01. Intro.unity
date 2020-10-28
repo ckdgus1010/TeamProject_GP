@@ -19835,8 +19835,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012732623}
-        m_MethodName: OpenCreditCanvas
+      - m_Target: {fileID: 1512506329}
+        m_MethodName: CreditVideo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22310,6 +22310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c502f85cf1d6523419e4f1052a4d0a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settingCan: {fileID: 1279151331}
   buttonManager01: {fileID: 2012732623}
   modetitle: {fileID: 120336685}
   canvasArray:
@@ -22319,6 +22320,7 @@ MonoBehaviour:
   - {fileID: 138203149}
   - {fileID: 1584848111}
   - {fileID: 1388626408}
+  - {fileID: 0}
 --- !u!1 &1517445293
 GameObject:
   m_ObjectHideFlags: 0

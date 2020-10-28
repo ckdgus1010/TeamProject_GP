@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class CanvasController : MonoBehaviour
 {
+    // 설정팝업
+    public GameObject settingCan; 
+
     [SerializeField] private ButtonManager01 buttonManager01;
     [SerializeField] private ModeTitle modetitle;
     [SerializeField] private GameObject[] canvasArray = new GameObject[6];
@@ -15,8 +18,10 @@ public class CanvasController : MonoBehaviour
     // 3: 플레이 모드 선택 화면
     // 4: 혼자하기 모드 유형 선택 화면
     // 5: 혼자하기 모드 스테이지 선택 화면
+    // 6: 크레딧 영상
     public enum CanvasID { Intro, Login, MainMenu, PlayMode, AloneMode, AloneStage };
     private GameObject currCanvas = null;
+
 
     public void Start()
     {
@@ -88,5 +93,17 @@ public class CanvasController : MonoBehaviour
             canvasArray[i].SetActive(false);
         }
         canvasArray[2].SetActive(true);
+    }
+
+    // 크레딧
+    public void CreditVideo()
+    {
+        settingCan.SetActive(false);
+
+        for (int i = 0; i < canvasArray.Length; i++)
+        {
+            canvasArray[i].SetActive(false);
+        }
+        canvasArray[6].SetActive(true);
     }
 }

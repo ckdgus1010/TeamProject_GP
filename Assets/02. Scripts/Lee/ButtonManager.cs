@@ -415,6 +415,9 @@ public class ButtonManager : MonoBehaviourPunCallbacks
             list.Add(cube);
             //이펙트 공장
             GameObject effect = Instantiate(createEffect);
+            //이펙트 생성위치
+            effect.transform.position = cube.transform.position;
+            effect.transform.localScale *= boardSizeSlider.value;
 
             cube.name = PhotonNetwork.NickName + "Cube(" + cubeNum + ")";
             Debug.Log("생성한  큐브 이름 확인 : " + cube.name);
@@ -460,8 +463,13 @@ public class ButtonManager : MonoBehaviourPunCallbacks
         Transform cubePos = obj.transform.GetChild(0).transform;
 
         GameObject cube = Instantiate(gameMap.cube, cubePos.position, gameBoard.transform.rotation, cubeList.transform);
+
         //이펙트 공장
         GameObject effect = Instantiate(createEffect);
+        //이펙트 생성위치
+        effect.transform.position = cube.transform.position;
+        effect.transform.localScale *= boardSizeSlider.value;
+
         list.Add(cube);
         //생성한 CUBE의 isMine을 체크하고 내꺼면 다른 애들 큐브이름을 바꿔
 
