@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -143,7 +144,6 @@ public class ButtonManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("ButtonManager ::: ConvertGameOption");
         gameOption.SetActive(!gameOption.activeSelf);
-        blackBG.SetActive(gameOption.activeSelf);
     }
 
     //프로필 팝업창

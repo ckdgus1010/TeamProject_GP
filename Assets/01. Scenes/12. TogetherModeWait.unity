@@ -5806,7 +5806,7 @@ MonoBehaviour:
   issReady: 0
   isClientReady: 0
   proFileList: []
-  gameStart_Ready: {fileID: 452084763}
+  gameStart_Ready: {fileID: 2092211362}
   currentRoomName: {fileID: 324225334}
   curruntLevels: 1
   playerList: 000000000000000000000000
@@ -11243,7 +11243,7 @@ PrefabInstance:
     - target: {fileID: 11401740, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ca742ec0fdee49a4d91535445ab4e2e9,
+      objectReference: {fileID: 21300000, guid: 09d21efcee6c9204bb742c649055a960,
         type: 3}
     - target: {fileID: 11401740, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
       propertyPath: m_Type
@@ -11251,11 +11251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11401740, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
       propertyPath: m_Color.r
-      value: 0.0047169924
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11401740, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
       propertyPath: m_Color.g
-      value: 0.79621196
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11401740, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
       propertyPath: m_Color.b
@@ -11474,6 +11474,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2092211360}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2092211362 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11411004, guid: cca5dd919003c424e9fb125a367b3fe8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2092211360}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2115480093
 GameObject:
   m_ObjectHideFlags: 0

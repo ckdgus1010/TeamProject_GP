@@ -145,6 +145,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         myProfile.GetComponent<Profile>().isReady = false;
         myProfile.GetComponent<Profile>().img_Ready.color = Color.white;
         myProfile.SetActive(true);
+        isClientReady = false;
 
         var profileName = myProfile.transform.GetChild(1).GetComponent<Text>();
         GameObject masterProfileImage = myProfile.transform.GetChild(3).gameObject;
@@ -187,7 +188,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
         photonView.RPC("RpcReadyCountReset", RpcTarget.All);
         myProfile.SetActive(true);
-
+        isClientReady = false;
         var profileName = myProfile.transform.GetChild(1).GetComponent<Text>();
         GameObject masterProfileImage = myProfile.transform.GetChild(3).gameObject;
         GameObject clientProfileImage = myProfile.transform.GetChild(4).gameObject;

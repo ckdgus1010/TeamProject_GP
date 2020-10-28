@@ -39,6 +39,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     public Transform content;
 
     public Button joinRoom_Bt;
+    private Button currentBt;
     public Image image2;
     public Image image3;
 
@@ -92,7 +93,11 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         // Debug.Log("방이름  :   " + roomInputField.text);
         // Debug.Log("MaxPlayer  :   " + personNum + " 명");
         Debug.Log("-CreateRoom");
+        currentBt = joinRoom_Bt;
+        currentBt.interactable = false;
+        Invoke("Bt_interaxtableTrue", 3.0f);
     }
+    
     public override void OnCreatedRoom()
     {
         print(System.Reflection.MethodBase.GetCurrentMethod().Name); // 해당 함수를 프린트 해줌
@@ -105,7 +110,11 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.JoinRoom(roomInputField.text);
     }
-
+    public void Bt_interaxtableTrue()
+    {
+        currentBt.interactable = true;
+        currentBt = null;
+    }
     public override void OnJoinedRoom()
     {
         //프로퍼티 받고 그 배열에 내 액터 넘버 넣고 
