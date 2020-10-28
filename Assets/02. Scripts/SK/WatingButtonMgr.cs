@@ -192,12 +192,15 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         GameObject masterProfileImage = myProfile.transform.GetChild(3).gameObject;
         GameObject clientProfileImage = myProfile.transform.GetChild(4).gameObject;
         GameObject IsmineImage = myProfile.transform.GetChild(5).gameObject;
+        GameObject ReadtBt = myProfile.transform.GetChild(2).gameObject;
+
         profileName.text = PhotonNetwork.NickName;
 
         if (ismasterMark == true)
         {
             masterProfileImage.SetActive(true);
             clientProfileImage.SetActive(false);
+            ReadtBt.SetActive(false);
         }
         else
         {
@@ -302,15 +305,28 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
     public void OnClickLeaveRoom()
     {
+        Debug.Log("OnClickLeaveRoom");
         if (PhotonNetwork.IsMasterClient)
         {
+            Debug.Log("마스터니?");
+
             if (PhotonNetwork.PlayerList.Length == 1)
             {
+                Debug.Log("플레이어가 한명이니?");
+
                 PhotonNetwork.LeaveRoom();
+                Debug.Log("나가렴");
+
             }
             else
             {
+                Debug.Log("플레이어가 한명아니니?");
+
                 PhotonNetwork.SetMasterClient(PhotonNetwork.PlayerList[1]);
+                PhotonNetwork.LeaveRoom();
+
+                Debug.Log("방장 넘기고 나가렴");
+
             }
         }
         else
@@ -321,6 +337,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         SceneManager.LoadScene("11. TogetherModeList");
+        PhotonNetwork.Disconnect();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
     }
@@ -382,13 +399,15 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     [PunRPC]
     void UpdatePlayerList(int[] newPlayerList, int playerActorNumber)
     {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            playerIndex = Array.IndexOf(playerList, playerActorNumber);
+            GameObject outProfile = profileList[playerIndex];
 
-        playerIndex = Array.IndexOf(playerList, playerActorNumber);
-        GameObject outProfile = profileList[playerIndex];
-
-        outProfile.GetComponent<Profile>().isReady = false;
-        outProfile.GetComponent<Profile>().img_Ready.color = Color.white;
-
+            outProfile.GetComponent<Profile>().isReady = false;
+            outProfile.GetComponent<Profile>().img_Ready.color = Color.white;
+            outProfile.SetActive(false);
+        }
         playerList = newPlayerList;
         print(PhotonNetwork.NickName + " ::: RPC_UpdatePlayerList() 실행");
         myIndexNumber = Array.IndexOf(playerList, PhotonNetwork.LocalPlayer.ActorNumber);
@@ -396,7 +415,6 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         print("프로필 만들기" + PhotonNetwork.LocalPlayer.NickName);
 
         //print(outProfile.name);
-        outProfile.SetActive(false);
     }
     [PunRPC]
     void RpcReadyCountReset()
