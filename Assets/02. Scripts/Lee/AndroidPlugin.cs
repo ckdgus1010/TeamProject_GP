@@ -18,16 +18,6 @@ public class AndroidPlugin : MonoBehaviour
         Kotlin = new AndroidJavaObject("com.on_off.myapplication.unityGallery");
     }
 
-    public void GalleryOpen()
-    {
-        Debug.Log("AndroidPlugin ::: 갤러리 오픈");
-        StartCoroutine(ShowGallery(
-            (_tex, _spr) => { img.sprite = _spr; }
-            ));
-
-        GameManager.Instance.profileImage = img.sprite;
-    }
-
     public IEnumerator ShowGallery(UnityAction<Texture2D, Sprite> val)
     {
         Kotlin.Call("Open");

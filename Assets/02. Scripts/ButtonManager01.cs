@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 namespace Lee
 {
@@ -93,7 +93,8 @@ namespace Lee
         [Header("Main Menu Panel")]
         [SerializeField] private GameObject profilePanel;
         [SerializeField] private GameObject settingCanvas;
-        [SerializeField] private AndroidPlugin androidPlugin;
+        [SerializeField] private Use use;
+        [SerializeField] private ProfileImageData profileButtonImage;
 
 
         // 프로필 팝업창
@@ -107,7 +108,7 @@ namespace Lee
         public void ChangeProfilePhoto()
         {
             Debug.Log("ButtonManager01 ::: 프로필 사진 바꾸기 버튼 클릭");
-            androidPlugin.GalleryOpen();
+            use.GalleryOpen();
         }
 
         // 옵션 팝업창
