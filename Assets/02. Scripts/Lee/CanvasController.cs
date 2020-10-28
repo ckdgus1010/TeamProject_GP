@@ -1,6 +1,7 @@
 ﻿using Lee;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 using UnityEngine;
 
 public class CanvasController : MonoBehaviour
@@ -77,5 +78,15 @@ public class CanvasController : MonoBehaviour
     {
         canvasArray[5].SetActive(true);
         canvasArray[4].SetActive(false);
+    }
+
+    // 홈버튼
+    public void HomeButton()
+    {
+        for (int i = 0; i < canvasArray.Length; i++)
+        {
+            canvasArray[i].SetActive(false);
+        }
+        canvasArray[2].SetActive(true);
     }
 }
