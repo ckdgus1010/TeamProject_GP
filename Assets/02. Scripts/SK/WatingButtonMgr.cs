@@ -26,12 +26,14 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
 
     //public GameObject mapsellectOption_Panel;
+    public LobbyMgr lobbyMgr;
 
     public GameObject profileFac;
     public GameObject master_ProfileFac;
     public GameObject dontGameStartPopup;
     public GameObject settingCanvas;
-
+    public GameObject roomList_Canvas;
+    public GameObject waitingRoom_Canvas;
 
     public Transform content;
     public PhotonView myPhotonView;
@@ -45,7 +47,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public List<Profile> proFileList;
 
     List<string> mapList2;
-    private Text mapName;
+    public Text MapText;
     public Text gameStart_Ready;
     public Text currentRoomName;
 
@@ -67,12 +69,17 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public GameObject clientHelp;
 
     //Hashtable CP = new Hashtable();
-    private void Start()
+
+    private void Start() 
+    {
+        instance = this;
+    }
+    public void WaitingStart()
     {
 
         GameManager.Instance.modeID = 7;
         print(PhotonNetwork.PlayerList.Length);
-        instance = this;
+        
         PhotonNetwork.AutomaticallySyncScene = true;
 
         proFileList = new List<Profile>();
@@ -92,9 +99,9 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
             player.tag = "MINE";
         }
 
-        mapName = GameObject.Find("MapText").GetComponent<Text>();
+        //mapName = GameObject.Find("MapText").GetComponent<Text>();
         AddmapList();
-        mapName.text = mapList2[0];
+        MapText.text = mapList2[0];
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -337,8 +344,12 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     }
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene("11. TogetherModeList");
-        PhotonNetwork.Disconnect();
+        //SceneManager.LoadScene("11. TogetherModeList");
+       
+        waitingRoom_Canvas.SetActive(false);
+        roomList_Canvas.SetActive(true);
+
+        //PhotonNetwork.Disconnect();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
     }
@@ -478,19 +489,19 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         switch (map_Count)
         {
             case 0:
-                mapName.text = mapList2[map_Count]; // 0 반짝반짝 모래마을
+                MapText.text = mapList2[map_Count]; // 0 반짝반짝 모래마을
                 break;
             case 1:
-                mapName.text = mapList2[map_Count]; //1 글로브포인트마을
+                MapText.text = mapList2[map_Count]; //1 글로브포인트마을
                 break;
             case 2:
-                mapName.text = mapList2[map_Count]; //2 좀비성
+                MapText.text = mapList2[map_Count]; //2 좀비성
                 break;
             case 3:
-                mapName.text = mapList2[map_Count]; //3 혼돈의 카오스
+                MapText.text = mapList2[map_Count]; //3 혼돈의 카오스
                 break;
             case 4:
-                mapName.text = mapList2[map_Count]; //4 올라프 성
+                MapText.text = mapList2[map_Count]; //4 올라프 성
                 break;
         }
     }

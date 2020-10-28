@@ -10,13 +10,13 @@ public class ModeData : MonoBehaviourPun
     [SerializeField] private ModeTitle modeTitle;
     [SerializeField] private int modeID = 0;
 
-    public void MasterConvertScene()
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            ConvertScene();
-        }
-    }
+    //public void MasterConvertScene()
+    //{
+    //    if (PhotonNetwork.IsMasterClient)
+    //    {
+    //        ConvertScene();
+    //    }
+    //}
 
     public void ConvertCanvas()
     {
@@ -47,7 +47,8 @@ public class ModeData : MonoBehaviourPun
                 break;
             case 5:
                 Debug.Log($"{this.gameObject.name} // ModeData {modeID} ::: \n 같이하기 모드 방목록 화면으로 이동");
-                SceneManager.LoadScene("11. TogetherModeList");
+                //SceneManager.LoadScene("11. TogetherModeList");
+                SceneManager.LoadScene("TogetherMix");
                 break;
             case 6:
             case 7:
@@ -56,7 +57,7 @@ public class ModeData : MonoBehaviourPun
                 break;
         }
     }
-
+    /*
     public void ConvertScene()
     {
         GameManager.Instance.modeID = modeID;
@@ -109,5 +110,5 @@ public class ModeData : MonoBehaviourPun
                 break;
 
         }
-    }
+    }*/
 }

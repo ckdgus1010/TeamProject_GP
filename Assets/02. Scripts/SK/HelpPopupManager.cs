@@ -89,12 +89,15 @@ public class HelpPopupManager : MonoBehaviour
     //같이하기 대기방 방장 설명
     public void OnClickMasterWaitHelp()
     {
+        print(":: 대기방 방장도움말 클릭");
+
         wait_masterHelp.SetActive(true);
         wait_clientHelp.SetActive(false);
     }
     // 같이하기 대기방 팀원 설명
     public void OnClickCilentWaitHelp()
     {
+        print(":: 대기방 팀원도움말 클릭");
         wait_masterHelp.SetActive(false);
         wait_clientHelp.SetActive(true);
     }
@@ -102,6 +105,7 @@ public class HelpPopupManager : MonoBehaviour
     // 방 만들기 버튼 클릭
     public void OnClickRoommakerHelp()
     {
+
         roomMaker_Help_Panel.SetActive(true);
         currentPanel = roomMaker_Help_Panel;
     }

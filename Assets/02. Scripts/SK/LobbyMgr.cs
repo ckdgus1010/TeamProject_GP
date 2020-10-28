@@ -29,6 +29,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     public GameObject roomList_Help_Panel;
     public GameObject currentPanel;
 
+    public GameObject roomList_Canvas;
     public GameObject waitingRoom_Canvas;
     public GameObject settingCanvas;
     //public GameObject masterHelp;
@@ -45,15 +46,15 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
     private bool sendPerson = false;
 
-    public LoadingPanelController loadingPanelController;
+    //public LoadingPanelController loadingPanelController;
 
     public int[] playerList = { 0, 0, 0 };
     public void Start()
     {
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.ConnectUsingSettings();//1
-        
     }
+
     private void Update()
     {
         joinRoom_Bt.interactable = roomInputField.text.Length > 0 && sendPerson == true;// 불값으로 나오니까 if문을 한줄로 줄일 수 있음
@@ -96,7 +97,6 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         currentBt = joinRoom_Bt;
         currentBt.interactable = false;
         Invoke("Bt_interaxtableTrue", 3.0f);
-
         // 여기에 로딩패널 켜주세요!!
 
     }
@@ -104,6 +104,8 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         print(System.Reflection.MethodBase.GetCurrentMethod().Name); // 해당 함수를 프린트 해줌
+
+
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
@@ -112,6 +114,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     public void OnClickJoinRoom()
     {
         PhotonNetwork.JoinRoom(roomInputField.text);
+       //WatingButtonMgr.instance.WaitingStart();
     }
     public void Bt_interaxtableTrue()
     {
@@ -120,13 +123,18 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedRoom()
     {
+       
+        
+       // PhotonNetwork.LoadLevel("12. TogetherModeWait");
+       
+        WatingButtonMgr.instance.WaitingStart();
+        roomList_Canvas.SetActive(false);
+        waitingRoom_Canvas.SetActive(true);
+
         //프로퍼티 받고 그 배열에 내 액터 넘버 넣고 
         //터스텀 프로퍼티 업데이트 
         // 다른 사람들도 프로퍼티 업데이트 
 
-        //waitingRoom_Canvas.SetActive(!waitingRoom_Canvas.activeSelf);
-       // WatingButtonMgr.instance.playerList = playerList;
-        PhotonNetwork.LoadLevel("12. TogetherModeWait");
         //Hashtable CP = PhotonNetwork.CurrentRoom.CustomProperties;
         //CP.Add("플레이어리스트", PhotonNetwork.LocalPlayer.ActorNumber);
     }
@@ -156,7 +164,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         UpdateCacheRoom(roomList);
 
         CreateRoomListUI();
-        loadingPanelController.FadeOut();
+        //loadingPanelController.FadeOut();
         //loadingPanel.SetActive(false);
         // 룸 리스트를 업데이트 다 한 다음에 화면 켜지기 
 
