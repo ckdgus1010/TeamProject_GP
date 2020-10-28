@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class Scroll_Manager : MonoBehaviour
+public class Scroll_Manager : MonoBehaviourPun
 {
     public Color[] colors;
     public GameObject scrollbar, imageContent;
@@ -15,8 +16,11 @@ public class Scroll_Manager : MonoBehaviour
     private int btnNumber;
     public GameObject ARCamera;
     public GameObject scrollview;
-
-
+    public GameObject notePanel;
+    public GameObject waitingClientPopup;
+    public GameObject waitingMasterPopup;
+    public GameObject masterMapCreateHelp;
+    private bool isNotePanelOff;
     // Update is called once per frame
     void Update()
     {
@@ -119,5 +123,19 @@ public class Scroll_Manager : MonoBehaviour
     {
         scrollview.SetActive(false);
         ARCamera.SetActive(true);
+        notePanel.SetActive(true);
+        isNotePanelOff = true;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            //바닥을 충분히 인식했다면,원하는 위치를 눌러 맵을 생성하세요.
+            masterMapCreateHelp.SetActive(true);
+        }
+        else
+        {
+            //방장이 맵을 생성할 때까지 잠시만 기다려주세요! 켜기
+            waitingMasterPopup.SetActive(true);
+        }
     }
+   
+
 }

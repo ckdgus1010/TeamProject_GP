@@ -40,7 +40,7 @@ public class MultyScreenMgr : MonoBehaviourPun
     void Start()
     {
         myPhotonView = GetComponent<PhotonView>();
-        Invoke("OffNotePanel", 3);
+        //Invoke("OffNotePanel", 3);
         maxplayerNum = 2;
         hr_Background.SetActive(true);
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.MaxPlayers == 3)
