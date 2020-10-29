@@ -23,11 +23,12 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     public GameObject roomInfo;
     public GameObject roomMaker_Panel;
     public GameObject roomList_Panel;
+   
     public GameObject joinRoomfailPopup;
     public GameObject blackBG;
 
     public GameObject roomList_Help_Panel;
-    public GameObject currentPanel;
+    public GameObject currentRoomMaker_Panel;
 
     public GameObject roomList_Canvas;
     public GameObject waitingRoom_Canvas;
@@ -104,8 +105,6 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         print(System.Reflection.MethodBase.GetCurrentMethod().Name); // 해당 함수를 프린트 해줌
-
-
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
@@ -131,6 +130,17 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         roomList_Canvas.SetActive(false);
         waitingRoom_Canvas.SetActive(true);
 
+        if(currentRoomMaker_Panel != null)
+        {
+            //Text roomname = roomInputField.transform.GetChild(1).GetComponent<Text>();
+            //roomname.text = "";
+            roomInputField.text = "";
+            roomList_Panel.SetActive(true);
+            roomMaker_Panel.SetActive(false);
+            currentRoomMaker_Panel = null;
+            image3.color = new Color(image3.color.r, image3.color.g, image3.color.b, 0.4f);
+            image2.color = new Color(image2.color.r, image2.color.g, image2.color.b, 0.4f);
+        }
         //프로퍼티 받고 그 배열에 내 액터 넘버 넣고 
         //터스텀 프로퍼티 업데이트 
         // 다른 사람들도 프로퍼티 업데이트 
@@ -243,6 +253,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     {
         roomList_Panel.SetActive(false);
         roomMaker_Panel.SetActive(true);
+        currentRoomMaker_Panel = roomMaker_Panel;
     }
 
     public void OnroomList_Panel()
@@ -271,36 +282,4 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     {
         Debug.Log($"ButtonManager01 ::: 만든이 버튼 클릭");
     }
-
-    /*
-    public void OnClickRoommakerHelp()
-    {
-        roomList_Help_Panel.SetActive(true);
-        currentPanel = roomList_Help_Panel;
-    }
-    public void X_Button()
-    {
-        currentPanel.SetActive(!currentPanel.activeSelf);
-     
-    }
-    public void OnClickSetting()
-    {
-        settingCanvas.SetActive(!settingCanvas.activeSelf);
-        mainHelp.SetActive(true);
-        clientHelp.SetActive(false);
-        masterHelp.SetActive(false);
-    }
-
-    public void OnClickMasterHelp()
-    {
-        masterHelp.SetActive(true);
-        clientHelp.SetActive(false);
-        mainHelp.SetActive(false);
-    }
-    public void OnClickClientHelp()
-    {
-        clientHelp.SetActive(true);
-        masterHelp.SetActive(false);
-        mainHelp.SetActive(false);
-    }*/
 }

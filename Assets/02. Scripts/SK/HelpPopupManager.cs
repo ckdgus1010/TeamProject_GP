@@ -17,6 +17,7 @@ public class HelpPopupManager : MonoBehaviour
     public GameObject multy_Help_Panel;
     public GameObject profile_Help_Panel;
     public GameObject selectGamemode_Help_Panel;
+    public GameObject first_Help_Panel;
 
     public GameObject currentPanel;
 
@@ -80,12 +81,18 @@ public class HelpPopupManager : MonoBehaviour
                 currentPanel = selectGamemode_Help_Panel;
                 break;
             case 1000:
-                profile_Help_Panel.SetActive(true);
-                currentPanel = profile_Help_Panel;
+                first_Help_Panel.SetActive(true);
+                currentPanel = first_Help_Panel;
                 break;
         }
     }
    
+    // 프로필 설명 
+    public void OnClickProfileHelp()
+    {
+        profile_Help_Panel.SetActive(true);
+        currentPanel = profile_Help_Panel;
+    }
     //같이하기 대기방 방장 설명
     public void OnClickMasterWaitHelp()
     {
@@ -138,8 +145,12 @@ public class HelpPopupManager : MonoBehaviour
     // 도움말 나가기 버튼
     public void Normal_X_Button()
     {
-        currentPanel.SetActive(false);
-
+       
+        if (currentPanel != null)
+        {
+            currentPanel.SetActive(false);
+            currentPanel = null;
+        }
     }
 
     public void RoomList_Wait_X()
@@ -173,6 +184,8 @@ public class HelpPopupManager : MonoBehaviour
                 wait_masterHelp.SetActive(true);
                 wait_clientHelp.SetActive(false);
                 break;
+
+        
         }
            
 

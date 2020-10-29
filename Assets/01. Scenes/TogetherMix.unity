@@ -1555,6 +1555,7 @@ MonoBehaviour:
   multy_Help_Panel: {fileID: 365121723}
   profile_Help_Panel: {fileID: 1683793717}
   selectGamemode_Help_Panel: {fileID: 0}
+  first_Help_Panel: {fileID: 0}
   currentPanel: {fileID: 0}
   list_masterHelp: {fileID: 315574857}
   list_clientHelp: {fileID: 7012234}
@@ -5734,8 +5735,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000012159, y: 149}
-  m_SizeDelta: {x: 1098.3135, y: 1497.1187}
+  m_AnchoredPosition: {x: 0, y: 150}
+  m_SizeDelta: {x: 1098.3135, y: 523.0065}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &604088002
 MonoBehaviour:
@@ -7680,7 +7681,7 @@ GameObject:
   - component: {fileID: 965810968}
   - component: {fileID: 965810967}
   m_Layer: 0
-  m_Name: LobbyMgr (1)
+  m_Name: LobbyMgr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7708,7 +7709,7 @@ MonoBehaviour:
   joinRoomfailPopup: {fileID: 1891927425}
   blackBG: {fileID: 1303588357}
   roomList_Help_Panel: {fileID: 971734077}
-  currentPanel: {fileID: 0}
+  currentRoomMaker_Panel: {fileID: 0}
   roomList_Canvas: {fileID: 854348072}
   waitingRoom_Canvas: {fileID: 1345465627}
   settingCanvas: {fileID: 326182985}
@@ -9054,7 +9055,7 @@ GameObject:
   - component: {fileID: 1138412351}
   - component: {fileID: 1138412350}
   m_Layer: 0
-  m_Name: SoundMgr (1)
+  m_Name: SoundMgr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11048,7 +11049,7 @@ GameObject:
   - component: {fileID: 1343902683}
   - component: {fileID: 1343902682}
   m_Layer: 0
-  m_Name: PunMgr (1)
+  m_Name: PunMgr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13717,7 +13718,7 @@ GameObject:
   - component: {fileID: 1729398901}
   - component: {fileID: 1729398900}
   m_Layer: 0
-  m_Name: EventSystem (1)
+  m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14282,8 +14283,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000012159, y: 149}
-  m_SizeDelta: {x: 1098.3135, y: 1497.1187}
+  m_AnchoredPosition: {x: 0, y: 160}
+  m_SizeDelta: {x: 1098.3135, y: 525.24585}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1850592134
 MonoBehaviour:
@@ -14311,7 +14312,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 62
-    m_Alignment: 3
+    m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
