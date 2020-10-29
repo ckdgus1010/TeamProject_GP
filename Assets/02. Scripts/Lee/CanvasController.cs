@@ -11,7 +11,7 @@ public class CanvasController : MonoBehaviour
 
     [SerializeField] private ButtonManager01 buttonManager01;
     [SerializeField] private ModeTitle modetitle;
-    [SerializeField] private GameObject[] canvasArray = new GameObject[6];
+    public GameObject[] canvasArray = new GameObject[6];
     // 0: 인트로
     // 1: 로그인 화면
     // 2: 메인 메뉴 화면
