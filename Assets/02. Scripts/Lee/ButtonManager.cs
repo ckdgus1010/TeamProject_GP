@@ -610,8 +610,13 @@ public class ButtonManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             //PhotonNetwork.LeaveRoom();
-            PhotonNetwork.LoadLevel("12. TogetherModeWait");
+            PhotonNetwork.LeaveRoom();
         }
     }
-    #endregion
-}
+
+    public override void OnLeftRoom()
+    {
+        PhotonNetwork.LoadLevel("TogetherMix");
+    }
+        #endregion
+    }
