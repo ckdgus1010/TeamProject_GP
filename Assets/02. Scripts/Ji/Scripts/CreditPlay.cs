@@ -28,7 +28,7 @@ public class CreditPlay : MonoBehaviour
             currentTime += Time.deltaTime;
             if (currentTime >= 27f)
             {
-                Debug.Log("영상 끝");
+                //Debug.Log("영상 끝");
                 skip.SetActive(true);
                 
             }
