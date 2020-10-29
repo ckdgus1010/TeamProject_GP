@@ -57,6 +57,14 @@ public class ModeData : MonoBehaviourPun
                 break;
         }
     }
+
+    public void ConvertCanvas_Multy()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            GameManager.Instance.modeID = modeID;
+        }
+    }
     /*
     public void ConvertScene()
     {

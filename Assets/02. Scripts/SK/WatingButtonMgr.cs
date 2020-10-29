@@ -9,6 +9,8 @@ using System;
 //using WebSocketSharp;
 using UnityEngine.SceneManagement;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
+using Photon.Pun.Demo.Cockpit;
+
 public enum Levels
 {
     Easy, Nomal, Hard, none
@@ -70,7 +72,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
     //Hashtable CP = new Hashtable();
 
-    private void Start() 
+    private void Start()
     {
         instance = this;
     }
@@ -79,7 +81,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
         GameManager.Instance.modeID = 7;
         print(PhotonNetwork.PlayerList.Length);
-        
+
         PhotonNetwork.AutomaticallySyncScene = true;
 
         proFileList = new List<Profile>();
@@ -116,11 +118,11 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         {
             AddPlayer(PhotonNetwork.LocalPlayer.ActorNumber);
         }
-          Debug.Log(PhotonNetwork.CurrentRoom.MaxPlayers);
+        Debug.Log(PhotonNetwork.CurrentRoom.MaxPlayers);
 
         //CP = PhotonNetwork.CurrentRoom.CustomProperties;
         //print(" 들어왔고 룸프로퍼티 줘라 ::: "+CP);
-        
+
     }
 
     //public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
@@ -140,83 +142,8 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     //
 
     // 프로필UI 
-    public void FindProfile()
-    {
-        // myIndexNumber_ = myIndexNumber - 1;
-        GameObject myProfile = profileList[myIndexNumber];
-        print(myProfile.name);
-        myProfile.GetComponent<Profile>().isReady = false;
-        myProfile.GetComponent<Profile>().img_Ready.color = Color.white;
-        myProfile.SetActive(true);
-        isClientReady = false;
 
-        var profileName = myProfile.transform.GetChild(1).GetComponent<Text>();
-        GameObject masterProfileImage = myProfile.transform.GetChild(3).gameObject;
-        GameObject clientProfileImage = myProfile.transform.GetChild(4).gameObject;
-        GameObject IsmineImage = myProfile.transform.GetChild(5).gameObject;
-        GameObject ReadtBt = myProfile.transform.GetChild(2).gameObject;
-        profileName.text = PhotonNetwork.NickName;
-        IsmineImage.SetActive(true);
-        print("FindProfile()에서 내꺼라는 표시");
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            masterProfileImage.SetActive(true);
-            clientProfileImage.SetActive(false);
-            ReadtBt.SetActive(false);
-            ismaster_Mark = true;
-            print("마스터로 프로필 리스트 업데이트");
-            photonView.RPC("RpcProfileLisUpdate", RpcTarget.OthersBuffered, myIndexNumber, PhotonNetwork.NickName, ismaster_Mark);
-            if (PhotonNetwork.IsMasterClient)
-            {
-                gameStart_Ready.text = "Game Start";
-            }
-        }
-        else
-        {
-            clientProfileImage.SetActive(true);
-            ismaster_Mark = false;
-            print("클라이언트로 프로필 리스트 업데이트");
-
-            photonView.RPC("RpcProfileLisUpdate", RpcTarget.OthersBuffered, myIndexNumber, PhotonNetwork.NickName, ismaster_Mark);
-
-        }
-        print(profileName.text);
-
-    }
-    [PunRPC]
-    public void RpcProfileLisUpdate(int indexNum, string nickname, bool ismasterMark)
-    {
-
-        GameObject myProfile = profileList[indexNum];
-        print(myProfile.name);
-        myProfile.GetComponent<Profile>().isReady = false;
-        myProfile.GetComponent<Profile>().img_Ready.color = Color.white;
-
-        photonView.RPC("RpcReadyCountReset", RpcTarget.All);
-        myProfile.SetActive(true);
-        isClientReady = false;
-        var profileName = myProfile.transform.GetChild(1).GetComponent<Text>();
-        GameObject masterProfileImage = myProfile.transform.GetChild(3).gameObject;
-        GameObject clientProfileImage = myProfile.transform.GetChild(4).gameObject;
-        GameObject IsmineImage = myProfile.transform.GetChild(5).gameObject;
-        GameObject ReadtBt = myProfile.transform.GetChild(2).gameObject;
-
-        profileName.text = PhotonNetwork.NickName;
-
-        if (ismasterMark == true)
-        {
-            masterProfileImage.SetActive(true);
-            clientProfileImage.SetActive(false);
-            ReadtBt.SetActive(false);
-        }
-        else
-        {
-            clientProfileImage.SetActive(true);
-        }
-        profileName.text = nickname;
-
-    }
 
     #region Photon
 
@@ -236,129 +163,6 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         //pf.SetInfo(nickName);
         proFileList.Add(pf);
     }
-
-    public void OnClickReady()
-    {
-        Debug.Log(PhotonNetwork.CurrentRoom.MaxPlayers);
-        if (myPhotonView.IsMine && PhotonNetwork.IsMasterClient)
-        {
-            if (readyCount == PhotonNetwork.CurrentRoom.MaxPlayers - 1)
-            {
-                myPhotonView.RPC("RpcMasterSetReady", RpcTarget.AllBuffered);
-            }
-            else
-            {
-                dontGameStartPopup.SetActive(true);
-                Debug.Log("모든 플레이어가 준비가 될때까지 기다려주세요");
-            }
-        }
-
-        else
-        {
-            isClientReady = !isClientReady;
-            if (isClientReady == true)
-            {
-                myPhotonView.RPC("RpcReadyCountUp", RpcTarget.MasterClient);
-            }
-            else
-            {
-                myPhotonView.RPC("RpcReadyCountDown", RpcTarget.MasterClient);
-
-            }
-            //myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);//playerCs.proFileList, PhotonNetwork.NickName, !issReady
-            myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName);//playerCs.proFileList, PhotonNetwork.NickName, !issReady
-        }
-    }
-
-    public void OnClickGameReady(string nickName) //List<Profile> proFileList, string nickName, bool isReady
-    {
-        if (myPhotonView.IsMine)
-        {
-            print(PhotonNetwork.NickName);
-        }
-
-        print("RPC에서 OnClickGameReady 으로 받음 ");
-
-   
-        GameManager.Instance.stageID = 1;
-        for (int i = 0; i < profileList.Length; i++)
-        {
-            if (myPhotonView.IsMine)
-            {
-                profileList[i].GetComponent<Profile>().ChangeReadyState(nickName);
-                print("RPC에서 ChangeReadyState 으로 보냄 ");
-            }
-        }
-    }
-    public void OnClickGameStart()
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            print("RPC에서 OnClickGameStart 으로 받음 ");
-
-            //마스터만 Client들한테 modeID, stageID 넘겨주기
-            Debug.Log(readyCount);
-            int modeID = GameManager.Instance.modeID;
-            // 나중에 난수 생성
-            int stageID = UnityEngine.Random.Range(1, 10);
-            print(stageID);
-            GameManager.Instance.stageID = stageID;
-            print(" 와팅 와팅 Mgr:::::" + GameManager.Instance.modeID + "//" + modeID + "//" + stageID);
-            myPhotonView.RPC("RpcSetGameData", RpcTarget.Others, modeID, stageID);
-
-            //Scene 전환
-            PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
-        }
-    }
-
-    public void OnClickLeaveRoom()
-    {
-        Debug.Log("OnClickLeaveRoom");
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Debug.Log("마스터니?");
-
-            if (PhotonNetwork.PlayerList.Length == 1)
-            {
-                Debug.Log("플레이어가 한명이니?");
-
-                PhotonNetwork.LeaveRoom();
-                Debug.Log("나가렴");
-
-            }
-            else
-            {
-                Debug.Log("플레이어가 한명아니니?");
-
-                PhotonNetwork.SetMasterClient(PhotonNetwork.PlayerList[1]);
-                PhotonNetwork.LeaveRoom();
-
-                Debug.Log("방장 넘기고 나가렴");
-
-            }
-        }
-        else
-            PhotonNetwork.LeaveRoom();
-            GameManager.Instance.modeID = 5;
-        // PhotonNetwork.LoadLevel("11. TogetherModeList");
-    }
-    public override void OnLeftRoom()
-    {
-        //SceneManager.LoadScene("11. TogetherModeList");
-       
-        waitingRoom_Canvas.SetActive(false);
-        roomList_Canvas.SetActive(true);
-
-        //PhotonNetwork.Disconnect();
-        print(System.Reflection.MethodBase.GetCurrentMethod().Name);
-
-    }
-    //public override void OnDisconnected(DisconnectCause cause)
-    //{
-    //    print(System.Reflection.MethodBase.GetCurrentMethod().Name);
-    //    PhotonNetwork.ConnectUsingSettings();
-    //}
-
     public void AddPlayer(int playerActorNumber)
     {
         emptyIndex = Array.IndexOf(playerList, 0);
@@ -382,9 +186,12 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         var profileName = outProfile.transform.GetChild(1).GetComponent<Text>();
         GameObject masterProfileImage = outProfile.transform.GetChild(3).gameObject;
         GameObject clientProfileImage = outProfile.transform.GetChild(4).gameObject;
+        GameObject ReadtBt = outProfile.transform.GetChild(2).gameObject;
+
         profileName.text = "";
         masterProfileImage.SetActive(false);
         clientProfileImage.SetActive(false);
+        ReadtBt.SetActive(true);
         playerList[playerIndex] = 0;
         print(":::RPC_UpdatePlayerList()실행시켜줘");
 
@@ -428,11 +235,224 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
         //print(outProfile.name);
     }
+    public void FindProfile()
+    {
+        // myIndexNumber_ = myIndexNumber - 1;
+        GameObject myProfile = profileList[myIndexNumber];
+        print(myProfile.name);
+        myProfile.GetComponent<Profile>().isReady = false;
+        myProfile.GetComponent<Profile>().img_Ready.color = Color.white;
+        myProfile.SetActive(true);
+        isClientReady = false;
+        ismaster_Mark = false;
+
+        var profileName = myProfile.transform.GetChild(1).GetComponent<Text>();
+        GameObject masterProfileImage = myProfile.transform.GetChild(3).gameObject;
+        GameObject clientProfileImage = myProfile.transform.GetChild(4).gameObject;
+        GameObject IsmineImage = myProfile.transform.GetChild(5).gameObject;
+        GameObject ReadtBt = myProfile.transform.GetChild(2).gameObject;
+        profileName.text = PhotonNetwork.NickName;
+        IsmineImage.SetActive(true);
+        print("FindProfile()에서 내꺼라는 표시");
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            masterProfileImage.SetActive(true);
+            clientProfileImage.SetActive(false);
+            ReadtBt.SetActive(false);
+            ismaster_Mark = true;
+            print("마스터로 프로필 리스트 업데이트");
+            photonView.RPC("RpcProfileLisUpdate", RpcTarget.Others, myIndexNumber, PhotonNetwork.NickName, ismaster_Mark);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                gameStart_Ready.text = "Game Start";
+            }
+        }
+        else
+        {
+            masterProfileImage.SetActive(false);
+            clientProfileImage.SetActive(true);
+            ismaster_Mark = false;
+            ReadtBt.SetActive(true);
+            print("클라이언트로 프로필 리스트 업데이트");
+
+            photonView.RPC("RpcProfileLisUpdate", RpcTarget.Others, myIndexNumber, PhotonNetwork.NickName, ismaster_Mark);
+
+        }
+        print(profileName.text);
+
+    }
+
+    [PunRPC]
+    public void RpcProfileLisUpdate(int indexNum, string nickname, bool ismasterMark)
+    {
+
+        GameObject myProfile = profileList[indexNum];
+        print(myProfile.name);
+        myProfile.GetComponent<Profile>().isReady = false;
+        myProfile.GetComponent<Profile>().img_Ready.color = Color.white;
+
+        photonView.RPC("RpcReadyCountReset", RpcTarget.All);
+        myProfile.SetActive(true);
+        isClientReady = false;
+        var profileName = myProfile.transform.GetChild(1).GetComponent<Text>();
+        GameObject masterProfileImage = myProfile.transform.GetChild(3).gameObject;
+        GameObject clientProfileImage = myProfile.transform.GetChild(4).gameObject;
+        GameObject IsmineImage = myProfile.transform.GetChild(5).gameObject;
+        GameObject ReadtBt = myProfile.transform.GetChild(2).gameObject;
+
+        profileName.text = PhotonNetwork.NickName;
+
+        if (ismasterMark == true)
+        {
+            masterProfileImage.SetActive(true);
+            clientProfileImage.SetActive(false);
+            ReadtBt.SetActive(false);
+        }
+        else
+        {
+            masterProfileImage.SetActive(false);
+            clientProfileImage.SetActive(true);
+        }
+        profileName.text = nickname;
+
+    }
     [PunRPC]
     void RpcReadyCountReset()
     {
         readyCount = 0;
     }
+
+    #endregion
+
+    #region 플레이 버튼
+
+    public void OnClickReady()
+    {
+        Debug.Log(PhotonNetwork.CurrentRoom.MaxPlayers);
+        if (myPhotonView.IsMine && PhotonNetwork.IsMasterClient)
+        {
+            if (readyCount == PhotonNetwork.CurrentRoom.MaxPlayers - 1)
+            {
+                myPhotonView.RPC("RpcMasterSetReady", RpcTarget.AllBuffered);
+            }
+            else
+            {
+                dontGameStartPopup.SetActive(true);
+                Debug.Log("모든 플레이어가 준비가 될때까지 기다려주세요");
+            }
+        }
+
+        else
+        {
+            isClientReady = !isClientReady;
+            if (isClientReady == true)
+            {
+                myPhotonView.RPC("RpcReadyCountUp", RpcTarget.MasterClient);
+            }
+            else
+            {
+                myPhotonView.RPC("RpcReadyCountDown", RpcTarget.MasterClient);
+
+            }
+            //myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName, !issReady);//playerCs.proFileList, PhotonNetwork.NickName, !issReady
+            myPhotonView.RPC("RpcSetReady", RpcTarget.AllBuffered, PhotonNetwork.NickName);//playerCs.proFileList, PhotonNetwork.NickName, !issReady
+        }
+    }
+
+    public void OnClickGameReady(string nickName) //List<Profile> proFileList, string nickName, bool isReady
+    {
+        if (myPhotonView.IsMine)
+        {
+            print(PhotonNetwork.NickName);
+        }
+
+        print("RPC에서 OnClickGameReady 으로 받음 ");
+
+
+        GameManager.Instance.stageID = 1;
+        for (int i = 0; i < profileList.Length; i++)
+        {
+            if (myPhotonView.IsMine)
+            {
+                profileList[i].GetComponent<Profile>().ChangeReadyState(nickName);
+                print("RPC에서 ChangeReadyState 으로 보냄 ");
+            }
+        }
+    }
+    public void OnClickGameStart()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            print("RPC에서 OnClickGameStart 으로 받음 ");
+
+            //마스터만 Client들한테 modeID, stageID 넘겨주기
+            Debug.Log("ReadyCount ::: " + readyCount);
+            int modeID = GameManager.Instance.modeID;
+            // 나중에 난수 생성
+            int stageID = UnityEngine.Random.Range(1, 10);
+            print("StageID ::: " + stageID);
+            GameManager.Instance.stageID = stageID;
+            print(" 와팅 와팅 Mgr:::::" + GameManager.Instance.modeID + "//" + modeID + "//" + stageID);
+            myPhotonView.RPC("RpcSetGameData", RpcTarget.Others, modeID, stageID);
+
+            //Scene 전환
+            PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
+        }
+    }
+
+    public void OnClickLeaveRoom()
+    {
+        Debug.Log("OnClickLeaveRoom");
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("마스터니?");
+
+            if (PhotonNetwork.PlayerList.Length == 1)
+            {
+                Debug.Log("플레이어가 한명이니?");
+                
+                PhotonNetwork.LeaveRoom();
+               int playerIndex = Array.IndexOf(playerList, PhotonNetwork.LocalPlayer.ActorNumber);
+                playerList[playerIndex] = 0;
+                Debug.Log("나가렴");
+
+            }
+            else
+            {
+                Debug.Log("플레이어가 한명아니니?");
+
+                PhotonNetwork.SetMasterClient(PhotonNetwork.PlayerList[1]);
+                PhotonNetwork.LeaveRoom();
+                Debug.Log("방장 넘기고 나가렴");
+
+            }
+        }
+        else
+            PhotonNetwork.LeaveRoom();
+        GameManager.Instance.modeID = 5;
+        // PhotonNetwork.LoadLevel("11. TogetherModeList");
+    }
+    public override void OnLeftRoom()
+    {
+        //SceneManager.LoadScene("11. TogetherModeList");
+
+        waitingRoom_Canvas.SetActive(false);
+        roomList_Canvas.SetActive(true);
+
+        //PhotonNetwork.Disconnect();
+        print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+    }
+    //public override void OnDisconnected(DisconnectCause cause)
+    //{
+    //    print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+    //    PhotonNetwork.ConnectUsingSettings();
+    //}
+
+    #endregion
+
+    #region 일반 버튼
 
     public void Xbt()
     {
@@ -453,7 +473,18 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     {
         masterHelp.SetActive(false);
         clientHelp.SetActive(true);
+    }
 
+    public void OpenTutorialCanvas()
+    {
+        Debug.Log($"ButtonManager01 ::: 튜토리얼 버튼 클릭");
+        SceneManager.LoadScene("03. Tutorial");
+    }
+
+    // 만든이 버튼
+    public void OpenCreditCanvas()
+    {
+        Debug.Log($"ButtonManager01 ::: 만든이 버튼 클릭");
     }
     #endregion
 
@@ -509,16 +540,6 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     #endregion
 
     // 튜토리얼 버튼
-    public void OpenTutorialCanvas()
-    {
-        Debug.Log($"ButtonManager01 ::: 튜토리얼 버튼 클릭");
-        SceneManager.LoadScene("03. Tutorial");
-    }
 
-    // 만든이 버튼
-    public void OpenCreditCanvas()
-    {
-        Debug.Log($"ButtonManager01 ::: 만든이 버튼 클릭");
-    }
 
 }

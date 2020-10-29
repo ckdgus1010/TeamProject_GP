@@ -78,6 +78,7 @@ public class ScreenShot : MonoBehaviour
         {
             case 0:
             case 2:
+                UIArray[3].SetActive(false);
                 break;
             case 1:
             case 3:

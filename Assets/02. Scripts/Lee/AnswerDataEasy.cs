@@ -18,12 +18,15 @@ public class AnswerDataEasy : MonoBehaviour
         switch (_stageID)
         {
             case 1:
+            case 7:
                 Stage01();
                 break;
             case 2:
+            case 8:
                 Stage02();
                 break;
             case 3:
+            case 9:
                 Stage03();
                 break;
             case 4:
@@ -34,9 +37,9 @@ public class AnswerDataEasy : MonoBehaviour
                 break;
             case 6:
                 Stage06();
-                break;
-           
+                break;           
         }
+
         answerArray = new List<int>[3] { frontAnswerList, sideAnswerList, topAnswerList };
         Debug.Log("AnswerData_Easy");
         Debug.Log(frontAnswerList);
