@@ -44,6 +44,7 @@ public class CloudAnchorController : MonoBehaviourPun
     private int mapOnCount = 0;
 
     private int receiveCount = 0;
+    private bool receiveCount_Done;
 
     private void Start()
     {
@@ -75,11 +76,23 @@ public class CloudAnchorController : MonoBehaviourPun
             //다른 플레이어가 맵을 생성할 때까지 잠시만 기다려주세요! 끄기
             waitingClientPopup.SetActive(false);
         }
-        // 플레이어 3명일때 클라이언트가 전
-        if(PlayerMgr.recevieCount == 1)
+        if(PhotonNetwork.CurrentRoom.MaxPlayers == 2)
         {
-            photonView.RPC("CloudAnchor_Resolving", RpcTarget.Others);
+            if(PlayerMgr.recevieCount == 1 && receiveCount_Done == false)
+            {
+                photonView.RPC("CloudAnchor_Resolving", RpcTarget.Others);
+                receiveCount_Done = true;
+            }
         }
+        else if(PhotonNetwork.CurrentRoom.MaxPlayers == 3)
+        {
+            if (PlayerMgr.recevieCount == 2 && receiveCount_Done == false)
+            {
+                photonView.RPC("CloudAnchor_Resolving", RpcTarget.Others);
+                receiveCount_Done = true;
+            }
+        }
+        // 플레이어 3명일때 클라이언트가 전
     }
 
     public void CloudAnchor_Hosting()
