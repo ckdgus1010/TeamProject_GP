@@ -81,6 +81,7 @@ public class ButtonManager : MonoBehaviourPunCallbacks
         {
             nickName_Text.text = GameManager.Instance.username;
         }
+
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
@@ -263,8 +264,7 @@ public class ButtonManager : MonoBehaviourPunCallbacks
     }
 
 
-    //정답 확인 // // Rpc 로 패널 넘기기 
-
+    //정답 확인 // // Rpc 로 패널 넘기기
     public void CheckAnswer()
     {
         if (cardBoardSetting.isCardBoardOn)
@@ -359,6 +359,7 @@ public class ButtonManager : MonoBehaviourPunCallbacks
         }
     }
 
+    // 다시하기
     public void RetryAloneMode()
     {
         Debug.Log("다시하기 버튼 클릭");
@@ -398,8 +399,9 @@ public class ButtonManager : MonoBehaviourPunCallbacks
 
     #endregion 
 
-    #region 같이하기 모드 - 마스터만 누를 수 있음
 
+
+    #region 같이하기 모드 - 마스터만 누를 수 있음
 
     // 같이하기 Cube 생성
     public void Photon_MakeCube()
