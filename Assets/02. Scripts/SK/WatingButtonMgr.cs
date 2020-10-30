@@ -1,15 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using System;
-//using Google.Protobuf.WellKnownTypes;
-//using WebSocketSharp;
 using UnityEngine.SceneManagement;
-using Hashtable = ExitGames.Client.Photon.Hashtable;
-using Photon.Pun.Demo.Cockpit;
 
 public enum Levels
 {
