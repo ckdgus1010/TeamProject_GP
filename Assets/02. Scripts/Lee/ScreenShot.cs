@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class ScreenShot : MonoBehaviour
 {
@@ -84,10 +86,19 @@ public class ScreenShot : MonoBehaviour
             case 3:
             case 4:
             case 5:
+                UIArray[6].SetActive(false);
+                break;
             case 6:
             case 7:
             case 8:
-                UIArray[6].SetActive(false);
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    UIArray[3].SetActive(false);
+                }
+                else
+                {
+                    UIArray[2].SetActive(false);
+                }
                 break;
         }
         Debug.Log("ScreenShot ::: UI 활성화 완료");
