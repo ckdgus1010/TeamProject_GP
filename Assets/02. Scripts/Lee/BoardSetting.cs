@@ -10,6 +10,7 @@ using Photon.Realtime;
 public class BoardSetting : MonoBehaviour
 {
     public Slider boardSizeSlider;
+    public Slider[] sliders = new Slider[2];
     public GameObject gameBoard;
     public GameObject guideCube;
 
@@ -99,29 +100,59 @@ public class BoardSetting : MonoBehaviour
     {
         int _modeID = GameManager.Instance.modeID;
 
-        if (_modeID == 6 || _modeID == 7 || _modeID == 8)
+        switch (_modeID)
         {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                boardSizeSlider = masterBoardSizeSlider;
-            }
-            else
-            {
-                boardSizeSlider = clientBoardSizeSlider;
-            }
-
-            float scaleFactor = boardSizeSlider.value;
-
-            gameBoard.transform.localScale = originalBoardScale * scaleFactor;
-            guideCube.transform.localScale = originalGuideScale * scaleFactor;
+            case 1:
+            case 2:
+                boardSizeSlider = sliders[0];
+                break;
+            case 3:
+            case 4:
+                boardSizeSlider = sliders[1];
+                break;
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    boardSizeSlider = masterBoardSizeSlider;
+                }
+                else
+                {
+                    boardSizeSlider = clientBoardSizeSlider;
+                }
+                break;
         }
-        else
-        {
-            float scaleFactor = boardSizeSlider.value;
 
-            gameBoard.transform.localScale = originalBoardScale * scaleFactor;
-            guideCube.transform.localScale = originalGuideScale * scaleFactor;
-        }
+        float scaleFactor = boardSizeSlider.value;
+
+        gameBoard.transform.localScale = originalBoardScale * scaleFactor;
+        guideCube.transform.localScale = originalGuideScale * scaleFactor;
+
+        //if (_modeID == 6 || _modeID == 7 || _modeID == 8)
+        //{
+        //    if (PhotonNetwork.IsMasterClient)
+        //    {
+        //        boardSizeSlider = masterBoardSizeSlider;
+        //    }
+        //    else
+        //    {
+        //        boardSizeSlider = clientBoardSizeSlider;
+        //    }
+
+        //    float scaleFactor = boardSizeSlider.value;
+
+        //    gameBoard.transform.localScale = originalBoardScale * scaleFactor;
+        //    guideCube.transform.localScale = originalGuideScale * scaleFactor;
+        //}
+        //else
+        //{
+        //    float scaleFactor = boardSizeSlider.value;
+
+        //    gameBoard.transform.localScale = originalBoardScale * scaleFactor;
+        //    guideCube.transform.localScale = originalGuideScale * scaleFactor;
+        //}
     }
 
     public void GridSize()
