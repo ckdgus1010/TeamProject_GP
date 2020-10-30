@@ -106,15 +106,10 @@ public class ButtonManager : MonoBehaviourPunCallbacks
             cubeSetting.GuideCubeOff();
             touchManager.SetOrigin();
             boardSizeSlider.value = 0.1f;
-            blockImage.SetActive(true);
 
             if (GameManager.Instance.modeID == 0)
             {
                 gridSizeSlider.value = 5;
-            }
-            else
-            {
-                gridSizeSlider.value = gridSizeSlider.minValue;
             }
 
             //이펙트
