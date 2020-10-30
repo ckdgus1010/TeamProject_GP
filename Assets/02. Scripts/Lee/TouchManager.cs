@@ -63,7 +63,8 @@ public class TouchManager : MonoBehaviour
     public bool ishostFinish;
     public bool isresolveFinish =false;
 
-    public CloudAnchorController cloudAnchorController; 
+    public CloudAnchorController cloudAnchorController;
+    public GameObject waitingClientPopup;
     void Start()
     {
         count = 0;
@@ -142,6 +143,7 @@ public class TouchManager : MonoBehaviour
                         pointImage.SetActive(true);
                         cubeSetting.enabled = true;
                         //hostBt.SetActive(true);
+                        waitingClientPopup.SetActive(true);
                         cloudAnchorController.CloudAnchor_Hosting();
                     }
                     break;

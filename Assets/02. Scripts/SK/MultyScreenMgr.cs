@@ -156,6 +156,7 @@ public class MultyScreenMgr : MonoBehaviourPun
             if (!PhotonNetwork.IsMasterClient)
             {
                 client_PlayButtons.anchoredPosition = Vector2.Lerp(client_PlayButtons.anchoredPosition, endPos_PlayButtons.anchoredPosition, Time.deltaTime * lerpSpeed);
+                waitingMasterPopup.SetActive(false);
             }
         }
 

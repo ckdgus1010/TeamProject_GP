@@ -58,14 +58,16 @@ public class CloudAnchorController : MonoBehaviourPun
 
     private void Update()
     {
+        Debug.Log("CloudAnchor ::: 1");
         if(!PhotonNetwork.IsMasterClient && PlayerMgr.isReceive == true)
         {
             Debug.Log("이제 패널 끄자");
             //방장이 맵을 생성할 때까지 잠시만 기다려주세요! 끄기
-            waitingMasterPopup.SetActive(false);
+            //waitingMasterPopup.SetActive(false);
             //resolveBt.SetActive(true);
             PlayerMgr.isReceive = false;
         }
+        Debug.Log("CloudAnchor ::: 2");
 
         if (isResolvingFinish == true && mapOnCount == 0)
         {
@@ -76,22 +78,30 @@ public class CloudAnchorController : MonoBehaviourPun
             //다른 플레이어가 맵을 생성할 때까지 잠시만 기다려주세요! 끄기
             waitingClientPopup.SetActive(false);
         }
-        if(PhotonNetwork.CurrentRoom.MaxPlayers == 2)
+
+        Debug.Log("CloudAnchor ::: 3");
+
+        if (PhotonNetwork.IsMasterClient && /*PhotonNetwork.CurrentRoom.MaxPlayers == 2 && */PlayerMgr.recevieCount == 1 && receiveCount_Done == false)
         {
-            if(PlayerMgr.recevieCount == 1 && receiveCount_Done == false)
-            {
+            Debug.Log("최대 플레이어 수는 2명이고 받은 카운트 1개다");
+           
                 photonView.RPC("CloudAnchor_Resolving", RpcTarget.Others);
-                receiveCount_Done = true;
-            }
+            Debug.Log("얘들아 리졸브해!");
+
+            receiveCount_Done = true;
+                
         }
-        else if(PhotonNetwork.CurrentRoom.MaxPlayers == 3)
+        else if(PhotonNetwork.IsMasterClient &&  /*PhotonNetwork.CurrentRoom.MaxPlayers == 3 && */PlayerMgr.recevieCount == 2 && receiveCount_Done == false)
         {
-            if (PlayerMgr.recevieCount == 2 && receiveCount_Done == false)
-            {
+            Debug.Log("최대 플레이어 수는 3명이고 받은 카운트 2개다");
+
                 photonView.RPC("CloudAnchor_Resolving", RpcTarget.Others);
+            Debug.Log("얘들아 리졸브해!");
                 receiveCount_Done = true;
-            }
+
         }
+        Debug.Log("CloudAnchor ::: 4");
+
         // 플레이어 3명일때 클라이언트가 전
     }
 
@@ -142,11 +152,13 @@ public class CloudAnchorController : MonoBehaviourPun
         isHostingFinish = true;
 
         //다른 플레이어가 맵을 생성할 때까지 잠시만 기다려주세요! 켜기
-        waitingClientPopup.SetActive(true);
+        //waitingClientPopup.SetActive(true);
         backGround.SetActive(true);
         
         print("!!!호스트 앵커 위치 :  " + anchor.transform.position);
         print("호스트 게임보드 위치 :  " + gameBoard.transform.position);
+        PlayerMgr.cloudID = "";
+
     }
 
     IEnumerator ResolveCloudAnchor(string cloudID)
@@ -191,6 +203,7 @@ public class CloudAnchorController : MonoBehaviourPun
         }
         isResolvingFinish = true;
         print($"Touchmgr ::: isresolveFinish // {isResolvingFinish}");
+        PlayerMgr.cloudID = "";
     }
 
     public void ResolveFinish()
