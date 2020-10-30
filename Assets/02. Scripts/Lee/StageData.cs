@@ -41,7 +41,8 @@ public class StageData : MonoBehaviour
         {
             //GameManager에게 정보 전달
             GameManager.Instance.stageID = stageID;
-            SceneManager.LoadScene("14. Play Scene");
+            LoadingSceneController.Instance.LoadScene("14. Play Scene");
+            //SceneManager.LoadScene("14. Play Scene");
         }
         else
         {

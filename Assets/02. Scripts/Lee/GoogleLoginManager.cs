@@ -40,6 +40,8 @@ public class GoogleLoginManager : MonoBehaviour
                 Debug.Log($"{Social.localUser.id} \n {Social.localUser.userName}");
                 GameManager.Instance.username = Social.localUser.userName;
 
+                GameManager.Instance.achievement[0] = true;
+
                 mainMenuCanvas.SetActive(true);
                 loginCanvas.SetActive(false);
             }
