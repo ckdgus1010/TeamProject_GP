@@ -333,7 +333,11 @@ public class TouchManager : MonoBehaviour
 
         pointImage.SetActive(false);
         cubeSetting.enabled = false;
-        gridSizePanel.SetActive(false);
+
+        if(gridSizePanel != null)
+        {
+            gridSizePanel.SetActive(false);
+        }
 
         count = 0;
     }

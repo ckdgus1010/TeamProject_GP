@@ -21,6 +21,9 @@ public class VideoPlayerController : MonoBehaviour
     // 필수 권한 확인
     [SerializeField] private PermissionManager permissionManager;
 
+    // 스크립트
+    public ButtonSound buttonSound;
+
     void Start()
     {
         isFinished = false;
@@ -41,6 +44,9 @@ public class VideoPlayerController : MonoBehaviour
     {
         loginCanvas.SetActive(true);
         //permissionManager.RequestPermission();
+
+        // 브금 시작
+        buttonSound.bgmSource.Play();
 
         introVideoCanvas.SetActive(false);
     }
