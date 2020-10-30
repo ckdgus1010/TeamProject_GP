@@ -32,6 +32,9 @@ public class Scroll_Manager : MonoBehaviourPun
     private float value = 0.0f;
     [SerializeField]
     private Toggle[] toggles = new Toggle[4];
+    private float initialValue;
+    [SerializeField]
+    private float sensitivity = 150.0f;
 
     void Update()
     {
@@ -52,6 +55,7 @@ public class Scroll_Manager : MonoBehaviourPun
         if (Input.GetMouseButtonDown(0))
         {
             startPos = Input.mousePosition;
+            initialValue = horizontalScrollbar.value;
         }
 
         if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
@@ -77,7 +81,7 @@ public class Scroll_Manager : MonoBehaviourPun
                 return;
             }
 
-            if (dir.x > 100)
+            if (dir.x > sensitivity)
             {
                 Debug.Log("왼쪽으로 이동");
 
@@ -89,12 +93,12 @@ public class Scroll_Manager : MonoBehaviourPun
                 //{
                 //    value = 0.0f;
                 //}
-                if (horizontalScrollbar.value > 0.5f && horizontalScrollbar.value < 0.77f)
+                if (initialValue > 0.5f && initialValue < 0.77f)
                 {
                     value = 0.333f;
                     toggles[1].isOn = true;
                 }
-                else if (horizontalScrollbar.value > 0.9f)
+                else if (initialValue > 0.9f)
                 {
                     value = 0.666f;
                     toggles[2].isOn = true;
@@ -105,16 +109,16 @@ public class Scroll_Manager : MonoBehaviourPun
                     toggles[0].isOn = true;
                 }
             }
-            else if (dir.x < -100)
+            else if (dir.x < -sensitivity)
             {
                 Debug.Log("오른쪽으로 이동");
 
-                if (horizontalScrollbar.value < 0.1f)
+                if (initialValue < 0.1f)
                 {
                     value = 0.333f;
                     toggles[1].isOn = true;
                 }
-                else if (horizontalScrollbar.value > 0.3f && horizontalScrollbar.value < 0.4f)
+                else if (initialValue > 0.3f && initialValue < 0.4f)
                 {
                     value = 0.666f;
                     toggles[2].isOn = true;
