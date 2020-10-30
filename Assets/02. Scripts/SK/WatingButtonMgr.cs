@@ -65,7 +65,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public GameObject masterHelp;
     public GameObject clientHelp;
 
-    public LoadingSceneController loadingController;
+   
     //Hashtable CP = new Hashtable();
 
     private void Start()
@@ -395,7 +395,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
             //Scene 전환
             PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
             string sceneName = "15.MultiyPlay Scene";
-            loadingController.LoadScene(sceneName);
+          
         }
     }
 
