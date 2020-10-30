@@ -14,6 +14,7 @@ public class PlayerMgr : MonoBehaviourPun
     public GameObject cubeFac;
     public int myIndexNumber;
     public bool isRecevied;
+    public static int recevieCount;
 
     public static Quaternion gameboardQuaternion_;
     public static Vector3 gameboardTransform_;
@@ -95,10 +96,16 @@ public class PlayerMgr : MonoBehaviourPun
         print("Player isReceive : " + isReceive);
         gameboardQuaternion_ = gameboardQuaternion;
         gameboardTransform_ = gameboardTransform;
+        photonView.RPC("ReceiveCluodID", RpcTarget.MasterClient);
         //isRecevied = true;
         //print(isRecevied);
         //isReceiveId = true;
         // 이제 리졸브버튼 누르세요 하기
+    }
+    [PunRPC]
+    public void ReceiveCluodID()
+    {
+        recevieCount++;
     }
 
     // 마스터가 설정한 설정한 난이도와 스테이지 클라이언트들에게 넘기기 

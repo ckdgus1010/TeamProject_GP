@@ -7,7 +7,7 @@ using Photon.Pun;
 
 //Cloud Anchor Hosting 및 Resolving 관리
 
-public class CloudAnchorController : MonoBehaviour
+public class CloudAnchorController : MonoBehaviourPun
 {
     public MultyScreenMgr multyScreenMgr;
 
@@ -43,6 +43,8 @@ public class CloudAnchorController : MonoBehaviour
 
     private int mapOnCount = 0;
 
+    private int receiveCount = 0;
+
     private void Start()
     {
         isHostingFinish = false;
@@ -60,7 +62,7 @@ public class CloudAnchorController : MonoBehaviour
             Debug.Log("이제 패널 끄자");
             //방장이 맵을 생성할 때까지 잠시만 기다려주세요! 끄기
             waitingMasterPopup.SetActive(false);
-            resolveBt.SetActive(true);
+            //resolveBt.SetActive(true);
             PlayerMgr.isReceive = false;
         }
 
@@ -72,6 +74,11 @@ public class CloudAnchorController : MonoBehaviour
 
             //다른 플레이어가 맵을 생성할 때까지 잠시만 기다려주세요! 끄기
             waitingClientPopup.SetActive(false);
+        }
+        // 플레이어 3명일때 클라이언트가 전
+        if(PlayerMgr.recevieCount == 1)
+        {
+            photonView.RPC("CloudAnchor_Resolving", RpcTarget.Others);
         }
     }
 
@@ -89,7 +96,7 @@ public class CloudAnchorController : MonoBehaviour
             //HostCloudAnchor(touchManager.anchor);
         }
     }
-
+    [PunRPC]
     public void CloudAnchor_Resolving()
     {
         if (!PhotonNetwork.IsMasterClient)
