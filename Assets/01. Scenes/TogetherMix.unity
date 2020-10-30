@@ -3818,12 +3818,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9525120, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11401740, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: eea75cca888c8004b97ca1e73073d71e,
+      objectReference: {fileID: 21300000, guid: 82ba6930cf5267c4a8d82591bb67550e,
         type: 3}
     - target: {fileID: 11401740, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
       propertyPath: m_Type
@@ -3835,11 +3835,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11401740, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
       propertyPath: m_Color.g
-      value: 0.33490568
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11401740, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
       propertyPath: m_Color.b
-      value: 0.4644812
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11411004, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
       propertyPath: m_Text
@@ -3906,6 +3906,25 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 11441060, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441060, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 99a31b589dfff754caf2c501bab25979,
+        type: 3}
+    - target: {fileID: 11441060, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ac9c920a8f761f48b822a10c6f7beae,
+        type: 3}
+    - target: {fileID: 11441060, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82ba6930cf5267c4a8d82591bb67550e,
+        type: 3}
     - target: {fileID: 11476724, guid: cca5dd919003c424e9fb125a367b3fe8, type: 3}
       propertyPath: m_EffectDistance.x
       value: 20
@@ -10565,7 +10584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0395dd92700a44882b83b1d0b21b6716, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c1644fe0d4cbe64fa7cbae704d16cee, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13236,7 +13255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0395dd92700a44882b83b1d0b21b6716, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c1644fe0d4cbe64fa7cbae704d16cee, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13557,7 +13576,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0
-  m_CharacterLimit: 0
+  m_CharacterLimit: 15
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []

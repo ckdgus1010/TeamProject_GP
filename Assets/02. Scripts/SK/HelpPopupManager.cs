@@ -145,7 +145,6 @@ public class HelpPopupManager : MonoBehaviour
     // 도움말 나가기 버튼
     public void Normal_X_Button()
     {
-       
         if (currentPanel != null)
         {
             currentPanel.SetActive(false);

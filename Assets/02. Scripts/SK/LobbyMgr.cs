@@ -6,7 +6,7 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
-
+using System.Linq;
 
 public class LobbyMgr : MonoBehaviourPunCallbacks
 {
@@ -59,6 +59,10 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     private void Update()
     {
         joinRoom_Bt.interactable = roomInputField.text.Length > 0 && sendPerson == true;// 불값으로 나오니까 if문을 한줄로 줄일 수 있음
+        if(roomInputField.text.Length > 16)
+        {
+            Debug.Log("방 이름은 15자 이내로 입력해주세요");
+        }
     }
 
 
@@ -264,8 +268,8 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     public void OnClickLeaveLobby()
     {
         SceneManager.LoadScene("01. Intro");
-        PhotonNetwork.Disconnect();
         GameManager.Instance.modeID = 9;
+        PhotonNetwork.Disconnect();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
         //PhotonNetwork.LeaveLobby();
     }

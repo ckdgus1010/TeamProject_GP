@@ -146,5 +146,10 @@ public class SceneChange : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
     }
 
+    public void BackToPlaymodeScene()
+    {
+        SceneManager.LoadScene("01. Intro");
+        GameManager.Instance.modeID = 9;
+    }
 
 }

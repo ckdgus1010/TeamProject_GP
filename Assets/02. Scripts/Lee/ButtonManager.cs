@@ -331,7 +331,8 @@ public class ButtonManager : MonoBehaviourPunCallbacks
     {
         answerManager.SendAnswerManagerInfo(isCorrect, isChecked);
         answerManager.blurredImage.SetActive(isChecked);
-        cardBoardSetting.isCardBoardOn = false;
+        cardBoardSetting.isCardBoardOn = true;
+
     }
 
     //다음 단계로
@@ -382,7 +383,8 @@ public class ButtonManager : MonoBehaviourPunCallbacks
 
         answerManager.isChecked = false;
         bool isChecked = answerManager.isChecked;
-
+        // 카드 러프
+        ConvertCardBoard();
         Debug.Log($"ButtonManager ::: {answerManager.isChecked} // {isChecked}");
 
         answerManager.blurredImage.SetActive(false);
