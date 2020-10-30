@@ -267,10 +267,10 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     }
     public void OnClickLeaveLobby()
     {
-        SceneManager.LoadScene("01. Intro");
         GameManager.Instance.modeID = 9;
         PhotonNetwork.Disconnect();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        SceneManager.LoadScene("01. Intro");
         //PhotonNetwork.LeaveLobby();
     }
 

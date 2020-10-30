@@ -42,11 +42,14 @@ public class CanvasController : MonoBehaviour
             case 6:
             case 7:
             case 8:
-            case 9:
                 Debug.Log("CanvasController ::: 플레이 모드 선택 화면 오픈");
                 canvasArray[0].SetActive(false);
                 canvasArray[3].SetActive(true);
                 GameManager.Instance.modeID = 9;
+                break;
+            case 9:
+                canvasArray[0].SetActive(false);
+                canvasArray[2].SetActive(true);
                 break;
             case 2:
             case 3:
