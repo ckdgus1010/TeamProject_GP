@@ -24,6 +24,12 @@ public class ButtonSound : MonoBehaviour
     public Slider effectSlider;
     private float effectValue = 0;
     
+
+    // 플레이 시 브금 시작
+    public void PlayBGM()
+    {
+        bgmSource.Play();
+    }
     // 버튼 클릭 시
     public void ButtonClicked()
     {

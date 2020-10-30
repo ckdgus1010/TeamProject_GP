@@ -41,6 +41,9 @@ public class CanvasController : MonoBehaviour
             case 5:
             case 6:
             case 7:
+                canvasArray[0].SetActive(false);
+                canvasArray[6].SetActive(true);
+                break;
             case 8:
                 Debug.Log("CanvasController ::: 플레이 모드 선택 화면 오픈");
                 canvasArray[0].SetActive(false);

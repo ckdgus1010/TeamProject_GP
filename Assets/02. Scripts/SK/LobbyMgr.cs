@@ -284,6 +284,10 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     // 만든이 버튼
     public void OpenCreditCanvas()
     {
+        GameManager.Instance.modeID = 7;
+        PhotonNetwork.Disconnect();
+        print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        SceneManager.LoadScene("01. Intro");
         Debug.Log($"ButtonManager01 ::: 만든이 버튼 클릭");
     }
 }
