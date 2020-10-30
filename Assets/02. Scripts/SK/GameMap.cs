@@ -14,6 +14,9 @@ public class GameMap : MonoBehaviour
     private GameObject levelQuestion;
     public Transform levelPos;
 
+    public AudioClip audioClip;
+    public AudioClip[] audioList;
+
     private TouchManager touchManager;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,7 @@ public class GameMap : MonoBehaviour
         //map = Instantiate(mapList[WatingButtonMgr.instance.mapCount]);
         map = mapList[WatingButtonMgr.instance.mapCount];
         cube = cubeList[WatingButtonMgr.instance.mapCount];
+        audioClip = audioList[WatingButtonMgr.instance.mapCount];
         //map.transform.position = transform.position;
 
         // 터치매니저에서 클라이언트가 리졸브를 다 받았다면

@@ -7,7 +7,10 @@ using UnityEngine;
 public class CanvasController : MonoBehaviour
 {
     // 설정팝업
-    public GameObject settingCan; 
+    public GameObject settingCan;
+
+    // 스크립트 
+    public ButtonSound buttonSound;
 
     [SerializeField] private ButtonManager01 buttonManager01;
     [SerializeField] private ModeTitle modetitle;
@@ -53,6 +56,7 @@ public class CanvasController : MonoBehaviour
             case 9:
                 canvasArray[0].SetActive(false);
                 canvasArray[2].SetActive(true);
+                buttonSound.bgmSource.Play();
                 break;
             case 2:
             case 3:

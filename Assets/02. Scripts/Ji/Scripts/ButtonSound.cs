@@ -23,7 +23,16 @@ public class ButtonSound : MonoBehaviour
     public GameObject effectOff;
     public Slider effectSlider;
     private float effectValue = 0;
-    
+
+    // 스크립트
+    public GameMap gameMap;
+
+    // 맵 테마에 맞는 사운드 재생
+    public void MapTemaSound()
+    {
+        bgmSource.clip = gameMap.audioClip;
+        bgmSource.Play();
+    }
 
     // 플레이 시 브금 시작
     public void PlayBGM()

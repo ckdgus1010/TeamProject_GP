@@ -6746,9 +6746,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2067453166}
-  - {fileID: 1140855736}
   - {fileID: 1075889544}
   - {fileID: 1054292682}
+  - {fileID: 1140855736}
   m_Father: {fileID: 451309427}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17578,6 +17578,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardSizeSlider: {fileID: 457985319}
+  sliders:
+  - {fileID: 0}
+  - {fileID: 0}
   gameBoard: {fileID: 422357301}
   guideCube: {fileID: 893801965}
   gridSizeSlider: {fileID: 1839571622}
@@ -47000,7 +47003,7 @@ RectTransform:
   - {fileID: 1995043767}
   - {fileID: 944309022}
   m_Father: {fileID: 147689198}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -47479,6 +47482,13 @@ MonoBehaviour:
   map: {fileID: 0}
   cube: {fileID: 0}
   levelPos: {fileID: 0}
+  audioClip: {fileID: 0}
+  audioList:
+  - {fileID: 8300000, guid: ba072a1eebe4f1b469fec0bbed683d59, type: 3}
+  - {fileID: 8300000, guid: bd9b947e1020ac0489ca134349c59717, type: 3}
+  - {fileID: 8300000, guid: ed24f49de0a600841aac4a929d8fa105, type: 3}
+  - {fileID: 8300000, guid: 219cc0c815b5acb45aa8c1d659b3a404, type: 3}
+  - {fileID: 8300000, guid: 7d65905a62e227a469d3caa9b555e619, type: 3}
 --- !u!4 &1060709252
 Transform:
   m_ObjectHideFlags: 0
@@ -48144,7 +48154,7 @@ RectTransform:
   - {fileID: 98769567}
   - {fileID: 1244826097}
   m_Father: {fileID: 147689198}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -50413,7 +50423,7 @@ RectTransform:
   m_Children:
   - {fileID: 1952848560}
   m_Father: {fileID: 147689198}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -50465,6 +50475,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 195284542}
         m_MethodName: OnClickSkip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1853984386}
+        m_MethodName: MapTemaSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -68065,6 +68086,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1853984386}
+        m_MethodName: MapTemaSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1518452591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84043,7 +84075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3147520cb6392c94da20bdfde279f6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmSource: {fileID: 0}
+  bgmSource: {fileID: 1691933515}
   effectSource: {fileID: 735763707}
   bgmClip: {fileID: 0}
   bgmOn: {fileID: 0}
@@ -84053,6 +84085,7 @@ MonoBehaviour:
   effectOn: {fileID: 0}
   effectOff: {fileID: 0}
   effectSlider: {fileID: 0}
+  gameMap: {fileID: 1060709251}
 --- !u!1 &1854162644
 GameObject:
   m_ObjectHideFlags: 0
