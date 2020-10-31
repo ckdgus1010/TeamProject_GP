@@ -81,7 +81,7 @@ public class HelpButtonManager : MonoBehaviour
                 break;
         }
     }
-   
+
     //같이하기 대기방 방장 설명
     public void OnCilckMasterHelp()
     {
@@ -130,7 +130,10 @@ public class HelpButtonManager : MonoBehaviour
     // 도움말 나가기 버튼
     public void Normal_X_Button()
     {
-        currentPanel.SetActive(false);
+        if (currentPanel != null)
+        {
+            currentPanel.SetActive(false);
+        }
 
     }
 
