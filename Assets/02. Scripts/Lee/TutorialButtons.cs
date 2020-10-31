@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialButtons : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class TutorialButtons : MonoBehaviour
     [SerializeField] private CardBoardSetting cardBoardSetting;
     public CheckBoardMgr checkBoardMgr;
     public List<int>[] playerAnswerArray = new List<int>[3];
+
+    [SerializeField]
+    private Button[] tutorialButtons = new Button[7];
 
     private void Start()
     {

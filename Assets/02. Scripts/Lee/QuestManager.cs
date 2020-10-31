@@ -66,9 +66,6 @@ public class QuestManager : MonoBehaviour
                 Debug.Log($"퀘스트 메니져 :: {modeID}");
                 SelectQuest(modeID - 1, stageID);
                 break;
-          
-
-
         }
     }
 

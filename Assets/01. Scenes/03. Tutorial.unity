@@ -13629,6 +13629,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardSizeSlider: {fileID: 5559988104288772427}
+  sliders:
+  - {fileID: 0}
+  - {fileID: 0}
   gameBoard: {fileID: 422357301}
   guideCube: {fileID: 893801965}
   gridSizeSlider: {fileID: 3406429748177896895}
@@ -63248,6 +63251,13 @@ MonoBehaviour:
     \uD655\uC778\uD558\uC138\uC694."
   - "\uD29C\uD1A0\uB9AC\uC5BC\uC740 '\uC635\uC158 \uD31D\uC5C5\uCC3D >> \uD29C\uD1A0\uB9AC\uC5BC'\uC744
     \n \uD1B5\uD574 \uB2E4\uC2DC \uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  makeCubeButton: {fileID: 5559988105736606424}
+  deleteCubeButton: {fileID: 5559988104877936532}
+  resetCubeButton: {fileID: 5559988105593051111}
+  cardButton: {fileID: 211718985}
+  checkButton: {fileID: 5559988105113032602}
+  resetMapButton: {fileID: 5559988105717496546}
+  screenShotButton: {fileID: 5559988104368404087}
 --- !u!1 &1827109176
 GameObject:
   m_ObjectHideFlags: 0
@@ -70587,6 +70597,14 @@ MonoBehaviour:
   playButtons: {fileID: 5559988105483533175}
   cardBoardSetting: {fileID: 518179426}
   checkBoardMgr: {fileID: 175244743}
+  tutorialButtons:
+  - {fileID: 5559988105717496546}
+  - {fileID: 5559988104368404087}
+  - {fileID: 5559988105593051111}
+  - {fileID: 5559988105736606424}
+  - {fileID: 5559988104877936532}
+  - {fileID: 5559988105113032602}
+  - {fileID: 211718985}
 --- !u!1 &2050667145
 GameObject:
   m_ObjectHideFlags: 0
@@ -74540,7 +74558,7 @@ RectTransform:
   m_Children:
   - {fileID: 5559988105484039379}
   m_Father: {fileID: 5559988105483533174}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -74559,6 +74577,7 @@ GameObject:
   - component: {fileID: 5559988104368404085}
   - component: {fileID: 5559988104368404086}
   - component: {fileID: 5559988104368404087}
+  - component: {fileID: 5559988104368404074}
   m_Layer: 5
   m_Name: Button_ScreenShot
   m_TagString: Untagged
@@ -74566,6 +74585,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5559988104368404074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559988104368404073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eaee8b72af8e0344924e2214d65506a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonID: 0
 --- !u!222 &5559988104368404085
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -74913,7 +74945,7 @@ RectTransform:
   m_Children:
   - {fileID: 5559988105764449276}
   m_Father: {fileID: 5559988105483533174}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -74932,6 +74964,7 @@ GameObject:
   - component: {fileID: 5559988104877936530}
   - component: {fileID: 5559988104877936531}
   - component: {fileID: 5559988104877936532}
+  - component: {fileID: 5559988104877936535}
   m_Layer: 5
   m_Name: Button_Delete Cube
   m_TagString: Untagged
@@ -74939,6 +74972,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5559988104877936535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559988104877936534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eaee8b72af8e0344924e2214d65506a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonID: 0
 --- !u!224 &5559988104896182066
 RectTransform:
   m_ObjectHideFlags: 0
@@ -75401,7 +75447,7 @@ RectTransform:
   m_Children:
   - {fileID: 5559988104374164573}
   m_Father: {fileID: 5559988105483533174}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -75420,6 +75466,7 @@ GameObject:
   - component: {fileID: 5559988105113032600}
   - component: {fileID: 5559988105113032601}
   - component: {fileID: 5559988105113032602}
+  - component: {fileID: 5559988105113032605}
   m_Layer: 5
   m_Name: Button_Check
   m_TagString: Untagged
@@ -75427,6 +75474,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5559988105113032605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559988105113032604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eaee8b72af8e0344924e2214d65506a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonID: 0
 --- !u!222 &5559988105227270153
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -75556,10 +75616,10 @@ RectTransform:
   m_Father: {fileID: 5559988105483533174}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 1340, y: 700}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1500, y: 750}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &5559988105303706181
 GameObject:
@@ -75591,12 +75651,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5559988105303706180}
+  - {fileID: 5559988105717496547}
+  - {fileID: 5559988104368404072}
+  - {fileID: 5559988105593051096}
   - {fileID: 5559988105736606425}
   - {fileID: 5559988104877936533}
-  - {fileID: 5559988105593051096}
   - {fileID: 5559988105113032603}
-  - {fileID: 5559988104368404072}
-  - {fileID: 5559988105717496547}
   - {fileID: 5559988106084117657}
   - {fileID: 211718984}
   m_Father: {fileID: 451309427}
@@ -75733,6 +75793,7 @@ GameObject:
   - component: {fileID: 5559988105593051109}
   - component: {fileID: 5559988105593051110}
   - component: {fileID: 5559988105593051111}
+  - component: {fileID: 5559988105593051098}
   m_Layer: 5
   m_Name: Button_Reset Cube
   m_TagString: Untagged
@@ -75740,6 +75801,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5559988105593051098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559988105593051097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eaee8b72af8e0344924e2214d65506a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonID: 0
 --- !u!222 &5559988105593051109
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -76013,7 +76087,7 @@ RectTransform:
   m_Children:
   - {fileID: 5559988106164591389}
   m_Father: {fileID: 5559988105483533174}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -44.983}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -76032,6 +76106,7 @@ GameObject:
   - component: {fileID: 5559988105717496544}
   - component: {fileID: 5559988105717496545}
   - component: {fileID: 5559988105717496546}
+  - component: {fileID: 5559988105717496549}
   m_Layer: 5
   m_Name: Button_BoardDelete
   m_TagString: Untagged
@@ -76039,6 +76114,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5559988105717496549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559988105717496548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eaee8b72af8e0344924e2214d65506a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonID: 0
 --- !u!114 &5559988105736606424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76106,7 +76194,7 @@ RectTransform:
   m_Children:
   - {fileID: 5559988104317163094}
   m_Father: {fileID: 5559988105483533174}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -76125,6 +76213,7 @@ GameObject:
   - component: {fileID: 5559988105736606438}
   - component: {fileID: 5559988105736606439}
   - component: {fileID: 5559988105736606424}
+  - component: {fileID: 5559988105736606427}
   m_Layer: 5
   m_Name: Button_Make Cube
   m_TagString: Untagged
@@ -76132,6 +76221,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5559988105736606427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559988105736606426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eaee8b72af8e0344924e2214d65506a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonID: 0
 --- !u!222 &5559988105736606438
 CanvasRenderer:
   m_ObjectHideFlags: 0

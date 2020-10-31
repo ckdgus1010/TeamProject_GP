@@ -17,7 +17,16 @@ public class PlayHelperPopup : MonoBehaviour
                                                  , "[카드 보기] 버튼을 눌러 \n 문제 카드를 확인하세요."
                                                  , "카드를 보고 \n 알맞은 입체도형을 만들어 보세요."
                                                  , "[정답 확인] 버튼을 눌러 \n 정답을 확인하세요."
-                                                 , "튜토리얼은 '옵션 팝업창 >> 튜토리얼'을 \n 통해 다시 할 수 있습니다."};       // 정답일 경우
+                                                 , "튜토리얼은 '옵션 팝업창 >> 튜토리얼'을 \n 통해 다시 할 수 있습니다." };       // 정답일 경우
+
+    [SerializeField] private Button makeCubeButton;
+    [SerializeField] private Button deleteCubeButton;
+    [SerializeField] private Button resetCubeButton;
+    [SerializeField] private Button cardButton;
+    [SerializeField] private Button checkButton;
+    [SerializeField] private Button resetMapButton;
+    [SerializeField] private Button screenShotButton;
+
 
     private void Start()
     {
@@ -42,10 +51,47 @@ public class PlayHelperPopup : MonoBehaviour
         if (order != helpMessages.Length)
         {
             helperMessage.text = helpMessages[order];
+            ChangeButtonState(order);
         }
         else
         {
             Debug.Log("PlayHelperPopup ::: 튜토리얼 메세지 끝");
+        }
+    }
+
+    void ChangeButtonState(int order)
+    {
+        switch (order)
+        {
+            case 0:
+            case 1:
+                Debug.Log($"PlayHelperPopup ::: order 확인 요망 {order}");
+                break;
+            case 2:     // "[+] 버튼을 눌러 \n 맵 위에 큐브를 3개 생성해 보세요."
+                makeCubeButton.interactable = true;
+                break;
+            case 3:     // "[-] 버튼을 눌러 \n 생성한 큐브를 삭제해 보세요."
+                makeCubeButton.interactable = false;
+                deleteCubeButton.interactable = true;
+                break;
+            case 4:     // "[리셋] 버튼을 눌러 \n 생성한 큐브를 모두 지워보세요."
+                deleteCubeButton.interactable = false;
+                resetCubeButton.interactable = true;
+                break;
+            case 5:     // "[카드 보기] 버튼을 눌러 \n 문제 카드를 확인하세요."
+                resetCubeButton.interactable = false;
+                cardButton.interactable = true;
+                break;
+            case 6:     // "카드를 보고 \n 알맞은 입체도형을 만들어 보세요."
+                makeCubeButton.interactable = true;
+                deleteCubeButton.interactable = true;
+                resetCubeButton.interactable = true;
+                checkButton.interactable = true;
+                break;
+            case 7:     // "[정답 확인] 버튼을 눌러 \n 정답을 확인하세요."
+                break;
+            case 8:
+                break;
         }
     }
 }

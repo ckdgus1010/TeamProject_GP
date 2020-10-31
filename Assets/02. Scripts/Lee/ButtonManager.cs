@@ -349,7 +349,6 @@ public class ButtonManager : MonoBehaviourPunCallbacks
         {
             questManager.ChangeQuset(GameManager.Instance.stageID);
             cardBoardSetting.ChangeCard();
-
         }
         else
         {
