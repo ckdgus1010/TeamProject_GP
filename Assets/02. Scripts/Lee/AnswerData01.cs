@@ -8,5 +8,5 @@ using UnityEngine;
 public class AnswerData01 : MonoBehaviour
 {
     //혼자하기 - 유형1: 입체도형 보고 개수 맞추기
-    public int[] answerArray01 = new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    public int[] answerArray01 = new int[9] { 3, 5, 6, 8, 9, 6, 10, 8, 12 };
 }
