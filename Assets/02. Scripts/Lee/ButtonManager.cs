@@ -163,6 +163,12 @@ public class ButtonManager : MonoBehaviourPunCallbacks
     //문제 카드 확인하기
     public void ConvertCardBoard()
     {
+        if (GameManager.Instance.modeID == 2)
+        {
+            return;
+        }
+
+        Debug.Log($"ButtonManager ::: modeID = {GameManager.Instance.modeID}");
         cardBoardSetting.ShowCard();
     }
 

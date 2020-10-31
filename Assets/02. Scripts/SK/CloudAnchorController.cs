@@ -58,7 +58,6 @@ public class CloudAnchorController : MonoBehaviourPun
 
     private void Update()
     {
-        Debug.Log("CloudAnchor ::: 1");
         if(!PhotonNetwork.IsMasterClient && PlayerMgr.isReceive == true)
         {
             Debug.Log("이제 패널 끄자");
@@ -67,7 +66,6 @@ public class CloudAnchorController : MonoBehaviourPun
             //resolveBt.SetActive(true);
             PlayerMgr.isReceive = false;
         }
-        Debug.Log("CloudAnchor ::: 2");
 
         if (isResolvingFinish == true && mapOnCount == 0)
         {
@@ -78,8 +76,6 @@ public class CloudAnchorController : MonoBehaviourPun
             //다른 플레이어가 맵을 생성할 때까지 잠시만 기다려주세요! 끄기
             waitingClientPopup.SetActive(false);
         }
-
-        Debug.Log("CloudAnchor ::: 3");
 
         if (PhotonNetwork.IsMasterClient && /*PhotonNetwork.CurrentRoom.MaxPlayers == 2 && */PlayerMgr.recevieCount == 1 && receiveCount_Done == false)
         {
@@ -100,7 +96,6 @@ public class CloudAnchorController : MonoBehaviourPun
                 receiveCount_Done = true;
 
         }
-        Debug.Log("CloudAnchor ::: 4");
 
         // 플레이어 3명일때 클라이언트가 전
     }
