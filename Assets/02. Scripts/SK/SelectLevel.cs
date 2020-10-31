@@ -34,7 +34,7 @@ public class SelectLevel : MonoBehaviour
             //SelectColor();
             for (int i = 0; i < selectLevels.Length  ; i++)
             {
-                WatingButtonMgr.instance.myPhotonView.RPC("RpcSendLevel", RpcTarget.AllBuffered, mLevel,i);
+                WatingButtonMgr.instance.myPhotonView.RPC("RpcSendLevel", RpcTarget.AllViaServer, mLevel,i);
                 if (selectLevels[i] != this)
                 {
                     //selectLevels[i].UnSelectColor();
@@ -48,6 +48,7 @@ public class SelectLevel : MonoBehaviour
     }
     public void SelectColor()
     {
+        print("선택색");
         image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);
     }
 

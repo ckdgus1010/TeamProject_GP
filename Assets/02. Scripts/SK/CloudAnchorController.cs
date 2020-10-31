@@ -153,7 +153,7 @@ public class CloudAnchorController : MonoBehaviourPun
         print("!!!호스트 앵커 위치 :  " + anchor.transform.position);
         print("호스트 게임보드 위치 :  " + gameBoard.transform.position);
         PlayerMgr.cloudID = "";
-
+        PlayerMgr.recevieCount = 0;
     }
 
     IEnumerator ResolveCloudAnchor(string cloudID)
@@ -199,6 +199,7 @@ public class CloudAnchorController : MonoBehaviourPun
         isResolvingFinish = true;
         print($"Touchmgr ::: isresolveFinish // {isResolvingFinish}");
         PlayerMgr.cloudID = "";
+        PlayerMgr.recevieCount = 0;
     }
 
     public void ResolveFinish()
