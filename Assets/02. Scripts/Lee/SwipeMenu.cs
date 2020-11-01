@@ -5,52 +5,91 @@ using UnityEngine.UI;
 
 public class SwipeMenu : MonoBehaviour
 {
-    public GameObject scrollbar;
-    private float scroll_pos = 0;
-    private float[] pos;
-    private float distance;
-
-    [Range(1,2)]
-    public float maxScale = 1.0f;
-    [Range(0.5f, 0.9f)]
-    public float minScale = 0.8f;
+    public Scrollbar horizontalScrollbar;
     public float lerpSpeed = 0.1f;
+    public float sensitivity = 150.0f;
 
-    void Start()
+    private float value;
+    private float intialValue;
+    private Vector2 startPos;
+    private Vector2 endPos;
+
+    [SerializeField]
+    private Toggle[] paginations = new Toggle[3];
+
+    private void Start()
     {
-        pos = new float[transform.childCount];
-        distance = 1f / (pos.Length - 1.0f);
-
-        for (int i = 0; i < pos.Length; i++)
-        {
-            pos[i] = distance * i;
-        }
+        horizontalScrollbar.value = 0;
     }
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            scroll_pos = scrollbar.GetComponent<Scrollbar>().value;
+            startPos = Input.mousePosition;
+            intialValue = horizontalScrollbar.value;
         }
-        else
-        {
-            for (int i = 0; i < pos.Length; i++)
-            {
-                if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
-                {
-                    scrollbar.GetComponent<Scrollbar>().value = Mathf.Lerp(scrollbar.GetComponent<Scrollbar>().value, pos[i], lerpSpeed);
-                    transform.GetChild(i).localScale = Vector3.Lerp(transform.GetChild(i).localScale, Vector3.one * maxScale, lerpSpeed);
 
-                    for (int a = 0; a < pos.Length; a++)
-                    {
-                        if (a != i)
-                        {
-                            transform.GetChild(a).localScale = Vector3.Lerp(transform.GetChild(a).localScale, Vector3.one * minScale, lerpSpeed);
-                        }
-                    }
+        if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+        {
+            return;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            endPos = Input.mousePosition;
+
+            // 방향 확인
+            Vector2 dir = endPos - startPos;
+            Debug.Log($"dir.x ::: {dir.x} // scrollbar.value = {horizontalScrollbar.value} \n startPos: {startPos} // endPos: {endPos}");
+
+            // startPos && endPos 초기화
+            startPos = Vector2.zero;
+            endPos = Vector2.zero;
+
+            // 단순 터치인 경우
+            if (dir.x == 0)
+            {
+                return;
+            }
+
+            if (dir.x > sensitivity)
+            {
+                Debug.Log("왼쪽으로 이동");
+
+                if (intialValue < 0.75f)
+                {
+                    value = 0.0f;
+                    paginations[0].isOn = true;
+                }
+                else if (intialValue > 0.75f)
+                {
+                    value = 0.5f;
+                    paginations[1].isOn = true;
                 }
             }
+            else if (dir.x < -sensitivity)
+            {
+                Debug.Log("오른쪽으로 이동");
+
+                if (intialValue < 0.25f)
+                {
+                    value = 0.5f;
+                    paginations[1].isOn = true;
+                }
+                else if (intialValue > 0.25f)
+                {
+                    value = 1.0f;
+                    paginations[2].isOn = true;
+                }
+            }
+            else
+            {
+                Debug.Log($"SwipeMenu ::: {dir.x} 단순 터치");
+                return;
+            }
         }
+
+        horizontalScrollbar.value = Mathf.Lerp(horizontalScrollbar.value, value, lerpSpeed * Time.deltaTime);
     }
 }

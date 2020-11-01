@@ -10,6 +10,9 @@ public class StageData : MonoBehaviour
     public int stageID = 0;
     private int status;
 
+    [SerializeField]
+    private Image image;
+
     ////나중에 Start 함수로 바꿀 것
     //private void Start()
     //{
@@ -22,6 +25,16 @@ public class StageData : MonoBehaviour
     //    //img.color = GameManager.Instance.buttonColor[status];
     //    img.sprite = GameManager.Instance.buttonImageArray[status];
     //}
+
+    public void ChangeButtonImage()
+    {
+        // Stage 상태 받아오기
+        int stageStatus = (int)GameManager.Instance.stageStateList[stageID - 1];
+        Debug.Log($"{this.gameObject.name} ::: {stageStatus}");
+
+        // 알맞은 Sprite로 교체
+        image.sprite = GameManager.Instance.buttonImageArray[stageStatus];
+    }
 
     public void UpdateStageData()
     {

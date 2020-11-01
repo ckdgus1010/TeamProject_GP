@@ -60,6 +60,9 @@ public class GameManager : MonoBehaviour
     public int modeID = 1000;       // Play Mode의 정보
     public int stageID = 0;         // Stage의 정보
 
+    [Header("혼자하기 유형별 Stage Popup Title")]
+    public string[] stageTitleArray = new string[3] { "유형01\n개수 맞추기", "유형02\n카드 보고 큐브 빼기", "유형03\n카드 보고 큐브 쌓기" };
+
     //Stage Clear 여부 정보 생성
     public enum StageState { Forbidden, Cleared, Current };
 

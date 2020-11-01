@@ -91,11 +91,29 @@ namespace Lee
         #region 메인 메뉴 화면
 
         [Header("Main Menu Panel")]
+        [SerializeField] private PanelController alonePanelController;
+        [SerializeField] private Scrollbar scrollbar;
+        [SerializeField] private ScrollRect scrollRect;
+        [SerializeField] private SwipeMenu swipeMenu;
+
         [SerializeField] private GameObject profilePanel;
         [SerializeField] private GameObject settingCanvas;
         [SerializeField] private Use use;
         [SerializeField] private ProfileImageData profileButtonImage;
+        [SerializeField] private GameObject stageSelectionPanel;
 
+        // 혼자하기 모드 선택
+        public void SelectAloneModePanel()
+        {
+            bool value = alonePanelController.isOperated ? false : true;
+            alonePanelController.SelectAloneModePanel(value);
+
+            swipeMenu.enabled = !value;
+            Debug.Log($"ButtonManager ::: value = {!value}");
+
+            scrollbar.value = 0.5f;
+            scrollRect.enabled = !value;
+        }
 
         // 프로필 팝업창
         public void ConvertProfilePanel()
@@ -141,6 +159,12 @@ namespace Lee
         public void OpenCreditCanvas()
         {
             Debug.Log($"ButtonManager01 ::: 만든이 버튼 클릭");
+        }
+
+        // 스테이지 선택 팝업창
+        public void ConvertStageSelectionPanel()
+        {
+            stageSelectionPanel.SetActive(!stageSelectionPanel.activeSelf);
         }
 
 

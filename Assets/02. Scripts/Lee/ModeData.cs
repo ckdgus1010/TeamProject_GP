@@ -9,6 +9,8 @@ public class ModeData : MonoBehaviourPun
     [SerializeField] private CanvasController canvasController;
     [SerializeField] private ModeTitle modeTitle;
     [SerializeField] private int modeID = 0;
+    [SerializeField] private StagePopupTitle stagePopupTitle;
+    [SerializeField] private StageData[] stageDatas = new StageData[9];
 
     //public void MasterConvertScene()
     //{
@@ -17,6 +19,22 @@ public class ModeData : MonoBehaviourPun
     //        ConvertScene();
     //    }
     //}
+
+    public void ChangeModeID()
+    {
+        // GameManager의 modeID 및 currStageStatus 값 변경
+        GameManager.Instance.modeID = modeID;
+        GameManager.Instance.stageStateList = GameManager.Instance.stageStateArray[modeID - 2];
+
+        // Stage Popup에 있는 title 변경
+        stagePopupTitle.ChangeTitleText();
+
+        // Stage Popup에 있는 모든 button image 변경
+        for (int i = 0; i < stageDatas.Length; i++)
+        {
+            stageDatas[i].ChangeButtonImage();
+        }
+    }
 
     public void ConvertCanvas()
     {
