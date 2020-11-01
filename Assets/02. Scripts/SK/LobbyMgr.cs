@@ -5,13 +5,13 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Hashtable = ExitGames.Client.Photon.Hashtable;
-using System.Linq;
 
 public class LobbyMgr : MonoBehaviourPunCallbacks
 {
+    [Header("Game Version")]
     string gameVersion = "1";
 
+    [Header("방 인원")]
     public byte personNum;
     private byte two = 2;
     private byte three = 3;
@@ -42,14 +42,18 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
     public Button joinRoom_Bt;
     private Button currentBt;
+
+    [Header("플레이 인원 선택")]
     public Image image2;
     public Image image3;
+    public Sprite[] buttonSprites = new Sprite[2];
 
     private bool sendPerson = false;
 
     //public LoadingPanelController loadingPanelController;
 
     public int[] playerList = { 0, 0, 0 };
+
     public void Start()
     {
         PhotonNetwork.GameVersion = gameVersion;
@@ -82,13 +86,14 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
 
         PhotonNetwork.NickName = GameManager.Instance.username;
     }
+
     public override void OnJoinedLobby()//3
     {
         Debug.Log("-OnJoinedLobby");
         //PhotonNetwork.LoadLevel("11. TogetherModeList");
     }
 
-
+    // 방 만들기 버튼 클릭
     public void OnClickCreateRoom()
     {
         PhotonNetwork.CreateRoom(roomInputField.text, new RoomOptions { MaxPlayers = personNum }); // 그럼 방을 만들어 준다.개
@@ -103,31 +108,32 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         currentBt.interactable = false;
         Invoke("Bt_interaxtableTrue", 3.0f);
         // 여기에 로딩패널 켜주세요!!
-
     }
     
     public override void OnCreatedRoom()
     {
         print(System.Reflection.MethodBase.GetCurrentMethod().Name); // 해당 함수를 프린트 해줌
     }
+
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         print(System.Reflection.MethodBase.GetCurrentMethod().Name); // 해당 함수를 프린트 해줌
     }
+
     public void OnClickJoinRoom()
     {
         PhotonNetwork.JoinRoom(roomInputField.text);
        //WatingButtonMgr.instance.WaitingStart();
     }
+
     public void Bt_interaxtableTrue()
     {
         currentBt.interactable = true;
         currentBt = null;
     }
+
     public override void OnJoinedRoom()
     {
-       
-        
        // PhotonNetwork.LoadLevel("12. TogetherModeWait");
        
         WatingButtonMgr.instance.WaitingStart();
@@ -166,6 +172,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         joinRoomfailPopup.SetActive(false);
         blackBG.SetActive(false);
     }
+
     // <"name"이라는  key 값에 수경이라는 값을 넣겠다.
     // <key 값, value 값>
     Dictionary<string, RoomInfo> cacheRoom = new Dictionary<string, RoomInfo>();
@@ -191,6 +198,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         //     CreateRoomListUI();
         // }
     }
+
     void DeleteRoomListUI()
     {
         // 일단 roomlistContent 자식을 다 지우고
@@ -200,6 +208,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
             Debug.Log("-DeleteRoomListUI");
         }
     }
+
     void UpdateCacheRoom(List<RoomInfo> roomList)
     {
         // 1. roomList를 순차적으로 돌면서 
@@ -241,16 +250,22 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     {
         personNum = two;
         sendPerson = true;
-        image2.color = new Color(image2.color.r, image2.color.g, image2.color.b, 1.0f);
-        image3.color = new Color(image3.color.r, image3.color.g, image3.color.b, 0.4f);
+        //image2.color = new Color(image2.color.r, image2.color.g, image2.color.b, 1.0f);
+        //image3.color = new Color(image3.color.r, image3.color.g, image3.color.b, 0.4f);
+
+        image2.sprite = buttonSprites[1];
+        image3.sprite = buttonSprites[0];
     }
 
     public void Send3()
     {
         personNum = three;
         sendPerson = true;
-        image3.color = new Color(image3.color.r, image3.color.g, image3.color.b, 1.0f);
-        image2.color = new Color(image2.color.r, image2.color.g, image2.color.b, 0.4f);
+        //image3.color = new Color(image3.color.r, image3.color.g, image3.color.b, 1.0f);
+        //image2.color = new Color(image2.color.r, image2.color.g, image2.color.b, 0.4f);
+
+        image2.sprite = buttonSprites[0];
+        image3.sprite = buttonSprites[1];
     }
 
     public void OnRoomMaker_Panel()

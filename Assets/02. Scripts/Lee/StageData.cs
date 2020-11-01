@@ -9,6 +9,7 @@ public class StageData : MonoBehaviour
 {
     public int stageID = 0;
     private int status;
+    private int stageStatus;
 
     [SerializeField]
     private Image image;
@@ -29,7 +30,7 @@ public class StageData : MonoBehaviour
     public void ChangeButtonImage()
     {
         // Stage 상태 받아오기
-        int stageStatus = (int)GameManager.Instance.stageStateList[stageID - 1];
+        stageStatus = (int)GameManager.Instance.stageStateList[stageID - 1];
         Debug.Log($"{this.gameObject.name} ::: {stageStatus}");
 
         // 알맞은 Sprite로 교체
@@ -50,7 +51,7 @@ public class StageData : MonoBehaviour
 
     public void ConvertScene()
     {
-        if (status != (int)GameManager.StageState.Forbidden)
+        if (stageStatus != (int)GameManager.StageState.Forbidden)
         {
             //GameManager에게 정보 전달
             GameManager.Instance.stageID = stageID;
@@ -59,7 +60,7 @@ public class StageData : MonoBehaviour
         }
         else
         {
-            Debug.Log($"{transform.parent.name} ::: 이전 단계를 먼저 클리어하세요.");
+            Debug.Log($"{gameObject.name} ::: 이전 단계를 먼저 클리어하세요.");
         }
     }
 }

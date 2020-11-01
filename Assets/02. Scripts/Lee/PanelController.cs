@@ -11,7 +11,7 @@ public class PanelController : MonoBehaviour
 
     private int hashAloneMode;
 
-    void Start()
+    void Awake()
     {
         hashIsButtonClicked = Animator.StringToHash("isButtonClicked");
         hashAloneMode = Animator.StringToHash("IsAloneModeClicked");

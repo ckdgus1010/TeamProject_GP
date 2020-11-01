@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.ExceptionServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasController : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class CanvasController : MonoBehaviour
     public enum CanvasID { Intro, Login, MainMenu, PlayMode, AloneMode, AloneStage };
     private GameObject currCanvas = null;
 
+    [SerializeField] private SwipeMenu swipeMenu;
+    [SerializeField] private Scrollbar horizontalScrollbar;
+    [SerializeField] private ModeData[] aloneMode = new ModeData[3];
+    [SerializeField] private GameObject creditExitButton;
+
 
     public void Start()
     {
@@ -41,34 +47,37 @@ public class CanvasController : MonoBehaviour
                 Debug.LogError($"CanvasController ::: GameManager.Instance.modeID // {modeID} 확인 요망");
                 break;
             case 0:
-            case 5:
-            case 6:
-            case 7:
-                canvasArray[0].SetActive(false);
-                canvasArray[6].SetActive(true);
-                break;
-            case 8:
-                Debug.Log("CanvasController ::: 플레이 모드 선택 화면 오픈");
-                canvasArray[0].SetActive(false);
-                canvasArray[3].SetActive(true);
-                GameManager.Instance.modeID = 9;
-                break;
-            case 9:
+                horizontalScrollbar.value = 0.0f;
+                buttonSound.bgmSource.Play();
+
                 canvasArray[0].SetActive(false);
                 canvasArray[2].SetActive(true);
-                buttonSound.bgmSource.Play();
                 break;
             case 2:
             case 3:
             case 4:
                 Debug.Log("CanvasController ::: 혼자하기 모드 스테이지 선택 화면 오픈");
+
                 canvasArray[0].SetActive(false);
-                canvasArray[5].SetActive(true);
+                canvasArray[2].SetActive(true);
 
-                modetitle.ChangeModeTitle();
+                swipeMenu.value = 0.5f;
+                buttonManager01.SelectAloneModePanel();
+                buttonManager01.ConvertStageSelectionPanel();
+                aloneMode[modeID - 2].ChangeModeID();
+                buttonSound.bgmSource.Play();
+                break;
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+                Debug.Log($"CanvasController ::: modeID = {modeID}");
+                buttonSound.bgmSource.Play();
+                swipeMenu.value = 1.0f;
 
-                // 스테이지 정보 업데이트
-                buttonManager01.UpdateStageData();
+                canvasArray[0].SetActive(false);
+                canvasArray[2].SetActive(true);
                 break;
         }
     }
@@ -108,12 +117,14 @@ public class CanvasController : MonoBehaviour
     // 크레딧
     public void CreditVideo()
     {
+        creditExitButton.SetActive(false);
         settingCan.SetActive(false);
 
         for (int i = 0; i < canvasArray.Length; i++)
         {
             canvasArray[i].SetActive(false);
         }
-        canvasArray[6].SetActive(true);
+
+        canvasArray[4].SetActive(true);
     }
 }

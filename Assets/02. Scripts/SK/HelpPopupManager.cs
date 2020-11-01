@@ -27,10 +27,12 @@ public class HelpPopupManager : MonoBehaviour
 
     public GameObject wait_masterHelp;
     public GameObject wait_clientHelp;
+    public SwipeMenu swipeMenu;
     //설정 버튼 클릭
     public void OnClickSetting()
     {
         settingCanvas.SetActive(!settingCanvas.activeSelf);
+        swipeMenu.enabled = !settingCanvas.activeSelf;
     }
 
     //설정버튼의 도움말 버튼 클릭

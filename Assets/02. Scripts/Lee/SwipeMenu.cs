@@ -9,7 +9,7 @@ public class SwipeMenu : MonoBehaviour
     public float lerpSpeed = 0.1f;
     public float sensitivity = 150.0f;
 
-    private float value;
+    public float value;
     private float intialValue;
     private Vector2 startPos;
     private Vector2 endPos;
@@ -19,7 +19,7 @@ public class SwipeMenu : MonoBehaviour
 
     private void Start()
     {
-        horizontalScrollbar.value = 0;
+        //horizontalScrollbar.value = 0;
     }
 
     void Update()

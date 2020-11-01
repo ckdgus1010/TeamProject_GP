@@ -120,6 +120,7 @@ namespace Lee
         {
             Debug.Log($"ButtonManager01 ::: profile panel // {!profilePanel.activeSelf}");
             profilePanel.SetActive(!profilePanel.activeSelf);
+            swipeMenu.enabled = !profilePanel.activeSelf;
         }
 
         // 프로필 사진 바꾸기

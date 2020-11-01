@@ -7,7 +7,7 @@ public class CreditPlay : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
     float currentTime;
-    [Range(1, 5)]
+    [Range(0.1f, 5)]
     public float creatTime = 0.5f;
 
     public GameObject skip;
@@ -15,6 +15,7 @@ public class CreditPlay : MonoBehaviour
     // 스크립트
     public CanvasController canCtrl;
     public ButtonSound buttonSound;
+
     void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
@@ -30,14 +31,13 @@ public class CreditPlay : MonoBehaviour
             {
                 //Debug.Log("영상 끝");
                 skip.SetActive(true);
-                
             }
         }
     }
 
     public void SkipButtonOn()
     {
-        canCtrl.canvasArray[6].SetActive(false);
+        canCtrl.canvasArray[4].SetActive(false);
         canCtrl.canvasArray[2].SetActive(true);
 
         buttonSound.bgmSlider.value = 1f;
