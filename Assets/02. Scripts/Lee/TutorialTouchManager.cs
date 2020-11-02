@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using GoogleARCore;
 
-public class TutorialManager : MonoBehaviour
+public class TutorialTouchManager : MonoBehaviour
 {
     public PlayHelperPopup playHelpPopup;
 

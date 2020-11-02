@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TutorialButtons : MonoBehaviour
 {
     public CubeSetting cubeSetting;
-    public TutorialManager tutorialManager;
+    public TutorialTouchManager tutorialTouchManager;
     public PlayHelperPopup playHelpPopup;
     public TutorialAnswerManager answerManager;
 
@@ -14,6 +14,13 @@ public class TutorialButtons : MonoBehaviour
     private int deleteCount = 0;
     private int resetCount = 0;
     private int cardCount = 0;
+
+    [Header("")]
+    [SerializeField] private GameObject beforeTutorialCanvas;
+    [SerializeField] private GameObject tutorialCanvas;
+    [SerializeField] private GameObject afterTutorialCanvas;
+    [SerializeField] private GameObject aRCam;
+    [SerializeField] private GameObject mainCam;
 
     [Header("생성할 cube와 관련된 정보")]
     [SerializeField] private GameObject cubePrefab;
@@ -40,8 +47,33 @@ public class TutorialButtons : MonoBehaviour
         deleteCount = 0;
         resetCount = 0;
         cardCount = 0;
+
+        // 모든 버튼 비활성화
+        for (int i = 0; i < tutorialButtons.Length; i++)
+        {
+            tutorialButtons[i].interactable = false;
+        }
     }
 
+    // 안내 팝업 이후 튜토리얼 시작
+    public void StartTutorial()
+    {
+        tutorialCanvas.SetActive(true);
+        aRCam.SetActive(true);
+        mainCam.SetActive(false);
+        beforeTutorialCanvas.SetActive(false);
+    }
+
+    // 튜토리얼 후 안내 팝업
+    public void FinishTutorial()
+    {
+        afterTutorialCanvas.SetActive(true);
+        aRCam.SetActive(false);
+        mainCam.SetActive(true);
+        tutorialCanvas.SetActive(false);
+    }
+
+    // 큐브 쌓기
     public void MakeCube()
     {
         if (guideCube.activeSelf)
@@ -60,6 +92,7 @@ public class TutorialButtons : MonoBehaviour
         }
     }
 
+    // 큐브 빼기
     public void DeleteCube()
     {
         if (cubeSetting.currCube != null)
@@ -75,6 +108,7 @@ public class TutorialButtons : MonoBehaviour
         }
     }
 
+    // 큐브 리셋
     public void ResetCube()
     {
         if (list.Count > 0)
@@ -95,6 +129,7 @@ public class TutorialButtons : MonoBehaviour
         }
     }
 
+    // 정답 확인
     public void CheckAnswer()
     {
         if (list.Count != 0)
@@ -108,15 +143,17 @@ public class TutorialButtons : MonoBehaviour
         }
     }
 
+    // 스크린샷
     public void ScreenShot()
     {
         Debug.Log("TutorialButtons ::: 스크린샷 버튼 누름");
         screenshot.Capture_Button();
     }
 
+    // 맵 삭제
     public void ResetGameboard()
     {
-        tutorialManager.SetOrigin();
+        tutorialTouchManager.SetOrigin();
 
         ResetCube();
         playButtons.SetActive(false);
@@ -124,6 +161,7 @@ public class TutorialButtons : MonoBehaviour
         gameboard.SetActive(false);
     }
 
+    // 카드 보기 / 숨기기
     public void ConvertCardBoard()
     {
         cardBoardSetting.isCardBoardOn = !cardBoardSetting.isCardBoardOn;
@@ -139,6 +177,7 @@ public class TutorialButtons : MonoBehaviour
         }
     }
 
+    // 다음 안내 보기
     void ChangeText()
     {
         playHelpPopup.ChangeHelpMessageText();
