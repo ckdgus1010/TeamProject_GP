@@ -36788,6 +36788,10 @@ MonoBehaviour:
   - {fileID: 2045369391}
   - {fileID: 1584328873}
   - {fileID: 830140696}
+  paginations:
+  - {fileID: 588332824}
+  - {fileID: 1645653295}
+  - {fileID: 548382448}
   creditExitButton: {fileID: 2109474390}
 --- !u!1 &1513178665
 GameObject:
@@ -48523,8 +48527,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012732623}
-        m_MethodName: ConvertSettingPanel
+      - m_Target: {fileID: 1252032383}
+        m_MethodName: OnClickSetting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

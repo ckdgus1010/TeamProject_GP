@@ -26,9 +26,13 @@ public class CanvasController : MonoBehaviour
     public enum CanvasID { Intro, Login, MainMenu, PlayMode, AloneMode, AloneStage };
     private GameObject currCanvas = null;
 
+    [Header("다른 Scene에서 Intro Scene으로 넘어올 때")]
     [SerializeField] private SwipeMenu swipeMenu;
     [SerializeField] private Scrollbar horizontalScrollbar;
     [SerializeField] private ModeData[] aloneMode = new ModeData[3];
+    [SerializeField] private Toggle[] paginations = new Toggle[3];
+
+    [Header("Credit Canvas")]
     [SerializeField] private GameObject creditExitButton;
 
 
@@ -39,15 +43,16 @@ public class CanvasController : MonoBehaviour
 
         switch (modeID)
         {
-            case 1000:
+            case 1000:      // 앱 최초 실행 시
                 Debug.Log("CanvasController ::: 인트로 영상 준비");
                 canvasArray[0].SetActive(true);
                 break;
-            case 1:
+            case 1:         // 혼자하기 모드 버튼 클릭 시
                 Debug.LogError($"CanvasController ::: GameManager.Instance.modeID // {modeID} 확인 요망");
                 break;
-            case 0:
-                horizontalScrollbar.value = 0.0f;
+            case 0:         // Create Mode에서 Intro Scene으로 넘어올 때
+                swipeMenu.value = 0.0f;
+                paginations[0].isOn = true;
                 buttonSound.bgmSource.Play();
 
                 canvasArray[0].SetActive(false);
@@ -62,6 +67,7 @@ public class CanvasController : MonoBehaviour
                 canvasArray[2].SetActive(true);
 
                 swipeMenu.value = 0.5f;
+                paginations[1].isOn = true;
                 buttonManager01.SelectAloneModePanel();
                 buttonManager01.ConvertStageSelectionPanel();
                 aloneMode[modeID - 2].ChangeModeID();
@@ -75,6 +81,7 @@ public class CanvasController : MonoBehaviour
                 Debug.Log($"CanvasController ::: modeID = {modeID}");
                 buttonSound.bgmSource.Play();
                 swipeMenu.value = 1.0f;
+                paginations[2].isOn = true;
 
                 canvasArray[0].SetActive(false);
                 canvasArray[2].SetActive(true);
@@ -125,6 +132,6 @@ public class CanvasController : MonoBehaviour
             canvasArray[i].SetActive(false);
         }
 
-        canvasArray[4].SetActive(true);
+        canvasArray[3].SetActive(true);
     }
 }

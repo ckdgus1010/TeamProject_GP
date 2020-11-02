@@ -97,9 +97,9 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
     public void OnClickCreateRoom()
     {
         PhotonNetwork.CreateRoom(roomInputField.text, new RoomOptions { MaxPlayers = personNum }); // 그럼 방을 만들어 준다.개
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = personNum;
-       // roomOptions.CustomRoomProperties = new Hashtable() { { "플레이어리스트", playerList } };
+        //RoomOptions roomOptions = new RoomOptions();
+        //roomOptions.MaxPlayers = personNum;
+        // roomOptions.CustomRoomProperties = new Hashtable() { { "플레이어리스트", playerList } };
         
         // Debug.Log("방이름  :   " + roomInputField.text);
         // Debug.Log("MaxPlayer  :   " + personNum + " 명");
