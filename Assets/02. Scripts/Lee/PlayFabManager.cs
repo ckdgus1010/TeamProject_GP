@@ -12,6 +12,8 @@ public class PlayFabManager : MonoBehaviour
     public ButtonManager01 buttonManager01;
     public GameObject loginPanel;
     public GameObject mainMenuPanel;
+    public GameObject buttonCanvas;
+    public Toggle pagination;
 
     // 로그인 팝업창
     [Header("Login Popup")]
@@ -98,6 +100,8 @@ public class PlayFabManager : MonoBehaviour
         GetPlayerProfile(result.PlayFabId);
 
         mainMenuPanel.SetActive(true);
+        buttonCanvas.SetActive(true);
+        pagination.isOn = true;
         loginPanel.SetActive(false);
     }
 

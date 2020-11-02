@@ -28,6 +28,7 @@ public class HelpPopupManager : MonoBehaviour
     public GameObject wait_masterHelp;
     public GameObject wait_clientHelp;
     public SwipeMenu swipeMenu;
+
     //설정 버튼 클릭
     public void OnClickSetting()
     {
@@ -95,6 +96,7 @@ public class HelpPopupManager : MonoBehaviour
         profile_Help_Panel.SetActive(true);
         currentPanel = profile_Help_Panel;
     }
+
     //같이하기 대기방 방장 설명
     public void OnClickMasterWaitHelp()
     {
@@ -103,6 +105,7 @@ public class HelpPopupManager : MonoBehaviour
         wait_masterHelp.SetActive(true);
         wait_clientHelp.SetActive(false);
     }
+
     // 같이하기 대기방 팀원 설명
     public void OnClickCilentWaitHelp()
     {
@@ -185,12 +188,9 @@ public class HelpPopupManager : MonoBehaviour
                 wait_masterHelp.SetActive(true);
                 wait_clientHelp.SetActive(false);
                 break;
-
-        
         }
-           
-
     }
+
     // 같이하기 대기방 나가기 버튼
     public void Waiting_X_Button()
     {

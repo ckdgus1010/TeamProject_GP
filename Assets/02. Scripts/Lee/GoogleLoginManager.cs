@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using GooglePlayGames;
+using UnityEngine.UI;
 
 public class GoogleLoginManager : MonoBehaviour
 {
     [SerializeField] private GameObject loginCanvas;
     [SerializeField] private GameObject mainMenuCanvas;
+    [SerializeField] private GameObject buttonCanvas;
+    [SerializeField] private Toggle pagination;
 
     // 코루틴 중복 방지
     private bool isChecking = false;
@@ -43,6 +46,8 @@ public class GoogleLoginManager : MonoBehaviour
                 GameManager.Instance.achievement[0] = true;
 
                 mainMenuCanvas.SetActive(true);
+                buttonCanvas.SetActive(true);
+                pagination.isOn = true;
                 loginCanvas.SetActive(false);
             }
             else

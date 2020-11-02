@@ -24375,12 +24375,12 @@ GameObject:
   - component: {fileID: 1025268584}
   - component: {fileID: 1025268583}
   m_Layer: 5
-  m_Name: Profile and Setting Canvas
+  m_Name: Profile Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1025268582
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24788,7 +24788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1031766344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29234,19 +29234,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012732623}
-        m_MethodName: ConvertSettingPanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1252032383}
-        m_MethodName: Normal_X_Button
+        m_MethodName: OnClickSetting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33062,6 +33051,8 @@ MonoBehaviour:
   buttonManager01: {fileID: 2012732623}
   loginPanel: {fileID: 1020691640}
   mainMenuPanel: {fileID: 481179528}
+  buttonCanvas: {fileID: 2030240467}
+  pagination: {fileID: 588332824}
   username: {fileID: 2028257215}
   password: {fileID: 542168572}
   signupController: {fileID: 1244050008}
@@ -33082,6 +33073,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loginCanvas: {fileID: 1020691640}
   mainMenuCanvas: {fileID: 481179528}
+  buttonCanvas: {fileID: 2030240467}
+  pagination: {fileID: 588332824}
 --- !u!1 &1360149587
 GameObject:
   m_ObjectHideFlags: 0
@@ -36782,6 +36775,7 @@ MonoBehaviour:
   - {fileID: 1020691640}
   - {fileID: 481179528}
   - {fileID: 651005428}
+  - {fileID: 2030240467}
   swipeMenu: {fileID: 190622501}
   horizontalScrollbar: {fileID: 192863901}
   aloneMode:
@@ -48644,7 +48638,7 @@ MonoBehaviour:
   scrollbar: {fileID: 192863901}
   scrollRect: {fileID: 861410002}
   swipeMenu: {fileID: 190622501}
-  profilePanel: {fileID: 1031766343}
+  profilePanel: {fileID: 1025268581}
   settingCanvas: {fileID: 1279151331}
   use: {fileID: 1161697224}
   profileButtonImage: {fileID: 1707386309}
@@ -49058,7 +49052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2030240468
 MonoBehaviour:
   m_ObjectHideFlags: 0

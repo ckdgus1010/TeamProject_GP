@@ -51,12 +51,14 @@ public class CanvasController : MonoBehaviour
                 Debug.LogError($"CanvasController ::: GameManager.Instance.modeID // {modeID} 확인 요망");
                 break;
             case 0:         // Create Mode에서 Intro Scene으로 넘어올 때
-                swipeMenu.value = 0.0f;
-                paginations[0].isOn = true;
-                buttonSound.bgmSource.Play();
 
                 canvasArray[0].SetActive(false);
                 canvasArray[2].SetActive(true);
+                canvasArray[4].SetActive(true);
+
+                swipeMenu.value = 0.0f;
+                paginations[0].isOn = true;
+                buttonSound.bgmSource.Play();
                 break;
             case 2:
             case 3:
@@ -65,13 +67,15 @@ public class CanvasController : MonoBehaviour
 
                 canvasArray[0].SetActive(false);
                 canvasArray[2].SetActive(true);
+                canvasArray[4].SetActive(true);
 
                 swipeMenu.value = 0.5f;
                 paginations[1].isOn = true;
+                buttonSound.bgmSource.Play();
+
                 buttonManager01.SelectAloneModePanel();
                 buttonManager01.ConvertStageSelectionPanel();
                 aloneMode[modeID - 2].ChangeModeID();
-                buttonSound.bgmSource.Play();
                 break;
             case 5:
             case 6:
@@ -79,12 +83,14 @@ public class CanvasController : MonoBehaviour
             case 8:
             case 9:
                 Debug.Log($"CanvasController ::: modeID = {modeID}");
-                buttonSound.bgmSource.Play();
-                swipeMenu.value = 1.0f;
-                paginations[2].isOn = true;
 
                 canvasArray[0].SetActive(false);
                 canvasArray[2].SetActive(true);
+                canvasArray[4].SetActive(true);
+
+                buttonSound.bgmSource.Play();
+                swipeMenu.value = 1.0f;
+                paginations[2].isOn = true;
                 break;
         }
     }
