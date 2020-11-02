@@ -44,6 +44,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public List<Profile> proFileList;
 
     List<string> mapList2;
+    private string[] mapList3 = {"반짝반짝 모래마을" , "글포마을", "좀비성", "혼돈의 카오스" , "올라프 성" }; 
     public Text MapText;
     public Text gameStart_Ready;
     public Text currentRoomName;
@@ -97,16 +98,16 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         }
 
         //mapName = GameObject.Find("MapText").GetComponent<Text>();
-        AddmapList();
+        //AddmapList();
         MapText.text = mapList2[0];
 
         if (PhotonNetwork.IsMasterClient)
         {
-            gameStart_Ready.text = "Game Start";
+            gameStart_Ready.text = "게임 스타트";
         }
         else
         {
-            gameStart_Ready.text = "Ready";
+            gameStart_Ready.text = "게임 준비";
         }
 
         if (PhotonNetwork.IsMasterClient)
@@ -515,19 +516,19 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         switch (map_Count)
         {
             case 0:
-                MapText.text = mapList2[map_Count]; // 0 반짝반짝 모래마을
+                MapText.text = mapList3[map_Count]; // 0 반짝반짝 모래마을
                 break;
             case 1:
-                MapText.text = mapList2[map_Count]; //1 글로브포인트마을
+                MapText.text = mapList3[map_Count]; //1 글로브포인트마을
                 break;
             case 2:
-                MapText.text = mapList2[map_Count]; //2 좀비성
+                MapText.text = mapList3[map_Count]; //2 좀비성
                 break;
             case 3:
-                MapText.text = mapList2[map_Count]; //3 혼돈의 카오스
+                MapText.text = mapList3[map_Count]; //3 혼돈의 카오스
                 break;
             case 4:
-                MapText.text = mapList2[map_Count]; //4 올라프 성
+                MapText.text = mapList3[map_Count]; //4 올라프 성
                 break;
         }
     }

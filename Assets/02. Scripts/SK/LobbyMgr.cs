@@ -106,7 +106,7 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         Debug.Log("-CreateRoom");
         currentBt = joinRoom_Bt;
         currentBt.interactable = false;
-        Invoke("Bt_interaxtableTrue", 3.0f);
+       // Invoke("Bt_interaxtableTrue", 3.0f);
         // 여기에 로딩패널 켜주세요!!
     }
     
