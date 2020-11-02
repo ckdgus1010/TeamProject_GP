@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HelpPopupManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class HelpPopupManager : MonoBehaviour
 
     public GameObject wait_masterHelp;
     public GameObject wait_clientHelp;
+    [SerializeField] private Scrollbar scrollbar;
+    [SerializeField] private ScrollRect scrollRect;
     public SwipeMenu swipeMenu;
 
     //설정 버튼 클릭
@@ -102,30 +105,35 @@ public class HelpPopupManager : MonoBehaviour
     {
         createMode_Help_Panel.SetActive(true);
         currentPanel = createMode_Help_Panel;
+        swipeMenu.enabled = false;
     }
     // Alone 도움말
     public void OnClickAlone_Help()
     {
         alone_Help_Panel.SetActive(true);
         currentPanel = alone_Help_Panel;
+        swipeMenu.enabled = false;
     }
     // Alone 1 도움말
     public void OnClickAlone1_Help()
     {
         alone1_Help_Panel.SetActive(true);
         currentPanel = alone1_Help_Panel;
+        swipeMenu.enabled = false;
     }
     // Alone 2 도움말
     public void OnClickAlone2_Help()
     {
         alone2_Help_Panel.SetActive(true);
         currentPanel = alone2_Help_Panel;
+        swipeMenu.enabled = false;
     }
     // Alone 3 도움말
     public void OnClickAlone3_Help()
     {
         alone3_Help_Panel.SetActive(true);
         currentPanel = alone3_Help_Panel;
+        swipeMenu.enabled = false;
     }
 
     // 같이하기 도움말
@@ -133,6 +141,9 @@ public class HelpPopupManager : MonoBehaviour
     {
         multy_Help_Panel.SetActive(true);
         currentPanel = multy_Help_Panel;
+        swipeMenu.enabled = false;
+        scrollbar.value = 1.0f;
+        scrollRect.enabled = false;
     }
 
     //같이하기 대기방 방장 설명
@@ -192,6 +203,8 @@ public class HelpPopupManager : MonoBehaviour
         {
             currentPanel.SetActive(false);
             currentPanel = null;
+            swipeMenu.enabled = true;
+            scrollRect.enabled = true;
         }
     }
 

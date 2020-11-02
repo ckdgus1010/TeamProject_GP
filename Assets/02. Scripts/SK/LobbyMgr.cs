@@ -148,8 +148,11 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
             roomList_Panel.SetActive(true);
             roomMaker_Panel.SetActive(false);
             currentRoomMaker_Panel = null;
-            image3.color = new Color(image3.color.r, image3.color.g, image3.color.b, 0.4f);
-            image2.color = new Color(image2.color.r, image2.color.g, image2.color.b, 0.4f);
+            //image3.color = new Color(image3.color.r, image3.color.g, image3.color.b, 0.4f);
+            //image2.color = new Color(image2.color.r, image2.color.g, image2.color.b, 0.4f);
+
+            image2.sprite = buttonSprites[0];
+            image3.sprite = buttonSprites[0];
         }
         //프로퍼티 받고 그 배열에 내 액터 넘버 넣고 
         //터스텀 프로퍼티 업데이트 

@@ -22,13 +22,16 @@ public class RoomInButton : MonoBehaviour
 
         roomName.text = _roomName;
         playerNumber.text = currentPlayer + " / " + maxPlayer + " 명";
-        roomImage.sprite = sprites[maxPlayer - 2];
 
         //roomButton_Text.text = roomName + " (" + currentPlayer + " / " + maxPlayer + ")";
 
         if (currentPlayer == 0)
         {
             Destroy(gameObject);
+        }
+        else
+        {
+            roomImage.sprite = sprites[maxPlayer - 2];
         }
     }
 
