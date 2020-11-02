@@ -104,6 +104,8 @@ namespace Lee
         [SerializeField] private Use use;
         [SerializeField] private ProfileImageData profileButtonImage;
         [SerializeField] private GameObject stageSelectionPanel;
+        [SerializeField] private GameObject ProfileSelect_Panel;
+
 
         // 혼자하기 모드 선택
         public void SelectAloneModePanel()
@@ -132,7 +134,8 @@ namespace Lee
         public void ChangeProfilePhoto()
         {
             Debug.Log("ButtonManager01 ::: 프로필 사진 바꾸기 버튼 클릭");
-            use.GalleryOpen();
+            ProfileSelect_Panel.SetActive(!ProfileSelect_Panel.activeSelf);
+           // use.GalleryOpen();
         }
 
         // 옵션 팝업창

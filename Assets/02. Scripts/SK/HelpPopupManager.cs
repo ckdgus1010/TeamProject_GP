@@ -32,6 +32,7 @@ public class HelpPopupManager : MonoBehaviour
     [SerializeField] private ScrollRect scrollRect;
     public SwipeMenu swipeMenu;
 
+
     //설정 버튼 클릭
     public void OnClickSetting()
     {
