@@ -52,6 +52,7 @@ public class SelectLevel : MonoBehaviour
     public void SelectColor()
     {
         print("선택색");
+        if(WatingButtonMgr.instance.curruntLevels == mLevel)
         image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);
     }
 
