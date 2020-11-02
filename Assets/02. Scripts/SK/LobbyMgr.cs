@@ -105,8 +105,8 @@ public class LobbyMgr : MonoBehaviourPunCallbacks
         // Debug.Log("MaxPlayer  :   " + personNum + " 명");
         Debug.Log("-CreateRoom");
         currentBt = joinRoom_Bt;
-        currentBt.interactable = false;
-       // Invoke("Bt_interaxtableTrue", 3.0f);
+        //currentBt.interactable = false;
+        //Invoke("Bt_interaxtableTrue", 3.0f);
         // 여기에 로딩패널 켜주세요!!
     }
     

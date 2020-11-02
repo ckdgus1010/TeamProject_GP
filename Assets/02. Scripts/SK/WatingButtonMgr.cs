@@ -82,7 +82,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
 
         proFileList = new List<Profile>();
-        mapList2 = new List<string>();
+        //mapList2 = new List<string>();
 
         // 방이름 설정
         currentRoomName.text = PhotonNetwork.CurrentRoom.Name;
@@ -99,7 +99,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
         //mapName = GameObject.Find("MapText").GetComponent<Text>();
         //AddmapList();
-        MapText.text = mapList2[0];
+        MapText.text = mapList3[0];
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -391,7 +391,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
 
             //Scene 전환
             PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
-            string sceneName = "15.MultiyPlay Scene";
+            //string sceneName = "15.MultiyPlay Scene";
         }
     }
 

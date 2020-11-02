@@ -97,6 +97,44 @@ public class HelpPopupManager : MonoBehaviour
         currentPanel = profile_Help_Panel;
     }
 
+    //CreateMode 도움말
+    public void OnClickCreate_Help()
+    {
+        createMode_Help_Panel.SetActive(true);
+        currentPanel = createMode_Help_Panel;
+    }
+    // Alone 도움말
+    public void OnClickAlone_Help()
+    {
+        alone_Help_Panel.SetActive(true);
+        currentPanel = alone_Help_Panel;
+    }
+    // Alone 1 도움말
+    public void OnClickAlone1_Help()
+    {
+        alone1_Help_Panel.SetActive(true);
+        currentPanel = alone1_Help_Panel;
+    }
+    // Alone 2 도움말
+    public void OnClickAlone2_Help()
+    {
+        alone2_Help_Panel.SetActive(true);
+        currentPanel = alone2_Help_Panel;
+    }
+    // Alone 3 도움말
+    public void OnClickAlone3_Help()
+    {
+        alone3_Help_Panel.SetActive(true);
+        currentPanel = alone3_Help_Panel;
+    }
+
+    // 같이하기 도움말
+    public void OnClickMulty_Help()
+    {
+        multy_Help_Panel.SetActive(true);
+        currentPanel = multy_Help_Panel;
+    }
+
     //같이하기 대기방 방장 설명
     public void OnClickMasterWaitHelp()
     {
