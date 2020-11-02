@@ -41,7 +41,7 @@ public class SwipeMenu : MonoBehaviour
 
             // 방향 확인
             Vector2 dir = endPos - startPos;
-            Debug.Log($"dir.x ::: {dir.x} // scrollbar.value = {horizontalScrollbar.value} \n startPos: {startPos} // endPos: {endPos}");
+            //Debug.Log($"dir.x ::: {dir.x} // scrollbar.value = {horizontalScrollbar.value} \n startPos: {startPos} // endPos: {endPos}");
 
             // startPos && endPos 초기화
             startPos = Vector2.zero;
@@ -55,7 +55,7 @@ public class SwipeMenu : MonoBehaviour
 
             if (dir.x > sensitivity)
             {
-                Debug.Log("왼쪽으로 이동");
+                //Debug.Log("왼쪽으로 이동");
 
                 if (intialValue < 0.75f)
                 {
@@ -70,7 +70,7 @@ public class SwipeMenu : MonoBehaviour
             }
             else if (dir.x < -sensitivity)
             {
-                Debug.Log("오른쪽으로 이동");
+                //Debug.Log("오른쪽으로 이동");
 
                 if (intialValue < 0.25f)
                 {
@@ -85,7 +85,7 @@ public class SwipeMenu : MonoBehaviour
             }
             else
             {
-                Debug.Log($"SwipeMenu ::: {dir.x} 단순 터치");
+                //Debug.Log($"SwipeMenu ::: {dir.x} 단순 터치");
                 return;
             }
         }

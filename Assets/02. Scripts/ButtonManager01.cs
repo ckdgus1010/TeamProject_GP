@@ -12,6 +12,7 @@ namespace Lee
         [SerializeField] private GameObject playModeCanvas;
         [SerializeField] private GameObject aloneModeCanvas;
         [SerializeField] private GameObject aloneStageCanvas;
+        [SerializeField] private GameObject buttonCanvas;
 
         #region 로그인 화면
 
@@ -96,7 +97,9 @@ namespace Lee
         [SerializeField] private ScrollRect scrollRect;
         [SerializeField] private SwipeMenu swipeMenu;
 
+        [Header("프로필 및 설정")]
         [SerializeField] private GameObject profilePanel;
+        [SerializeField] private Scrollbar profileScrollbar;
         [SerializeField] private GameObject settingCanvas;
         [SerializeField] private Use use;
         [SerializeField] private ProfileImageData profileButtonImage;
@@ -109,6 +112,7 @@ namespace Lee
             alonePanelController.SelectAloneModePanel(value);
 
             swipeMenu.enabled = !value;
+            buttonCanvas.SetActive(!value);
             Debug.Log($"ButtonManager ::: value = {!value}");
 
             scrollbar.value = 0.5f;
@@ -119,6 +123,7 @@ namespace Lee
         public void ConvertProfilePanel()
         {
             Debug.Log($"ButtonManager01 ::: profile panel // {!profilePanel.activeSelf}");
+            profileScrollbar.value = 1.0f;
             profilePanel.SetActive(!profilePanel.activeSelf);
             swipeMenu.enabled = !profilePanel.activeSelf;
         }

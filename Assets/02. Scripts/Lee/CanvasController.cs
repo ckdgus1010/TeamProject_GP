@@ -130,14 +130,14 @@ public class CanvasController : MonoBehaviour
     // 크레딧
     public void CreditVideo()
     {
-        creditExitButton.SetActive(false);
-        settingCan.SetActive(false);
-
         for (int i = 0; i < canvasArray.Length; i++)
         {
             canvasArray[i].SetActive(false);
         }
 
         canvasArray[3].SetActive(true);
+        creditExitButton.SetActive(false);
+
+        settingCan.SetActive(false);
     }
 }

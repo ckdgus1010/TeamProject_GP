@@ -1999,6 +1999,8 @@ MonoBehaviour:
   multyScreenMgr: {fileID: 0}
   ishostFinish: 0
   isresolveFinish: 0
+  cloudAnchorController: {fileID: 0}
+  waitingClientPopup: {fileID: 0}
 --- !u!1 &80279580
 GameObject:
   m_ObjectHideFlags: 0
@@ -8644,7 +8646,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &223934725
 MonoBehaviour:
@@ -15224,6 +15226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardSizeSlider: {fileID: 1353101126}
+  sliders:
+  - {fileID: 0}
+  - {fileID: 0}
   gameBoard: {fileID: 422357301}
   guideCube: {fileID: 893801965}
   gridSizeSlider: {fileID: 3406429748177896895}
@@ -63980,6 +63985,7 @@ MonoBehaviour:
   list_mainHelp: {fileID: 0}
   wait_masterHelp: {fileID: 0}
   wait_clientHelp: {fileID: 0}
+  swipeMenu: {fileID: 0}
 --- !u!4 &1719725437
 Transform:
   m_ObjectHideFlags: 0

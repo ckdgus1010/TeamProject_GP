@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class StageData : MonoBehaviour
 {
     public int stageID = 0;
@@ -13,6 +12,8 @@ public class StageData : MonoBehaviour
 
     [SerializeField]
     private Image image;
+    [SerializeField]
+    private GameObject profileImage;
 
     ////나중에 Start 함수로 바꿀 것
     //private void Start()
@@ -32,6 +33,25 @@ public class StageData : MonoBehaviour
         // Stage 상태 받아오기
         stageStatus = (int)GameManager.Instance.stageStateList[stageID - 1];
         Debug.Log($"{this.gameObject.name} ::: {stageStatus}");
+
+        if (stageStatus == (int)GameManager.StageState.Current)
+        {
+            Image _image = profileImage.GetComponent<Image>();
+            if (GameManager.Instance.profileImage == null)
+            {
+                _image.sprite = GameManager.Instance.profileImageList[0];
+            }
+            else
+            {
+                _image.sprite = GameManager.Instance.profileImage;
+            }
+
+            profileImage.SetActive(true);
+        }
+        else
+        {
+            profileImage.SetActive(false);
+        }
 
         // 알맞은 Sprite로 교체
         image.sprite = GameManager.Instance.buttonImageArray[stageStatus];
