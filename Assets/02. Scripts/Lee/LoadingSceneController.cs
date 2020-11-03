@@ -89,7 +89,6 @@ public class LoadingSceneController : MonoBehaviour
         Debug.Log("LoadingSceneController ::: Fade in");
         
         loadingSlider.value = 0.0f;
-        Debug.Log($"LoadingSceneController ::: progressBar.value = {loadingSlider.value}");
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(loadSceneName);
         Debug.Log($"LoadingSceneController ::: {status} // {loadSceneName} Scene으로 넘어감");
@@ -107,7 +106,6 @@ public class LoadingSceneController : MonoBehaviour
             if (operation.progress < 0.9f)
             {
                 loadingSlider.value = operation.progress;
-                Debug.Log("987");
             }
             else
             {
@@ -121,68 +119,6 @@ public class LoadingSceneController : MonoBehaviour
                 }
             }
         }
-
-
-        //float timer = 0.0f;
-
-        //while (timer < 4.0f)
-        //{
-        //    yield return null;
-        //    timer += Time.deltaTime;
-
-        //    if (loadingSlider.value < 0.9f)
-        //    {
-        //        loadingSlider.value = Mathf.Lerp(loadingSlider.value, 0.8f, timer * 0.2f);
-        //    }
-        //    else
-        //    {
-        //        break;
-        //    }
-        //}
-
-        //// 로그인이 끝날 때까지 대기
-        //yield return new WaitUntil(() => isChecked = true && status != Status.None);
-
-        //// 로그인에 성공한 경우
-        //if (status == Status.Success)
-        //{
-        //    AsyncOperation operation = SceneManager.LoadSceneAsync(loadSceneName);
-        //    Debug.Log($"LoadingSceneController ::: {status} // {loadSceneName} Scene으로 넘어감");
-
-        //    operation.allowSceneActivation = false;
-
-        //    // scene의 loading 상황을 loadingSlider로 표시
-        //    timer = 0.0f;
-
-        //    while (!operation.isDone)
-        //    {
-        //        //반복문이 한 번 돌 때마다 유니티 엔진에 제어권을 넘김
-        //        yield return null;
-
-        //        if (operation.progress < 0.9f)
-        //        {
-        //            loadingSlider.value = operation.progress;
-        //            Debug.Log("987");
-        //        }
-        //        else
-        //        {
-        //            timer += Time.unscaledDeltaTime;
-        //            loadingSlider.value = Mathf.Lerp(0.9f, 1.0f, timer);
-
-        //            if (loadingSlider.value >= 1.0f)
-        //            {
-        //                operation.allowSceneActivation = true;
-        //                yield break;
-        //            }
-        //        }
-        //    }
-        //}
-        //// 로그인에 실패한 경우
-        //else
-        //{
-        //    Debug.Log($"LoadingSceneController ::: {status} // 로그인 실패");
-        //    StartCoroutine(Fade(false));
-        //}
     }
 
     private IEnumerator Fade(bool isFadeIn)

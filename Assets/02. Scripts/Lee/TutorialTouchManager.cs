@@ -29,9 +29,12 @@ public class TutorialTouchManager : MonoBehaviour
     public float height = 0.1f;
     public float depth = 1.0f;
 
+    private int popupCount = 0;
+
     void Start()
     {
         count = 0;
+        popupCount = 0;
     }
 
     void Update()
@@ -79,7 +82,12 @@ public class TutorialTouchManager : MonoBehaviour
 
             //기타 UI 조정
             playButtons.SetActive(true);
-            playHelpPopup.ChangeHelpMessageText();
+
+            if (popupCount == 0)
+            {
+                playHelpPopup.ChangeHelpMessageText();
+                popupCount = 1;
+            }
 
             count = 1;
         }
@@ -94,6 +102,7 @@ public class TutorialTouchManager : MonoBehaviour
         pointImage.SetActive(false);
         cubeSetting.enabled = false;
 
+        popupCount = 0;
         count = 0;
     }
 }

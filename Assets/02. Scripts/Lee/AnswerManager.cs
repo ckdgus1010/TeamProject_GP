@@ -141,6 +141,13 @@ public class AnswerManager : MonoBehaviour
                     answerArray[i] = answerDataHard.ChooseAnswerList(stageID)[i];
                 }
                 break;
+            case 9:
+            case 1000:
+                for (int i = 0; i < answerArray.Length; i++)
+                {
+                    answerArray[i] = tutorialAnswerData.ChooseAnswerList()[i];
+                }
+                break;
         }
 
         #region 수정 전 답안 가져오기 코드

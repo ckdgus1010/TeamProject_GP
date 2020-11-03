@@ -49,12 +49,13 @@ public class CBCtrl : MonoBehaviour
         for (int i = 0; i < playerAnswerArray.Length; i++)
         {
             Debug.Log($"2");
+
             if (playerAnswerArray[i].Count > 0)
             {
                 playerAnswerArray[i].Clear();
             }
 
-        Debug.Log($"3");
+            Debug.Log($"3");
 
             //Grid에서 발사한 ray로 player가 놓은 큐브 감지
             for (int j = 0; j < _arraySize; j++)

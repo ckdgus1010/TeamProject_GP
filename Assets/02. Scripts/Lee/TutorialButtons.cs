@@ -70,7 +70,8 @@ public class TutorialButtons : MonoBehaviour
 
     public void ExitTutorial()
     {
-        SceneManager.LoadScene("01. Intro");
+        GameManager.Instance.modeID = 999;
+        LoadingSceneController.Instance.LoadScene("01. Intro");
     }
 
     // 큐브 쌓기
@@ -138,6 +139,7 @@ public class TutorialButtons : MonoBehaviour
             {
                 cardBoardSetting.isCardBoardOn = false;
             }
+
             playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
             answerManager.CompareAnswer_Array(playerAnswerArray);
         }
@@ -153,11 +155,27 @@ public class TutorialButtons : MonoBehaviour
     // 맵 삭제
     public void ResetGameboard()
     {
+        if (list.Count > 0)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                Destroy(list[i]);
+            }
+            list.Clear();
+        }
+
+        makeCount = 0;
+        deleteCount = 0;
+        resetCount = 0;
+        cardCount = 0;
+
+        playHelpPopup.order = 3;
+        playHelpPopup.ChangeText();
+        playHelpPopup.SetOrigin();
+
+        guideCube.SetActive(false);
         tutorialTouchManager.SetOrigin();
-
-        ResetCube();
         playButtons.SetActive(false);
-
         gameboard.SetActive(false);
     }
 

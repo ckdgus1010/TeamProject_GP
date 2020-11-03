@@ -51,7 +51,7 @@ public class CanvasController : MonoBehaviour
                 Debug.LogError($"CanvasController ::: GameManager.Instance.modeID // {modeID} 확인 요망");
                 break;
             case 0:         // Create Mode에서 Intro Scene으로 넘어올 때
-
+            case 999:
                 canvasArray[0].SetActive(false);
                 canvasArray[2].SetActive(true);
                 canvasArray[4].SetActive(true);
@@ -93,6 +93,8 @@ public class CanvasController : MonoBehaviour
                 paginations[2].isOn = true;
                 break;
         }
+
+        GameManager.Instance.modeID = 1000;
     }
 
     public void LoadCanvas(CanvasID canvasID)
