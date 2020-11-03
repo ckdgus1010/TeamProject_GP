@@ -2708,6 +2708,8 @@ MonoBehaviour:
   cloudAnchorController: {fileID: 0}
   waitingClientPopup: {fileID: 0}
   notePanel: {fileID: 2066044153}
+  createSound: {fileID: 0}
+  soundMgr: {fileID: 0}
 --- !u!1 &80279580
 GameObject:
   m_ObjectHideFlags: 0
@@ -39330,7 +39332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &908767492
 RectTransform:
   m_ObjectHideFlags: 0
@@ -60588,7 +60590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1418355339
 RectTransform:
   m_ObjectHideFlags: 0
