@@ -345,11 +345,11 @@ public class TouchManager : MonoBehaviour
                 playButtons.SetActive(true);
                 cardBoardSetting.isCardBoardOn = true;
                 cardButton.SetActive(true);
-                pointImage.SetActive(true);
-                cubeSetting.enabled = true;
                 break;
         }
 
+        pointImage.SetActive(true);
+        cubeSetting.enabled = true;
         blockImg.SetActive(false);
     }
 
@@ -370,7 +370,6 @@ public class TouchManager : MonoBehaviour
     }
     public void OffGameGuidePanel()
     {
-        
         notePanel.SetActive(false);
         masterMapCreateHelp.SetActive(true);
     }
