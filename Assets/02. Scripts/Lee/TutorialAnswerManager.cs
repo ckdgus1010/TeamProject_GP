@@ -5,23 +5,17 @@ using System.Linq;
 
 public class TutorialAnswerManager : MonoBehaviour
 {
-    public List<int> frontAnswerList = new List<int> { 0, 0, 0, 0, 0
-                                                     , 0, 0, 0, 0, 0
-                                                     , 0, 0, 0, 0, 0
-                                                     , 0, 0, 0, 0, 1
-                                                     , 0, 0, 0, 1, 1 };
+    public List<int> frontAnswerList = new List<int> { 0, 0, 0
+                                                     , 0, 0, 1
+                                                     , 0, 1, 1 };
 
-    public List<int> sideAnswerList = new List<int>  { 0, 0, 0, 0, 0
-                                                     , 0, 0, 0, 0, 0
-                                                     , 0, 0, 0, 0, 0
-                                                     , 0, 0, 0, 0, 1
-                                                     , 0, 0, 0, 1, 1 };
+    public List<int> sideAnswerList = new List<int>  { 0, 0, 0
+                                                     , 0, 0, 1
+                                                     , 0, 1, 1 };
 
-    public List<int> topAnswerList = new List<int>   { 0, 0, 0, 1, 1
-                                                     , 0, 0, 0, 0, 1
-                                                     , 0, 0, 0, 0, 0
-                                                     , 0, 0, 0, 0, 0
-                                                     , 0, 0, 0, 0, 0 };
+    public List<int> topAnswerList = new List<int>   { 0, 1, 1
+                                                     , 0, 0, 1
+                                                     , 0, 0, 0 };
 
     public List<int>[] answerArray;
     private bool isCorrect = false;
@@ -31,7 +25,7 @@ public class TutorialAnswerManager : MonoBehaviour
     public RectTransform xPanel;
     private RectTransform currPanel;
 
-    private bool isChecked = false;
+    public bool isChecked = false;
     public RectTransform startPos;
     public RectTransform endPos;
     public float lerpSpeed = 5.0f;

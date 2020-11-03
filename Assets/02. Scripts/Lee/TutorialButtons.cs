@@ -1,24 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TutorialButtons : MonoBehaviour
 {
-    public CubeSetting cubeSetting;
-    public TutorialTouchManager tutorialTouchManager;
-    public PlayHelperPopup playHelpPopup;
-    public TutorialAnswerManager answerManager;
-
     private int makeCount = 0;
     private int deleteCount = 0;
     private int resetCount = 0;
     private int cardCount = 0;
 
-    [Header("")]
+    [Header("AR Camera")]
+    public CubeSetting cubeSetting;
+    public TutorialTouchManager tutorialTouchManager;
+    public PlayHelperPopup playHelpPopup;
+    public AnswerManager answerManager;
+
+    [Header("Canvas")]
     [SerializeField] private GameObject beforeTutorialCanvas;
     [SerializeField] private GameObject tutorialCanvas;
     [SerializeField] private GameObject afterTutorialCanvas;
+
+    [Header("Camera Setting")]
     [SerializeField] private GameObject aRCam;
     [SerializeField] private GameObject mainCam;
 
@@ -38,21 +42,12 @@ public class TutorialButtons : MonoBehaviour
     public CheckBoardMgr checkBoardMgr;
     public List<int>[] playerAnswerArray = new List<int>[3];
 
-    [SerializeField]
-    private Button[] tutorialButtons = new Button[7];
-
     private void Start()
     {
         makeCount = 0;
         deleteCount = 0;
         resetCount = 0;
         cardCount = 0;
-
-        // 모든 버튼 비활성화
-        for (int i = 0; i < tutorialButtons.Length; i++)
-        {
-            tutorialButtons[i].interactable = false;
-        }
     }
 
     // 안내 팝업 이후 튜토리얼 시작
@@ -71,6 +66,11 @@ public class TutorialButtons : MonoBehaviour
         aRCam.SetActive(false);
         mainCam.SetActive(true);
         tutorialCanvas.SetActive(false);
+    }
+
+    public void ExitTutorial()
+    {
+        SceneManager.LoadScene("01. Intro");
     }
 
     // 큐브 쌓기
@@ -139,7 +139,7 @@ public class TutorialButtons : MonoBehaviour
                 cardBoardSetting.isCardBoardOn = false;
             }
             playerAnswerArray = checkBoardMgr.MakePlayerAnswerArray();
-            answerManager.CheckAnswer(playerAnswerArray);
+            answerManager.CompareAnswer_Array(playerAnswerArray);
         }
     }
 
@@ -181,5 +181,18 @@ public class TutorialButtons : MonoBehaviour
     void ChangeText()
     {
         playHelpPopup.ChangeHelpMessageText();
+    }
+
+    // 다시하기
+    public void RetryTutorialGame()
+    {
+        ResetCube();
+        answerManager.isChecked = false;
+    }
+
+    // 이어하기
+    public void ContinueTutorialGame()
+    {
+        answerManager.isChecked = false;
     }
 }

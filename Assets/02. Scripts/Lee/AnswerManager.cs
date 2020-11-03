@@ -14,6 +14,7 @@ public class AnswerManager : MonoBehaviour
     public AnswerDataEasy answerDataEasy;
     public AnswerDataNomal answerDataNomal;
     public AnswerDataHard answerDataHard;
+    public TutorialAnswerData tutorialAnswerData;
 
     //정답 정보를 가지고 있는 Array ( front = 0, side = 1, top = 2 )
     public List<int>[] answerArray = new List<int>[3];
