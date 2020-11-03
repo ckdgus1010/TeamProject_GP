@@ -108,6 +108,7 @@ namespace Lee
         [SerializeField] private GameObject ProfileSelect_Panel;
         public bool profileOn = false;
         public HelpPopupManager helpPopupManager;
+
         // 혼자하기 모드 선택
         public void SelectAloneModePanel()
         {
@@ -140,9 +141,13 @@ namespace Lee
         public void ChangeProfilePhoto()
         {
             Debug.Log("ButtonManager01 ::: 프로필 사진 바꾸기 버튼 클릭");
+
             profileScrollbar.value = 1.0f;
             ProfileSelect_Panel.SetActive(!ProfileSelect_Panel.activeSelf);
-           // use.GalleryOpen();
+
+            // 프로필 사진 정보 저장
+            SaveManager.profileImageNum = GameManager.Instance.profileImageNum;
+            SaveManager.Save();
         }
 
         // 옵션 팝업창

@@ -7,6 +7,8 @@ using Lee;
 
 public class SaveManager : MonoBehaviour
 {
+    #region Singleton Pattern
+
     // 싱글톤 패턴을 사용하기 위한 인스턴스 변수
     private static SaveManager _instance;
 
@@ -42,11 +44,17 @@ public class SaveManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    #endregion
 
     //----------------------------------------------------------------------------
 
-
     private static readonly string privateKey = "1718hy9dsf0jsdlfjds0pa9ids78ahgf81h32re";
+
+    // 프로필 이미지 정보
+    public static int profileImageNum = 0;
+
+    // 업적 정보
+    public static bool[] achievement = new bool[9];
 
     public static List<GameManager.StageState> stageStatusList01
         = new List<GameManager.StageState>(9) { GameManager.StageState.Current, GameManager.StageState.Forbidden, GameManager.StageState.Forbidden
@@ -67,7 +75,7 @@ public class SaveManager : MonoBehaviour
 
     public static void Save()
     {
-        SaveData saveData = new SaveData(stageStateArray);
+        SaveData saveData = new SaveData(profileImageNum, achievement, stageStateArray);
 
         string jsonString = DataToJson(saveData);
         string encrypString = Encrypt(jsonString);
@@ -82,20 +90,29 @@ public class SaveManager : MonoBehaviour
         if (!File.Exists(GetPath()))
         {
             Debug.Log("SaveManager ::: Save 파일이 존재하지 않음");
+
             GameManager.Instance.GenerateData();
             return null;
         }
 
         string encryptData = LoadFile(GetPath());
         string decryptData = Decrypt(encryptData);
-
         Debug.Log(decryptData);
 
         SaveData sd = JsonToData(decryptData);
 
         //Debug.Log(encryptData);
-
         //SaveData sd = JsonToData(encryptData);
+
+        //불러온 프로필 사진 정보 데이터를 GameManager.profileImageNum에 대입
+        GameManager.Instance.profileImageNum = sd.profileImageNum;
+        Debug.Log($"SaveManager ::: GameManager.profileImageNum = {GameManager.Instance.profileImageNum}");
+
+        //불러온 업적 정보 데이터를 AchievementManager.achievement에 대입
+        for (int i = 0; i < sd.achievement.Length; i++)
+        {
+            AchievementManager.Instance.achievement[i] = sd.achievement[i];
+        }
 
         GameManager.Instance.stageStateArray = new List<GameManager.StageState>[3] { GameManager.Instance.mode01_StageStatusList
                                                                                    , GameManager.Instance.mode02_StageStatusList
@@ -103,7 +120,7 @@ public class SaveManager : MonoBehaviour
 
         sd.stageStateArray = new List<GameManager.StageState>[3] { sd.stageStateList01, sd.stageStateList02, sd.stageStateList03 };
 
-        //불러온 데이터를 GameManager.stageStateArray에 대입
+        //불러온 스테이지 클리어 데이터를 GameManager.stageStateArray에 대입
         for (int i = 0; i < sd.stageStateArray.Length; i++)
         {
             for (int j = 0; j < sd.stageStateArray[i].Count; j++)
@@ -112,7 +129,7 @@ public class SaveManager : MonoBehaviour
             }
         }
 
-        //불러온 데이터를 stageStateArray에 대입
+        //불러온 스테이지 클리어 데이터를 stageStateArray에 대입
         for (int i = 0; i < sd.stageStateArray.Length; i++)
         {
             for (int j = 0; j < sd.stageStateArray[i].Count; j++)

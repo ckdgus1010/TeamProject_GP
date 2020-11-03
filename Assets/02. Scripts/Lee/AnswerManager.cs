@@ -291,6 +291,9 @@ public class AnswerManager : MonoBehaviour
             Debug.Log($"AnswerManager ::: \n 틀렸습니다. 다시 생각해보세요.");
             currPanel = xPanel;
 
+            // 최초 오답 정보를 Achievement Manager에 업데이트
+            AchievementManager.Instance.GetAchievement07();
+
             Debug.Log("AnswerManager ::: 오답 사운드 출력 전");
 
             // 오답 사운드
@@ -330,6 +333,9 @@ public class AnswerManager : MonoBehaviour
         }
 
         Debug.Log($"AnswerManager ::: \n UpdateClearData 완료");
+
+        //AchievementManager에 클리어한 stage 개수 업데이트
+        AchievementManager.Instance.GetAchievement02();
 
         //Data 저장
         SaveClearData(stageStateList, _modeID);

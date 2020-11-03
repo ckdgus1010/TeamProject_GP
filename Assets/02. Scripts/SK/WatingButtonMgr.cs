@@ -10,6 +10,7 @@ public enum Levels
 {
     Easy, Nomal, Hard, none
 }
+
 public class WatingButtonMgr : MonoBehaviourPunCallbacks
 {
     public static WatingButtonMgr instance;
@@ -324,8 +325,11 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public void OnClickReady()
     {
         Debug.Log(PhotonNetwork.CurrentRoom.MaxPlayers);
+
+        // 방장인 경우
         if (myPhotonView.IsMine && PhotonNetwork.IsMasterClient)
         {
+            // 모든 플레이어가 '준비' 버튼을 눌렀을 때
             if (readyCount == PhotonNetwork.CurrentRoom.MaxPlayers - 1)
             {
                 myPhotonView.RPC("RpcMasterSetReady", RpcTarget.AllBuffered);
@@ -336,6 +340,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
                 Debug.Log("모든 플레이어가 준비가 될때까지 기다려주세요");
             }
         }
+        // 클라이언트인 경우
         else
         {
             isClientReady = !isClientReady;
@@ -382,10 +387,15 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
             //마스터만 Client들한테 modeID, stageID 넘겨주기
             Debug.Log("ReadyCount ::: " + readyCount);
             int modeID = GameManager.Instance.modeID;
-            // 나중에 난수 생성
+
+            //무작위 StageID 생성
             int stageID = UnityEngine.Random.Range(1, 10);
             print("StageID ::: " + stageID);
             GameManager.Instance.stageID = stageID;
+
+            //AchievementManager에 방장 횟수 업데이트
+            AchievementManager.Instance.GetAchievement03();
+
             print(" 와팅 와팅 Mgr:::::" + GameManager.Instance.modeID + "//" + modeID + "//" + stageID);
             myPhotonView.RPC("RpcSetGameData", RpcTarget.Others, modeID, stageID);
 

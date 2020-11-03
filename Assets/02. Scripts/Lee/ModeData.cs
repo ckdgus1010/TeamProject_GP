@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using GooglePlayGames.BasicApi;
 
 public class ModeData : MonoBehaviourPun
 {
@@ -44,6 +45,10 @@ public class ModeData : MonoBehaviourPun
         {
             case 0:
                 Debug.Log($"{this.gameObject.name} // ModeData {modeID} ::: Create Mode로 이동");
+
+                // Create Mode 실행 횟수를 Achievement Manager에 업데이트
+                AchievementManager.Instance.GetAchievement05();
+
                 GameManager.Instance.stageID = 1;
                 SceneManager.LoadScene("06. CreateMode");
                 break;

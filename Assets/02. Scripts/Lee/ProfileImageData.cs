@@ -12,7 +12,7 @@ public class ProfileImageData : MonoBehaviour
     {
         if (profileID == 0)
         {
-            if (GameManager.Instance.profileImage == null)
+            if (GameManager.Instance.profileImageNum == 1000)
             {
                 Debug.Log("ProfileImageData ::: \n profileID = {profileID} // GameManager.Instance.profileImage 없음");
                 profileImage.sprite = GameManager.Instance.profileImageList[0];
@@ -20,7 +20,9 @@ public class ProfileImageData : MonoBehaviour
             else
             {
                 Debug.Log($"ProfileImageData ::: \n profileID = {profileID} // 프로필 사진 불러오기");
-                profileImage.sprite = GameManager.Instance.profileImage;
+
+                int index = GameManager.Instance.profileImageNum;
+                profileImage.sprite = GameManager.Instance.profileImageList[index];
             }
         }
     }
@@ -28,6 +30,8 @@ public class ProfileImageData : MonoBehaviour
     public void ChangeProfileImage()
     {
         Debug.Log($"ProfileData {profileID} ::: 프로필 사진 변경 {GameManager.Instance.profileImageList[profileID].name}");
+
+        GameManager.Instance.profileImageNum = profileID;
         GameManager.Instance.profileImage = GameManager.Instance.profileImageList[profileID];
     }
 }

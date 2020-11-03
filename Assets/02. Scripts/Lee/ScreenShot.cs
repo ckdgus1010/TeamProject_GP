@@ -38,6 +38,9 @@ public class ScreenShot : MonoBehaviour
         {
             StartCoroutine("captureScreenshot");
         }
+
+        // 스크린샷 횟수 AchievementManager에 업데이트
+        AchievementManager.Instance.GetAchievement04();
     }
 
     IEnumerator captureScreenshot()

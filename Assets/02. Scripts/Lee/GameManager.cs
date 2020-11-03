@@ -49,19 +49,18 @@ public class GameManager : MonoBehaviour
 
     [Header("User Infomation")]
     public string username = "";
+    public int profileImageNum = 1000;
     public Sprite profileImage = null;
     public List<Sprite> profileImageList = new List<Sprite>();      // 프로필 사진
-
-    [Header("User Achievement")]
-    public int masterCount = 0;     // 같이하기 모드에서 방장을 한 횟수
-    public bool[] achievement = new bool[10];
 
     [Header("Stage Infomation")]
     public int modeID = 1000;       // Play Mode의 정보
     public int stageID = 0;         // Stage의 정보
 
     [Header("혼자하기 유형별 Stage Popup Title")]
-    public string[] stageTitleArray = new string[3] { "유형01\n개수 맞추기", "유형02\n카드 보고 큐브 빼기", "유형03\n카드 보고 큐브 쌓기" };
+    public string[] stageTitleArray = new string[3] { "유형01\n개수 맞추기"
+                                                    , "유형02\n카드 보고 큐브 빼기"
+                                                    , "유형03\n카드 보고 큐브 쌓기" };
 
     //Stage Clear 여부 정보 생성
     public enum StageState { Forbidden, Cleared, Current };
@@ -94,6 +93,7 @@ public class GameManager : MonoBehaviour
 
     public void GenerateData()
     {
+        // 스테이지 클리어 정보 생성
         stageStateArray = new List<StageState>[] { mode01_StageStatusList
                                                  , mode02_StageStatusList
                                                  , mode03_StageStatusList };
@@ -103,10 +103,12 @@ public class GameManager : MonoBehaviour
             MakeDefaultList(stageStateArray[i]);
         }
 
+        // modeID 및 stageID 초기화
         modeID = 1000;
         stageID = 0;
 
-        masterCount = 0;
+        // 기본 프로필 사진 정보
+        profileImage = profileImageList[0];
     }
 
     void MakeDefaultList(List<StageState> list)

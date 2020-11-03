@@ -43,7 +43,11 @@ public class GoogleLoginManager : MonoBehaviour
                 Debug.Log($"{Social.localUser.id} \n {Social.localUser.userName}");
                 GameManager.Instance.username = Social.localUser.userName;
 
-                GameManager.Instance.achievement[0] = true;
+                // 최초 로그인 확인
+                if (AchievementManager.Instance.achievement[0] == false)
+                {
+                    AchievementManager.Instance.GetAchievement01();
+                }
 
                 mainMenuCanvas.SetActive(true);
                 buttonCanvas.SetActive(true);

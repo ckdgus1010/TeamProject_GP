@@ -94,7 +94,11 @@ public class PlayFabManager : MonoBehaviour
         Debug.Log("PlayFabManager ::: 로그인 성공");
         Debug.Log($"PlayFabManager ::: {result.PlayFabId}");
 
-        GameManager.Instance.achievement[0] = true;
+        // 최초 로그인 확인
+        if (AchievementManager.Instance.achievement[0] == false)
+        {
+            AchievementManager.Instance.GetAchievement01();
+        }
 
         //서버에서 player profile 받아오기
         GetPlayerProfile(result.PlayFabId);

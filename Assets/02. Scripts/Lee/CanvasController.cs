@@ -132,6 +132,9 @@ public class CanvasController : MonoBehaviour
     // 크레딧
     public void CreditVideo()
     {
+        // Credit 최초 실행 정보를 Achievement Manager에 업데이트
+        AchievementManager.Instance.GetAchievement08();
+
         for (int i = 0; i < canvasArray.Length; i++)
         {
             canvasArray[i].SetActive(false);
