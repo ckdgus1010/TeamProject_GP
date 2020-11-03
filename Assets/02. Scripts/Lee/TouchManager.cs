@@ -364,7 +364,8 @@ public class TouchManager : MonoBehaviour
     }
     public void OffGameGuidePanel()
     {
-        masterMapCreateHelp.SetActive(true);
+        
         notePanel.SetActive(false);
+        masterMapCreateHelp.SetActive(true);
     }
 }
