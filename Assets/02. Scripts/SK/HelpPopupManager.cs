@@ -21,6 +21,7 @@ public class HelpPopupManager : MonoBehaviour
     public GameObject first_Help_Panel;
 
     public GameObject currentPanel;
+    public GameObject currentBGPanel;
 
     public GameObject list_masterHelp;
     public GameObject list_clientHelp;
@@ -32,7 +33,9 @@ public class HelpPopupManager : MonoBehaviour
     [SerializeField] private ScrollRect scrollRect;
     public SwipeMenu swipeMenu;
 
-
+    public GameObject createBg;
+    public GameObject aloneBg;
+    public GameObject togetherBg;
     //설정 버튼 클릭
     public void OnClickSetting()
     {
@@ -107,6 +110,10 @@ public class HelpPopupManager : MonoBehaviour
         createMode_Help_Panel.SetActive(true);
         currentPanel = createMode_Help_Panel;
         swipeMenu.enabled = false;
+        scrollbar.value = 0.0f;
+        scrollRect.enabled = false;
+        createBg.SetActive(true);
+        currentBGPanel = createBg;
     }
     // Alone 도움말
     public void OnClickAlone_Help()
@@ -114,6 +121,10 @@ public class HelpPopupManager : MonoBehaviour
         alone_Help_Panel.SetActive(true);
         currentPanel = alone_Help_Panel;
         swipeMenu.enabled = false;
+        scrollbar.value = 0.5f;
+        scrollRect.enabled = false;
+        aloneBg.SetActive(true);
+        currentBGPanel = aloneBg;
     }
     // Alone 1 도움말
     public void OnClickAlone1_Help()
@@ -121,6 +132,8 @@ public class HelpPopupManager : MonoBehaviour
         alone1_Help_Panel.SetActive(true);
         currentPanel = alone1_Help_Panel;
         swipeMenu.enabled = false;
+
+        scrollRect.enabled = false;
     }
     // Alone 2 도움말
     public void OnClickAlone2_Help()
@@ -128,6 +141,8 @@ public class HelpPopupManager : MonoBehaviour
         alone2_Help_Panel.SetActive(true);
         currentPanel = alone2_Help_Panel;
         swipeMenu.enabled = false;
+
+        scrollRect.enabled = false;
     }
     // Alone 3 도움말
     public void OnClickAlone3_Help()
@@ -135,6 +150,8 @@ public class HelpPopupManager : MonoBehaviour
         alone3_Help_Panel.SetActive(true);
         currentPanel = alone3_Help_Panel;
         swipeMenu.enabled = false;
+       
+        scrollRect.enabled = false;
     }
 
     // 같이하기 도움말
@@ -145,6 +162,9 @@ public class HelpPopupManager : MonoBehaviour
         swipeMenu.enabled = false;
         scrollbar.value = 1.0f;
         scrollRect.enabled = false;
+        togetherBg.SetActive(true);
+        currentBGPanel = togetherBg;
+
     }
 
     //같이하기 대기방 방장 설명
@@ -200,12 +220,21 @@ public class HelpPopupManager : MonoBehaviour
     // 도움말 나가기 버튼
     public void Normal_X_Button()
     {
+        Debug.Log("Normal_X_Button()");
         if (currentPanel != null)
         {
+            Debug.Log("Normal_X_Button1111()");
             currentPanel.SetActive(false);
             currentPanel = null;
             swipeMenu.enabled = true;
             scrollRect.enabled = true;
+        }
+
+        if(currentBGPanel != null)
+        {
+            Debug.Log("Normal_X_Button2222()");
+            currentBGPanel.SetActive(false);
+            currentBGPanel = null;
         }
     }
 

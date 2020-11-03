@@ -134,6 +134,7 @@ namespace Lee
         public void ChangeProfilePhoto()
         {
             Debug.Log("ButtonManager01 ::: 프로필 사진 바꾸기 버튼 클릭");
+            profileScrollbar.value = 1.0f;
             ProfileSelect_Panel.SetActive(!ProfileSelect_Panel.activeSelf);
            // use.GalleryOpen();
         }
