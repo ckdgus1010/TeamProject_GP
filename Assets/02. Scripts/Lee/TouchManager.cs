@@ -66,6 +66,9 @@ public class TouchManager : MonoBehaviour
     public CloudAnchorController cloudAnchorController;
     public GameObject waitingClientPopup;
     public GameObject notePanel;
+
+    public SoundManager soundMgr;
+    public AudioClip creteSound;
     void Start()
     {
         count = 0;
@@ -327,6 +330,8 @@ public class TouchManager : MonoBehaviour
         {
             case 0:     //Create Mode
                 gridSizePanel.SetActive(true);
+                soundMgr.bGM.clip = creteSound;
+                soundMgr.bGM.Play();
                 break;
             case 1:
                 Debug.LogError($"TouchManager ::: modeID = {GameManager.Instance.modeID}");
