@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Lee;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,11 +37,19 @@ public class HelpPopupManager : MonoBehaviour
     public GameObject createBg;
     public GameObject aloneBg;
     public GameObject togetherBg;
+
+    public ButtonManager01 buttonManager01;
+    public bool settingOn = false;
     //설정 버튼 클릭
     public void OnClickSetting()
     {
+        if(buttonManager01.profileOn == true)
+        {
+            return;
+        }
         settingCanvas.SetActive(!settingCanvas.activeSelf);
         swipeMenu.enabled = !settingCanvas.activeSelf;
+        settingOn = !settingOn;
     }
 
     //설정버튼의 도움말 버튼 클릭

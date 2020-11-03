@@ -14,6 +14,7 @@ namespace Lee
         [SerializeField] private GameObject aloneStageCanvas;
         [SerializeField] private GameObject buttonCanvas;
 
+
         #region 로그인 화면
 
         [Header("Login Panel")]
@@ -105,8 +106,8 @@ namespace Lee
         [SerializeField] private ProfileImageData profileButtonImage;
         [SerializeField] private GameObject stageSelectionPanel;
         [SerializeField] private GameObject ProfileSelect_Panel;
-
-
+        public bool profileOn = false;
+        public HelpPopupManager helpPopupManager;
         // 혼자하기 모드 선택
         public void SelectAloneModePanel()
         {
@@ -124,10 +125,15 @@ namespace Lee
         // 프로필 팝업창
         public void ConvertProfilePanel()
         {
+            if(helpPopupManager.settingOn == true)
+            {
+                return;
+            }
             Debug.Log($"ButtonManager01 ::: profile panel // {!profilePanel.activeSelf}");
             profileScrollbar.value = 1.0f;
             profilePanel.SetActive(!profilePanel.activeSelf);
             swipeMenu.enabled = !profilePanel.activeSelf;
+            profileOn = !profileOn;
         }
 
         // 프로필 사진 바꾸기

@@ -33267,6 +33267,8 @@ MonoBehaviour:
   createBg: {fileID: 2124366015}
   aloneBg: {fileID: 1148041048}
   togetherBg: {fileID: 1782536869}
+  buttonManager01: {fileID: 2012732623}
+  settingOn: 0
 --- !u!4 &1252032384
 Transform:
   m_ObjectHideFlags: 0
@@ -33640,7 +33642,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1279151335
 RectTransform:
@@ -53194,6 +53196,8 @@ MonoBehaviour:
   profileButtonImage: {fileID: 1707386309}
   stageSelectionPanel: {fileID: 1122728208}
   ProfileSelect_Panel: {fileID: 672084471}
+  profileOn: 0
+  helpPopupManager: {fileID: 1252032383}
   stageButtons:
   - {fileID: 2037917458}
   - {fileID: 860622230}
@@ -53662,7 +53666,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &2030240471
 RectTransform:
