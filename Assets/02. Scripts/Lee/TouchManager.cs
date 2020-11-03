@@ -65,18 +65,35 @@ public class TouchManager : MonoBehaviour
 
     public CloudAnchorController cloudAnchorController;
     public GameObject waitingClientPopup;
+    public GameObject notePanel;
     void Start()
     {
         count = 0;
-
-        //같이하기 모드인 경우
-        if (GameManager.Instance.modeID == 6 || GameManager.Instance.modeID == 7 || GameManager.Instance.modeID == 8 || GameManager.Instance.modeID == 5)
+        switch (GameManager.Instance.modeID)
         {
-            gameMap = mapMgr.GetComponent<GameMap>();
-            player = GameObject.FindGameObjectWithTag("MINE");
-            myPhotonView = player.GetComponent<PhotonView>();
-            //playerCs = player.GetComponent<PlayerMgr>();
+            case 0:
+            case 2:
+            case 3:
+            case 4:
+                Invoke("OffGameGuidePanel", 4);
+                break;
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                gameMap = mapMgr.GetComponent<GameMap>();
+                player = GameObject.FindGameObjectWithTag("MINE");
+                myPhotonView = player.GetComponent<PhotonView>();
+                break;
         }
+                //같이하기 모드인 경우
+        //        if (GameManager.Instance.modeID == 6 || GameManager.Instance.modeID == 7 || GameManager.Instance.modeID == 8 || GameManager.Instance.modeID == 5)
+        //{
+        //            gameMap = mapMgr.GetComponent<GameMap>();
+        //            player = GameObject.FindGameObjectWithTag("MINE");
+        //            myPhotonView = player.GetComponent<PhotonView>();
+        //            //playerCs = player.GetComponent<PlayerMgr>();
+        //        }
     }
 
     void Update()
@@ -290,6 +307,8 @@ public class TouchManager : MonoBehaviour
 
     public void SoloPlay(TrackableHit hit, Anchor anchor)
     {
+        //맵 생성 도움말
+        masterMapCreateHelp.SetActive(false);
         //GameBoard 생성
         gameBoard.SetActive(true);
 
@@ -342,5 +361,10 @@ public class TouchManager : MonoBehaviour
         }
 
         count = 0;
+    }
+    public void OffGameGuidePanel()
+    {
+        masterMapCreateHelp.SetActive(true);
+        notePanel.SetActive(false);
     }
 }

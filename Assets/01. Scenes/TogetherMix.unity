@@ -2082,6 +2082,7 @@ MonoBehaviour:
   selectGamemode_Help_Panel: {fileID: 0}
   first_Help_Panel: {fileID: 0}
   currentPanel: {fileID: 0}
+  currentBGPanel: {fileID: 0}
   list_masterHelp: {fileID: 315574857}
   list_clientHelp: {fileID: 7012234}
   list_mainHelp: {fileID: 994423306}
@@ -2090,6 +2091,9 @@ MonoBehaviour:
   scrollbar: {fileID: 0}
   scrollRect: {fileID: 0}
   swipeMenu: {fileID: 0}
+  createBg: {fileID: 0}
+  aloneBg: {fileID: 0}
+  togetherBg: {fileID: 0}
 --- !u!4 &156322841
 Transform:
   m_ObjectHideFlags: 0
@@ -22475,6 +22479,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 965810967}
         m_MethodName: OnroomList_Panel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 156322840}
+        m_MethodName: Normal_X_Button
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
