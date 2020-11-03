@@ -7,7 +7,7 @@ public class ProfileUsername : MonoBehaviour
 {
     [SerializeField] private Text username;
 
-    void Start()
+    public void ShowUsername()
     {
         username.text = GameManager.Instance.username;
     }

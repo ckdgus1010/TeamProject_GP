@@ -17,7 +17,7 @@ public class Use : MonoBehaviour
             ));
         Debug.Log("Use ::: 프로필 사진 변경");
 
-        GameManager.Instance.profileImage = image.sprite;
+        //GameManager.Instance.profileImage = image.sprite;
         profileButtonImage.ShowProfileImage();
         Debug.Log("Use ::: 프로필 버튼 사진 변경");
     }

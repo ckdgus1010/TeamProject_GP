@@ -37,13 +37,15 @@ public class StageData : MonoBehaviour
         if (stageStatus == (int)GameManager.StageState.Current)
         {
             Image _image = profileImage.GetComponent<Image>();
-            if (GameManager.Instance.profileImage == null)
+
+            if (GameManager.Instance.profileImageNum == 1000)
             {
                 _image.sprite = GameManager.Instance.profileImageList[0];
             }
             else
             {
-                _image.sprite = GameManager.Instance.profileImage;
+                int index = GameManager.Instance.profileImageNum;
+                _image.sprite = GameManager.Instance.profileImageList[index];
             }
 
             profileImage.SetActive(true);

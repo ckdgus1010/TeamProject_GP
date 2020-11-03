@@ -10,6 +10,7 @@ public class AchievementData : MonoBehaviour
 
     [SerializeField] private AchievementData[] achievementArray = new AchievementData[9];
 
+    // 프로필 팝업창 오픈 시 업적 정보를 확인
     public void UpdateAchievementStatus()
     {
         // Achievement Scroll View에서만 사용할 것

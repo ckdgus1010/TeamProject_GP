@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
     [Header("User Infomation")]
     public string username = "";
     public int profileImageNum = 1000;
-    public Sprite profileImage = null;
     public List<Sprite> profileImageList = new List<Sprite>();      // 프로필 사진
 
     [Header("Stage Infomation")]
@@ -78,20 +77,13 @@ public class GameManager : MonoBehaviour
     public List<StageState> mode02_StageStatusList;           //혼자하기 모드 - 유형2
     public List<StageState> mode03_StageStatusList;           //혼자하기 모드 - 유형3
 
-
-   
     private void Start()
     {
-        // 플레이어 기본 이름 생성
-        int num = Random.Range(0, 1000);
-        username = "Guest " + num;
-
         //GenerateData();
         SaveManager.Load();
-        //Debug.Log($"GameManager.stageStateList // SaveManager.stageStatus ::: {GameManager.Instance.stageStateList.Count} // {SaveManager.stageStatus.Count}");
     }
 
-    public void GenerateData()
+    public void GenerateDefaultData()
     {
         // 스테이지 클리어 정보 생성
         stageStateArray = new List<StageState>[] { mode01_StageStatusList
@@ -107,8 +99,12 @@ public class GameManager : MonoBehaviour
         modeID = 1000;
         stageID = 0;
 
+        // 플레이어 기본 이름 생성
+        int num = Random.Range(0, 1000);
+        username = "Guest " + num;
+
         // 기본 프로필 사진 정보
-        profileImage = profileImageList[0];
+        profileImageNum = 0;
     }
 
     void MakeDefaultList(List<StageState> list)

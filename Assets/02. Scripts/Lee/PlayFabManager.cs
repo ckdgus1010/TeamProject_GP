@@ -6,9 +6,51 @@ using PlayFab;
 using PlayFab.ClientModels;
 using Lee;
 using PlayFab.GroupsModels;
+using UnityEditor.PackageManager;
 
 public class PlayFabManager : MonoBehaviour
 {
+    #region Singleton Pattern
+
+    // 싱글톤 패턴을 사용하기 위한 인스턴스 변수
+    private static PlayFabManager _instance;
+
+    // 인스턴스에 접근하기 위한 프로퍼티
+    public static PlayFabManager Instance
+    {
+        get
+        {
+            // 인스턴스가 없는 경우에 접근하려 하면 인스턴스를 할당해준다.
+            if (!_instance)
+            {
+                _instance = FindObjectOfType(typeof(PlayFabManager)) as PlayFabManager;
+
+                if (_instance == null)
+                    Debug.Log("PlayFabManager ::: no Singleton obj");
+            }
+            return _instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        // 인스턴스가 존재하는 경우 새로생기는 인스턴스를 삭제한다.
+        else if (_instance != this)
+        {
+            Destroy(gameObject);
+        }
+        // 아래의 함수를 사용하여 씬이 전환되더라도 선언되었던 인스턴스가 파괴되지 않는다.
+        DontDestroyOnLoad(gameObject);
+    }
+
+    #endregion
+
+    //--------------------------------------------------------------
+
     public ButtonManager01 buttonManager01;
     public GameObject loginPanel;
     public GameObject mainMenuPanel;
@@ -32,6 +74,9 @@ public class PlayFabManager : MonoBehaviour
     public InputField usernameInput;
     public InputField passwordInput;
     public InputField emailInput;
+
+    private string myID;
+    public string loadInfo;
 
     private void Start()
     {
@@ -93,6 +138,8 @@ public class PlayFabManager : MonoBehaviour
 
         Debug.Log("PlayFabManager ::: 로그인 성공");
         Debug.Log($"PlayFabManager ::: {result.PlayFabId}");
+
+        myID = result.PlayFabId;
 
         // 최초 로그인 확인
         if (AchievementManager.Instance.achievement[0] == false)
@@ -207,4 +254,22 @@ public class PlayFabManager : MonoBehaviour
     }
 
     #endregion
+
+    // 게임 데이터 저장 - saveInfo는 SaveManager의 encrypString
+    public void SetData(string saveInfo)
+    {
+        var request = new UpdateUserDataRequest() { Data = new Dictionary<string, string>() { { "GameData", saveInfo } } };
+        PlayFabClientAPI.UpdateUserData(request
+                                       , (result) => print("데이터 저장 성공")
+                                       , (error) => print("데이터 저장 실패"));
+    }
+
+    // 게임 데이터 불러오기
+    public void GetData()
+    {
+        var request = new GetUserDataRequest() { PlayFabId = myID };
+        PlayFabClientAPI.GetUserData(request
+                                    , (result) => { foreach (var eachData in result.Data) loadInfo = eachData.Value.Value; }
+                                    , (error) => print("데이터 불러오기 실패"));
+    }
 }

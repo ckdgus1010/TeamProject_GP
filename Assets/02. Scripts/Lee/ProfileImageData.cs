@@ -7,6 +7,7 @@ public class ProfileImageData : MonoBehaviour
 {
     [SerializeField] private int profileID = 1000;
     [SerializeField] private Image profileImage = null;
+    [SerializeField] private ProfileUsername profileUsername;
 
     public void ShowProfileImage()
     {
@@ -24,6 +25,8 @@ public class ProfileImageData : MonoBehaviour
                 int index = GameManager.Instance.profileImageNum;
                 profileImage.sprite = GameManager.Instance.profileImageList[index];
             }
+
+            profileUsername.ShowUsername();
         }
     }
 
@@ -32,6 +35,5 @@ public class ProfileImageData : MonoBehaviour
         Debug.Log($"ProfileData {profileID} ::: 프로필 사진 변경 {GameManager.Instance.profileImageList[profileID].name}");
 
         GameManager.Instance.profileImageNum = profileID;
-        GameManager.Instance.profileImage = GameManager.Instance.profileImageList[profileID];
     }
 }

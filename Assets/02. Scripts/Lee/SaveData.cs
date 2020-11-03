@@ -12,6 +12,11 @@ public class SaveData
     // 업적 정보
     public bool[] achievement = new bool[10];
 
+    // 저장해야 할 변수들 - 업적 정보
+    public int clearCount;
+    public int masterCount;
+    public int screenshotCount;
+
     // 혼자하기 스테이지 클리어 정보
     public List<GameManager.StageState>[] stageStateArray;
     public List<GameManager.StageState> stageStateList01;
@@ -19,13 +24,18 @@ public class SaveData
     public List<GameManager.StageState> stageStateList03;
 
     // 생성자
-    public SaveData(int _profileImageNum, bool[] _achievement, List<GameManager.StageState>[] _stageStatusArray)
+    public SaveData(int _profileImageNum, int _clearCount, int _masterCount, int _screenshotCount, bool[] _achievement, List<GameManager.StageState>[] _stageStatusArray)
     {
         // 프로필 정보 저장
         profileImageNum = _profileImageNum;
 
         // 업적 정보 저장
         achievement = _achievement;
+
+        // 업적 클리어를 위한 정보 저장
+        clearCount = _clearCount;
+        masterCount = _masterCount;
+        screenshotCount = _screenshotCount;
 
         // 혼자하기 스테이지 클리어 정보 저장
         stageStateList01 = new List<GameManager.StageState>();

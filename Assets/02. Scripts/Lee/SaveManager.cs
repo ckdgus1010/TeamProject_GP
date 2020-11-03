@@ -75,28 +75,50 @@ public class SaveManager : MonoBehaviour
 
     public static void Save()
     {
-        SaveData saveData = new SaveData(profileImageNum, achievement, stageStateArray);
+        //플레이어 프로필 사진 정보
+        profileImageNum = GameManager.Instance.profileImageNum;
+
+        //업적 달성을 위한 정보
+        int clearCount = AchievementManager.Instance.clearCount;
+        int masterCount = AchievementManager.Instance.masterCount;
+        int screenshotCount = AchievementManager.Instance.screenshotCount;
+
+        //업적 정보
+        achievement = AchievementManager.Instance.achievement;
+
+        //스테이지 클리어 정보
+        stageStateArray = GameManager.Instance.stageStateArray;
+
+        SaveData saveData = new SaveData(profileImageNum, clearCount, masterCount, screenshotCount, achievement, stageStateArray);
 
         string jsonString = DataToJson(saveData);
         string encrypString = Encrypt(jsonString);
         SaveFile(encrypString);
+
+        ////PlayFab 서버에 데이터 저장
+        //PlayFabManager.Instance.SetData(encrypString);
 
         Debug.Log("SaveManager ::: 저장 완료");
     }
 
     public static SaveData Load()
     {
+        ////인터넷이 연결됐는지 체크
+        //PlayFabManager.Instance.GetData();
+
         //파일이 존재하는지부터 체크
         if (!File.Exists(GetPath()))
         {
             Debug.Log("SaveManager ::: Save 파일이 존재하지 않음");
 
-            GameManager.Instance.GenerateData();
+            // 저장된 데이터가 없다면 기본 정보 생성
+            GameManager.Instance.GenerateDefaultData();
             return null;
         }
 
         string encryptData = LoadFile(GetPath());
         string decryptData = Decrypt(encryptData);
+
         Debug.Log(decryptData);
 
         SaveData sd = JsonToData(decryptData);
@@ -113,6 +135,11 @@ public class SaveManager : MonoBehaviour
         {
             AchievementManager.Instance.achievement[i] = sd.achievement[i];
         }
+
+        //불러온 업적 클리어를 위한 정보 데이터를 AchievementManager에 대입
+        AchievementManager.Instance.clearCount = sd.clearCount;
+        AchievementManager.Instance.masterCount = sd.masterCount;
+        AchievementManager.Instance.screenshotCount = sd.screenshotCount;
 
         GameManager.Instance.stageStateArray = new List<GameManager.StageState>[3] { GameManager.Instance.mode01_StageStatusList
                                                                                    , GameManager.Instance.mode02_StageStatusList
