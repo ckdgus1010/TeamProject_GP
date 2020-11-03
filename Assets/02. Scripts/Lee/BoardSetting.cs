@@ -36,6 +36,8 @@ public class BoardSetting : MonoBehaviour
     public Slider clientBoardSizeSlider;
 
     [SerializeField] private GameObject[] maps = new GameObject[3];
+    public AudioClip[] mapSounds = new AudioClip[3];
+    public SoundManager soundMgr;
     private void Start()
     {
         modeID = GameManager.Instance.modeID;
@@ -58,6 +60,8 @@ public class BoardSetting : MonoBehaviour
             case 3:
             case 4:
                 maps[modeID - 2].SetActive(true);
+                soundMgr.bGM.clip = mapSounds[modeID - 2];
+                soundMgr.bGM.Play();
                 SetGrid();
                 break;
             case 5:
