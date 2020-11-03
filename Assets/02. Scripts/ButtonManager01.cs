@@ -168,6 +168,7 @@ namespace Lee
         public void OpenTutorialCanvas()
         {
             Debug.Log($"ButtonManager01 ::: 튜토리얼 버튼 클릭");
+            settingCanvas.SetActive(false);
             LoadingSceneController.Instance.LoadScene("03. Tutorial");
             //SceneManager.LoadScene("03. Tutorial");
         }
