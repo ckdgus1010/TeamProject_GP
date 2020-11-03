@@ -73,10 +73,10 @@ public class BoardSetting : MonoBehaviour
                 break;
             case 8:
             case 1000:
-                currGrid = gridArray[2];
+                currGrid = gridArray[0];
                 currGridSize = 0;
 
-                currCheckBoard = checkBoardArray[2];
+                currCheckBoard = checkBoardArray[0];
                 currCheckBoardSize = 0;
                 break;
         }
