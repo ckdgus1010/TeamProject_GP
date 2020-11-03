@@ -66,10 +66,6 @@ public class TouchManager : MonoBehaviour
     public CloudAnchorController cloudAnchorController;
     public GameObject waitingClientPopup;
     public GameObject notePanel;
-
-    [Header("Create Mode Sound")]
-    public AudioClip createSound;
-    public SoundManager soundMgr;
     void Start()
     {
         count = 0;
@@ -313,6 +309,7 @@ public class TouchManager : MonoBehaviour
     {
         //맵 생성 도움말
         masterMapCreateHelp.SetActive(false);
+
         //GameBoard 생성
         gameBoard.SetActive(true);
 
@@ -330,8 +327,6 @@ public class TouchManager : MonoBehaviour
         {
             case 0:     //Create Mode
                 gridSizePanel.SetActive(true);
-                soundMgr.bGM.clip = createSound;
-                soundMgr.bGM.Play();
                 break;
             case 1:
                 Debug.LogError($"TouchManager ::: modeID = {GameManager.Instance.modeID}");
@@ -345,11 +340,11 @@ public class TouchManager : MonoBehaviour
                 playButtons.SetActive(true);
                 cardBoardSetting.isCardBoardOn = true;
                 cardButton.SetActive(true);
+                pointImage.SetActive(true);
+                cubeSetting.enabled = true;
                 break;
         }
 
-        pointImage.SetActive(true);
-        cubeSetting.enabled = true;
         blockImg.SetActive(false);
     }
 
@@ -370,6 +365,7 @@ public class TouchManager : MonoBehaviour
     }
     public void OffGameGuidePanel()
     {
+        
         notePanel.SetActive(false);
         masterMapCreateHelp.SetActive(true);
     }
