@@ -76335,6 +76335,13 @@ MonoBehaviour:
   playButtons: {fileID: 5559988105483533175}
   cardBoardSetting: {fileID: 518179426}
   checkBoardMgr: {fileID: 175244743}
+  createEffect: {fileID: 7456972069985881853, guid: b92d31960fe0c2a428ffae36eca7d001,
+    type: 3}
+  removeEffect: {fileID: 8253516103190920495, guid: f7830f5354aec094c9e492277bfadef5,
+    type: 3}
+  boardResetEffect: {fileID: 3792880066895875525, guid: f3de05ad1ab1c074f840185e2bdf8b0a,
+    type: 3}
+  boardSizeSlider: {fileID: 5559988104288772427}
 --- !u!1 &2050667145
 GameObject:
   m_ObjectHideFlags: 0
@@ -80635,17 +80642,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1853984386}
-        m_MethodName: ButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!224 &5559988104877936533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -81630,17 +81626,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1853984386}
-        m_MethodName: ButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!224 &5559988105629030344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -81810,17 +81795,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1853984386}
-        m_MethodName: ButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!224 &5559988105717496547
 RectTransform:
   m_ObjectHideFlags: 0
@@ -81919,17 +81893,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2047759550}
         m_MethodName: MakeCube
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1853984386}
-        m_MethodName: ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

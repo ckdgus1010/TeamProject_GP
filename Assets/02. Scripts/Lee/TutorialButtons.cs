@@ -42,6 +42,12 @@ public class TutorialButtons : MonoBehaviour
     public CheckBoardMgr checkBoardMgr;
     public List<int>[] playerAnswerArray = new List<int>[3];
 
+    [Header("이펙트")]
+    public GameObject createEffect;
+    public GameObject removeEffect;
+    public GameObject boardResetEffect;
+    public Slider boardSizeSlider;
+
     private void Start()
     {
         makeCount = 0;
@@ -83,6 +89,12 @@ public class TutorialButtons : MonoBehaviour
 
             list.Add(cube);
 
+            // 이펙트 공장
+            GameObject effect = Instantiate(createEffect);
+            // 이펙트 생성위치
+            effect.transform.position = cube.transform.position;
+            effect.transform.localScale *= boardSizeSlider.value;
+
             makeCount += 1;
 
             if (makeCount == 3)
@@ -98,6 +110,12 @@ public class TutorialButtons : MonoBehaviour
     {
         if (cubeSetting.currCube != null)
         {
+            // 이펙트 공장
+            GameObject effect = Instantiate(removeEffect);
+            // 이펙트 생성위치
+            effect.transform.position = cubeSetting.currCube.transform.position;
+            effect.transform.localScale *= boardSizeSlider.value;
+
             Destroy(cubeSetting.currCube);
             deleteCount += 1;
 
@@ -176,6 +194,13 @@ public class TutorialButtons : MonoBehaviour
         guideCube.SetActive(false);
         tutorialTouchManager.SetOrigin();
         playButtons.SetActive(false);
+
+        // 이펙트 공장
+        GameObject effect = Instantiate(boardResetEffect);
+        // 이펙트 생성위치
+        effect.transform.position = gameboard.transform.position;
+        effect.transform.localScale *= boardSizeSlider.value;
+
         gameboard.SetActive(false);
     }
 
