@@ -43,12 +43,18 @@ public class HelpPopupManager : MonoBehaviour
     //설정 버튼 클릭
     public void OnClickSetting()
     {
-        if(buttonManager01.profileOn == true)
+        if(buttonManager01 != null && buttonManager01.profileOn == true)
         {
             return;
         }
+
+        if (swipeMenu != null)
+        {
+            swipeMenu.enabled = !settingCanvas.activeSelf;
+        }
+
         settingCanvas.SetActive(!settingCanvas.activeSelf);
-        swipeMenu.enabled = !settingCanvas.activeSelf;
+
         settingOn = !settingOn;
     }
 

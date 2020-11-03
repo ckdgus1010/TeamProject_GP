@@ -2068,8 +2068,6 @@ MonoBehaviour:
   cloudAnchorController: {fileID: 0}
   waitingClientPopup: {fileID: 1263063905}
   notePanel: {fileID: 1262842480}
-  createSound: {fileID: 8300000, guid: ba072a1eebe4f1b469fec0bbed683d59, type: 3}
-  soundMgr: {fileID: 1853984384}
 --- !u!1 &79110964
 GameObject:
   m_ObjectHideFlags: 0
@@ -45676,6 +45674,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NotePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 603500327753106838, guid: f457eef010bd72f42a5a0bda8b1fe8a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f457eef010bd72f42a5a0bda8b1fe8a4, type: 3}
 --- !u!224 &1262842479 stripped
@@ -75891,8 +75894,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2047759550}
-        m_MethodName: ConvertGameOption
+      - m_Target: {fileID: 1719725436}
+        m_MethodName: OnClickSetting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
