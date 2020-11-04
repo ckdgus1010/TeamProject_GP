@@ -82,12 +82,12 @@ public class ScreenShot : MonoBehaviour
         switch (GameManager.Instance.modeID)
         {
             case 0:
-            case 2:
-                UIArray[3].SetActive(false);
-                break;
             case 1:
+            case 2:
             case 3:
             case 4:
+                UIArray[3].SetActive(false);
+                break;
             case 5:
                 UIArray[6].SetActive(false);
                 break;
