@@ -15,6 +15,7 @@ public class CanvasController : MonoBehaviour
 
     [SerializeField] private ButtonManager01 buttonManager01;
     [SerializeField] private ModeTitle modetitle;
+    public HelpPopupManager helpPopupManager;
     public GameObject[] canvasArray = new GameObject[6];
     // 0: 인트로
     // 1: 로그인 화면
@@ -132,6 +133,8 @@ public class CanvasController : MonoBehaviour
     // 크레딧
     public void CreditVideo()
     {
+        buttonManager01.ConvertProfilePanel();
+        
         // Credit 최초 실행 정보를 Achievement Manager에 업데이트
         AchievementManager.Instance.GetAchievement08();
 
@@ -140,9 +143,9 @@ public class CanvasController : MonoBehaviour
             canvasArray[i].SetActive(false);
         }
 
+        helpPopupManager.OnClickSetting();
+        
         canvasArray[3].SetActive(true);
         creditExitButton.SetActive(false);
-
-        settingCan.SetActive(false);
     }
 }
