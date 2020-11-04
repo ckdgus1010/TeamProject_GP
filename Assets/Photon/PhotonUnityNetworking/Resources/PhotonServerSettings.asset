@@ -18,7 +18,7 @@ MonoBehaviour:
     AppIdVoice: 
     AppVersion: 
     UseNameServer: 1
-    FixedRegion: Kr
+    FixedRegion: 
     Server: 
     Port: 0
     ProxyServer: 
@@ -34,49 +34,38 @@ MonoBehaviour:
   StartInOfflineMode: 0
   RpcList:
   - ClickRpc
+  - CloudAnchor_Resolving
   - DestroyRpc
   - DestroySpaceship
   - Fire
-  - RespawnSpaceship
-  - CreatePlayerListUI
-  - RpcMakeProfile
-  - RpcSetReady
-  - RpcMakeBluecube
-  - RpcMakeRedcube
-  - RpcMasterSetReady
-  - RpcNextMapText
-  - RpcBackMapText
-  - RpcSendLevel
-  - SendCloudInfo
-  - RpcUnSelectColor
-  - RpcSetProfileInfo
-  - RpcMakeCube
-  - UpdatePlayerList
-  - Photon_DeleteCube
-  - RpcResetCube
-  - makeCube
-  - RpcDeleteCube
-  - SetGameData
-  - RpcSetGameData
-  - SendAnswerManagerInfo
-  - RpcSendAnswerManagerInfo
-  - RpcGameStart
-  - RpcMapOnCountUp
-  - RpcChangeQuest_Card
-  - RpcCheckAnswerTogether
-  - RpcProfileLisUpdate
-  - ReadyCountDown
-  - ReadyCountUp
-  - RpcReadyCountDown
-  - RpcReadyCountUp
   - GetNum2
   - GetNum3
-  - RpcReadyCountReset
-  - UpdateEnterPlayerList
-  - RoomPropertiesUpdate
-  - ReceiveCluodID
-  - CloudAnchor_Resolving
   - InGame
+  - ReceiveCluodID
+  - RespawnSpaceship
+  - RpcBackMapText
+  - RpcChangeQuest_Card
+  - RpcCheckAnswerTogether
+  - RpcDeleteCube
+  - RpcGameStart
+  - RpcMakeCube
+  - RpcMakeProfile
+  - RpcMapOnCountUp
+  - RpcMasterSetReady
+  - RpcNextMapText
+  - RpcProfileLisUpdate
+  - RpcReadyCountDown
+  - RpcReadyCountReset
+  - RpcReadyCountUp
+  - RpcResetCube
+  - RpcSendAnswerManagerInfo
+  - RpcSendLevel
+  - RpcSetGameData
+  - RpcSetReady
+  - RpcUnSelectColor
+  - SendCloudInfo
+  - UpdateEnterPlayerList
+  - UpdatePlayerList
   DisableAutoOpenWizard: 1
   ShowSettings: 1
-  DevRegionSetOnce: 1
+  DevRegionSetOnce: 0

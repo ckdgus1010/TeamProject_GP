@@ -80,7 +80,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         GameManager.Instance.modeID = 7;
         print(PhotonNetwork.PlayerList.Length);
 
-        PhotonNetwork.AutomaticallySyncScene = true;
+        //PhotonNetwork.AutomaticallySyncScene = true;
 
         proFileList = new List<Profile>();
         //mapList2 = new List<string>();
@@ -410,7 +410,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public void InGame()
     {
         // 신전환
-        PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
+        //PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
         LoadingSceneController.Instance.LoadScene("15. MultiyPlay Scene");
     }
     public void OnClickLeaveRoom()

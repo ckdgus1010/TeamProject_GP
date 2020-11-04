@@ -7,6 +7,10 @@ using Photon.Realtime;
 
 public class SceneChange : MonoBehaviourPunCallbacks
 {
+    private void Start()
+    {
+        PhotonNetwork.AutomaticallySyncScene = true;
+    }
     public void ChangeIntroScene()
     {
         //SoundManager.instance.EffefctPlay(6);
@@ -128,6 +132,7 @@ public class SceneChange : MonoBehaviourPunCallbacks
         //{
         //    PhotonNetwork.SetMasterClient(PhotonNetwork.PlayerList[1]);
         //}
+        print("OnClickLeaveRoom");
         PhotonNetwork.LeaveRoom();
 
     }
