@@ -50,7 +50,8 @@ public class ModeData : MonoBehaviourPun
                 AchievementManager.Instance.GetAchievement05();
 
                 GameManager.Instance.stageID = 1;
-                SceneManager.LoadScene("06. CreateMode");
+                LoadingSceneController.Instance.LoadScene("06. CreateMode");
+                //SceneManager.LoadScene("06. CreateMode");
                 break;
             case 1:
                 Debug.Log($"{this.gameObject.name} // ModeData {modeID} ::: \n 혼자하기 유형 선택 화면으로 이동");

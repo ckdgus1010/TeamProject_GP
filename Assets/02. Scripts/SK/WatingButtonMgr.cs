@@ -400,11 +400,19 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
             myPhotonView.RPC("RpcSetGameData", RpcTarget.Others, modeID, stageID);
 
             //Scene 전환
-            PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
+            //PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
+            //LoadingSceneController.Instance.LoadScene("15. MultiyPlay Scene");// Rpc로 팀원들한테 보내기 
+            photonView.RPC("InGame", RpcTarget.All);
             //string sceneName = "15.MultiyPlay Scene";
         }
     }
-
+    [PunRPC]
+    public void InGame()
+    {
+        // 신전환
+        PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
+        LoadingSceneController.Instance.LoadScene("15. MultiyPlay Scene");
+    }
     public void OnClickLeaveRoom()
     {
         Debug.Log("OnClickLeaveRoom");

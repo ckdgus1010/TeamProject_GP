@@ -50,7 +50,7 @@ public class HelpPopupManager : MonoBehaviour
 
         if (swipeMenu != null)
         {
-            swipeMenu.enabled = !settingCanvas.activeSelf;
+            swipeMenu.enabled = !swipeMenu.enabled;
         }
 
         settingCanvas.SetActive(!settingCanvas.activeSelf);
@@ -241,8 +241,12 @@ public class HelpPopupManager : MonoBehaviour
             Debug.Log("Normal_X_Button1111()");
             currentPanel.SetActive(false);
             currentPanel = null;
-            swipeMenu.enabled = true;
-            scrollRect.enabled = true;
+            if(GameManager.Instance.modeID == 1000 && GameManager.Instance.modeID == 2 && GameManager.Instance.modeID == 3 && GameManager.Instance.modeID == 4)
+            {
+                swipeMenu.enabled = true;
+                scrollRect.enabled = true;
+            }
+
         }
 
         if(currentBGPanel != null)
