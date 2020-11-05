@@ -160,11 +160,11 @@ public class PlayFabManager : MonoBehaviour
     {
         //isLoginCheckFinished = true;
 
-        // LoadingUI에 로그인이 실패했다고 전달
-        LoadingSceneController.Instance.isChecked = true;
-        LoadingSceneController.Instance.status = LoadingSceneController.Status.Failure;
+        //// LoadingUI에 로그인이 실패했다고 전달
+        //LoadingSceneController.Instance.isChecked = true;
+        //LoadingSceneController.Instance.status = LoadingSceneController.Status.Failure;
 
-        Debug.LogError($"PlayFabManager ::: 로그인 실패 \n {error.GenerateErrorReport()}");
+        Debug.LogWarning($"PlayFabManager ::: 로그인 실패 \n {error.GenerateErrorReport()}");
         buttonManager01.ConvertErrorPanel_Login();
     }
 

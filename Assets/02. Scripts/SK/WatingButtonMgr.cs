@@ -80,7 +80,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
         GameManager.Instance.modeID = 7;
         print(PhotonNetwork.PlayerList.Length);
 
-        //PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.AutomaticallySyncScene = true;
 
         proFileList = new List<Profile>();
         //mapList2 = new List<string>();
@@ -400,9 +400,9 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
             myPhotonView.RPC("RpcSetGameData", RpcTarget.Others, modeID, stageID);
 
             //Scene 전환
-            //PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
+            PhotonNetwork.LoadLevel("15. MultiyPlay Scene");
             //LoadingSceneController.Instance.LoadScene("15. MultiyPlay Scene");// Rpc로 팀원들한테 보내기 
-            photonView.RPC("InGame", RpcTarget.All);
+            //photonView.RPC("InGame", RpcTarget.All);
             //string sceneName = "15.MultiyPlay Scene";
         }
     }

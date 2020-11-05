@@ -34,7 +34,8 @@ public class SelectLevel : MonoBehaviour
             //SelectColor();
             for (int i = 0; i < selectLevels.Length  ; i++)
             {
-                WatingButtonMgr.instance.myPhotonView.RPC("RpcSendLevel", RpcTarget.AllViaServer, mLevel,i);
+                print("이 스크립트의 주인은 누구십니까 :: " + mLevel);
+                WatingButtonMgr.instance.myPhotonView.RPC("RpcSendLevel", RpcTarget.AllBuffered, mLevel,i);
                 Debug.Log("SelectLevel ::: Before if문");
 
                 if (selectLevels[i] != this)
@@ -53,7 +54,12 @@ public class SelectLevel : MonoBehaviour
     {
         print("선택색");
         if(WatingButtonMgr.instance.curruntLevels == mLevel)
-        image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);
+        {
+            print("현재 레벨이 내 레벨이니");
+
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);
+            print(" image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);");
+        }
     }
 
     public void UnSelectColor()

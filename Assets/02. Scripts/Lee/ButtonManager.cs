@@ -219,7 +219,11 @@ public class ButtonManager : MonoBehaviourPunCallbacks
             if (GameManager.Instance.modeID == 3)
             {
                 cubeSetting.currCube.SetActive(false);
-                
+                //이펙트 공장
+                GameObject effect = Instantiate(removeEffect);
+                //이펙트가 생성될 장소
+                effect.transform.position = cubeSetting.currCube.transform.position;
+                effect.transform.localScale *= boardSizeSlider.value;
             }
             else
             {

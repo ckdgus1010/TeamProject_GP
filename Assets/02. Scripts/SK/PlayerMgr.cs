@@ -74,15 +74,22 @@ public class PlayerMgr : MonoBehaviourPun
     void RpcSendLevel(Levels mLevel, int i)
     {
         //SelectLevel.instance.mLevel = mLevel;
+        print("RpcSendLevel 들어옴0");
         WatingButtonMgr.instance.curruntLevels = mLevel;
+        print(" WatingButtonMgr.instance.curruntLevels = mLevel;");
         SelectLevel.instance.selectLevels[i].SelectColor();
+        print(" SelectLevel.instance.selectLevels[i].SelectColor();");
+
     }
 
     //선택되지 않은 난이도 색 끄기
     [PunRPC]
     void RpcUnSelectColor(int i)
     {
+        print("RpcUnSelectColor 들어옴0");
         SelectLevel.instance.selectLevels[i].UnSelectColor();
+        print("SelectLevel.instance.selectLevels[i].UnSelectColor();");
+
     }
 
     // 마스터가 올린 클라우드 앵커아이디 클라이언트는 받기 

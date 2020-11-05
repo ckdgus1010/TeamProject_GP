@@ -24,7 +24,7 @@ public class TouchManager : MonoBehaviour
     public CardBoardSetting cardBoardSetting;
     public GameObject gridSizePanel;
     public GameObject blockImg;
-    public GameObject cardButton;
+    public GameObject screenshotButton;
     public GameObject playButtons;
     public GameObject playButtons_mode01;
 
@@ -339,12 +339,13 @@ public class TouchManager : MonoBehaviour
             case 2:     //혼자하기 모드 - 유형1
                 playButtons_mode01.SetActive(true);
                 playButtons.SetActive(false);
+                screenshotButton.SetActive(true);
                 break;
             case 3:     //혼자하기 모드 - 유형2
             case 4:     //혼자하기 모드 - 유형3
                 playButtons.SetActive(true);
                 cardBoardSetting.isCardBoardOn = true;
-                cardButton.SetActive(true);
+                screenshotButton.SetActive(true);
                 break;
         }
 

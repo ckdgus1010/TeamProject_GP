@@ -82,7 +82,7 @@ public class CloudAnchorController : MonoBehaviourPun
             Debug.Log("최대 플레이어 수는 2명이고 받은 카운트 1개다");
            
                 photonView.RPC("CloudAnchor_Resolving", RpcTarget.Others);
-            Debug.Log("얘들아 리졸브해!");
+            Debug.Log("얘들아 리졸브해! 2-1");
 
             receiveCount_Done = true;
                 
@@ -92,7 +92,7 @@ public class CloudAnchorController : MonoBehaviourPun
             Debug.Log("최대 플레이어 수는 3명이고 받은 카운트 2개다");
 
                 photonView.RPC("CloudAnchor_Resolving", RpcTarget.Others);
-            Debug.Log("얘들아 리졸브해!");
+            Debug.Log("얘들아 리졸브해!3-2");
                 receiveCount_Done = true;
 
         }
