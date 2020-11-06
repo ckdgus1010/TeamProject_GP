@@ -67,6 +67,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
     public GameObject masterHelp;
     public GameObject clientHelp;
 
+    [SerializeField] private Button playButton;
    
     //Hashtable CP = new Hashtable();
 
@@ -333,6 +334,7 @@ public class WatingButtonMgr : MonoBehaviourPunCallbacks
             if (readyCount == PhotonNetwork.CurrentRoom.MaxPlayers - 1)
             {
                 myPhotonView.RPC("RpcMasterSetReady", RpcTarget.AllBuffered);
+                playButton.interactable = false;
             }
             else
             {
